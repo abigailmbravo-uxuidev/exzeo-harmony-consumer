@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": "react-app",
+  "rules": {
+    "linebreak-style": [2, "unix"],
+    "prefer-const": 1,
+    "import/no-extraneous-dependencies": 2,
+    "jsx-a11y/anchor-is-valid": [0, { "aspects": ["noHref", "invalidHref"] }],
+    "react/default-props-match-prop-types": 0
+  },
+  "globals": {
+    "expect": true,
+    "sinon": true,
+    "describe": true,
+    "it": true,
+    "cy": false,
+    "Cypress": false
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  }
+}
