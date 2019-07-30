@@ -5,8 +5,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test",
+    "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js"
   },
   "dependencies": {
     "@exzeo/core-ui": "0.8.8",
