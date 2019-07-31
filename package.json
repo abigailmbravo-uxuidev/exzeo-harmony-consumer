@@ -10,7 +10,7 @@
     "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js"
   },
   "dependencies": {
-    "@exzeo/core-ui": "0.8.8",
+    "@exzeo/core-ui": "^0.8.8",
     "@exzeo/react-scripts": "2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
