@@ -8,7 +8,17 @@ function App() {
       <header>{/*  header stuff here */}</header>
 
       <div role="main">
-        <nav>{/*  some nav goes here */}</nav>
+        <nav>
+          <ul>
+            {/* accordion */}
+            <li>
+              <ul>
+                <li>{/*  nav links */}</li>
+              </ul>
+            </li>
+          </ul>
+          {/*  some nav goes here */}
+        </nav>
 
         {/*  gandalf will live here */}
       </div>
