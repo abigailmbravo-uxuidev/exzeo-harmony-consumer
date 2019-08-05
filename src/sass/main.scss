@@ -1,1 +1,28 @@
 /*IMPORT ALL SCSS PARTIALS*/
+
+header {
+    display: flex;
+    width: 100%;
+}
+
+div[role="main"] {
+    display: flex;
+    width: 100%;
+    nav {
+        flex-grow: 0;
+        flex-shrink:0;
+    }
+
+    .view-grid {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+}
+
+footer {
+    display: flex;
+    width: 100%;
+}
+
+
+
