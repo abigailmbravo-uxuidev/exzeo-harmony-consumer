@@ -1,0 +1,28 @@
+// heading styles
+
+h1 {
+  font-size: $fontSizeHeader;
+  font-family: $serif;
+}
+
+h2 {
+  font-size: $fontSizeHeader--small;
+  font-family: $serif;
+}
+
+h3 {
+  font-size: $fontSizeSubheader;
+  font-family: $serif;
+}
+
+h4 {
+  font-size: fontSizeSubheader--small;
+}
+
+h5 {
+  font-size: $fontSizeBase;
+}
+
+p {
+  font-size: $fontSizeBody;
+}
