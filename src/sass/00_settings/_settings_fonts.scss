@@ -4,3 +4,16 @@ $serif: Roboto Slab, 'Roboto Slab', serif !default;
 $monospace: Menlo, Monaco, Consolas, 'Liberation Mono','Courier New', monospace !default;
 $icon: FontAwesome !default;
 $base: $sans !default;
+
+//font sizes 
+$fontSizeRoot: 16px !default;
+
+$bold: 700;
+$normal: 400;
+
+$fontSizeBody: .75rem !default;
+$fontSizeBase: 1rem !default;
+$fontSizeSubhead--small: 1.125rem !default;
+$fontSizeSubhead: 1.25rem !default;
+$fontSizeHeader--small: 1.5rem !default;
+$fontSizeHeader: 2rem !default;
