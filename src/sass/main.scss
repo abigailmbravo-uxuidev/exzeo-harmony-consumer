@@ -1,30 +1,6 @@
 /*IMPORT ALL SCSS PARTIALS*/
 
-header {
-    display: flex;
-    width: 100%;
-}
-
-div[role="main"] {
-    display: flex;
-    width: 100%;
-    nav {
-        flex-grow: 0;
-        flex-shrink:0;
-    }
-
-    .view-grid {
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-}
-
-footer {
-    display: flex;
-    width: 100%;
-}
-
-//00_settings_fonts 
+//00_settings_fonts
 @import url('https://fonts.googleapis.com/css?/?family=Roboto+Slab:400,700|Roboto:400,700&display=swap');
 
 //00_settings
@@ -64,6 +40,6 @@ footer {
 //07_theme
 @import '07_theme/theme_typtap';
 
-//08_utilities 
+//08_utilities
 @import '08_utilities/utilities_links';
 @import '08_utilities/utilities_widths';

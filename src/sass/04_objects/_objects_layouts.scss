@@ -1,0 +1,26 @@
+//element structure
+
+//main layout
+.harmony-consumer {
+  display: flex;
+  flex-direction: column;
+}
+
+div[role='main'] {
+  display: flex;
+}
+
+//element layout
+header {
+  display: flex;
+  align-items: center;
+  padding-left: 7rem;
+  height: 4.5rem;
+
+  @include shadow(0px, 3px, 5px, rgba($black, 0.16));
+
+  .logo {
+    width: 6.5rem;
+    height: auto;
+  }
+}
