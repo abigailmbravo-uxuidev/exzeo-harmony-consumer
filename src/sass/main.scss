@@ -37,8 +37,8 @@ footer {
 @import '01_tools/tools_mixins';
 
 //02_generic
-@import '02_generic/generic_boxSizing';
 @import '02_generic/generic_normalize';
+@import '02_generic/generic_boxSizing';
 @import '02_generic/generic_reset';
 @import '02_generic/generic_shared';
 
