@@ -5,54 +5,89 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
 
-div[role='region'] {
-  width: 100%;
-  max-width: 85.375rem;
-  margin: 0 auto;
+  //element layout
 
-  nav[role='navigation'] {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: 14.5rem;
+  //header layout
+  header {
+    @include shadow(0px, 3px, 5px, rgba($black, 0.16));
+    z-index: 100;
+    background-color: $white;
+    height: 4rem;
+
+    div[role='banner'] {
+      width: 100%;
+      max-width: 85.375rem;
+      margin: 0 auto;
+      .logo {
+        margin-left: 6.5rem;
+        width: 6.5rem;
+        height: auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include forPhoneOnly {
+          margin-left: 0;
+        }
+      }
+
+      div[role='contentinfo'] {
+        flex-grow: 1;
+        flex-shrink: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
   }
 
-  main[role='main'] {
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-}
-
-//element layout
-
-//header layout
-header {
-  @include shadow(0px, 3px, 5px, rgba($black, 0.16));
-
-  div[role='banner'] {
+  div[role='region'] {
     width: 100%;
     max-width: 85.375rem;
     margin: 0 auto;
-    .logo {
-      margin-left: 6.5rem;
-      width: 6.5rem;
-      height: auto;
+
+    nav[role='navigation'] {
       flex-grow: 0;
       flex-shrink: 0;
-      @include forPhoneOnly {
-        margin-left: 0;
+      width: 14.5rem;
+      z-index: 10;
+    }
+    //nav for phone
+    @include forPhoneOnly {
+      nav[role='navigation'] {
+        padding: ($padding * 4) $padding 0;
+        position: fixed;
+        background-color: $white;
+        @include shadow(6px, 3px, 6px, rgba($black, 0.16));
+        width: 15rem;
+        top: 0;
+        bottom: 0;
+        > ul {
+          margin-top: 2rem;
+
+          li {
+            a {
+              flex-direction: row-reverse;
+
+              h3 {
+                text-align: left;
+                margin: 0 0 0 1rem;
+              }
+              p {
+                text-align: left;
+                border-left: 2px $navy solid;
+                border-right: none;
+                padding: 0 0 0 1.5625rem;
+                margin-right: 0;
+                margin-left: 7px;
+              }
+            }
+          }
+        }
       }
     }
 
-    div[role='contentinfo'] {
+    main[role='main'] {
       flex-grow: 1;
       flex-shrink: 1;
-      display: flex;
-      justify-content: flex-end;
     }
   }
 }
