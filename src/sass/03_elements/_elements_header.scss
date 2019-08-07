@@ -1,7 +1,10 @@
+//header styling
 header {
   display: flex;
   align-items: center;
   padding: $padding ($padding * 1.5);
+  flex-grow: 0;
+  flex-shrink: 0;
 
   //banner is child element when header needs to act as wrapper
   > div[role='banner'] {
