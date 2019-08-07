@@ -1,4 +1,5 @@
 //shadow mixin
+
 @mixin shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
     -webkit-box-shadow: inset $top $left $blur $color;
@@ -8,5 +9,38 @@
     -webkit-box-shadow: $top $left $blur $color;
     -moz-box-shadow: $top $left $blur $color;
     box-shadow: $top $left $blur $color;
+  }
+}
+
+// breakpoint mixin
+
+@mixin forPhoneOnly {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@include forPhoneOnly {
+  .hideForPhoneOnly {
+    display: none !important;
+  }
+}
+@mixin forTabletPortraitUp {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin forTabletLandscapeUp {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin forDesktopUp {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin forLargeDesktopUp {
+  @media (min-width: 1800px) {
+    @content;
   }
 }

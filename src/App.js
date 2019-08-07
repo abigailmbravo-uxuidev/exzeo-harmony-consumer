@@ -12,7 +12,7 @@ function App() {
           <a id="logo" className="logo" href="/" data-test="logo">
             <img src={logo} alt="TypTap Insurance" />
           </a>
-          <div>
+          <div role="contentinfo">
             <a id="phone" title="call us" href="tel:{/*PHONE NUMBER*/}">
               {/*PHONE NUMBER*/}XXX-XXX-XXXX
             </a>
