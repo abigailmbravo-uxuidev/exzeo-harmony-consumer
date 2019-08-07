@@ -8,18 +8,19 @@ function App() {
   return (
     <React.Fragment>
       <header>
-        <a id="logo" className="logo" href="/" data-test="logo">
-          <img src={logo} alt="TypTap Insurance" />
-        </a>
+        <div role="banner">
+          <a id="logo" className="logo" href="/" data-test="logo">
+            <img src={logo} alt="TypTap Insurance" />
+          </a>
+          <div>
+            <a id="phone" title="call us" href="tel:{/*PHONE NUMBER*/}">
+              {/*PHONE NUMBER*/}XXX-XXX-XXXX
+            </a>
+          </div>
+        </div>
       </header>
-
-      <div role="main">
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <p>this is a paragragh</p>
-        <nav>
+      <div role="region">
+        <nav role="navigation">
           <ul>
             {/* accordion */}
             <li>
@@ -30,10 +31,15 @@ function App() {
           </ul>
           {/*  some nav goes here */}
         </nav>
-
-        {/*  gandalf will live here */}
+        <main role="main">
+          {/*  gandalf will live here */}
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <p>this is a paragragh</p>
+        </main>
       </div>
-
       <footer>{/*  footer stuff here maybe */}</footer>
     </React.Fragment>
   );

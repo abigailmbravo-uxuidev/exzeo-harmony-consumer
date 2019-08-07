@@ -1,0 +1,11 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: $padding;
+
+  //banner is child element when header needs to act as wrapper
+  > div[role='banner'] {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -12,15 +12,14 @@ div[role='main'] {
 
 //element layout
 header {
-  display: flex;
-  align-items: center;
-  padding-left: 7rem;
-  height: 4.5rem;
-
   @include shadow(0px, 3px, 5px, rgba($black, 0.16));
 
-  .logo {
-    width: 6.5rem;
-    height: auto;
+  div[role='banner'] {
+    height: 4.5rem;
+    .logo {
+      margin-left: 7rem;
+      width: 6.5rem;
+      height: auto;
+    }
   }
 }
