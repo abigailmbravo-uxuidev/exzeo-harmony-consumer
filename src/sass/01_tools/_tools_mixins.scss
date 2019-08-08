@@ -46,3 +46,9 @@
 }
 
 //hover mixin
+
+//transition mixin
+
+@mixin transition($transition...) {
+  transition: $transition;
+}

@@ -8,6 +8,13 @@
   @include shadow(0, 3px, 6px, rgba($black, 0.16));
   height: auto;
   padding: $padding;
+  margin-bottom: 1.5rem;
+  @include transition(all 0.1s ease-in-out);
+  &:hover {
+    @include shadow(0, 1px, 4px, rgba($black, 0.25));
+    transform: scale(0.99);
+    cursor: pointer;
+  }
 
   .cardContent {
     flex-grow: 1;

@@ -100,6 +100,13 @@ function App() {
                 </div>
                 <footer>></footer>
               </div>
+              <div className="card">
+                <div className="cardContent">
+                  <h4>471 Palm Island SE</h4>
+                  <p>Clearwater, FL 33602</p>
+                </div>
+                <footer>></footer>
+              </div>
             </section>
           </form>
         </main>
