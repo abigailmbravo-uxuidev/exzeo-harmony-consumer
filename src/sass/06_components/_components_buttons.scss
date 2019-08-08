@@ -1,0 +1,16 @@
+//button styling
+
+button,
+.btn,
+submit {
+  border-width: 0;
+  background-color: $blue;
+  color: $white;
+  border-radius: $borderRadius;
+  font-weight: bold;
+  font-size: $fontSizeSubheader;
+  font-family: $serif;
+  padding: ($padding / 2) ($padding * 1.5);
+}
+
+//search bar button styling

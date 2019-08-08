@@ -1,0 +1,21 @@
+//input styling
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  background-color: $extraLightGrey;
+  border-radius: $borderRadius $borderRadius 0 0;
+  width: 100%;
+}
+
+input {
+  border-width: 0;
+  border-bottom: 1px $navy solid;
+  background-color: rgba($white, 0);
+  padding: ($padding / 4) ($padding / 2);
+}
+
+label {
+  margin-bottom: 0;
+  padding: ($padding / 2) ($padding / 2) 0;
+}

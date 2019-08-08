@@ -1,0 +1,25 @@
+//search bar styling
+
+.searchInputWrapper {
+  width: 100%;
+  display: flex;
+
+  //search bar button override
+
+  button {
+    border-radius: 0 $borderRadius 0 0;
+    border-bottom: 1px $navy solid;
+    background-color: $extraLightGrey;
+    color: $navy;
+    padding-right: $padding;
+  }
+
+  .form-group {
+    border-top-right-radius: 0;
+  }
+}
+
+//temp -- !! please remove when dev done in react
+form {
+  width: 100%;
+}

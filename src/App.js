@@ -75,7 +75,33 @@ function App() {
           </ul>
           {/*  some nav goes here */}
         </nav>
-        <main role="main">{/*  gandalf will live here */}</main>
+        <main role="main">
+          {/*  gandalf will live here */}
+          <form>
+            <h1>Address</h1>
+            <div className="searchInputWrapper">
+              <div className="form-group property-search valid">
+                <label className="">Property Address</label>
+                <input
+                  type="text"
+                  placeholder="Search for Property Address"
+                ></input>
+              </div>
+              <button className="btn btn-primary multi-input" type="submit">
+                Search
+              </button>
+            </div>
+            <section>
+              <div className="card">
+                <div className="cardContent">
+                  <h4>471 Palm Island SE</h4>
+                  <p>Clearwater, FL 33602</p>
+                </div>
+                <footer>></footer>
+              </div>
+            </section>
+          </form>
+        </main>
       </div>
       <footer>{/*  footer stuff here maybe */}</footer>
     </React.Fragment>

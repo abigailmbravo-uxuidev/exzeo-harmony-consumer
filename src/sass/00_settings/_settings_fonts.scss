@@ -11,9 +11,10 @@ $fontSizeRoot: 16px !default;
 $bold: 700;
 $normal: 400;
 
-$fontSizeBody: 0.75rem !default;
-$fontSizeBase: 1rem !default;
-$fontSizeSubheader--small: 1.125rem !default;
-$fontSizeSubheader: 1.25rem !default;
-$fontSizeHeader--small: 1.5rem !default;
-$fontSizeHeader: 2rem !default;
+$fontSizeBody: 0.75rem !default; //12px
+$fontSizeLabel: 0.875rem !default; //14px
+$fontSizeBase: 1rem !default; //16px
+$fontSizeSubheader--small: 1.125rem !default; //18px
+$fontSizeSubheader: 1.25rem !default; //20px
+$fontSizeHeader--small: 1.5rem !default; //24px
+$fontSizeHeader: 2rem !default; //32px
