@@ -1,0 +1,34 @@
+//card styling
+
+.card {
+  display: flex;
+  width: 100%;
+  background-color: $white;
+  border-radius: $borderRadius;
+  @include shadow(0, 3px, 6px, rgba($black, 0.16));
+  height: auto;
+  padding: $padding;
+
+  .cardContent {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    h4 {
+      margin-bottom: 0.25rem;
+      font-family: $serif;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// search result card styling

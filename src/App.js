@@ -91,6 +91,7 @@ function App() {
                 Search
               </button>
             </div>
+            <p>Enter the street address only (e.g., 123 Main Street).</p>
             <section>
               <div className="card">
                 <div className="cardContent">
