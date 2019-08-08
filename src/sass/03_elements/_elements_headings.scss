@@ -1,4 +1,16 @@
 // heading styles
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 100%;
+}
+
 h1 {
   font-size: $fontSizeHeader;
   font-family: $serif;
@@ -24,4 +36,6 @@ h5 {
 
 p {
   font-size: $fontSizeBody;
+  max-width: 90ch;
+  line-height: 1.3;
 }
