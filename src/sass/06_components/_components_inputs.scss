@@ -60,6 +60,7 @@
     background-color: transparent;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2rem;
 
     label {
       display: flex;
@@ -90,6 +91,7 @@
       cursor: pointer;
       -webkit-transition: 0.4s;
       transition: 0.4s;
+
       &:before {
         position: absolute;
         top: -0.125rem;

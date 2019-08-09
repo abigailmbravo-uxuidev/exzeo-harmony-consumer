@@ -176,6 +176,17 @@ function App() {
               </label>
               <div class="switch-div" tabindex="0" data-value="false"></div>
             </div>
+            <button class="btn btn-primary" type="button" tabindex="0">
+              reset
+            </button>
+            <button class="btn btn-secondary" type="button" tabindex="0">
+              reset
+            </button>
+            <div className="well">
+              <button class="btn btn-secondary" type="button" tabindex="0">
+                reset
+              </button>
+            </div>
           </form>
         </main>
       </div>

@@ -5,7 +5,8 @@ h2,
 h3,
 h4,
 h5,
-p, label {
+p,
+label {
   flex-grow: 0;
   flex-shrink: 0;
   width: 100%;
@@ -44,4 +45,3 @@ label {
   font-size: $fontSizeLabel;
   font-weight: bold;
 }
-

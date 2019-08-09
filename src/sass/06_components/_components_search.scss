@@ -9,10 +9,13 @@
 
   button {
     border-radius: 0 $borderRadius 0 0;
-    border-bottom: 1px $navy solid;
     background-color: $extraLightGrey;
     color: $navy;
     padding-right: $padding;
+    margin-bottom: 0;
+    margin-left: 0;
+    border: 0;
+    border-bottom: 1px $navy solid;
   }
 
   .form-group {
