@@ -20,7 +20,7 @@
 
     .segmented-answer-wrapper {
       background-color: $white;
-      @include shadow(0, 3px, 6px, rgba($black, 0.16));
+      @include shadow(0, 3px, 6px, rgba($navy, 0.16));
       display: flex;
       border-radius: $borderRadius;
       overflow: hidden;
@@ -98,7 +98,7 @@
         z-index: 2;
         width: 1.75rem;
         height: 1.75rem;
-        @include shadow(0, 3px, 6px, rgba($black, 0.16));
+        @include shadow(0, 3px, 6px, rgba($navy 0.16));
         border-radius: 50%;
         background-color: $white;
         content: '';

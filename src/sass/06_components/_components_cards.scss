@@ -6,7 +6,7 @@
   width: 100%;
   background-color: $white;
   border-radius: $borderRadius;
-  @include shadow(0, 3px, 6px, rgba($black, 0.16));
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   height: auto;
   margin-bottom: 1.5rem;
   @include transition(all 0.1s ease-in-out);
@@ -51,10 +51,6 @@
       border-radius: 0;
       width: 100%;
       border-radius: 0 0 $borderRadius $borderRadius;
-      &:hover {
-        @include shadow(0, 1px, 4px, rgba($black, 0.25));
-        cursor: pointer;
-      }
     }
   }
 }
