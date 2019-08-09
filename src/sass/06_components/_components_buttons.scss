@@ -3,9 +3,9 @@
 button,
 .btn,
 submit {
+  align-self: self-end;
   margin-left: 1rem;
   margin-bottom: 2rem;
-  border-width: 1;
   border: 2px $blue solid;
   background-color: $blue;
   color: $white;

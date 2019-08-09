@@ -184,8 +184,9 @@ function App() {
             </button>
             <div className="well">
               <button class="btn btn-secondary" type="button" tabindex="0">
-                reset
+                well
               </button>
+              <p>this is a test paragraph</p>
             </div>
           </form>
         </main>

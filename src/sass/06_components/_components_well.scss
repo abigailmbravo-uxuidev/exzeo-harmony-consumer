@@ -1,0 +1,11 @@
+//well styling
+
+.well {
+  display: flex;
+  background-color: $white;
+  width: 100%;
+  height: auto;
+  @include shadow(0, 3px, 6px, rgba($black, 0.16), $inset: true);
+  border-radius: $borderRadius;
+  padding: $padding;
+}
