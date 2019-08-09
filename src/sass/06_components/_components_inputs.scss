@@ -58,6 +58,8 @@
   &.switch {
     flex-direction: row;
     background-color: transparent;
+    align-items: center;
+    justify-content: center;
 
     label {
       display: flex;
@@ -102,28 +104,15 @@
         -webkit-transition: 0.4s;
         transition: 0.4s;
       }
-      &:after {
-        position: absolute;
-        top: 0.25rem;
-        left: 2rem;
-        z-index: 1;
-        color: $white;
-        font-weight: bold;
-        font-size: 0.7rem;
-      }
+
       &.active {
         background: $blue;
+
         &:before {
-          border-color: $darkGrey;
-          background-color: lighten($darkGrey, 10%);
+          right: 2rem;
           -webkit-transform: translateX(2rem);
           -ms-transform: translateX(2rem);
           transform: translateX(2rem);
-        }
-        &:after {
-          top: 0.25rem;
-          left: 0.5rem;
-          color: $white;
         }
         &.disabled {
           background-color: $lightGrey;
