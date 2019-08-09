@@ -158,6 +158,24 @@ function App() {
                 </div>
               </div>
             </div>
+            <div class="form-group view-col-12 switch valid">
+              <label class="">
+                Do you want Personal Property Replacement Cost Coverage?
+                <span>
+                  <i
+                    class="fa fa-info-circle"
+                    data-tip="data-tip"
+                    currentitem="false"
+                  ></i>
+                  <div
+                    class="__react_component_tooltip place-top type-dark "
+                    id="coverageOptions.personalPropertyReplacementCost.answer"
+                    data-id="tooltip"
+                  ></div>
+                </span>
+              </label>
+              <div class="switch-div" tabindex="0" data-value="false"></div>
+            </div>
           </form>
         </main>
       </div>

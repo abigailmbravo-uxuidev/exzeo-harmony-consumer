@@ -7,8 +7,11 @@
   border-radius: $borderRadius $borderRadius 0 0;
   width: 100%;
 
+  //segmented answer styling
+
   &.segmented {
     background-color: transparent;
+    margin-bottom: 2rem;
     label {
       font-family: $serif;
       font-size: $fontSizeSubheader;
@@ -44,6 +47,88 @@
           &.selected {
             background-color: $blue;
             color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  //toggle styling
+
+  &.switch {
+    flex-direction: row;
+    background-color: transparent;
+
+    label {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-grow: 1;
+      flex-shrink: 1;
+      justify-content: space-between;
+      margin-bottom: 0;
+      line-height: 1.45;
+      font-family: $serif;
+      font-size: $fontSizeSubheader;
+
+      span {
+        flex-grow: 1;
+      }
+    }
+
+    .switch-div {
+      position: relative;
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin: 0.225rem 0;
+      width: 3.25rem;
+      height: 1.5rem;
+      border-radius: 0.75rem;
+      background: $lightGrey;
+      cursor: pointer;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      &:before {
+        position: absolute;
+        top: -0.125rem;
+        z-index: 2;
+        width: 1.75rem;
+        height: 1.75rem;
+        @include shadow(0, 3px, 6px, rgba($black, 0.16));
+        border-radius: 50%;
+        background-color: $white;
+        content: '';
+        line-height: 1;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      &:after {
+        position: absolute;
+        top: 0.25rem;
+        left: 2rem;
+        z-index: 1;
+        color: $white;
+        font-weight: bold;
+        font-size: 0.7rem;
+      }
+      &.active {
+        background: $blue;
+        &:before {
+          border-color: $darkGrey;
+          background-color: lighten($darkGrey, 10%);
+          -webkit-transform: translateX(2rem);
+          -ms-transform: translateX(2rem);
+          transform: translateX(2rem);
+        }
+        &:after {
+          top: 0.25rem;
+          left: 0.5rem;
+          color: $white;
+        }
+        &.disabled {
+          background-color: $lightGrey;
+          &:after {
+            color: $darkGrey;
           }
         }
       }
