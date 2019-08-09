@@ -6,6 +6,49 @@
   background-color: $extraLightGrey;
   border-radius: $borderRadius $borderRadius 0 0;
   width: 100%;
+
+  &.segmented {
+    background-color: transparent;
+    label {
+      font-family: $serif;
+      font-size: $fontSizeSubheader;
+      margin-bottom: 1.5rem;
+    }
+
+    .segmented-answer-wrapper {
+      background-color: $white;
+      @include shadow(0, 3px, 6px, rgba($black, 0.16));
+      display: flex;
+      border-radius: $borderRadius;
+      overflow: hidden;
+
+      div {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        border-right: 1px $lightGrey solid;
+        align-items: center;
+
+        &:last-of-type {
+          border-right-width: 0;
+        }
+
+        label {
+          font-family: $serif;
+          font-size: $fontSizeBase;
+          padding: ($padding / 2) ($padding);
+          margin-bottom: 0;
+          text-align: center;
+          line-height: 1.2;
+
+          &.selected {
+            background-color: $blue;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
 }
 
 input {

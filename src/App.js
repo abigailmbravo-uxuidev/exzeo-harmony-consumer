@@ -120,6 +120,44 @@ function App() {
               will be glad to help you.
             </p>
             <hr />
+            <div class="form-group radio segmented">
+              <label
+                class="group-label label-segmented"
+                for="underwritingAnswers.previousClaims.answer"
+              >
+                When was the last claim filed?
+              </label>
+              <div
+                id="underwritingAnswers.previousClaims.answer"
+                class="segmented-answer-wrapper"
+              >
+                <div class="">
+                  <label class="label-segmented selected">
+                    <span>No claims ever filed</span>
+                  </label>
+                </div>
+                <div class="">
+                  <label class="label-segmented">
+                    <span>Less than 3 Years</span>
+                  </label>
+                </div>
+                <div class="">
+                  <label class="label-segmented">
+                    <span>3-5 Years</span>
+                  </label>
+                </div>
+                <div class="">
+                  <label class="label-segmented">
+                    <span>Over 5 Years</span>
+                  </label>
+                </div>
+                <div class="">
+                  <label class="label-segmented">
+                    <span>Unknown</span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </form>
         </main>
       </div>
