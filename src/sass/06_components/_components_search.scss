@@ -5,6 +5,10 @@
   display: flex;
   margin-bottom: 0.5rem;
 
+  .form-group {
+    border-top-right-radius: 0;
+  }
+
   //search bar button override
 
   button {
@@ -16,10 +20,32 @@
     margin-left: 0;
     border: 0;
     border-bottom: 1px $navy solid;
+    align-self: stretch;
+    @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
+    &:hover {
+      @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
+      cursor: pointer;
+      background-color: $extraLightGrey;
+      border-bottom: 1px $navy solid;
+    }
   }
+}
 
-  .form-group {
-    border-top-right-radius: 0;
+//search result card styling
+
+.results {
+  .card {
+    flex-direction: row;
+    padding: 0 $padding;
+    &:hover {
+      @include shadow(0, 1px, 4px, rgba($navy, 0.25));
+      transform: scale(0.99);
+      cursor: pointer;
+    }
+
+    .cardContent {
+      padding: $padding 0 $padding 0;
+    }
   }
 }
 

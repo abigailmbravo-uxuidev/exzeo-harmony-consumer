@@ -92,7 +92,7 @@ function App() {
               </button>
             </div>
             <p>Enter the street address only (e.g., 123 Main Street).</p>
-            <section>
+            <section className="results">
               <div className="card">
                 <div className="cardContent">
                   <h4>471 Palm Island SE</h4>
@@ -187,6 +187,19 @@ function App() {
                 well
               </button>
               <p>this is a test paragraph</p>
+            </div>
+            <div className="card">
+              <header>
+                <h4>Annually</h4>
+              </header>
+              <div className="cardContent">
+                <p>Clearwater, FL 33602</p>
+              </div>
+              <footer>
+                <button class="btn btn-primary" type="button" tabindex="0">
+                  reset
+                </button>
+              </footer>
             </div>
           </form>
         </main>

@@ -3,7 +3,6 @@
 button,
 .btn,
 submit {
-  align-self: self-end;
   margin-left: 1rem;
   margin-bottom: 2rem;
   border: 2px $blue solid;
@@ -14,10 +13,23 @@ submit {
   font-size: $fontSizeSubheader;
   font-family: $serif;
   padding: ($padding / 2) ($padding * 1.5);
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16));
+  @include transition(all 0.1s ease-in-out);
+  &:hover {
+    background-color: mix($blue, $navy, 80%);
+    border-color: rgba($blue, 0);
+    @include shadow(0, 1px, 2px, rgba($navy, 0.5));
+    cursor: pointer;
+  }
 
   &.btn-secondary {
     background-color: $white;
     color: $blue;
+    &:hover {
+      background-color: mix($blue, $navy, 80%);
+      border-color: rgba($blue, 0);
+      color: $white;
+    }
   }
 }
 

@@ -2,23 +2,32 @@
 
 .card {
   display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: $white;
   border-radius: $borderRadius;
   @include shadow(0, 3px, 6px, rgba($black, 0.16));
   height: auto;
-  padding: $padding;
   margin-bottom: 1.5rem;
   @include transition(all 0.1s ease-in-out);
-  &:hover {
-    @include shadow(0, 1px, 4px, rgba($black, 0.25));
-    transform: scale(0.99);
-    cursor: pointer;
+
+  header {
+    @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
+    padding: 0;
+    text-align: center;
+    font-family: $serif;
+    height: auto;
+    padding: $padding $padding 0 $padding;
+
+    h4 {
+      margin-bottom: 0.5rem;
+    }
   }
 
   .cardContent {
     flex-grow: 1;
     flex-shrink: 1;
+    padding: ($padding / 2) $padding $padding $padding;
 
     h4 {
       margin-bottom: 0.25rem;
@@ -35,7 +44,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .btn,
+    button {
+      margin: 0;
+      border-radius: 0;
+      width: 100%;
+      border-radius: 0 0 $borderRadius $borderRadius;
+      &:hover {
+        @include shadow(0, 1px, 4px, rgba($black, 0.25));
+        cursor: pointer;
+      }
+    }
   }
 }
-
-// search result card styling

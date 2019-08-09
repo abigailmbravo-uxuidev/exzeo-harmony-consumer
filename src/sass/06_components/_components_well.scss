@@ -5,7 +5,8 @@
   background-color: $white;
   width: 100%;
   height: auto;
-  @include shadow(0, 3px, 6px, rgba($black, 0.16), $inset: true);
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
   border-radius: $borderRadius;
   padding: $padding;
+  margin-bottom: 2rem;
 }
