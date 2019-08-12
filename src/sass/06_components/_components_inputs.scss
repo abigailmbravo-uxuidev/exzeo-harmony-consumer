@@ -3,45 +3,46 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  background-color: $extraLightGrey;
-  border-radius: $borderRadius $borderRadius 0 0;
   width: 100%;
+  border-radius: $borderRadius $borderRadius 0 0;
+  background-color: $extraLightGrey;
 
   //segmented answer styling
 
   &.segmented {
-    background-color: transparent;
     margin-bottom: 2rem;
+    background-color: transparent;
     label {
-      font-family: $serif;
-      font-size: $fontSizeSubheader;
       margin-bottom: 1.5rem;
+      font-size: $fontSizeSubheader;
+      font-family: $serif;
     }
 
     .segmented-answer-wrapper {
-      background-color: $white;
-      @include shadow(0, 3px, 6px, rgba($navy, 0.16));
       display: flex;
-      border-radius: $borderRadius;
       overflow: hidden;
+      border-radius: $borderRadius;
+      background-color: $white;
+
+      @include shadow(0, 3px, 6px, rgba($navy, 0.16));
 
       div {
         display: flex;
+        align-items: center;
         flex-grow: 1;
         flex-shrink: 1;
         border-right: 1px $lightGrey solid;
-        align-items: center;
 
         &:last-of-type {
           border-right-width: 0;
         }
 
         label {
-          font-family: $serif;
-          font-size: $fontSizeBase;
-          padding: ($padding / 2) ($padding);
           margin-bottom: 0;
+          padding: ($padding / 2) ($padding);
           text-align: center;
+          font-size: $fontSizeBase;
+          font-family: $serif;
           line-height: 1.2;
 
           &.selected {
@@ -56,11 +57,11 @@
   //toggle styling
 
   &.switch {
-    flex-direction: row;
-    background-color: transparent;
     align-items: center;
+    flex-direction: row;
     justify-content: center;
     margin-bottom: 2rem;
+    background-color: transparent;
 
     label {
       display: flex;
@@ -70,9 +71,9 @@
       flex-shrink: 1;
       justify-content: space-between;
       margin-bottom: 0;
-      line-height: 1.45;
-      font-family: $serif;
       font-size: $fontSizeSubheader;
+      font-family: $serif;
+      line-height: 1.45;
 
       span {
         flex-grow: 1;
@@ -98,13 +99,14 @@
         z-index: 2;
         width: 1.75rem;
         height: 1.75rem;
-        @include shadow(0, 3px, 6px, rgba($navy 0.16));
         border-radius: 50%;
         background-color: $white;
         content: '';
         line-height: 1;
         -webkit-transition: 0.4s;
         transition: 0.4s;
+
+        @include shadow(0, 3px, 6px, rgba($navy, 0.16));
       }
 
       &.active {
@@ -128,10 +130,10 @@
 }
 
 input {
+  padding: ($padding / 4) ($padding / 2);
   border-width: 0;
   border-bottom: 1px $navy solid;
   background-color: rgba($white, 0);
-  padding: ($padding / 4) ($padding / 2);
 }
 
 label {
