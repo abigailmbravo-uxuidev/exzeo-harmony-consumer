@@ -5,11 +5,15 @@ import logo from './img/TypTap.svg';
 import './App.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronRight,
+  faSearch,
+  faKey
+} from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(faEnvelope, faKey);
+library.add(faChevronRight, faSearch, faKey);
 
 function App() {
   return (
@@ -27,7 +31,9 @@ function App() {
         </div>
       </header>
       <div role="region">
-        <button className="navOpener">></button>
+        <button className="navOpener">
+          <FontAwesomeIcon icon="chevron-right" size="sm" />
+        </button>
         {/* a animation will be applied here. classes will be: navSlideOut & navSlideIn */}
         <nav role="navigation">
           <ul>
@@ -107,7 +113,7 @@ function App() {
                 ></input>
               </div>
               <button className="btn btn-primary multi-input" type="submit">
-                Search
+                <FontAwesomeIcon icon="search" size="sm" />
               </button>
             </div>
             <p>Enter the street address only (e.g., 123 Main Street).</p>

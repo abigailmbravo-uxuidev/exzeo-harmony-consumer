@@ -45,7 +45,7 @@
     margin: 0 auto;
     max-width: 85.375rem;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     //nav for phone
 
     @include forPhoneOnly {
@@ -93,6 +93,7 @@
     main[role='main'] {
       flex-grow: 1;
       flex-shrink: 1;
+      overflow-y: auto;
 
       //mobile styling
       @include forPhoneOnly {

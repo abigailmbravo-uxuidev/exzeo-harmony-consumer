@@ -1,13 +1,22 @@
 //nav styling
 
 .navOpener {
-  background-color: $blue;
-  color: $white;
-  display: flex;
-  height: 3rem;
-  width: 3rem;
-  border-top-left-radius: 0;
-  margin-left: 0;
+  display: none;
+
+  @include forPhoneOnly {
+    color: $white;
+    display: flex;
+    height: 2.5rem;
+    width: 1.75rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    justify-content: center;
+    position: fixed;
+    padding: 0;
+    top: 4.5rem;
+  }
 }
 
 nav[role='navigation'] {
@@ -15,9 +24,6 @@ nav[role='navigation'] {
   margin-right: 1rem;
   display: flex;
   flex-direction: column;
-
-  //temp style please delete
-  display: none;
 
   ul {
     list-style: none;
