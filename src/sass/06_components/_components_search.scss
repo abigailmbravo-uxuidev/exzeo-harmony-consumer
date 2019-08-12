@@ -31,6 +31,20 @@
   }
 }
 
+.searchInputWrapper {
+  @include forPhoneOnly {
+    .form-group {
+      label {
+        font-size: $fontSizeBody;
+        margin-bottom: 0.25rem;
+      }
+      input {
+        font-size: $fontSizeBody;
+      }
+    }
+  }
+}
+
 //search result card styling
 
 .results {
@@ -45,6 +59,19 @@
 
     .cardContent {
       padding: $padding 0 $padding 0;
+    }
+  }
+}
+
+//mobile card styling
+
+.results {
+  .card {
+    @include forPhoneOnly {
+      margin-bottom: 0.5rem;
+    }
+    .cardContent {
+      padding: ($padding / 2) 0;
     }
   }
 }

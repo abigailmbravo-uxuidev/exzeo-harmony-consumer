@@ -74,3 +74,16 @@
     }
   }
 }
+
+//mobile card styling
+
+.results {
+  .card {
+    @include forPhoneOnly {
+      margin-bottom: 0.5rem;
+    }
+    .cardContent {
+      padding: ($padding / 2) $padding;
+    }
+  }
+}

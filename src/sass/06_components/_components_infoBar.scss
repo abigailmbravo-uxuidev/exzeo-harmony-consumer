@@ -28,7 +28,7 @@
 .infoBar {
   @include forPhoneOnly {
     flex-direction: column;
-    margin: 0 -2rem 1.5rem;
+    margin: 0 -2rem 1rem;
     border-radius: 0;
     padding: ($padding / 2);
 

@@ -51,6 +51,11 @@ p {
   max-width: 90ch;
   font-size: $fontSizeBody;
   line-height: 1.3;
+
+  //mobile styling
+  @include forPhoneOnly {
+    margin-bottom: 1rem;
+  }
 }
 
 label {

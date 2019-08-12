@@ -93,6 +93,11 @@
     main[role='main'] {
       flex-grow: 1;
       flex-shrink: 1;
+
+      //mobile styling
+      @include forPhoneOnly {
+        padding: $padding 2rem;
+      }
     }
   }
 }
