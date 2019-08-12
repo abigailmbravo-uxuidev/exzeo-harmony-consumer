@@ -20,7 +20,7 @@ function App() {
         </div>
       </header>
       <div role="region">
-        <nav role="navigation">
+        <nav role="navigation" className="slideRight">
           <ul>
             {/* accordion */}
             <li>
