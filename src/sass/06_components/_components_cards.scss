@@ -8,10 +8,31 @@
   height: auto;
   border-radius: $borderRadius;
   background-color: $white;
+  overflow: hidden;
 
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
 
+  &.selected {
+    footer {
+      .btn,
+      button {
+        cursor: default;
+        &:hover {
+          background-color: $blue;
+        }
+      }
+    }
+    .cardContent {
+      background-color: $blue;
+      color: $white;
+    }
+
+    header {
+      background-color: $blue;
+      color: $white;
+    }
+  }
   header {
     padding: $padding $padding 0 $padding;
     height: auto;

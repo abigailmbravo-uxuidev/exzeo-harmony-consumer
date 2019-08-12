@@ -201,6 +201,19 @@ function App() {
                 </button>
               </footer>
             </div>
+            <div className="card selected">
+              <header>
+                <h4>Annually</h4>
+              </header>
+              <div className="cardContent">
+                <p>Clearwater, FL 33602</p>
+              </div>
+              <footer>
+                <button class="btn btn-primary" type="button" tabindex="0">
+                  reset
+                </button>
+              </footer>
+            </div>
           </form>
         </main>
       </div>

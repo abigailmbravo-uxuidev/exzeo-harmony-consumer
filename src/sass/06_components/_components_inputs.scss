@@ -33,6 +33,15 @@
         flex-grow: 1;
         flex-shrink: 1;
         border-right: 1px $lightGrey solid;
+        @include transition(all 0.1s ease-in-out);
+
+        &:hover {
+          label {
+            color: $white;
+            background-color: $blue;
+            cursor: pointer;
+          }
+        }
 
         &:last-of-type {
           border-right-width: 0;

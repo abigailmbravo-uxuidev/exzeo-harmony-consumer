@@ -45,6 +45,7 @@
     margin: 0 auto;
     max-width: 85.375rem;
     width: 100%;
+    overflow-x: hidden;
     //nav for phone
 
     @include forPhoneOnly {
