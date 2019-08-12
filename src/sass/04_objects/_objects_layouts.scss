@@ -9,57 +9,54 @@
   //element layout
 
   //header layout
-  header {
-    @include shadow(0px, 3px, 5px, rgba($navy, 0.16));
+  > header {
     z-index: 100;
-    background-color: $white;
     height: 4rem;
+    background-color: $white;
+
+    @include shadow(0px, 3px, 5px, rgba($navy, 0.16));
 
     div[role='banner'] {
-      width: 100%;
-      max-width: 85.375rem;
       margin: 0 auto;
+      max-width: 85.375rem;
+      width: 100%;
       .logo {
+        flex-grow: 0;
+        flex-shrink: 0;
         margin-left: 6.5rem;
         width: 6.5rem;
         height: auto;
-        flex-grow: 0;
-        flex-shrink: 0;
+
         @include forPhoneOnly {
           margin-left: 0;
         }
       }
 
       div[role='contentinfo'] {
+        display: flex;
         flex-grow: 1;
         flex-shrink: 1;
-        display: flex;
         justify-content: flex-end;
       }
     }
   }
 
   div[role='region'] {
-    width: 100%;
-    max-width: 85.375rem;
     margin: 0 auto;
-
-    nav[role='navigation'] {
-      flex-grow: 0;
-      flex-shrink: 0;
-      width: 14.5rem;
-      z-index: 10;
-    }
+    max-width: 85.375rem;
+    width: 100%;
     //nav for phone
+
     @include forPhoneOnly {
       nav[role='navigation'] {
-        padding: ($padding * 4) $padding 0;
         position: fixed;
-        background-color: $white;
-        @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
-        width: 15rem;
         top: 0;
         bottom: 0;
+        padding: ($padding * 4) $padding 0;
+        width: 15rem;
+        background-color: $white;
+
+        @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
         > ul {
           margin-top: 2rem;
 
@@ -68,21 +65,28 @@
               flex-direction: row-reverse;
 
               h3 {
-                text-align: left;
                 margin: 0 0 0 1rem;
+                text-align: left;
               }
               p {
-                text-align: left;
-                border-left: 2px $navy solid;
-                border-right: none;
-                padding: 0 0 0 1.5625rem;
                 margin-right: 0;
                 margin-left: 7px;
+                padding: 0 0 0 1.5625rem;
+                border-right: none;
+                border-left: 2px $navy solid;
+                text-align: left;
               }
             }
           }
         }
       }
+    }
+
+    nav[role='navigation'] {
+      z-index: 10;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 14.5rem;
     }
 
     main[role='main'] {

@@ -12,6 +12,12 @@
   &.segmented {
     margin-bottom: 2rem;
     background-color: transparent;
+
+    @include forPhoneOnly {
+      .segmented-answer-wrapper {
+      }
+    }
+
     label {
       margin-bottom: 1.5rem;
       font-size: $fontSizeSubheader;
