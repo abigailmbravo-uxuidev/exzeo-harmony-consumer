@@ -4,4 +4,17 @@ main[role='main'] {
   flex-wrap: wrap;
   padding: ($padding * 2);
   align-content: flex-start;
+
+  form {
+    .iconContainer {
+      color: $navy;
+      display: flex;
+      width: auto;
+
+      .svg-inline--fa {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+  }
 }

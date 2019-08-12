@@ -8,12 +8,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faChevronRight,
   faSearch,
+  faEdit,
+  faPaperPlane,
+  faHome,
   faKey
 } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(faChevronRight, faSearch, faKey);
+library.add(faChevronRight, faSearch, faEdit, faPaperPlane, faHome, faKey);
 
 function App() {
   return (
@@ -144,6 +147,11 @@ function App() {
               <a href="555-555-5555">call us</a> and one of our representative
               will be glad to help you.
             </p>
+            <section className="iconContainer">
+              <FontAwesomeIcon icon="edit" size="lg" />
+              <FontAwesomeIcon icon="paper-plane" size="lg" />
+              <FontAwesomeIcon icon="home" size="lg" />
+            </section>
             <hr />
             <div class="form-group radio segmented">
               <label
