@@ -20,7 +20,9 @@ function App() {
         </div>
       </header>
       <div role="region">
-        <nav role="navigation" className="slideRight">
+        <button className="navOpener">></button>
+        {/* a animation will be applied here. classes will be: navSlideOut & navSlideIn */}
+        <nav role="navigation">
           <ul>
             {/* accordion */}
             <li>
