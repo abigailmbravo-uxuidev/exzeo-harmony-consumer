@@ -79,6 +79,16 @@ function App() {
           {/*  gandalf will live here */}
           <form>
             <h1>Address</h1>
+            <div className="infoBar">
+              <h2>
+                <label>Annual Premium:</label>
+                $275
+              </h2>
+              <span>
+                <label>Quote Number:</label>
+                #77742
+              </span>
+            </div>
             <div className="searchInputWrapper">
               <div className="form-group property-search valid">
                 <label className="">Property Address</label>

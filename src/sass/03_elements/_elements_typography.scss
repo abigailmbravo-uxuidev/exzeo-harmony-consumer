@@ -24,6 +24,14 @@ h1 {
 h2 {
   font-size: $fontSizeHeader--small;
   font-family: $serif;
+  display: flex;
+
+  label {
+    font-size: $fontSizeHeader--small;
+    font-weight: normal;
+    width: auto;
+    padding: 0 ($padding / 2) 0 0;
+  }
 }
 
 h3 {
