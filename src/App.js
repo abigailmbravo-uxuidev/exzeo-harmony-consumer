@@ -147,19 +147,19 @@ function App() {
               <a href="555-555-5555">call us</a> and one of our representative
               will be glad to help you.
             </p>
-            <section className="iconMain">
-              <div className="iconContainer">
+            <section className="iconContainer">
+              <button className="iconBtn">
                 <FontAwesomeIcon icon="edit" />
                 <label>Edit Quote</label>
-              </div>
-              <div className="iconContainer">
+              </button>
+              <button className="iconBtn">
                 <FontAwesomeIcon icon="paper-plane" />
                 <label>Email Quote</label>
-              </div>
-              <div className="iconContainer">
+              </button>
+              <button className="iconBtn">
                 <FontAwesomeIcon icon="home" />
                 <label>Start Over</label>
-              </div>
+              </button>
             </section>
             <hr />
             <div class="form-group radio segmented">

@@ -15,6 +15,7 @@ submit {
   padding: ($padding / 2) ($padding * 1.5);
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
+
   &:hover {
     background-color: mix($blue, $navy, 80%);
     border-color: rgba($blue, 0);
@@ -33,4 +34,40 @@ submit {
   }
 }
 
-//search bar button styling
+//icon button styling
+.iconContainer {
+  border-top: 1px rgba($lightGrey, 0.5) solid;
+  border-bottom: 1px rgba($lightGrey, 0.5) solid;
+  padding: ($padding / 2) 0;
+  margin-bottom: 1rem;
+  display: flex;
+
+  .iconBtn {
+    background-color: transparent;
+    border-width: 0;
+    @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
+    color: $navy;
+    display: flex;
+    width: auto;
+    font-size: 2rem;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+    justify-items: center;
+    margin: 0;
+
+    label {
+      width: auto;
+      font-family: $serif;
+      font-weight: normal;
+      font-size: $fontSizeSubheader--small;
+      text-align: center;
+      cursor: pointer;
+
+      @include forPhoneOnly {
+        font-size: $fontSizeBase;
+      }
+    }
+  }
+}
