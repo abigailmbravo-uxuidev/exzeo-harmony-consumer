@@ -17,6 +17,7 @@
     footer {
       .btn,
       button {
+        @include shadow(0, 0, 0, rgba($white, 0));
         cursor: default;
         &:hover {
           background-color: $blue;

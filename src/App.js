@@ -6,6 +6,7 @@ import './App.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+  faPhoneAlt,
   faChevronRight,
   faSearch,
   faEdit,
@@ -16,7 +17,15 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-library.add(faChevronRight, faSearch, faEdit, faPaperPlane, faHome, faKey);
+library.add(
+  faPhoneAlt,
+  faChevronRight,
+  faSearch,
+  faEdit,
+  faPaperPlane,
+  faHome,
+  faKey
+);
 
 function App() {
   return (
@@ -28,7 +37,8 @@ function App() {
           </a>
           <div role="contentinfo">
             <a id="phone" title="call us" href="tel:{/*PHONE NUMBER*/}">
-              {/*PHONE NUMBER*/}XXX-XXX-XXXX
+              {/*PHONE NUMBER*/}XXX-XXX-XXXX{' '}
+              <FontAwesomeIcon icon="phone-alt" />
             </a>
           </div>
         </div>
@@ -126,14 +136,18 @@ function App() {
                   <h4>471 Palm Island SE</h4>
                   <p>Clearwater, FL 33602</p>
                 </div>
-                <footer>></footer>
+                <footer>
+                  <FontAwesomeIcon icon="chevron-right" />
+                </footer>
               </div>
               <div className="card">
                 <div className="cardContent">
                   <h4>471 Palm Island SE</h4>
                   <p>Clearwater, FL 33602</p>
                 </div>
-                <footer>></footer>
+                <footer>
+                  <FontAwesomeIcon icon="chevron-right" />
+                </footer>
               </div>
             </section>
             <p>
@@ -147,6 +161,11 @@ function App() {
               <a href="555-555-5555">call us</a> and one of our representative
               will be glad to help you.
             </p>
+            <ul>
+              <li>this is some junkkkkk</li>
+              <li>this is some junkkkkk</li>
+              <li>this is some junkkkkk</li>
+            </ul>
             <section className="iconContainer">
               <button className="iconBtn">
                 <FontAwesomeIcon icon="edit" />
@@ -218,17 +237,19 @@ function App() {
               </label>
               <div class="switch-div" tabindex="0" data-value="false"></div>
             </div>
-            <button class="btn btn-primary" type="button" tabindex="0">
-              reset
-            </button>
-            <button class="btn btn-secondary" type="button" tabindex="0">
-              reset
-            </button>
-            <div className="well">
+            <div className="btnContainer">
+              <button class="btn btn-primary" type="button" tabindex="0">
+                reset
+              </button>
               <button class="btn btn-secondary" type="button" tabindex="0">
+                reset
+              </button>
+            </div>
+            <div className="well">
+              <p>this is a test paragraph</p>
+              <button class="btn btn-primary" type="button" tabindex="0">
                 well
               </button>
-              <p>this is a test paragraph</p>
             </div>
             <div className="card">
               <header>

@@ -62,3 +62,12 @@ label {
   font-weight: bold;
   font-size: $fontSizeLabel;
 }
+
+ul {
+  padding-left: $padding;
+  margin-bottom: 1rem;
+  li {
+    font-size: $fontSizeBody;
+    margin-bottom: 0.25rem;
+  }
+}

@@ -3,7 +3,6 @@
 button,
 .btn,
 submit {
-  margin-left: 1rem;
   margin-bottom: 2rem;
   border: 2px $blue solid;
   background-color: $blue;
@@ -34,7 +33,20 @@ submit {
   }
 }
 
+//button container styling
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn,
+  button,
+  submit {
+    margin-left: 1rem;
+  }
+}
+
 //icon button styling
+
 .iconContainer {
   border-top: 1px rgba($lightGrey, 0.5) solid;
   border-bottom: 1px rgba($lightGrey, 0.5) solid;
