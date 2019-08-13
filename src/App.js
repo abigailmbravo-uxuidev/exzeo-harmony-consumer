@@ -38,7 +38,7 @@ function App() {
           <FontAwesomeIcon icon="chevron-right" size="sm" />
         </button>
         {/* a animation will be applied here. classes will be: navSlideOut & navSlideIn */}
-        <nav role="navigation">
+        <nav role="navigation" className="navSlideOut">
           <ul>
             {/* accordion */}
             <li>
@@ -147,10 +147,19 @@ function App() {
               <a href="555-555-5555">call us</a> and one of our representative
               will be glad to help you.
             </p>
-            <section className="iconContainer">
-              <FontAwesomeIcon icon="edit" size="lg" />
-              <FontAwesomeIcon icon="paper-plane" size="lg" />
-              <FontAwesomeIcon icon="home" size="lg" />
+            <section className="iconMain">
+              <div className="iconContainer">
+                <FontAwesomeIcon icon="edit" />
+                <label>Edit Quote</label>
+              </div>
+              <div className="iconContainer">
+                <FontAwesomeIcon icon="paper-plane" />
+                <label>Email Quote</label>
+              </div>
+              <div className="iconContainer">
+                <FontAwesomeIcon icon="home" />
+                <label>Start Over</label>
+              </div>
             </section>
             <hr />
             <div class="form-group radio segmented">

@@ -5,14 +5,36 @@ main[role='main'] {
   align-content: flex-start;
 
   form {
-    .iconContainer {
+    .iconMain {
       color: $navy;
       display: flex;
       width: auto;
+      font-size: 2rem;
 
-      .svg-inline--fa {
+      .iconContainer {
+        display: flex;
+        flex-direction: column;
         flex-grow: 1;
         flex-shrink: 1;
+        align-items: center;
+        justify-items: center;
+
+        .svg-inline--fa {
+          flex-grow: 1;
+          flex-shrink: 1;
+        }
+
+        label {
+          width: auto;
+          font-family: $serif;
+          font-weight: normal;
+          font-size: $fontSizeSubheader--small;
+          text-align: center;
+
+          @include forPhoneOnly {
+            font-size: $fontSizeBase;
+          }
+        }
       }
     }
   }

@@ -18,10 +18,6 @@
   }
 }
 
-.navSlideIn {
-  animation: slideRight 0.15s steps(2, end) both;
-}
-
 @keyframes slideLeft {
   0% {
     transform: translateX(0);
@@ -29,8 +25,4 @@
   100% {
     transform: translateX(-245px);
   }
-}
-
-.navSlideOut {
-  animation: slideLeft 0.15s steps(2, end) both;
 }

@@ -94,8 +94,10 @@
   main[role='main'] {
     flex-grow: 1;
     flex-shrink: 1;
+    overflow-x: hidden;
     overflow-y: auto;
-    padding-right: calc((100vw - 85.375rem) / 2);
+
+    padding: ($padding * 1.5) (calc((100vw - 85.375rem) / 2)) $padding $padding;
     width: calc(((100vw - 85.375rem) / 2) + 70.875rem);
 
     //mobile styling
