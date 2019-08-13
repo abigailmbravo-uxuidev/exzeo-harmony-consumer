@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@exzeo/core-ui": "^0.8.8",
-    "@exzeo/react-scripts": "2.1.0",
+    "@exzeo/react-scripts": "2.2.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -39,7 +39,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "./.eslintrc"
+    ]
   },
   "browserslist": {
     "production": [
