@@ -57,6 +57,10 @@ submit {
     justify-items: center;
     margin: 0;
 
+    &:hover {
+      color: $blue;
+    }
+
     label {
       width: auto;
       font-family: $serif;
