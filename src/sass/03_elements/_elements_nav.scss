@@ -21,9 +21,10 @@
 
 nav[role='navigation'] {
   padding: ($padding * 2) 0 ($padding * 2) ($padding * 1.5);
-  margin-right: 1rem;
+  padding-right: 1rem;
   display: flex;
   flex-direction: column;
+  min-width: 14.5rem;
 
   ul {
     list-style: none;

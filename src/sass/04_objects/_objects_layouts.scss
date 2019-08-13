@@ -42,8 +42,6 @@
   }
 
   div[role='region'] {
-    margin: 0 auto;
-    max-width: 85.375rem;
     width: 100%;
     overflow: hidden;
     //nav for phone
@@ -82,23 +80,36 @@
         }
       }
     }
+  }
 
+  nav[role='navigation'] {
+    z-index: 10;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc(((100vw - 85.375rem) / 2) + 14.5rem);
+    padding-left: calc((100vw - 85.375rem) / 2);
+    overflow-y: auto;
+  }
+
+  main[role='main'] {
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow-y: auto;
+    padding-right: calc((100vw - 85.375rem) / 2);
+    width: calc(((100vw - 85.375rem) / 2) + 70.875rem);
+
+    //mobile styling
+    @include forPhoneOnly {
+      padding: $padding 2rem;
+    }
+  }
+  @include forMinWidth {
     nav[role='navigation'] {
-      z-index: 10;
-      flex-grow: 0;
-      flex-shrink: 0;
-      width: 14.5rem;
+      padding-left: $padding;
     }
 
     main[role='main'] {
-      flex-grow: 1;
-      flex-shrink: 1;
-      overflow-y: auto;
-
-      //mobile styling
-      @include forPhoneOnly {
-        padding: $padding 2rem;
-      }
+      padding-right: ($padding * 1.5);
     }
   }
 }

@@ -24,23 +24,9 @@
     display: none !important;
   }
 }
-@mixin forTabletPortraitUp {
-  @media (min-width: 600px) {
-    @content;
-  }
-}
-@mixin forTabletLandscapeUp {
-  @media (min-width: 900px) {
-    @content;
-  }
-}
-@mixin forDesktopUp {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin forLargeDesktopUp {
-  @media (min-width: 1800px) {
+
+@mixin forMinWidth {
+  @media (max-width: 85.375rem) {
     @content;
   }
 }
