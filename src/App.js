@@ -36,8 +36,13 @@ function App() {
             <img src={logo} alt="TypTap Insurance" />
           </a>
           <div role="contentinfo">
-            <a id="phone" title="call us" href="tel:{/*PHONE NUMBER*/}">
-              {/*PHONE NUMBER*/}XXX-XXX-XXXX{' '}
+            <a
+              className="contactPhone"
+              id="phone"
+              title="call us"
+              href="tel:{/*PHONE NUMBER*/}"
+            >
+              {/*PHONE NUMBER*/}813-956-3522{' '}
               <FontAwesomeIcon icon="phone-alt" />
             </a>
           </div>

@@ -5,3 +5,16 @@ hr {
   background-color: rgba($lightGrey, 0.5);
   height: 1px;
 }
+
+.contactPhone {
+  color: $navy;
+  font-weight: bold;
+  align-content: center;
+  justify-items: center;
+  display: flex;
+
+  svg {
+    margin-left: 0.25rem;
+    font-size: 0.9rem;
+  }
+}
