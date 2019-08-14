@@ -1,33 +1,12 @@
 import React from 'react';
-
-import logo from './img/TypTap.svg';
-
-import './App.css';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faPhoneAlt,
-  faChevronRight,
-  faSearch,
-  faEdit,
-  faPaperPlane,
-  faHome,
-  faKey
-} from '@fortawesome/free-solid-svg-icons';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Navigation from './components/Navigation';
 
-library.add(
-  faPhoneAlt,
-  faChevronRight,
-  faSearch,
-  faEdit,
-  faPaperPlane,
-  faHome,
-  faKey
-);
+import './FontAwesomeInit';
+import './App.css';
 
 function App() {
   return (
@@ -39,61 +18,9 @@ function App() {
           <FontAwesomeIcon icon="chevron-right" size="sm" />
         </button>
         {/* a animation will be applied here. classes will be: navSlideOut & navSlideIn */}
-        <nav role="navigation" className="navSlideOut">
-          <ul>
-            {/* accordion */}
-            <li>
-              <a>
-                <h3>Quote</h3>
-                <span>1</span>
-                <p></p>
-              </a>
-              <ul>
-                <li>
-                  {/*  nav links */}
-                  <a>
-                    <h3>Address</h3>
-                    <span></span>
-                    <p>
-                      <strong>101 E KENNEDY BLVD</strong>
-                      <br />
-                      Tampa, FL 33602 <br />
-                      Year Built: 2005
-                      <br />
-                      Flood Zone: "A"
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  {/*  nav links */}
-                  <a className="active">
-                    <h3>Underwriting</h3>
-                    <span></span>
-                    <p>You have successfully answered the required questions</p>
-                  </a>
-                </li>
-                <li>
-                  {/*  nav links */}
-                  <a className="disabled">
-                    <h3>Customize Quote</h3>
-                    <span></span>
-                    <p>
-                      Save your quote to retrieve later. You will also be able
-                      to share your new quote here.
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a className="disabled">
-                <h3>Application</h3>
-                <span>2</span>
-              </a>
-            </li>
-          </ul>
-          {/*  some nav goes here */}
-        </nav>
+
+        <Navigation />
+
         <main role="main">
           {/*  gandalf will live here */}
           <form>
