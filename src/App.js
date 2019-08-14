@@ -16,6 +16,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 library.add(
   faPhoneAlt,
@@ -30,24 +32,8 @@ library.add(
 function App() {
   return (
     <React.Fragment>
-      <header>
-        <div role="banner">
-          <a id="logo" className="logo" href="/" data-test="logo">
-            <img src={logo} alt="TypTap Insurance" />
-          </a>
-          <div role="contentinfo">
-            <a
-              className="contactPhone"
-              id="phone"
-              title="call us"
-              href="tel:{/*PHONE NUMBER*/}"
-            >
-              {/*PHONE NUMBER*/}813-956-3522{' '}
-              <FontAwesomeIcon icon="phone-alt" />
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header />
+
       <div role="region">
         <button className="navOpener">
           <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -285,7 +271,8 @@ function App() {
           </form>
         </main>
       </div>
-      <footer>{/*  footer stuff here maybe */}</footer>
+
+      <Footer />
     </React.Fragment>
   );
 }
