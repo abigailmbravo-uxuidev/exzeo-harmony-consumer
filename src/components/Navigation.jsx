@@ -52,7 +52,7 @@ function Navigation() {
             </li>
             <li>
               {/*  nav links */}
-              <a className={classNames('disabled')}>
+              <a className={classNames('disabled', 'complete')}>
                 <h3>Customize Quote</h3>
                 <span>
                   <FontAwesomeIcon icon="check-circle" />

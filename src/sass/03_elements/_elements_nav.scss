@@ -31,11 +31,32 @@ nav[role='navigation'] {
     margin: 0;
     padding: 0;
     li {
+      &.disabled {
+        ul {
+          display: none;
+        }
+        p {
+          display: none;
+        }
+      }
+      &.complete {
+        a {
+          span {
+            background-color: $white;
+            color: $green;
+            svg {
+              height: 1rem;
+              width: 1rem;
+            }
+          }
+        }
+      }
       a {
         display: flex;
         margin-bottom: 0.75rem;
         align-items: center;
         flex-wrap: wrap;
+
         h3 {
           flex-grow: 1;
           flex-shrink: 1;
@@ -71,6 +92,13 @@ nav[role='navigation'] {
           min-height: 12px;
         }
         &.active {
+          &.complete {
+            span {
+              svg {
+                display: none;
+              }
+            }
+          }
           h3 {
             color: $blue;
           }
@@ -83,6 +111,14 @@ nav[role='navigation'] {
           }
         }
         &.disabled {
+          &.complete {
+            span {
+              background-color: $white;
+              svg {
+                color: $lightGrey;
+              }
+            }
+          }
           h3 {
             color: $lightGrey;
           }
@@ -92,7 +128,6 @@ nav[role='navigation'] {
           p {
             color: $lightGrey;
             border-color: $lightGrey;
-            display: none;
           }
         }
       }
@@ -104,10 +139,24 @@ nav[role='navigation'] {
               height: 0.375rem;
               width: 0.375rem;
               margin: 0 0.3125rem;
+              svg {
+                display: none;
+              }
             }
             &.disabled {
               p {
                 display: block;
+              }
+            }
+            &.complete {
+              span {
+                background-color: $white;
+                svg {
+                  display: block;
+                  color: $navy;
+                  height: 1rem;
+                  width: 1rem;
+                }
               }
             }
           }
