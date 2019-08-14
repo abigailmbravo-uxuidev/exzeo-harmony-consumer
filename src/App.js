@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from '@exzeo/core-ui';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -85,18 +86,18 @@ function App() {
               <li>this is some junkkkkk</li>
             </ul>
             <section className="iconContainer">
-              <button className="iconBtn">
+              <Button className={Button.constants.classNames.icon}>
                 <FontAwesomeIcon icon="edit" />
                 <label>Edit Quote</label>
-              </button>
-              <button className="iconBtn">
+              </Button>
+              <Button className={Button.constants.classNames.icon}>
                 <FontAwesomeIcon icon="paper-plane" />
                 <label>Email Quote</label>
-              </button>
-              <button className="iconBtn">
+              </Button>
+              <Button className={Button.constants.classNames.icon}>
                 <FontAwesomeIcon icon="home" />
                 <label>Start Over</label>
-              </button>
+              </Button>
             </section>
             <hr />
             <div class="form-group radio segmented">
