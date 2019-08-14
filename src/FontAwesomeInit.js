@@ -6,6 +6,7 @@ import {
   faEdit,
   faPaperPlane,
   faHome,
+  faCheckCircle,
   faKey
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,5 +17,6 @@ library.add(
   faEdit,
   faPaperPlane,
   faHome,
+  faCheckCircle,
   faKey
 );
