@@ -40,6 +40,9 @@ body {
   // Make the `body` use the `font-size-root`
   font-family: $base;
   line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
