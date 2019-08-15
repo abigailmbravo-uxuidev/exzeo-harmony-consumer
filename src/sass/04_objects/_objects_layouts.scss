@@ -27,8 +27,9 @@
     @include shadow(0px, 3px, 5px, rgba($navy, 0.16));
 
     div[role='banner'] {
-      max-width: 85.375rem;
       width: 100%;
+      padding-left: calc((100vw - 102rem) / 2);
+      padding-right: calc(((100vw - 102rem) / 2) + 30rem);
       .logo {
         flex-grow: 0;
         flex-shrink: 0;
