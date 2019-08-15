@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
 const Navigation = ({ location }) => {
@@ -15,13 +15,13 @@ const Navigation = ({ location }) => {
             hide: location.pathname !== '/retrieveQuote'
           })}
         >
-          <NavLink to="#">
+          <Link to="/retrieveQuote" onClick={e => e.preventDefault()}>
             <h3>Retrieve</h3>
             <span>
               <FontAwesomeIcon icon="check-circle" />
             </span>
             <p />
-          </NavLink>
+          </Link>
         </li>
         {/********** RETRIEVE **********/}
 
@@ -30,16 +30,20 @@ const Navigation = ({ location }) => {
           key="quote"
           className={classNames({ disabled: false, complete: false })}
         >
-          <a>
+          <Link to="/searchAddress">
             <h3>Quote</h3>
             {/*hide number span when li gets complete class*/}
             <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
             <p />
-          </a>
+          </Link>
 
           <ul>
             <li key="address">
-              <a className={classNames('complete')}>
+              <NavLink
+                to="/searchAddress"
+                className={classNames('')}
+                activeClassName="active"
+              >
                 <h3>Address</h3>
                 <span>
                   <FontAwesomeIcon icon="check-circle" />
@@ -52,11 +56,11 @@ const Navigation = ({ location }) => {
                   <br />
                   Flood Zone: "A"
                 </p>
-              </a>
+              </NavLink>
             </li>
 
             <li key="underwriting">
-              <a className={classNames('active')}>
+              <a className={classNames('disabled')}>
                 <h3>Underwriting</h3>
                 <span>
                   <FontAwesomeIcon icon="check-circle" />
@@ -66,7 +70,7 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="customize">
-              <a className={classNames('disabled', 'complete')}>
+              <a className={classNames('disabled')}>
                 <h3>Customize Quote</h3>
                 <span>
                   <FontAwesomeIcon icon="check-circle" />
