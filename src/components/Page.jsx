@@ -21,10 +21,7 @@ const Page = () => {
         <div className="searchInputWrapper">
           <div className="form-group property-search valid">
             <label className="">Property Address</label>
-            <input
-              type="text"
-              placeholder="Search for Property Address"
-            ></input>
+            <input type="text" placeholder="Search for Property Address" />
           </div>
           <button className="btn btn-primary multi-input" type="submit">
             <FontAwesomeIcon icon="search" size="sm" />
@@ -128,15 +125,15 @@ const Page = () => {
                 className="fa fa-info-circle"
                 data-tip="data-tip"
                 currentitem="false"
-              ></i>
+              />
               <div
                 className="__react_component_tooltip place-top type-dark "
                 id="coverageOptions.personalPropertyReplacementCost.answer"
                 data-id="tooltip"
-              ></div>
+              />
             </span>
           </label>
-          <div className="switch-div" tabIndex="0" data-value="false"></div>
+          <div className="switch-div" tabIndex="0" data-value="false" />
         </div>
         <div className="btnContainer">
           <button className="btn btn-primary" type="button" tabIndex="0">
