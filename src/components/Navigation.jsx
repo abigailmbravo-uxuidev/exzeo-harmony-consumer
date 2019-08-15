@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { NavLink } from 'react-router-dom';
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
 const Navigation = ({ location }) => {
-  // const [activeIndex, setActiveIndex] = useState(0);
   return (
     <nav role="navigation" className="navSlideOut">
       <ul>
+        {/********** RETRIEVE **********/}
         <li
           key="retrieve"
           className={classNames({
             hide: location.pathname !== '/retrieveQuote'
           })}
         >
-          <a>
+          <NavLink to="#">
             <h3>Retrieve</h3>
             <span>
               <FontAwesomeIcon icon="check-circle" />
             </span>
             <p />
-          </a>
+          </NavLink>
         </li>
+        {/********** RETRIEVE **********/}
 
-        {/* QUOTE */}
+        {/********** QUOTE **********/}
         <li
           key="quote"
-          className={classNames({ disabled: true, complete: false })}
+          className={classNames({ disabled: false, complete: false })}
         >
           <a>
             <h3>Quote</h3>
@@ -39,7 +39,6 @@ const Navigation = ({ location }) => {
 
           <ul>
             <li key="address">
-              {/*  nav links */}
               <a className={classNames('complete')}>
                 <h3>Address</h3>
                 <span>
@@ -57,7 +56,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="underwriting">
-              {/*  nav links */}
               <a className={classNames('active')}>
                 <h3>Underwriting</h3>
                 <span>
@@ -68,7 +66,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="customize">
-              {/*  nav links */}
               <a className={classNames('disabled', 'complete')}>
                 <h3>Customize Quote</h3>
                 <span>
@@ -83,7 +80,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="share">
-              {/*  nav links */}
               <a className="disabled">
                 <h3>Save/Share Quote</h3>
                 <span>
@@ -97,10 +93,10 @@ const Navigation = ({ location }) => {
             </li>
           </ul>
         </li>
-        {/* QUOTE */}
+        {/********** QUOTE ***********/}
 
-        {/* APPLICATION*/}
-        <li key="application" className={classNames('disabled')}>
+        {/********** APPLICATION **********/}
+        <li key="application" className={classNames({ disabled: true })}>
           <a className={classNames('disabled')}>
             <h3>Application</h3>
             <span>2</span>
@@ -108,7 +104,6 @@ const Navigation = ({ location }) => {
           </a>
           <ul>
             <li key="additionalInfo">
-              {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Additional Info</h3>
                 <span>
@@ -119,7 +114,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="policyholder">
-              {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Policyholder Info</h3>
                 <span>
@@ -130,7 +124,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="billing">
-              {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Billing Info</h3>
                 <span>
@@ -141,7 +134,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="summary">
-              {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Summary</h3>
                 <span>
@@ -152,7 +144,6 @@ const Navigation = ({ location }) => {
             </li>
 
             <li key="complete">
-              {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>You did it!!!</h3>
                 <span>
@@ -163,7 +154,8 @@ const Navigation = ({ location }) => {
             </li>
           </ul>
         </li>
-        {/* APPLICATION*/}
+
+        {/********** APPLICATION **********/}
       </ul>
     </nav>
   );
