@@ -15,13 +15,11 @@ const Navigation = ({ location }) => {
             hide: location.pathname !== '/retrieveQuote'
           })}
         >
-          <Link to="/retrieveQuote" onClick={e => e.preventDefault()}>
-            <h3>Retrieve</h3>
-            <span>
-              <FontAwesomeIcon icon="check-circle" />
-            </span>
-            <p />
-          </Link>
+          <h3>Retrieve</h3>
+          <span>
+            <FontAwesomeIcon icon="check-circle" />
+          </span>
+          <p />
         </li>
         {/********** RETRIEVE **********/}
 
@@ -30,12 +28,10 @@ const Navigation = ({ location }) => {
           key="quote"
           className={classNames({ disabled: false, complete: false })}
         >
-          <Link to="/searchAddress">
-            <h3>Quote</h3>
-            {/*hide number span when li gets complete class*/}
-            <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
-            <p />
-          </Link>
+          <h3>Quote</h3>
+          {/*hide number span when li gets complete class*/}
+          <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
+          <p />
 
           <ul>
             <li key="address">
@@ -101,11 +97,9 @@ const Navigation = ({ location }) => {
 
         {/********** APPLICATION **********/}
         <li key="application" className={classNames({ disabled: true })}>
-          <a className={classNames('disabled')}>
-            <h3>Application</h3>
-            <span>2</span>
-            <p />
-          </a>
+          <h3>Application</h3>
+          <span>2</span>
+          <p />
           <ul>
             <li key="additionalInfo">
               <a className={classNames('disabled')}>
