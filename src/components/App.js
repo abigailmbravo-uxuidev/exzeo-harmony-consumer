@@ -1,14 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from '@exzeo/core-ui';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Navigation from './components/Navigation';
-
-import './FontAwesomeInit';
-import './App.css';
-import Page from './components/Page';
+import Header from './Header';
+import Footer from './Footer';
+import Navigation from './Navigation';
+import Page from './Page';
 
 function App() {
   return (
@@ -19,7 +16,6 @@ function App() {
         <button className="navOpener">
           <FontAwesomeIcon icon="chevron-right" size="sm" />
         </button>
-        {/* a animation will be applied here. classes will be: navSlideOut & navSlideIn */}
 
         <Navigation />
 

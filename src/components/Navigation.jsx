@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-/* a animation will be applied here. classes will be: navSlideOut & navSlideIn */
+/* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
 function Navigation() {
   // const [activeIndex, setActiveIndex] = useState(0);
