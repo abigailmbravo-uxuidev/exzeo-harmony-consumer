@@ -5,25 +5,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
-const Navigation = () => {
+const Navigation = ({ location }) => {
   // const [activeIndex, setActiveIndex] = useState(0);
   return (
     <nav role="navigation" className="navSlideOut">
       <ul>
-        {/* QUOTE */}
-        <li className={classNames('complete')}>
+        <li
+          key="retrieve"
+          className={classNames({
+            hide: location.pathname !== '/retrieveQuote'
+          })}
+        >
           <a>
-            <h3>Quote</h3>
-            {/*hide number span when li gets complete class*/}
-            {/*<span>1</span>*/}
+            <h3>Retrieve</h3>
             <span>
               <FontAwesomeIcon icon="check-circle" />
             </span>
             <p />
           </a>
+        </li>
+
+        {/* QUOTE */}
+        <li
+          key="quote"
+          className={classNames({ disabled: true, complete: false })}
+        >
+          <a>
+            <h3>Quote</h3>
+            {/*hide number span when li gets complete class*/}
+            <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
+            <p />
+          </a>
 
           <ul>
-            <li>
+            <li key="address">
               {/*  nav links */}
               <a className={classNames('complete')}>
                 <h3>Address</h3>
@@ -40,7 +55,8 @@ const Navigation = () => {
                 </p>
               </a>
             </li>
-            <li>
+
+            <li key="underwriting">
               {/*  nav links */}
               <a className={classNames('active')}>
                 <h3>Underwriting</h3>
@@ -50,7 +66,8 @@ const Navigation = () => {
                 <p>You have successfully answered the required questions</p>
               </a>
             </li>
-            <li>
+
+            <li key="customize">
               {/*  nav links */}
               <a className={classNames('disabled', 'complete')}>
                 <h3>Customize Quote</h3>
@@ -65,7 +82,7 @@ const Navigation = () => {
               </a>
             </li>
 
-            <li>
+            <li key="share">
               {/*  nav links */}
               <a className="disabled">
                 <h3>Save/Share Quote</h3>
@@ -83,14 +100,14 @@ const Navigation = () => {
         {/* QUOTE */}
 
         {/* APPLICATION*/}
-        <li className={classNames('disabled')}>
+        <li key="application" className={classNames('disabled')}>
           <a className={classNames('disabled')}>
             <h3>Application</h3>
             <span>2</span>
             <p />
           </a>
           <ul>
-            <li>
+            <li key="additionalInfo">
               {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Additional Info</h3>
@@ -100,7 +117,8 @@ const Navigation = () => {
                 <p>Interesting things are happening</p>
               </a>
             </li>
-            <li>
+
+            <li key="policyholder">
               {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Policyholder Info</h3>
@@ -110,7 +128,8 @@ const Navigation = () => {
                 <p>Super duper cool</p>
               </a>
             </li>
-            <li>
+
+            <li key="billing">
               {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Billing Info</h3>
@@ -121,7 +140,7 @@ const Navigation = () => {
               </a>
             </li>
 
-            <li>
+            <li key="summary">
               {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>Summary</h3>
@@ -132,7 +151,7 @@ const Navigation = () => {
               </a>
             </li>
 
-            <li>
+            <li key="complete">
               {/*  nav links */}
               <a className={classNames('disabled')}>
                 <h3>You did it!!!</h3>

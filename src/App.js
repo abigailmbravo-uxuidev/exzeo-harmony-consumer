@@ -9,7 +9,7 @@ import Page from './components/Page';
 
 const App = () => {
   return (
-    <React.Fragment>
+    <Router>
       <Header />
 
       <div role="region">
@@ -17,13 +17,28 @@ const App = () => {
           <FontAwesomeIcon icon="chevron-right" size="sm" />
         </button>
 
-        <Navigation />
-
-        <Page />
+        {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
+        <Route children={routeProps => <Navigation {...routeProps} />} />
+        <Route
+          exact
+          path="/searchAddress"
+          render={routeProps => <div>Search for an address</div>}
+        />
+        <Route
+          exact
+          path="/retrieveQuote"
+          render={routeProps => <div>Search for a Quote</div>}
+        />
+        {/* Gandalf owns this */}
+        <Route
+          exact
+          path="/quote"
+          render={routeProps => <Page {...routeProps} />}
+        />
       </div>
 
       <Footer />
-    </React.Fragment>
+    </Router>
   );
 };
 
