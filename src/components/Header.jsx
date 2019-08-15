@@ -16,7 +16,7 @@ const Header = () => {
             title="call us"
             href="tel:{/*PHONE NUMBER*/}"
           >
-            {/*PHONE NUMBER*/}813-956-3522 <FontAwesomeIcon icon="phone-alt" />
+            813-956-3522 <FontAwesomeIcon icon="phone-alt" />
           </a>
         </div>
       </div>
