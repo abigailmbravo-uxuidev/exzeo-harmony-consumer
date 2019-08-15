@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-import '../fontAwesomeInit';
+import './fontAwesomeInit';
 // import * as serviceWorker from './serviceWorker';
 import './sass/main.scss';
 
