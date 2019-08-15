@@ -6,6 +6,16 @@
   flex-direction: column;
   height: 100vh;
 
+  @include forMinWidth {
+    nav[role='navigation'] {
+      padding-left: $padding;
+    }
+
+    main[role='main'] {
+      padding-right: ($padding * 1.5);
+    }
+  }
+
   //element layout
 
   //header layout
@@ -41,8 +51,8 @@
   }
 
   div[role='region'] {
-    width: 100%;
     overflow: hidden;
+    width: 100%;
     //nav for phone
 
     @include forPhoneOnly {
@@ -83,38 +93,30 @@
 
   nav[role='navigation'] {
     z-index: 10;
+    overflow-y: auto;
     flex-grow: 0;
     flex-shrink: 0;
-    /*
-    width: calc(((100vw - 85.375rem) / 2) + 14.5rem);
-    padding-left: calc((100vw - 85.375rem) / 2); */
-    overflow-y: auto;
-    width: 15rem;
+    margin-left: 1rem;
+    padding: ($padding * 2) ($padding) ($padding * 2)
+      (calc((100vw - 102rem) / 2));
+    width: calc(((100vw - 102rem) / 2) + 15rem);
+
+    @include forPhoneOnly {
+      margin-left: 0;
+    }
   }
 
   main[role='main'] {
-    flex-grow: 1;
-    flex-shrink: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    /*
-    padding: ($padding * 1.5) (calc((100vw - 86.375rem) / 2)) $padding $padding;
-    width: calc(((100vw - 86.375rem) / 2) + 70.875rem); */
-    max-width: 52rem;
-    padding: ($padding * 1.5) ($padding * 1.5) ($padding * 1.5) $padding;
-
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
+      $padding;
     //mobile styling
+
     @include forPhoneOnly {
       padding: $padding 2rem;
-    }
-  }
-  @include forMinWidth {
-    nav[role='navigation'] {
-      padding-left: $padding;
-    }
-
-    main[role='main'] {
-      padding-right: ($padding * 1.5);
     }
   }
 }

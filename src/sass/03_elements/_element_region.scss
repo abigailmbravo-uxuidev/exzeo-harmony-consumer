@@ -3,11 +3,10 @@ div[role='region'] {
   display: flex;
   flex-grow: 1;
   flex-shrink: 1;
-
   //background color & img styling
   background-color: #fafbfd;
   background-image: url('../../img/consumer_BG.jpg');
-  background-repeat: no-repeat;
-  background-position-x: 60rem;
+  background-position-x: calc(((100vw - 102rem) / 2) + 67rem);
   background-position-y: 1.5rem;
+  background-repeat: no-repeat;
 }

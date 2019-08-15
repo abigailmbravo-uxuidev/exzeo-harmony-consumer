@@ -2,13 +2,13 @@
 
 .card {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   margin-bottom: 1.5rem;
   width: 100%;
   height: auto;
   border-radius: $borderRadius;
   background-color: $white;
-  overflow: hidden;
 
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
@@ -17,8 +17,9 @@
     footer {
       .btn,
       button {
-        @include shadow(0, 0, 0, rgba($white, 0));
         cursor: default;
+
+        @include shadow(0, 0, 0, rgba($white, 0));
         &:hover {
           background-color: $blue;
         }
@@ -70,7 +71,6 @@
     button {
       margin: 0;
       width: 100%;
-      border-radius: 0;
       border-radius: 0 0 $borderRadius $borderRadius;
     }
   }
