@@ -7,7 +7,7 @@ import Footer from './Footer';
 import Navigation from './Navigation';
 import Page from './Page';
 
-function App() {
+const App = () => {
   return (
     <React.Fragment>
       <Header />
@@ -25,6 +25,6 @@ function App() {
       <Footer />
     </React.Fragment>
   );
-}
+};
 
 export default App;

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
-function Navigation() {
+const Navigation = () => {
   // const [activeIndex, setActiveIndex] = useState(0);
   return (
     <nav role="navigation" className="navSlideOut">
@@ -148,6 +148,6 @@ function Navigation() {
       </ul>
     </nav>
   );
-}
+};
 
 export default Navigation;
