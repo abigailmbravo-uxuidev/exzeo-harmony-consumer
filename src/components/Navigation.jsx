@@ -7,7 +7,7 @@ import { NavLink, Link } from 'react-router-dom';
 const Navigation = ({ location }) => {
   return (
     <nav role="navigation" className="navSlideOut">
-      <ul>
+      <ul className="navRetrieve">
         {/********** RETRIEVE **********/}
         <li
           key="retrieve"

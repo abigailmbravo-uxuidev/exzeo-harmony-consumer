@@ -162,6 +162,43 @@ nav[role='navigation'] {
       }
     }
   }
+
+  //retrieve nav styling
+
+  .navRetrieve {
+    > li {
+      text-align: right;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+
+      > span {
+        color: $green;
+      }
+
+      h3 {
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin: 0 1rem 0 0;
+        width: calc(100% - 2rem);
+        text-align: right;
+      }
+      p {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-top: 1rem;
+        margin-right: 7px;
+        margin-bottom: 0;
+        padding: 0 ($padding * 1.5625) 0 0;
+        min-height: 12px;
+        width: calc(100% - 7px);
+        border-right: 2px $navy solid;
+        text-align: right;
+        line-height: 1.2;
+      }
+    }
+  }
 }
 
 @include forPhoneOnly {
