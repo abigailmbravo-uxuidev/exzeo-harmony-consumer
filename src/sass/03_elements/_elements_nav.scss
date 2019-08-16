@@ -24,14 +24,22 @@ nav[role='navigation'] {
   flex-direction: column;
   min-width: 15rem;
 
-  ul {
+  > ul {
     margin-top: 0.75rem;
     padding: 0;
     list-style: none;
-    li {
+    > li {
+      text-align: right;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+
+      //hide styling - hides first level li and children
       &.hide {
         display: none;
       }
+      //disabled styling - styles first level li and hides children
       &.disabled {
         ul {
           display: none;
@@ -40,6 +48,7 @@ nav[role='navigation'] {
           display: none;
         }
       }
+      //complete styling - styles first level li and children
       &.complete {
         a {
           span {
@@ -52,6 +61,7 @@ nav[role='navigation'] {
           }
         }
       }
+
       a {
         display: flex;
         align-items: center;
@@ -65,56 +75,56 @@ nav[role='navigation'] {
           width: calc(100% - 2rem);
           text-align: right;
         }
-        span {
-          display: flex;
-          align-items: center;
-          flex-grow: 0;
-          flex-shrink: 0;
-          justify-content: center;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: $green;
+        color: $white;
+        font-size: 0.5rem;
+        font-weight: bold;
+        line-height: 1rem;
+
+        svg {
+          color: $green;
+          background-color: $white;
           width: 1rem;
           height: 1rem;
-          border-radius: 50%;
-          background-color: $green;
-          color: $white;
-          font-size: 0.5rem;
-          line-height: 1rem;
-        }
-        p {
-          flex-grow: 0;
-          flex-shrink: 0;
-          margin-top: 1rem;
-          margin-right: 7px;
-          margin-bottom: 0;
-          padding: 0 ($padding * 1.5625) 0 0;
-          min-height: 12px;
-          width: calc(100% - 7px);
-          border-right: 2px $navy solid;
-          text-align: right;
-          line-height: 1.2;
-        }
-
-        &.disabled {
-          &.complete {
-            span {
-              background-color: $white;
-              svg {
-                color: $lightGrey;
-              }
-            }
-          }
-          h3 {
-            color: $lightGrey;
-          }
-          span {
-            background-color: $lightGrey;
-          }
-          p {
-            border-color: $lightGrey;
-            color: $lightGrey;
-          }
         }
       }
+
+      > h3 {
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin: 0 1rem 0 0;
+        width: calc(100% - 2rem);
+        text-align: right;
+      }
+
+      p {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-top: 1rem;
+        margin-right: 7px;
+        margin-bottom: 0;
+        min-height: 12px;
+        width: calc(100% - 7px);
+        border-right: 2px $navy solid;
+        text-align: right;
+        line-height: 1.2;
+      }
+
       ul {
+        margin-top: 0.75rem;
+        padding: 0;
+        list-style: none;
         li {
           a {
             h3 {
@@ -131,10 +141,37 @@ nav[role='navigation'] {
             }
             p {
               color: $navy;
+              flex-grow: 0;
+              flex-shrink: 0;
+              margin-top: 1rem;
+              margin-right: 7px;
+              margin-bottom: 0;
+              padding: 0 ($padding * 1.5625) 0 0;
+              min-height: 12px;
+              width: calc(100% - 7px);
+              border-right: 2px $navy solid;
+              text-align: right;
+              line-height: 1.2;
             }
             &.disabled {
+              &.complete {
+                span {
+                  background-color: $white;
+                  svg {
+                    color: $lightGrey;
+                  }
+                }
+              }
+              h3 {
+                color: $lightGrey;
+              }
+              span {
+                background-color: $lightGrey;
+              }
               p {
                 display: block;
+                border-color: $lightGrey;
+                color: $lightGrey;
               }
             }
             &.complete {
@@ -169,61 +206,6 @@ nav[role='navigation'] {
             }
           }
         }
-      }
-    }
-  }
-
-  //retrieve nav styling
-
-  .mainNavigation {
-    > li {
-      text-align: right;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-
-      > span {
-        display: flex;
-        align-items: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        justify-content: center;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        background-color: $green;
-        color: $white;
-        font-size: 0.5rem;
-        font-weight: bold;
-        line-height: 1rem;
-
-        svg {
-          color: $green;
-          background-color: $white;
-          width: 1rem;
-          height: 1rem;
-        }
-      }
-
-      > h3 {
-        flex-grow: 1;
-        flex-shrink: 1;
-        margin: 0 1rem 0 0;
-        width: calc(100% - 2rem);
-        text-align: right;
-      }
-      p {
-        flex-grow: 0;
-        flex-shrink: 0;
-        margin-top: 1rem;
-        margin-right: 7px;
-        margin-bottom: 0;
-        min-height: 12px;
-        width: calc(100% - 7px);
-        border-right: 2px $navy solid;
-        text-align: right;
-        line-height: 1.2;
       }
     }
   }

@@ -28,8 +28,7 @@ const Navigation = ({ location }) => {
           key="quote"
           className={classNames({
             disabled: false,
-            complete: false,
-            mainNavigation: false
+            complete: false
           })}
         >
           <h3>Quote</h3>
