@@ -29,6 +29,9 @@ nav[role='navigation'] {
     padding: 0;
     list-style: none;
     li {
+      &.hide {
+        display: none;
+      }
       &.disabled {
         ul {
           display: none;
