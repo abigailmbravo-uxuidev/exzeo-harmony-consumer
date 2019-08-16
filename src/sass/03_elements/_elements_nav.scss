@@ -166,7 +166,7 @@ nav[role='navigation'] {
   //retrieve nav styling
 
   .navRetrieve {
-    > li {
+    li {
       text-align: right;
       display: flex;
       align-items: center;
@@ -174,10 +174,29 @@ nav[role='navigation'] {
       margin-bottom: 0.75rem;
 
       > span {
-        color: $green;
+        display: flex;
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: $green;
+        color: $white;
+        font-size: 0.5rem;
+        font-weight: bold;
+        line-height: 1rem;
+
+        svg {
+          color: $green;
+          background-color: $white;
+          width: 1rem;
+          height: 1rem;
+        }
       }
 
-      h3 {
+      > h3 {
         flex-grow: 1;
         flex-shrink: 1;
         margin: 0 1rem 0 0;
@@ -190,7 +209,6 @@ nav[role='navigation'] {
         margin-top: 1rem;
         margin-right: 7px;
         margin-bottom: 0;
-        padding: 0 ($padding * 1.5625) 0 0;
         min-height: 12px;
         width: calc(100% - 7px);
         border-right: 2px $navy solid;
