@@ -101,7 +101,7 @@ nav[role='navigation'] {
             color: $blue;
           }
           span {
-            background-color: $blue;
+            color: $blue;
           }
           p {
             border-color: $blue;
@@ -165,7 +165,7 @@ nav[role='navigation'] {
 
   //retrieve nav styling
 
-  .navRetrieve {
+  .mainNavigation {
     > li {
       text-align: right;
       display: flex;

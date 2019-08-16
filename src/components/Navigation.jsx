@@ -7,7 +7,7 @@ import { NavLink, Link } from 'react-router-dom';
 const Navigation = ({ location }) => {
   return (
     <nav role="navigation" className="navSlideOut">
-      <ul className="navRetrieve">
+      <ul className="mainNavigation">
         {/********** RETRIEVE **********/}
         <li
           key="retrieve"
@@ -29,7 +29,7 @@ const Navigation = ({ location }) => {
           className={classNames({
             disabled: false,
             complete: false,
-            navRetrieve: false
+            mainNavigation: false
           })}
         >
           <h3>Quote</h3>
