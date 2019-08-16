@@ -26,7 +26,11 @@ const Navigation = ({ location }) => {
         {/********** QUOTE **********/}
         <li
           key="quote"
-          className={classNames({ disabled: false, complete: false })}
+          className={classNames({
+            disabled: false,
+            complete: false,
+            navRetrieve: false
+          })}
         >
           <h3>Quote</h3>
           {/*hide number span when li gets complete class*/}
