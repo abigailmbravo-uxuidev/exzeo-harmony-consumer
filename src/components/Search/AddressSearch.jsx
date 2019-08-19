@@ -46,8 +46,8 @@ const AddressSearch = () => {
               >
                 <FontAwesomeIcon icon="search" size="sm" />
               </Button>
+              <p>Enter the street address only (e.g., 123 Main Street)</p>
             </div>
-            <p>Enter the street address only (e.g., 123 Main Street).</p>
           </form>
         )}
       </Form>

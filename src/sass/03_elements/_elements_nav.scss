@@ -47,6 +47,12 @@ nav[role='navigation'] {
         p {
           display: none;
         }
+        h3 {
+          color: $lightGrey;
+        }
+        span {
+          background-color: $lightGrey;
+        }
       }
       //complete styling - styles first level li and children
       &.complete {
@@ -186,6 +192,7 @@ nav[role='navigation'] {
               }
             }
             &.active {
+              cursor: default;
               &.complete {
                 span {
                   svg {

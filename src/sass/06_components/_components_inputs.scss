@@ -7,26 +7,34 @@
   width: 100%;
   border-radius: $borderRadius $borderRadius 0 0;
   background-color: rgba($white, 0);
+  position: relative;
 
   input {
-    padding: ($padding / 4) ($padding / 2);
+    padding: ($padding * 1.75) ($padding * 0.5) ($padding * 0.25);
     border-width: 0;
     border-bottom: 1px $navy solid;
     background-color: $extraLightGrey;
-    -webkit-box-shadow: 0 0 0 30px rgba($extraLightGrey, 1) inset !important;
+    color: ($extraLightGrey, 0.5);
+
+    &:hover {
+      outline: none;
+      border-bottom-color: rgba($navy, 0.25);
+      color: rgba($navy, 0.25);
+      background-color: rgba($extraLightGrey, 0.9);
+    }
 
     @include transition(all 0.1s ease-in-out);
 
     &:focus {
       outline: none;
-      border-bottom-color: $blue;
+      border-bottom: 1px $navy solid;
     }
   }
 
   label {
     margin-bottom: 0;
     padding: ($padding / 2) ($padding / 2) 0;
-    background-color: $extraLightGrey;
+    position: absolute;
   }
 
   &.error {
@@ -44,7 +52,10 @@
         outline: none;
         border-bottom-color: rgba($red, 0.25);
         color: rgba($navy, 0.25);
+        background-color: rgba($extraLightGrey, 0.9);
       }
+
+      @include transition(all 0.1s ease-in-out);
     }
     label {
       color: $red;
@@ -52,6 +63,12 @@
   }
 
   &.valid {
+    > span {
+      padding: ($padding / 2) ($padding / 2) 0;
+      color: $green;
+      font-weight: bold;
+      font-size: $fontSizeBody;
+    }
     input {
       border-bottom: 1px $green solid;
     }

@@ -9,5 +9,9 @@ header {
   > div[role='banner'] {
     display: flex;
     align-items: center;
+
+    @include forPhoneOnly {
+      margin: 0 2rem;
+    }
   }
 }
