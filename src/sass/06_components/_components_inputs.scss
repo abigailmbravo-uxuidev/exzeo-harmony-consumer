@@ -1,29 +1,61 @@
 //input styling
 
 .form-group {
+  position: relative;
   display: flex;
   overflow: hidden;
   flex-direction: column;
   width: 100%;
   border-radius: $borderRadius $borderRadius 0 0;
   background-color: rgba($white, 0);
-  position: relative;
 
   input {
     padding: ($padding * 1.75) ($padding * 0.5) ($padding * 0.25);
     border-width: 0;
     border-bottom: 1px $navy solid;
     background-color: $extraLightGrey;
-    color: ($extraLightGrey, 0.5);
+    //color: ($extraLightGrey, 0.5);
+
+    @include transition(all 0.1s ease-in-out);
+
+    &::-webkit-input-placeholder {
+      color: $navy;
+
+      @include transition(all 0.1s ease-in-out);
+    }
+
+    &:-moz-placeholder,
+    &:-ms-input-placeholder {
+      color: $navy;
+
+      @include transition(all 0.1s ease-in-out);
+    }
+
+    &:-moz-placeholder,
+    &:-ms-input-placeholder {
+      color: $lightGrey;
+    }
 
     &:hover {
       outline: none;
       border-bottom-color: rgba($navy, 0.25);
-      color: rgba($navy, 0.25);
       background-color: rgba($extraLightGrey, 0.9);
-    }
+      //color: rgba($navy, 0.25);
 
-    @include transition(all 0.1s ease-in-out);
+      &::-webkit-input-placeholder {
+        color: $lightGrey;
+      }
+
+      &:-moz-placeholder,
+      &:-ms-input-placeholder {
+        color: $lightGrey;
+      }
+
+      &:-moz-placeholder,
+      &:-ms-input-placeholder {
+        color: $lightGrey;
+      }
+    }
 
     &:focus {
       outline: none;
@@ -32,9 +64,9 @@
   }
 
   label {
+    position: absolute;
     margin-bottom: 0;
     padding: ($padding / 2) ($padding / 2) 0;
-    position: absolute;
   }
 
   &.error {
@@ -48,14 +80,14 @@
     input {
       border-bottom: 1px $red solid;
 
+      @include transition(all 0.1s ease-in-out);
+
       &:hover {
         outline: none;
         border-bottom-color: rgba($red, 0.25);
-        color: rgba($navy, 0.25);
         background-color: rgba($extraLightGrey, 0.9);
+        color: rgba($navy, 0.25);
       }
-
-      @include transition(all 0.1s ease-in-out);
     }
     label {
       color: $red;
