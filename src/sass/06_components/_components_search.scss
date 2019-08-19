@@ -1,9 +1,9 @@
 //search bar styling
 
 .searchInputWrapper {
-  width: 100%;
   display: flex;
   margin-bottom: 0.5rem;
+  width: 100%;
 
   .form-group {
     border-top-right-radius: 0;
@@ -12,21 +12,24 @@
   //search bar button override
 
   button {
+    align-self: stretch;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-right: $padding;
+    height: 3.25rem;
+    border: 0;
+    border-bottom: 1px $navy solid;
     border-radius: 0 $borderRadius 0 0;
     background-color: $extraLightGrey;
     color: $navy;
-    padding-right: $padding;
-    margin-bottom: 0;
-    margin-left: 0;
-    border: 0;
-    border-bottom: 1px $navy solid;
-    align-self: stretch;
+
     @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
     &:hover {
-      @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
-      cursor: pointer;
-      background-color: $extraLightGrey;
       border-bottom: 1px $navy solid;
+      background-color: $extraLightGrey;
+      cursor: pointer;
+
+      @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
     }
   }
 }
@@ -35,8 +38,8 @@
   @include forPhoneOnly {
     .form-group {
       label {
-        font-size: $fontSizeBody;
         margin-bottom: 0.25rem;
+        font-size: $fontSizeBody;
       }
       input {
         font-size: $fontSizeBody;
@@ -52,9 +55,10 @@
     flex-direction: row;
     padding: 0 $padding;
     &:hover {
-      @include shadow(0, 1px, 4px, rgba($navy, 0.25));
-      transform: scale(0.99);
       cursor: pointer;
+      transform: scale(0.99);
+
+      @include shadow(0, 1px, 4px, rgba($navy, 0.25));
     }
 
     .cardContent {

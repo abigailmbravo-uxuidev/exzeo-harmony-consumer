@@ -39,7 +39,7 @@ const AddressSearch = () => {
 
               <Button
                 className={Button.constants.classNames.primary}
-                customClass="multi-input"
+                customClass="multi-input btn-search"
                 type="submit"
                 data-test="submit"
               >

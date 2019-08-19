@@ -5,7 +5,26 @@
   flex-direction: column;
   width: 100%;
   border-radius: $borderRadius $borderRadius 0 0;
-  background-color: $extraLightGrey;
+  background-color: rgba($white, 0);
+
+  input {
+    padding: ($padding / 4) ($padding / 2);
+    border-width: 0;
+    border-bottom: 1px $navy solid;
+    background-color: $extraLightGrey;
+  }
+
+  label {
+    margin-bottom: 0;
+    padding: ($padding / 2) ($padding / 2) 0;
+    background-color: $extraLightGrey;
+  }
+
+  //error message
+  > span {
+    padding: ($padding / 2) ($padding / 2) 0;
+    font-size: $fontSizeBody;
+  }
 
   //segmented answer styling
 
@@ -33,12 +52,13 @@
         flex-grow: 1;
         flex-shrink: 1;
         border-right: 1px $lightGrey solid;
+
         @include transition(all 0.1s ease-in-out);
 
         &:hover {
           label {
-            color: $white;
             background-color: $blue;
+            color: $white;
             cursor: pointer;
           }
         }
@@ -63,7 +83,6 @@
       }
     }
   }
-
   &.segmented {
     @include forPhoneOnly {
       label {
@@ -169,16 +188,4 @@
       }
     }
   }
-}
-
-input {
-  padding: ($padding / 4) ($padding / 2);
-  border-width: 0;
-  border-bottom: 1px $navy solid;
-  background-color: rgba($white, 0);
-}
-
-label {
-  margin-bottom: 0;
-  padding: ($padding / 2) ($padding / 2) 0;
 }
