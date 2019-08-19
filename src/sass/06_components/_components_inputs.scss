@@ -209,6 +209,7 @@
     background-color: transparent;
 
     label {
+      position: relative; //js added
       display: flex;
       align-items: center;
       flex-direction: row;

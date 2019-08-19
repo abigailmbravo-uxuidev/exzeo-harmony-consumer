@@ -48,28 +48,6 @@ const AddressSearch = () => {
               </Button>
               <p>Enter the street address only (e.g., 123 Main Street)</p>
             </div>
-            <div className="form-group radio segmented">
-              <label className="group-label label-segmented">
-                Is the home or any structures on the property ever rented?
-              </label>
-              <div className="segmented-answer-wrapper">
-                <div className="">
-                  <label className="label-segmented">
-                    <span>Yes</span>
-                  </label>
-                </div>
-                <div className="">
-                  <label className="label-segmented">
-                    <span>Occasionally</span>
-                  </label>
-                </div>
-                <div className="selected">
-                  <label className="label-segmented selected">
-                    <span tabindex="0">Never</span>
-                  </label>
-                </div>
-              </div>
-            </div>
           </form>
         )}
       </Form>
