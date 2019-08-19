@@ -2,6 +2,7 @@
 
 .form-group {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   width: 100%;
   border-radius: $borderRadius $borderRadius 0 0;
@@ -12,6 +13,13 @@
     border-width: 0;
     border-bottom: 1px $navy solid;
     background-color: $extraLightGrey;
+
+    @include transition(all 0.1s ease-in-out);
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $blue;
+    }
   }
 
   label {
@@ -23,6 +31,8 @@
   //error message
   > span {
     padding: ($padding / 2) ($padding / 2) 0;
+    color: $blue;
+    font-weight: bold;
     font-size: $fontSizeBody;
   }
 
