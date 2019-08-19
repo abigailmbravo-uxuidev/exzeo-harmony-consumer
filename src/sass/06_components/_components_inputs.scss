@@ -13,6 +13,7 @@
     border-width: 0;
     border-bottom: 1px $navy solid;
     background-color: $extraLightGrey;
+    -webkit-box-shadow: 0 0 0 30px rgba($extraLightGrey, 1) inset !important;
 
     @include transition(all 0.1s ease-in-out);
 
@@ -28,12 +29,34 @@
     background-color: $extraLightGrey;
   }
 
-  //error message
-  > span {
-    padding: ($padding / 2) ($padding / 2) 0;
-    color: $blue;
-    font-weight: bold;
-    font-size: $fontSizeBody;
+  &.error {
+    //error message
+    > span {
+      padding: ($padding / 2) ($padding / 2) 0;
+      color: $red;
+      font-weight: bold;
+      font-size: $fontSizeBody;
+    }
+    input {
+      border-bottom: 1px $red solid;
+
+      &:hover {
+        outline: none;
+        border-bottom-color: rgba($red, 0.25);
+        color: rgba($navy, 0.25);
+      }
+    }
+    label {
+      color: $red;
+    }
+  }
+
+  &.valid {
+    input {
+      border-bottom: 1px $green solid;
+    }
+    label {
+    }
   }
 
   //segmented answer styling

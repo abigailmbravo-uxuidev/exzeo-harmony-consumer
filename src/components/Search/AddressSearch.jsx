@@ -29,6 +29,7 @@ const AddressSearch = () => {
                   <Input
                     input={input}
                     meta={meta}
+                    type={'text'}
                     label="Property Address"
                     styleName="property-search"
                     dataTest="address"
