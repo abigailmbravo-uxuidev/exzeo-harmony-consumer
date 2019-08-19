@@ -18,39 +18,6 @@
 
   //element layout
 
-  //header layout
-  > header {
-    z-index: 100;
-    height: 4rem;
-    background-color: $white;
-
-    @include shadow(0px, 3px, 5px, rgba($navy, 0.16));
-
-    div[role='banner'] {
-      width: 100%;
-      padding-left: calc((100vw - 102rem) / 2);
-      padding-right: calc(((100vw - 102rem) / 2) + 30rem);
-      .logo {
-        flex-grow: 0;
-        flex-shrink: 0;
-        margin-left: 6.5rem;
-        width: 6.5rem;
-        height: auto;
-
-        @include forPhoneOnly {
-          margin-left: 0;
-        }
-      }
-
-      div[role='contentinfo'] {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-        justify-content: flex-end;
-      }
-    }
-  }
-
   div[role='region'] {
     overflow: hidden;
     width: 100%;
@@ -114,6 +81,11 @@
     flex-shrink: 1;
     padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
       $padding;
+
+    h1 {
+      padding-top: $padding;
+    }
+
     //mobile styling
 
     @include forPhoneOnly {

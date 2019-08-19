@@ -4,6 +4,35 @@ header {
   align-items: center;
   flex-grow: 0;
   flex-shrink: 0;
+  z-index: 100;
+  height: 4rem;
+  background-color: $white;
+
+  @include shadow(0px, 3px, 5px, rgba($navy, 0.16));
+
+  div[role='banner'] {
+    width: 100%;
+    padding-left: calc((100vw - 102rem) / 2);
+    padding-right: calc(((100vw - 102rem) / 2) + 30rem);
+    .logo {
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-left: 8.5em;
+      width: 6.5rem;
+      height: auto;
+
+      @include forPhoneOnly {
+        margin-left: 0;
+      }
+    }
+
+    div[role='contentinfo'] {
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+      justify-content: flex-end;
+    }
+  }
 
   //banner is child element when header needs to act as wrapper
   > div[role='banner'] {
