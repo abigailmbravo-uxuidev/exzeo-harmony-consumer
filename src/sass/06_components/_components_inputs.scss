@@ -24,16 +24,22 @@
       @include transition(all 0.1s ease-in-out);
     }
 
-    &:-moz-placeholder,
-    &:-ms-input-placeholder {
+    &::-moz-placeholder {
       color: $navy;
 
       @include transition(all 0.1s ease-in-out);
     }
 
-    &:-moz-placeholder,
-    &:-ms-input-placeholder {
-      color: $lightGrey;
+    &::-ms-input-placeholder {
+      color: $navy;
+
+      @include transition(all 0.1s ease-in-out);
+    }
+
+    &::placeholder {
+      color: $navy;
+
+      @include transition(all 0.1s ease-in-out);
     }
 
     &:hover {
@@ -46,13 +52,15 @@
         color: $lightGrey;
       }
 
-      &:-moz-placeholder,
-      &:-ms-input-placeholder {
+      &::-moz-placeholder {
         color: $lightGrey;
       }
 
-      &:-moz-placeholder,
-      &:-ms-input-placeholder {
+      &::-ms-input-placeholder {
+        color: $lightGrey;
+      }
+
+      &::placeholder {
         color: $lightGrey;
       }
     }
@@ -86,7 +94,6 @@
         outline: none;
         border-bottom-color: rgba($red, 0.25);
         background-color: rgba($extraLightGrey, 0.9);
-        color: rgba($navy, 0.25);
       }
     }
     label {
