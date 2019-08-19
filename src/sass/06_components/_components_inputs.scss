@@ -118,10 +118,12 @@
   //segmented answer styling
 
   &.segmented {
+    flex-direction: column; //js added
     margin-bottom: 2rem;
     background-color: transparent;
 
     label {
+      position: relative; //js added
       margin-bottom: 1.5rem;
       font-size: $fontSizeSubheader;
       font-family: $serif;
