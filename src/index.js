@@ -1,11 +1,13 @@
+import 'react-app-polyfill/ie11';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
 
 import './fontAwesomeInit';
-// import * as serviceWorker from './serviceWorker';
 import './sass/main.scss';
+// import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
