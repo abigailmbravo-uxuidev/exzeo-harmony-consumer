@@ -6,23 +6,48 @@
   flex-direction: column;
   height: 100vh;
 
-  @include forMinWidth {
-    nav[role='navigation'] {
-      padding-left: $padding;
-    }
-
-    main[role='main'] {
-      padding-right: ($padding * 1.5);
-    }
-  }
-
   //element layout
 
   div[role='region'] {
     overflow: hidden;
     width: 100%;
-    //nav for phone
 
+    nav[role='navigation'] {
+      z-index: 10;
+      overflow-y: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-left: 1rem;
+      padding: ($padding * 2) ($padding) ($padding * 2)
+        (calc((100vw - 102rem) / 2));
+      width: calc(((100vw - 102rem) / 2) + 15rem);
+
+      @include forPhoneOnly {
+        margin-left: 0;
+      }
+    }
+
+    main[role='main'] {
+      overflow-x: hidden;
+      overflow-y: auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+      padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
+        $padding;
+      //mobile styling
+
+      @include forPhoneOnly {
+        padding: $padding 2rem;
+      }
+
+      h1 {
+        padding-top: $padding;
+      }
+    }
+  }
+
+  div[role='region'] {
+    //nav for phone
     @include forPhoneOnly {
       nav[role='navigation'] {
         position: fixed;
@@ -57,39 +82,14 @@
         }
       }
     }
-  }
+    @include forMinWidth {
+      nav[role='navigation'] {
+        padding-left: $padding;
+      }
 
-  nav[role='navigation'] {
-    z-index: 10;
-    overflow-y: auto;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-left: 1rem;
-    padding: ($padding * 2) ($padding) ($padding * 2)
-      (calc((100vw - 102rem) / 2));
-    width: calc(((100vw - 102rem) / 2) + 15rem);
-
-    @include forPhoneOnly {
-      margin-left: 0;
-    }
-  }
-
-  main[role='main'] {
-    overflow-x: hidden;
-    overflow-y: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
-    padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
-      $padding;
-
-    h1 {
-      padding-top: $padding;
-    }
-
-    //mobile styling
-
-    @include forPhoneOnly {
-      padding: $padding 2rem;
+      main[role='main'] {
+        padding-right: ($padding * 1.5);
+      }
     }
   }
 }
