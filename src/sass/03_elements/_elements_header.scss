@@ -42,5 +42,9 @@ header {
     @include forPhoneOnly {
       margin: 0 2rem;
     }
+
+    @include forMinWidth {
+      margin-right: $padding * 1.5;
+    }
   }
 }

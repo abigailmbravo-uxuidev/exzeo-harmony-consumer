@@ -83,10 +83,6 @@
       }
     }
     @include forMinWidth {
-      nav[role='navigation'] {
-        padding-left: $padding;
-      }
-
       main[role='main'] {
         padding-right: ($padding * 1.5);
       }
