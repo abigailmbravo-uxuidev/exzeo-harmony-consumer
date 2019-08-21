@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div role="banner">
-        <a id="logo" className="logo" href="/" data-test="logo">
+        <a id="logo" className="logo" href="/searchAddress" data-test="logo">
           <img src={logo} alt="TypTap Insurance" />
         </a>
         <div role="contentinfo">
