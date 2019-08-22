@@ -30,8 +30,9 @@
 
     @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
     &:hover {
-      background-color: rgba($extraLightGrey, 0);
+      background-color: rgba($extraLightGrey, 0.01);
       cursor: pointer;
+      color: mix($blue, $navy, 80%);
 
       @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
     }
