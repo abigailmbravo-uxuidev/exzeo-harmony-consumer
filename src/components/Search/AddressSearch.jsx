@@ -1,18 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
   Input,
   Form,
   Field,
+  SectionLoader,
   validation,
   composeValidators
 } from '@exzeo/core-ui';
 
+import { searchAddress } from '@exzeo/core-ui/src/@Harmony';
+
+import AddressCard from './AddressCard';
+import NoResults from './NoResults';
+
 const AddressSearch = () => {
+  const [searchState, setSearchState] = useState({
+    hasSearched: false,
+    results: [],
+    noResults: false
+  });
+  const [loading, setLoading] = useState(false);
+
+  async function handleSearchSubmit(values) {
+    try {
+      setLoading(true);
+      const results = await searchAddress(values.address);
+      setSearchState({
+        hasSearched: true,
+        results: results.IndexResult,
+        noResults: !results.TotalCount
+      });
+    } catch (error) {
+      console.error('Error searching: ', error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <main role="main">
-      <Form onSubmit={x => x}>
+      <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <h1>Address</h1>
@@ -51,6 +80,18 @@ const AddressSearch = () => {
           </form>
         )}
       </Form>
+
+      <section className="results">
+        {loading && <SectionLoader />}
+
+        {searchState.hasSearched && searchState.noResults ? (
+          <NoResults />
+        ) : (
+          searchState.results.map(property => (
+            <AddressCard key={property.id} property={property} />
+          ))
+        )}
+      </section>
     </main>
   );
 };

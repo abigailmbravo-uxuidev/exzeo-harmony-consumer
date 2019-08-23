@@ -1,6 +1,6 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from '@exzeo/core-ui/src/Button';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { Button } from '@exzeo/core-ui/src/Button';
 
 const Page = ({ location }) => {
   return (

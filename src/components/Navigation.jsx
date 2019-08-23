@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
 const Navigation = ({ location }) => {

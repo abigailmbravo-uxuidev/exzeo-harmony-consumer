@@ -2,12 +2,15 @@ import 'react-app-polyfill/ie11';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { http } from '@exzeo/core-ui';
 
 import App from './App';
 
 import './fontAwesomeInit';
 import './sass/main.scss';
 // import * as serviceWorker from './serviceWorker';
+
+http.defaults.headers.common['authorization'] = 'Bearer consumer';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
