@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Header from './components/Header';
@@ -15,9 +15,8 @@ const App = () => {
       <Header />
 
       <div role="region">
-        <button className="navOpener">
-          <FontAwesomeIcon icon="chevron-right" size="sm" />
-        </button>
+        {/* TODO for now there is no page for the 'index' route, so redirect to 'searchAddress */}
+        <Route exact path="/" render={() => <Redirect to="/searchAddress" />} />
 
         {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
         <Route children={routeProps => <Navigation {...routeProps} />} />
