@@ -11,7 +11,7 @@
     "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js"
   },
   "dependencies": {
-    "@exzeo/core-ui": "^0.8.8",
+    "@exzeo/core-ui": "0.9.0-alpha.0",
     "@exzeo/react-scripts": "2.2.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
