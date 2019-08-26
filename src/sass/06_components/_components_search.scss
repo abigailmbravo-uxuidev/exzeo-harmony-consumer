@@ -56,6 +56,9 @@
 //search result card styling
 
 .results {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   .card {
     flex-direction: row;
     padding: 0 $padding;
