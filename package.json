@@ -6,7 +6,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --coverage --watchAll=false",
     "test:watch": "react-scripts test",
     "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js"
   },
