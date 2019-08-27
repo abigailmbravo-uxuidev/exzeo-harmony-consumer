@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
-import Page from './components/Page';
+import QuoteWorkflow from './components/QuoteWorkflow';
 import Test from './components/Test';
 import { AddressSearch } from './components/Search';
 
@@ -37,7 +37,7 @@ const App = () => {
         <Route
           exact
           path="/quote"
-          render={routeProps => <Page {...routeProps} />}
+          render={routeProps => <QuoteWorkflow {...routeProps} />}
         />
 
         <Route

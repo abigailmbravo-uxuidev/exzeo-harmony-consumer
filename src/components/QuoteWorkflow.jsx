@@ -3,14 +3,17 @@ import { Gandalf } from '@exzeo/core-ui/src/@Harmony';
 import template from '../mock-data/mockAF3';
 import { Button } from '@exzeo/core-ui';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { Button } from '@exzeo/core-ui/src/Button';
-
-const Page = ({ location }) => {
+const QuoteWorkflow = ({ location }) => {
   return (
     <main role="main">
+      <div className="infoBar">
+        <h2>
+          <label>TEST PAGE: </label>
+        </h2>
+        Not for consideration while testing
+      </div>
       <Gandalf
-        formId={'harmony-quote'}
+        formId='harmony-quote'
         currentPage={0}
         handleSubmit={x => x}
         initialValues={{}}
@@ -22,7 +25,7 @@ const Page = ({ location }) => {
             data-test="submit"
             className={Button.constants.classNames.primary}
           >
-            reset
+            test
           </Button>
         )}
       />
@@ -30,4 +33,4 @@ const Page = ({ location }) => {
   );
 };
 
-export default Page;
+export default QuoteWorkflow;
