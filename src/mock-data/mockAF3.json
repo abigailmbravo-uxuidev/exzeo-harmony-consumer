@@ -44,7 +44,7 @@
           "data": {
             "component": "text",
             "label": "Last Name",
-            "size": "7",
+            "size": "12",
             "validation": ["isValidNameFormat"]
           },
           "formData": {
@@ -166,7 +166,7 @@
               "data": {
                 "component": "text",
                 "label": "Last Name",
-                "size": "7",
+                "size": "12",
                 "validation": ["isValidNameFormat"]
               },
               "formData": {
@@ -188,7 +188,7 @@
               "data": {
                 "component": "text",
                 "label": "Email Address",
-                "size": "8",
+                "size": "12",
                 "validation": ["isEmail"]
               },
               "formData": {
@@ -244,7 +244,7 @@
           "data": {
             "component": "date",
             "label": "Effective Date",
-            "size": "6",
+            "size": "12",
             "extendedProperties": {
               "min": "zipCodeSettings.minEffectiveDate",
               "max": "zipCodeSettings.maxEffectiveDate"
