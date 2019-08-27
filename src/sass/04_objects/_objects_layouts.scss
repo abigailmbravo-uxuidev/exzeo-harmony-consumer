@@ -37,6 +37,10 @@
       //mobile styling
 
       @include forPhoneOnly {
+        form {
+          margin-top: 3rem;
+        }
+
         padding: $padding 2rem;
       }
 
