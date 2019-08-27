@@ -90,6 +90,10 @@
       padding: ($padding / 2) 0;
     }
   }
+  div {
+    color: $red;
+    font-size: $fontSizeBody;
+  }
 }
 
 //temp -- !! please remove when dev done in react
