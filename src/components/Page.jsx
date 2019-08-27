@@ -1,13 +1,25 @@
 import React from 'react';
+import { Gandalf } from '@exzeo/core-ui/src/@Harmony';
+import template from '../mock-data/mockAF3';
+import { Button } from '@exzeo/core-ui';
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { Button } from '@exzeo/core-ui/src/Button';
 
 const Page = ({ location }) => {
   return (
     <main role="main">
-      <form>
-        <h1>{location.pathname}</h1>
-      </form>
+      <Gandalf
+        formId={'harmony-quote'}
+        currentPage={0}
+        handleSubmit={x => x}
+        initialValues={{}}
+        template={template}
+        transformConfig={{}}
+        renderFooter={() => (
+          <Button className={Button.constants.classNames.primary}>reset</Button>
+        )}
+      />
     </main>
   );
 };

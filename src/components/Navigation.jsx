@@ -63,13 +63,13 @@ const Navigation = ({ location }) => {
               </li>
 
               <li key="underwriting">
-                <a className={classNames('disabled')}>
+                <NavLink to="/quote" className={classNames('')}>
                   <h3>Underwriting</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
                   <p>You have successfully answered the required questions</p>
-                </a>
+                </NavLink>
               </li>
 
               <li key="customize">
