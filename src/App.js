@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import QuoteWorkflow from './components/QuoteWorkflow';
 import Test from './components/Test';
-import { AddressSearch } from './components/Search';
+import { AddressSearch, QuoteSearch } from './components/Search';
 
 const App = () => {
   return (
@@ -15,7 +15,6 @@ const App = () => {
       <Header />
 
       <div role="region">
-        {/* TODO for now there is no page for the 'index' route, so redirect to 'searchAddress */}
         <Route exact path="/" render={() => <Redirect to="/searchAddress" />} />
 
         {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
@@ -24,7 +23,7 @@ const App = () => {
         <Route
           exact
           path="/retrieveQuote"
-          render={routeProps => <div>Search for a Quote</div>}
+          render={routeProps => <QuoteSearch />}
         />
 
         <Route

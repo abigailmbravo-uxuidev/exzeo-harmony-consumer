@@ -20,9 +20,7 @@ const Navigation = ({ location }) => {
             })}
           >
             <h3>Retrieve</h3>
-            <span>
-              <FontAwesomeIcon icon="check-circle" />
-            </span>
+            <span></span>
             <p />
           </li>
           {/********** RETRIEVE **********/}
