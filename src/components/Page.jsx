@@ -16,8 +16,14 @@ const Page = ({ location }) => {
         initialValues={{}}
         template={template}
         transformConfig={{}}
+        options={{}}
         renderFooter={() => (
-          <Button className={Button.constants.classNames.primary}>reset</Button>
+          <Button
+            data-test="submit"
+            className={Button.constants.classNames.primary}
+          >
+            reset
+          </Button>
         )}
       />
     </main>
