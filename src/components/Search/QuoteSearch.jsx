@@ -94,7 +94,7 @@ const QuoteSearch = () => {
                   <Switch
                     input={input}
                     meta={meta}
-                    styleName="switch required"
+                    styleName="switch"
                     label="Do you have access to the Quote Number"
                     dataTest="hasQuoteNumber"
                   />

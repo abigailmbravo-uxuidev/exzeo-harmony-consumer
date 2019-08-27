@@ -9,6 +9,16 @@
   border-radius: $borderRadius $borderRadius 0 0;
   background-color: rgba($white, 0);
 
+  &.required {
+    label {
+      &:after {
+        content: '*';
+        color: $red;
+        margin-left: 0.25rem;
+      }
+    }
+  }
+
   input {
     padding: ($padding * 1.75) ($padding * 0.5) ($padding * 0.25);
     border-width: 0;
