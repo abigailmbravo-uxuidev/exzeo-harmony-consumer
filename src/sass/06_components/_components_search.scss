@@ -94,6 +94,13 @@
     color: $red;
     font-size: $fontSizeBody;
   }
+
+  //div above overwrote card styling for typography
+  h4,
+  p,
+  svg {
+    color: $navy;
+  }
 }
 
 //temp -- !! please remove when dev done in react
