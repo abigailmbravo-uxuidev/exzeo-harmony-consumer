@@ -44,7 +44,7 @@ const QuoteSearch = () => {
   return (
     <main role="main">
       <Form onSubmit={handleSearchSubmit}>
-        {({ handleSubmit }) => (
+        {({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
             <h1>Retrieve Quote</h1>
 
@@ -100,21 +100,39 @@ const QuoteSearch = () => {
                 )}
               </Field>
 
-              <Field
-                name="quoteNumber"
-                validate={composeValidators([validation.isRequired])}
-              >
-                {({ input, meta }) => (
-                  <Input
-                    input={input}
-                    meta={meta}
-                    styleName="required"
-                    label="Quote Number"
-                    dataTest="quoteNumber"
-                    placeholder="TTIC-A3-"
-                  />
-                )}
-              </Field>
+              {values.hasQuoteNumber ? (
+                <Field
+                  name="quoteNumber"
+                  validate={composeValidators([validation.isRequired])}
+                >
+                  {({ input, meta }) => (
+                    <Input
+                      input={input}
+                      meta={meta}
+                      styleName="required"
+                      label="Quote Number"
+                      dataTest="quoteNumber"
+                      placeholder="TTIC-A3-"
+                    />
+                  )}
+                </Field>
+              ) : (
+                <Field
+                  name="email"
+                  validate={composeValidators([validation.isRequired])}
+                >
+                  {({ input, meta }) => (
+                    <Input
+                      input={input}
+                      meta={meta}
+                      styleName="required"
+                      label="Email"
+                      dataTest="email"
+                      placeholder="jsmith@email.com"
+                    />
+                  )}
+                </Field>
+              )}
             </div>
 
             <Button
