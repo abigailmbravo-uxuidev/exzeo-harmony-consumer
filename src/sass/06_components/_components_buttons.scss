@@ -11,7 +11,7 @@ submit {
   font-weight: bold;
   font-size: $fontSizeSubheader;
   font-family: $serif;
-  padding: ($padding / 2) ($padding * 1.5);
+  padding: ($padding / 2.5) ($padding * 1.5);
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
 

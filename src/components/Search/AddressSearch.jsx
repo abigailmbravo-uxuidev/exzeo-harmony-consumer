@@ -110,12 +110,15 @@ const AddressSearch = () => {
       </section>
 
       <section>
+        <hr></hr>
         <label>Already received a quote? No problem!</label>
         <p>Your quote will be saved up to 30 days.</p>
 
-        <Link to="/retrieveQuote" className="btn btn-secondary">
-          Retrieve Quote
-        </Link>
+        <div className="form-footer">
+          <Link to="/retrieveQuote" className="btn btn-secondary">
+            Retrieve Quote
+          </Link>
+        </div>
       </section>
     </>
   );

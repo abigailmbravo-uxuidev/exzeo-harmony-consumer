@@ -34,6 +34,35 @@
       flex-shrink: 1;
       padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
         $padding;
+
+      section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        hr {
+          margin: 3rem 1rem 1rem 0;
+          width: 100%;
+        }
+
+        label {
+          margin-bottom: 0.25rem;
+        }
+
+        p {
+          margin-bottom: 1rem;
+        }
+
+        .form-footer {
+          display: flex;
+          width: 100%;
+          justify-content: flex-end;
+
+          a {
+            margin-right: 1rem;
+          }
+        }
+      }
       //mobile styling
 
       @include forPhoneOnly {
