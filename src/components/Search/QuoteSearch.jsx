@@ -42,7 +42,7 @@ const QuoteSearch = () => {
   }
 
   return (
-    <main role="main">
+    <>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
@@ -152,14 +152,14 @@ const QuoteSearch = () => {
         {searchState.hasSearched && searchState.noResults ? (
           <NoResults />
         ) : (
-          <React.Fragment>
+          <>
             {searchState.results.map(quote => (
               <QuoteCard key={quote.quoteNumber} property={quote} />
             ))}
-          </React.Fragment>
+          </>
         )}
       </section>
-    </main>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = ({ location }) => {
   return (
-    <React.Fragment>
+    <>
       <button className="navOpener">
         <FontAwesomeIcon icon="chevron-right" size="sm" />
       </button>
@@ -161,7 +161,7 @@ const Navigation = ({ location }) => {
           {/********** APPLICATION **********/}
         </ul>
       </nav>
-    </React.Fragment>
+    </>
   );
 };
 

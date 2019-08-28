@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import QuoteWorkflow from './components/QuoteWorkflow';
 import Test from './components/Test';
@@ -16,37 +16,38 @@ const App = () => {
 
       <div role="region">
         <Route exact path="/" render={() => <Redirect to="/searchAddress" />} />
-
         {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
         <Route children={routeProps => <Navigation {...routeProps} />} />
 
-        <Route
-          exact
-          path="/retrieveQuote"
-          render={routeProps => <QuoteSearch />}
-        />
+        <main role="main">
+          <Route
+            exact
+            path="/retrieveQuote"
+            render={routeProps => <QuoteSearch />}
+          />
 
-        <Route
-          exact
-          path="/searchAddress"
-          render={routeProps => <AddressSearch />}
-        />
+          <Route
+            exact
+            path="/searchAddress"
+            render={routeProps => <AddressSearch />}
+          />
 
-        {/* Gandalf owns this */}
-        <Route
-          exact
-          path="/quote"
-          render={routeProps => <QuoteWorkflow {...routeProps} />}
-        />
+          {/* Gandalf owns this */}
+          <Route
+            exact
+            path="/quote"
+            render={routeProps => <QuoteWorkflow {...routeProps} />}
+          />
 
-        <Route
-          exact
-          path="/test"
-          render={routeProps => <Test {...routeProps} />}
-        />
+          <Route
+            exact
+            path="/test"
+            render={routeProps => <Test {...routeProps} />}
+          />
+        </main>
       </div>
 
-      <Footer />
+      <AppFooter />
     </Router>
   );
 };

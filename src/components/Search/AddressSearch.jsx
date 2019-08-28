@@ -41,7 +41,7 @@ const AddressSearch = () => {
   }
 
   return (
-    <main role="main">
+    <>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
@@ -117,7 +117,7 @@ const AddressSearch = () => {
           Retrieve Quote
         </Link>
       </section>
-    </main>
+    </>
   );
 };
 
