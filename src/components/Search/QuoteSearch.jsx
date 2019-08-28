@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
   Input,
@@ -11,7 +10,7 @@ import {
   Switch
 } from '@exzeo/core-ui';
 
-import { searchAddress } from '@exzeo/core-ui/src/@Harmony';
+// import { searchAddress } from '@exzeo/core-ui/src/@Harmony';
 
 import QuoteCard from './QuoteCard';
 import NoResults from './NoResults';
@@ -135,9 +134,11 @@ const QuoteSearch = () => {
         {searchState.hasSearched && searchState.noResults ? (
           <NoResults />
         ) : (
-          searchState.results.map(quote => (
-            <QuoteCard key={quote.quoteNumber} property={quote} />
-          ))
+          <React.Fragment>
+            {searchState.results.map(quote => (
+              <QuoteCard key={quote.quoteNumber} property={quote} />
+            ))}
+          </React.Fragment>
         )}
       </section>
     </main>

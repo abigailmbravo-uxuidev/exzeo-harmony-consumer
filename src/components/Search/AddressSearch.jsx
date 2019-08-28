@@ -84,13 +84,28 @@ const AddressSearch = () => {
       <section className="results">
         {loading && <SectionLoader />}
 
-        {searchState.hasSearched && searchState.noResults ? (
-          <NoResults />
-        ) : (
-          searchState.results.map(property => (
-            <AddressCard key={property.id} property={property} />
-          ))
-        )}
+        {searchState.hasSearched &&
+          (searchState.noResults ? (
+            <NoResults />
+          ) : (
+            <React.Fragment>
+              {searchState.results.map(property => (
+                <AddressCard key={property.id} property={property} />
+              ))}
+
+              <p>
+                If you don’t see your address in the list provided, try entering
+                less address information to see if it comes up. Please note, at
+                this time we are only writing single family dwellings in the
+                state of Florida.
+                <br />
+                <br />
+                If you still have problems, please{' '}
+                <a href="555-555-5555">call us</a>&nbsp;and one of our
+                representative will be glad to help you.
+              </p>
+            </React.Fragment>
+          ))}
       </section>
     </main>
   );
