@@ -1,5 +1,6 @@
 import 'react-app-polyfill/ie11';
 import 'core-js/features/string/repeat';
+import 'core-js/features/object/values';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
