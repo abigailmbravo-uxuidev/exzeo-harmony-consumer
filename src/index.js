@@ -1,5 +1,7 @@
 import 'react-app-polyfill/ie11';
+// Used by react-router-dom - they don't support ie11
 import 'core-js/features/string/repeat';
+// We are using this one
 import 'core-js/features/object/values';
 
 import React from 'react';
