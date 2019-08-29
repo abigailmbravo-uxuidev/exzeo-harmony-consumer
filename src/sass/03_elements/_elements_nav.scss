@@ -26,7 +26,7 @@
 nav[role='navigation'] {
   display: flex;
   flex-direction: column;
-  min-width: 15rem;
+  min-width: 13rem;
 
   > ul {
     margin-top: 0.75rem;
@@ -140,6 +140,7 @@ nav[role='navigation'] {
         margin-top: 0.75rem;
         padding: 0;
         list-style: none;
+        width: 100%;
         li {
           a {
             h3 {

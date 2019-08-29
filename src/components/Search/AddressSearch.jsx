@@ -42,11 +42,11 @@ const AddressSearch = () => {
 
   return (
     <div className="view-grid">
+      <h1 className="title">Address</h1>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <div className="searchInputWrapper">
-              <h1>Address</h1>
               <Field
                 name="address"
                 validate={composeValidators([

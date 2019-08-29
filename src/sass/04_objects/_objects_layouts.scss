@@ -17,10 +17,9 @@
       overflow-y: auto;
       flex-grow: 0;
       flex-shrink: 0;
-      margin-left: 1rem;
-      padding: ($padding * 2) ($padding) ($padding * 2)
-        (calc((100vw - 102rem) / 2));
-      width: calc(((100vw - 102rem) / 2) + 15rem);
+      margin-left: 2rem;
+      padding: ($padding * 2) 0 ($padding * 2) (calc((100vw - 102rem) / 2));
+      width: calc(((100vw - 102rem) / 2) + 13rem);
 
       @include forPhoneOnly {
         margin-left: 0;
@@ -68,47 +67,6 @@
       }*/
 
       //underwriting page styling
-
-      .infoBar {
-        width: 100%;
-        margin: 1rem 0 0 0;
-        padding: $padding;
-        display: flex;
-
-        h2 {
-          label {
-            margin-bottom: 0;
-            font-size: $fontSizeSubheader--small;
-          }
-        }
-
-        p {
-          margin-bottom: 0;
-          flex-direction: column-reverse;
-          width: auto;
-          font-family: $serif;
-        }
-      }
-
-      form {
-        flex-shrink: 0;
-        flex-grow: 0;
-        .title {
-          padding-left: 0;
-        }
-
-        .form-group {
-          margin-bottom: 0.5rem;
-
-          &.property-search {
-            padding: 0;
-          }
-
-          &.switch {
-            margin-bottom: 0;
-          }
-        }
-      }
 
       //mobile styling
 

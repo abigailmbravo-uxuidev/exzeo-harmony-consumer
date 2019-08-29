@@ -79,3 +79,40 @@
     }
   }
 }
+
+//consumer view grid styling
+
+.infoBar {
+  display: none;
+}
+.view-grid {
+  //title for headers
+  .title {
+    margin: 0;
+  }
+
+  .form-group {
+  }
+
+  //quote number infomation bar
+  .infoBar {
+    width: 100%;
+    margin: 1rem 0 0 0;
+    padding: $padding;
+    display: flex;
+
+    h2 {
+      label {
+        margin-bottom: 0;
+        font-size: $fontSizeSubheader--small;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+      flex-direction: column-reverse;
+      width: auto;
+      font-family: $serif;
+    }
+  }
+}
