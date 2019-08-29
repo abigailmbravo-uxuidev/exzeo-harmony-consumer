@@ -8,9 +8,13 @@ const QuoteWorkflow = ({ location }) => {
     <>
       <div className="infoBar">
         <h2>
-          <label>TEST PAGE: </label>
+          <label>
+            Test Page: <strong>$000000</strong>{' '}
+          </label>
         </h2>
-        <p>Not for consideration while testing</p>
+        <p>
+          Not for consideration <strong>while testing</strong>
+        </p>
       </div>
       <Gandalf
         formId="harmony-quote"

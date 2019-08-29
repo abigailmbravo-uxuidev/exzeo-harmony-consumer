@@ -5,14 +5,11 @@
   margin-bottom: 1rem;
   width: 100%;
 
-  p {
-    padding-left: ($padding / 2);
+  .property-search {
+    position: relative;
   }
 
-  .form-group {
-    position: relative;
-    margin-bottom: 0.5rem;
-    padding: $padding $padding 0 0;
+  p {
   }
 
   //search bar button override

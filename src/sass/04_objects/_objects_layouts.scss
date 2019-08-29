@@ -44,7 +44,7 @@
         width: 100%;
 
         hr {
-          margin: 3rem 1rem 1rem 0;
+          margin: 1rem 1rem 1rem 0;
           width: 100%;
         }
 
@@ -70,23 +70,39 @@
       //underwriting page styling
 
       .infoBar {
-        margin-bottom: 0;
+        width: 100%;
+        margin: 1rem 0 0 0;
+        padding: $padding;
+        display: flex;
 
         h2 {
+          label {
+            margin-bottom: 0;
+            font-size: $fontSizeSubheader--small;
+          }
         }
 
         p {
-          align-content: flex-end;
+          margin-bottom: 0;
+          flex-direction: column-reverse;
+          width: auto;
+          font-family: $serif;
         }
       }
 
       form {
+        flex-shrink: 0;
+        flex-grow: 0;
         .title {
           padding-left: 0;
         }
 
         .form-group {
-          padding: 0 $padding $padding 0;
+          margin-bottom: 0.5rem;
+
+          &.property-search {
+            padding: 0;
+          }
 
           &.switch {
             margin-bottom: 0;
