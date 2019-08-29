@@ -91,7 +91,44 @@
     margin: 0;
   }
 
+  .searchInputWrapper {
+    p {
+      margin-top: 0.5rem;
+    }
+  }
+
   .form-group {
+  }
+
+  section {
+    overflow: hidden;
+
+    hr {
+      background-color: $lightGrey;
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 1px;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 2rem 0 1rem 0;
+    }
+
+    label {
+      padding-top: ($padding / 2);
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    p {
+      padding-top: ($padding / 4);
+      padding-bottom: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-footer {
+      background-color: red;
+      width: 100%;
+    }
   }
 
   //quote number infomation bar
