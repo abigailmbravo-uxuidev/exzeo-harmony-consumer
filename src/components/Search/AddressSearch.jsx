@@ -88,7 +88,7 @@ const AddressSearch = () => {
           (searchState.noResults ? (
             <NoResults />
           ) : (
-            <React.Fragment>
+            <>
               {searchState.results.map(property => (
                 <AddressCard key={property.id} property={property} />
               ))}
@@ -104,12 +104,12 @@ const AddressSearch = () => {
                 <a href="555-555-5555">call us</a>&nbsp;and one of our
                 representative will be glad to help you.
               </p>
-            </React.Fragment>
+            </>
           ))}
       </section>
 
       <section>
-        <hr></hr>
+        <hr />
         <label>Already received a quote? No problem!</label>
         <p>Your quote will be saved up to 30 days.</p>
 

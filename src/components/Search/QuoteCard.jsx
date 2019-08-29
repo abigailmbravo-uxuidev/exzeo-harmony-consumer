@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const QuoteCard = () => {
+const QuoteCard = ({ quote }) => {
   return (
     <div className="card">
       <div className="cardContent">Some Quote Stuff</div>

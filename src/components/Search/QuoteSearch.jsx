@@ -6,33 +6,38 @@ import {
   Field,
   SectionLoader,
   validation,
-  composeValidators,
-  Switch
+  composeValidators
+  // Switch
 } from '@exzeo/core-ui';
 
-// import { searchAddress } from '@exzeo/core-ui/src/@Harmony';
+import { retrieveQuote } from '@exzeo/core-ui/src/@Harmony';
 
 import QuoteCard from './QuoteCard';
 import NoResults from './NoResults';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 const QuoteSearch = () => {
   const [searchState, setSearchState] = useState({
     hasSearched: false,
-    results: [],
+    result: null,
     noResults: false
   });
   const [loading, setLoading] = useState(false);
 
-  async function handleSearchSubmit(values) {
+  async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
     try {
+      const params = {
+        quoteNumber,
+        email
+      };
+
       setLoading(true);
-      await sleep(30);
+      // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
+      const result = await retrieveQuote(params);
+
       setSearchState({
         hasSearched: true,
-        results: [{ quoteNumber: 1 }],
-        noResults: false
+        result: result,
+        noResults: !result.quoteNumber
       });
     } catch (error) {
       console.error('Error searching: ', error);
@@ -43,8 +48,8 @@ const QuoteSearch = () => {
 
   return (
     <>
-      <Form onSubmit={handleSearchSubmit}>
-        {({ handleSubmit, values }) => (
+      <Form onSubmit={handleSearchSubmit} subscription={{}}>
+        {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <div className="retrieveQuoteWrapper view-grid">
               <h1>Retrieve Quote</h1>
@@ -87,51 +92,67 @@ const QuoteSearch = () => {
                 )}
               </Field>
 
-              <Field name="hasQuoteNumber">
+              <Field
+                name="quoteNumber"
+                validate={composeValidators([validation.isRequired])}
+              >
                 {({ input, meta }) => (
-                  <Switch
+                  <Input
                     input={input}
                     meta={meta}
-                    styleName="switch"
-                    label="Do you have access to the Quote Number"
-                    dataTest="hasQuoteNumber"
+                    styleName="required"
+                    label="Quote Number"
+                    dataTest="quoteNumber"
+                    placeholder="TTIC-A3-"
                   />
                 )}
               </Field>
 
-              {values.hasQuoteNumber ? (
-                <Field
-                  name="quoteNumber"
-                  validate={composeValidators([validation.isRequired])}
-                >
-                  {({ input, meta }) => (
-                    <Input
-                      input={input}
-                      meta={meta}
-                      styleName="required"
-                      label="Quote Number"
-                      dataTest="quoteNumber"
-                      placeholder="TTIC-A3-"
-                    />
-                  )}
-                </Field>
-              ) : (
-                <Field
-                  name="email"
-                  validate={composeValidators([validation.isRequired])}
-                >
-                  {({ input, meta }) => (
-                    <Input
-                      input={input}
-                      meta={meta}
-                      styleName="required"
-                      label="Email"
-                      dataTest="email"
-                      placeholder="jsmith@email.com"
-                    />
-                  )}
-                </Field>
-              )}
+              {/*<Field name="hasQuoteNumber">*/}
+              {/*  {({ input, meta }) => (*/}
+              {/*    <Switch*/}
+              {/*      input={input}*/}
+              {/*      meta={meta}*/}
+              {/*      styleName="switch"*/}
+              {/*      label="Do you have access to the Quote Number"*/}
+              {/*      dataTest="hasQuoteNumber"*/}
+              {/*    />*/}
+              {/*  )}*/}
+              {/*</Field>*/}
+
+              {/*{values.hasQuoteNumber ? (*/}
+              {/*  <Field*/}
+              {/*    name="quoteNumber"*/}
+              {/*    validate={composeValidators([validation.isRequired])}*/}
+              {/*  >*/}
+              {/*    {({ input, meta }) => (*/}
+              {/*      <Input*/}
+              {/*        input={input}*/}
+              {/*        meta={meta}*/}
+              {/*        styleName="required"*/}
+              {/*        label="Quote Number"*/}
+              {/*        dataTest="quoteNumber"*/}
+              {/*        placeholder="TTIC-A3-"*/}
+              {/*      />*/}
+              {/*    )}*/}
+              {/*  </Field>*/}
+              {/*) : (*/}
+              {/*  <Field*/}
+              {/*    name="email"*/}
+              {/*    validate={composeValidators([validation.isRequired])}*/}
+              {/*  >*/}
+              {/*    {({ input, meta }) => (*/}
+              {/*      <Input*/}
+              {/*        input={input}*/}
+              {/*        meta={meta}*/}
+              {/*        styleName="required"*/}
+              {/*        label="Email"*/}
+              {/*        dataTest="email"*/}
+              {/*        placeholder="jsmith@email.com"*/}
+              {/*      />*/}
+              {/*    )}*/}
+              {/*  </Field>*/}
+              {/*)}*/}
               <div className="form-footer">
                 <Button
                   className={Button.constants.classNames.primary}
@@ -149,15 +170,15 @@ const QuoteSearch = () => {
       <section className="results">
         {loading && <SectionLoader />}
 
-        {searchState.hasSearched && searchState.noResults ? (
-          <NoResults />
-        ) : (
-          <>
-            {searchState.results.map(quote => (
-              <QuoteCard key={quote.quoteNumber} property={quote} />
-            ))}
-          </>
-        )}
+        {searchState.hasSearched &&
+          (searchState.noResults ? (
+            <NoResults />
+          ) : (
+            <QuoteCard
+              key={searchState.result.quoteNumber}
+              quote={searchState.result}
+            />
+          ))}
       </section>
     </>
   );
