@@ -5,15 +5,15 @@ import { Button } from '@exzeo/core-ui';
 
 const QuoteWorkflow = ({ location }) => {
   return (
-    <main role="main">
+    <>
       <div className="infoBar">
         <h2>
           <label>TEST PAGE: </label>
         </h2>
-        Not for consideration while testing
+        <p>Not for consideration while testing</p>
       </div>
       <Gandalf
-        formId='harmony-quote'
+        formId="harmony-quote"
         currentPage={0}
         handleSubmit={x => x}
         initialValues={{}}
@@ -29,7 +29,7 @@ const QuoteWorkflow = ({ location }) => {
           </Button>
         )}
       />
-    </main>
+    </>
   );
 };
 

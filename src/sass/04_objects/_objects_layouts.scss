@@ -33,7 +33,10 @@
       flex-grow: 1;
       flex-shrink: 1;
       padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
-        $padding;
+        0;
+      width: 100%;
+
+      //retrieve styling on search page
 
       section {
         display: flex;
@@ -63,6 +66,34 @@
           }
         }
       }
+
+      //underwriting page styling
+
+      .infoBar {
+        margin-bottom: 0;
+
+        h2 {
+        }
+
+        p {
+          align-content: flex-end;
+        }
+      }
+
+      form {
+        .title {
+          padding-left: 0;
+        }
+
+        .form-group {
+          padding: 0 $padding $padding 0;
+
+          &.switch {
+            margin-bottom: 0;
+          }
+        }
+      }
+
       //mobile styling
 
       @include forPhoneOnly {
