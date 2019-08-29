@@ -46,9 +46,8 @@ const QuoteSearch = () => {
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit, values }) => (
           <form onSubmit={handleSubmit}>
-            <h1>Retrieve Quote</h1>
-
-            <div className="searchInputWrapper view-grid">
+            <div className="retrieveQuoteWrapper view-grid">
+              <h1>Retrieve Quote</h1>
               <Field
                 name="lastName"
                 validate={composeValidators([
@@ -133,15 +132,16 @@ const QuoteSearch = () => {
                   )}
                 </Field>
               )}
+              <div className="form-footer">
+                <Button
+                  className={Button.constants.classNames.primary}
+                  type="submit"
+                  data-test="submit"
+                >
+                  Retrieve Quote
+                </Button>
+              </div>
             </div>
-
-            <Button
-              className={Button.constants.classNames.primary}
-              type="submit"
-              data-test="submit"
-            >
-              Retrieve Quote
-            </Button>
           </form>
         )}
       </Form>
