@@ -1,8 +1,5 @@
 //consumer view grid styling
 
-.infoBar {
-  display: none;
-}
 .view-grid {
   .form-footer {
     width: 100%;
@@ -13,10 +10,6 @@
 
   .switch {
     margin-bottom: 0;
-  }
-
-  input {
-    color: $lightGrey;
   }
 
   //title for headers
