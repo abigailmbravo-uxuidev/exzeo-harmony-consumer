@@ -1,91 +1,20 @@
-.view-grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.view-grid {
-  > * {
-    padding: $padding;
-    width: 100%;
-  }
-}
-// TITLE component
-
-.title {
-  margin: 0.5rem 0;
-  padding: ($padding / 2) $padding;
-  width: 100%;
-  color: $navy;
-  font-size: $fontSizeHeader;
-  font-family: $serif;
-  font-weight: bold;
-
-  @include forPhoneOnly {
-    font-size: $fontSizeSubheader--small;
-
-    .fa {
-      font-size: $fontSizeSubheader--small;
-    }
-  }
-
-  .fa {
-    font-size: $fontSizeSubheader--small;
-  }
-}
-// SECTION componet
-
-.view-grid {
-  section {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-
-  section {
-    display: flex;
-
-    > * {
-      padding: $padding;
-    }
-  }
-}
-
-// responsize styles
-@supports (display: grid) {
-  @include forPhoneOnly {
-    .view-grid,
-    .view-grid section {
-      .view-col-1,
-      .view-col-10,
-      .view-col-11,
-      .view-col-2,
-      .view-col-3,
-      .view-col-4,
-      .view-col-5,
-      .view-col-6,
-      .view-col-7,
-      .view-col-8,
-      .view-col-9 {
-        width: 100%;
-      }
-    }
-    .view-grid {
-      > div {
-        padding: $padding * 2;
-      }
-      > section > dl {
-        padding: 0 ($padding * 2);
-      }
-    }
-  }
-}
-
 //consumer view grid styling
 
 .infoBar {
   display: none;
 }
 .view-grid {
+  .form-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0;
+  }
+
+  .switch {
+    margin-bottom: 0;
+  }
+
   //title for headers
   .title {
     margin: 0;
@@ -166,5 +95,88 @@
     display: flex;
     justify-content: flex-end;
     padding-top: 0;
+  }
+}
+
+//view grid styling from harmony
+.view-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-grid {
+  > * {
+    padding: $padding;
+    width: 100%;
+  }
+}
+// TITLE component
+
+.title {
+  margin: 0.5rem 0;
+  padding: ($padding / 2) $padding;
+  width: 100%;
+  color: $navy;
+  font-size: $fontSizeHeader;
+  font-family: $serif;
+  font-weight: bold;
+
+  @include forPhoneOnly {
+    font-size: $fontSizeSubheader--small;
+
+    .fa {
+      font-size: $fontSizeSubheader--small;
+    }
+  }
+
+  .fa {
+    font-size: $fontSizeSubheader--small;
+  }
+}
+// SECTION componet
+
+.view-grid {
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  section {
+    display: flex;
+
+    > * {
+      padding: $padding;
+    }
+  }
+}
+
+// responsize styles
+@supports (display: grid) {
+  @include forPhoneOnly {
+    .view-grid,
+    .view-grid section {
+      .view-col-1,
+      .view-col-10,
+      .view-col-11,
+      .view-col-2,
+      .view-col-3,
+      .view-col-4,
+      .view-col-5,
+      .view-col-6,
+      .view-col-7,
+      .view-col-8,
+      .view-col-9 {
+        width: 100%;
+      }
+    }
+    .view-grid {
+      > div {
+        padding: $padding * 2;
+      }
+      > section > dl {
+        padding: 0 ($padding * 2);
+      }
+    }
   }
 }
