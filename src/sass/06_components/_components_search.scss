@@ -53,23 +53,21 @@
 }
 
 //search result card styling
+.view-grid {
+  .results {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    .card {
+      flex-direction: row;
+      padding: 0 $padding;
+      &:hover {
+        cursor: pointer;
+        transform: scale(0.99);
 
-.results {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  .card {
-    flex-direction: row;
-    padding: 0 $padding;
-    &:hover {
-      cursor: pointer;
-      transform: scale(0.99);
-
-      @include shadow(0, 1px, 4px, rgba($navy, 0.25));
-    }
-
-    .cardContent {
-      padding: $padding 0 $padding 0;
+        @include shadow(0, 1px, 4px, rgba($navy, 0.25));
+      }
     }
   }
 }
