@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Header from './components/Header';
-import Navigation from './components/Navigation';
-import QuoteWorkflow from './components/QuoteWorkflow';
-import Test from './components/Test';
-import { AddressSearch, QuoteSearch } from './components/Search';
-import RouteErrorBoundary from './components/RouteErrorBoundary';
+import Header from 'components/Header';
+import Navigation from 'components/Navigation';
+import QuoteWorkflow from 'components/QuoteWorkflow';
+import Test from 'components/Test';
+import { AddressSearch, QuoteSearch } from 'components/Search';
+import RouteErrorBoundary from 'components/RouteErrorBoundary';
 
 const App = () => {
   return (

@@ -1,21 +1,15 @@
 import React from 'react';
 import { Gandalf } from '@exzeo/core-ui/src/@Harmony';
-import template from '../mock-data/mockAF3';
 import { Button } from '@exzeo/core-ui';
+
+import template from '../mock-data/mockAF3';
+
+import InfoBar from './InfoBar';
 
 const QuoteWorkflow = ({ location }) => {
   return (
     <>
-      <div className="infoBar">
-        <h2>
-          <label>
-            Test Page: <strong>$000000</strong>{' '}
-          </label>
-        </h2>
-        <p>
-          Not for consideration <strong>while testing</strong>
-        </p>
-      </div>
+      <InfoBar />
       <Gandalf
         formId="harmony-quote"
         currentPage={0}

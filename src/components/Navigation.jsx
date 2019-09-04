@@ -50,9 +50,9 @@ const Navigation = ({ location }) => {
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
                   <p>
-                    <strong>101 E KENNEDY BLVD</strong>
+                    <strong>101 Test Address</strong>
                     <br />
-                    Tampa, FL 33602 <br />
+                    Tampa, FL 33111 <br />
                     Year Built: 2005
                     <br />
                     Flood Zone: "A"
