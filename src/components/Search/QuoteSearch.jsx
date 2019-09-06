@@ -47,12 +47,15 @@ const QuoteSearch = () => {
   }
 
   return (
-    <>
-      <Form onSubmit={handleSearchSubmit} subscription={{}}>
-        {({ handleSubmit }) => (
+    <div className="view-grid">
+      <h1 className="title">Retrieve Quote</h1>
+      <Form
+        onSubmit={handleSearchSubmit}
+        subscription={{ pristine: true, submitting: true }}
+      >
+        {({ handleSubmit, submitting, pristine }) => (
           <form onSubmit={handleSubmit}>
-            <div className="retrieveQuoteWrapper view-grid">
-              <h1>Retrieve Quote</h1>
+            <div className="retrieveQuoteWrapper">
               <Field
                 name="lastName"
                 validate={composeValidators([
@@ -158,6 +161,7 @@ const QuoteSearch = () => {
                   className={Button.constants.classNames.primary}
                   type="submit"
                   data-test="submit"
+                  disabled={submitting || pristine}
                 >
                   Retrieve Quote
                 </Button>
@@ -169,18 +173,17 @@ const QuoteSearch = () => {
 
       <section className="results">
         {loading && <SectionLoader />}
-
-        {searchState.hasSearched &&
-          (searchState.noResults ? (
-            <NoResults />
-          ) : (
-            <QuoteCard
-              key={searchState.result.quoteNumber}
-              quote={searchState.result}
-            />
-          ))}
+        {/*{searchState.hasSearched &&*/}
+        {/*  (searchState.noResults ? (*/}
+        {/*    <NoResults />*/}
+        {/*  ) : (*/}
+        {/*    <QuoteCard*/}
+        {/*      key={searchState.result.quoteNumber}*/}
+        {/*      quote={searchState.result}*/}
+        {/*    />*/}
+        {/*  ))}*/}
       </section>
-    </>
+    </div>
   );
 };
 
