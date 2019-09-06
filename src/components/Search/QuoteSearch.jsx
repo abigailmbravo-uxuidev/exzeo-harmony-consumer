@@ -12,19 +12,33 @@ import {
 
 import { retrieveQuote } from '@exzeo/core-ui/src/@Harmony';
 
-import QuoteCard from './QuoteCard';
-import NoResults from './NoResults';
+// import QuoteCard from './QuoteCard';
+// import NoResults from './NoResults';
+
+export const VALID_QUOTE_STATES = [
+  'Quote Started',
+  'Quote Qualified',
+  'Application Started',
+  'Application Ready',
+  'Quote Stopped'
+];
+
+const initialState = {
+  hasSearched: false,
+  result: null,
+  noResults: false
+};
 
 const QuoteSearch = () => {
-  const [searchState, setSearchState] = useState({
-    hasSearched: false,
-    result: null,
-    noResults: false
-  });
+  const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
 
   async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
     try {
+      if (searchState.hasSearched) {
+        setSearchState(initialState);
+      }
+
       const params = {
         quoteNumber,
         email
@@ -33,11 +47,15 @@ const QuoteSearch = () => {
       setLoading(true);
       // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
       const result = await retrieveQuote(params);
+      const quoteFound = result && result.quoteNumber;
 
       setSearchState({
         hasSearched: true,
         result: result,
-        noResults: !result.quoteNumber
+        noResults: !quoteFound,
+        // TODO this is confusing logic, but will ultimately not be needed here once we accept 'email' as valid search criteria and can then potentially return multiple quotes
+        invalidQuoteState:
+          quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
       });
     } catch (error) {
       console.error('Error searching: ', error);
@@ -173,6 +191,33 @@ const QuoteSearch = () => {
 
       <section className="results">
         {loading && <SectionLoader />}
+
+        {searchState.hasSearched && (
+          <React.Fragment>
+            {searchState.noResults && (
+              <div>
+                Oops! We were unable to find the quote you were looking for.
+                Please try again or feel free to contact us for support.
+              </div>
+            )}
+
+            {searchState.result && searchState.invalidQuoteState && (
+              <div>
+                We apologize but this Quote has a status of “ ... “ (show the
+                quote state) which is no longer retrievable. For questions or
+                edits, please contact us. Provide phone and contact methods.
+                Click Here to start a new quote (take Quote Number them to
+                consumer “landing page”).
+              </div>
+            )}
+            {searchState.result && !searchState.invalidQuoteState && (
+              <div>
+                Yay we found your quote: {searchState.result.quoteNumber}
+              </div>
+            )}
+          </React.Fragment>
+        )}
+
         {/*{searchState.hasSearched &&*/}
         {/*  (searchState.noResults ? (*/}
         {/*    <NoResults />*/}
