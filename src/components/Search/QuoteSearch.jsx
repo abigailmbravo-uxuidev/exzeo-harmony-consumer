@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Input,
@@ -177,6 +178,9 @@ const QuoteSearch = () => {
               {/*  </Field>*/}
               {/*)}*/}
               <div className="form-footer">
+                <Link to="/searchAddress" className="btn btn-secondary">
+                  New Quote
+                </Link>
                 <Button
                   className={Button.constants.classNames.primary}
                   type="submit"

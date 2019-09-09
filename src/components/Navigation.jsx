@@ -20,7 +20,7 @@ const Navigation = ({ location }) => {
             })}
           >
             <h3>Retrieve</h3>
-            <span></span>
+            <span />
             <p />
           </li>
           {/********** RETRIEVE **********/}
@@ -42,7 +42,9 @@ const Navigation = ({ location }) => {
               <li key="address">
                 <NavLink
                   to="/searchAddress"
-                  className={classNames('')}
+                  className={classNames({
+                    disabled: location.pathname !== '/searchAddress'
+                  })}
                   activeClassName="active"
                 >
                   <h3>Address</h3>
@@ -61,7 +63,10 @@ const Navigation = ({ location }) => {
               </li>
 
               <li key="underwriting">
-                <NavLink to="/quote" className={classNames('')}>
+                <NavLink
+                  to="/quote"
+                  className={classNames({ disabled: true, complete: false })}
+                >
                   <h3>Underwriting</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
