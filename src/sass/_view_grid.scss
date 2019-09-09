@@ -73,25 +73,29 @@
   }
 }
 
+//retrueve quote styling
 .retrieveQuoteWrapper {
+  padding: 0 1rem 1rem 0;
+  width: 100%;
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
   h1 {
     margin-bottom: 0;
     padding-bottom: 0;
   }
-  .form-footer {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 0;
-  }
-}
 
-.retrieveQuoteWrapper {
   .form-footer {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding-top: 0;
+    padding-top: 1rem;
+
+    button {
+      margin-left: 1rem;
+    }
   }
 }
 
