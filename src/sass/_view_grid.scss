@@ -71,6 +71,10 @@
 
   //results modal styling
   .results {
+    position: absolute;
+    top: 27px;
+    left: 223px;
+    width: 63vw;
     .toaster {
       margin: 1rem;
       .card {
@@ -100,7 +104,7 @@
   }
 }
 
-//retrueve quote styling
+//retrieve quote styling
 .retrieveQuoteWrapper {
   padding: 0 1rem 1rem 0;
   width: 100%;
