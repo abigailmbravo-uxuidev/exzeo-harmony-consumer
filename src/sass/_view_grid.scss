@@ -23,9 +23,6 @@
     }
   }
 
-  .form-group {
-  }
-
   section {
     overflow: hidden;
     margin: 0 -1rem;
@@ -69,6 +66,36 @@
       flex-direction: column-reverse;
       width: auto;
       font-family: $serif;
+    }
+  }
+
+  //results modal styling
+  .results {
+    .toaster {
+      margin: 1rem;
+      .card {
+        padding: 1rem;
+        background-color: $red;
+
+        div {
+          color: white;
+          font-weight: $bold;
+          font-size: $fontSizeBase;
+        }
+
+        button {
+          margin: 0;
+          background-color: transparent;
+          border-color: transparent;
+          box-shadow: none;
+          padding: 0;
+          position: fixed;
+          right: 151px;
+          top: 520px;
+          z-index: 0;
+          font-size: $fontSizeBody;
+        }
+      }
     }
   }
 }
