@@ -29,7 +29,7 @@ const Navigation = ({ location }) => {
           <li
             key="quote"
             className={classNames({
-              disabled: false,
+              disabled: location.pathname === '/retrieveQuote',
               complete: false
             })}
           >
@@ -43,7 +43,7 @@ const Navigation = ({ location }) => {
                 <NavLink
                   to="/searchAddress"
                   className={classNames({
-                    disabled: location.pathname !== '/searchAddress'
+                    disabled: false
                   })}
                   activeClassName="active"
                 >
