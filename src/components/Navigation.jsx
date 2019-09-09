@@ -109,7 +109,7 @@ const Navigation = ({ location }) => {
           <li key="application" className={classNames({ disabled: true })}>
             <h3>Application</h3>
             <span>2</span>
-            <p />
+            <p className="application" />
             <ul>
               <li key="additionalInfo">
                 <a className={classNames('disabled')}>
