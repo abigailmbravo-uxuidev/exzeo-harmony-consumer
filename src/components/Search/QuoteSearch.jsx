@@ -5,6 +5,8 @@ import {
   Form,
   Field,
   SectionLoader,
+  Modal,
+  Toaster,
   validation,
   composeValidators
   // Switch
@@ -195,20 +197,43 @@ const QuoteSearch = () => {
         {searchState.hasSearched && (
           <React.Fragment>
             {searchState.noResults && (
-              <div>
-                Oops! We were unable to find the quote you were looking for.
-                Please try again or feel free to contact us for support.
-              </div>
+              <Toaster>
+                <div>
+                  Oops! We were unable to find the quote you were looking for.
+                  Please try again or feel free to contact us for support.
+                </div>
+                <button data-test="toaster-cancel" onClick={x => x}>
+                  X
+                </button>
+              </Toaster>
             )}
 
             {searchState.result && searchState.invalidQuoteState && (
-              <div>
-                We apologize but this Quote has a status of “ ... “ (show the
-                quote state) which is no longer retrievable. For questions or
-                edits, please contact us. Provide phone and contact methods.
-                Click Here to start a new quote (take Quote Number them to
-                consumer “landing page”).
-              </div>
+              <Modal header="Error Occurred" size={Modal.sizes.medium}>
+                <div>
+                  We apologize but this Quote has a status of{' '}
+                  {searchState.result.quoteState} which is no longer
+                  retrievable. For questions or edits, please contact us.
+                  Provide phone and contact methods. Click Here to start a new
+                  quote.
+                </div>
+                <div className="card-footer">
+                  <Button
+                    className={Button.constants.classNames.secondary}
+                    data-test="reset"
+                    onClick={x => x}
+                  >
+                    Try Again
+                  </Button>
+                  <Button
+                    className={Button.constants.classNames.primary}
+                    data-test="new-quote"
+                    onClick={x => x}
+                  >
+                    Start New Quote
+                  </Button>
+                </div>
+              </Modal>
             )}
             {searchState.result && !searchState.invalidQuoteState && (
               <div>
