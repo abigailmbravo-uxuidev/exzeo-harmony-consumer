@@ -204,18 +204,12 @@ const QuoteSearch = () => {
               {searchState.hasSearched && (
                 <React.Fragment>
                   {searchState.noResults && (
-                    <Toaster>
+                    <Toaster handleClick={() => resetSearch(form)}>
                       <div>
                         Oops! We were unable to find the quote you were looking
                         for. Please try again or feel free to contact us for
                         support.
                       </div>
-                      <button
-                        data-test="toaster-cancel"
-                        onClick={() => resetSearch(form)}
-                      >
-                        X
-                      </button>
                     </Toaster>
                   )}
 
