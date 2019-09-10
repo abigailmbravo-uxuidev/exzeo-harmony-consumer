@@ -24,13 +24,15 @@ COPY --from=dependencies /app /app
 COPY .env /app/.env
 RUN npm run build
 
-FROM golang:alpine as server
+FROM golang as server
 WORKDIR /app
-RUN apk add curl unzip ca-certificates
-RUN curl -LO https://github.com/m3ng9i/ran/releases/download/v0.1.4/ran_linux_amd64.zip
-RUN unzip ran_linux_amd64
-RUN chmod 777 ran_linux_amd64
-#COPY --from=build /app/build /app/build
+RUN apt-get update && apt-get -y install curl unzip
+RUN curl -LO https://github.com/m3ng9i/ran/releases/download/v0.1.4/ran_linux_amd64.zip && \
+    unzip ran_linux_amd64 && \
+    cp ran_linux_amd64 ran && \
+    chmod 777 ran
+#RUN chmod 777 ran_linux_amd64
+COPY --from=build /app/build /app/build
 
-CMD ["/app/ran_linux_amd64"]
+CMD ["/app/ran -r /app/build -p 8181"]
 
