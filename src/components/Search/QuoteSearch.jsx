@@ -8,7 +8,6 @@ import {
   Field,
   SectionLoader,
   Modal,
-  Toaster,
   validation,
   composeValidators
   // Switch
