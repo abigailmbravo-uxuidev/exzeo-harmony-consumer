@@ -51,14 +51,7 @@ const Navigation = ({ location }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>
-                    <strong>101 Test Address</strong>
-                    <br />
-                    Tampa, FL 33111 <br />
-                    Year Built: 2005
-                    <br />
-                    Flood Zone: "A"
-                  </p>
+                  <p>Enter your desired flood quote address.</p>
                 </NavLink>
               </li>
 
@@ -71,7 +64,7 @@ const Navigation = ({ location }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>You have successfully answered the required questions</p>
+                  <p>You have successfully answered the required questions.</p>
                 </NavLink>
               </li>
 
@@ -81,11 +74,9 @@ const Navigation = ({ location }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>
-                    Bacon ipsum dolor amet dolor fatback andouille corned beef
-                    mollit lorem pork chop anim shankle doner kevin
-                    reprehenderit consequat.
-                  </p>
+                  <p>Building limit</p>
+                  <p>Personal property</p>
+                  <p>Deductible</p>
                 </a>
               </li>
 

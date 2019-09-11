@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AddressCard = ({ property }) => {
   return (
-    <div className="card">
+    <div
+      className="card"
+      data-test={`result-${property.physicalAddress.address1}`}
+    >
       <div className="cardContent">
         <h4>{property.physicalAddress.address1}</h4>
         <p>{`${property.physicalAddress.city}, ${property.physicalAddress.state}  ${property.physicalAddress.zip}`}</p>
