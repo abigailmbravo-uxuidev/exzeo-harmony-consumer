@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gandalf } from '@exzeo/core-ui/src/@Harmony';
+import { Gandalf } from '@exzeo/harmony-core';
 import { Button } from '@exzeo/core-ui';
 
 import template from '../mock-data/mockAF3';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
-import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
+import { AppFooter } from '@exzeo/harmony-core';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Header from 'components/Header';

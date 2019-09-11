@@ -11,7 +11,7 @@ import {
   composeValidators
 } from '@exzeo/core-ui';
 
-import { searchAddress } from '@exzeo/core-ui/src/@Harmony';
+import { searchAddress } from '@exzeo/harmony-core';
 
 import AddressCard from './AddressCard';
 import NoResults from './NoResults';

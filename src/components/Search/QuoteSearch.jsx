@@ -14,7 +14,7 @@ import {
   // Switch
 } from '@exzeo/core-ui';
 
-import { retrieveQuote } from '@exzeo/core-ui/src/@Harmony';
+import { retrieveQuote } from '@exzeo/harmony-core';
 
 // import QuoteCard from './QuoteCard';
 // import NoResults from './NoResults';
