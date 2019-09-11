@@ -71,35 +71,26 @@
   }
 
   //results modal styling
-  .resultsModal {
-    position: absolute;
+  .modal {
+    position: fixed;
     top: 27px;
-    left: 223px;
-    width: 63vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($black, 0.54);
+    z-index: 10;
 
-    .cardContent {
-      position: fixed;
-      top: 432px;
-      padding-left: $padding * 2;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
+    .card {
+      margin: 10rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba($black, 0.54);
+      flex-direction: column;
+      padding: 0;
+      width: 63vw;
 
-      .card {
-        margin: 10rem;
-        display: flex;
-        flex-direction: column;
-        padding: 0;
+      .cardContent {
+        position: fixed;
+        top: 432px;
+        padding-left: $padding * 2;
       }
 
       .card-header {
@@ -112,19 +103,14 @@
         font-weight: $bold;
       }
 
-      div {
-        padding: $padding $padding 0 $padding;
-        color: $navy;
-      }
-
       .card-footer {
         display: flex;
         flex-direction: row-reverse;
         padding: $padding $padding 0 $padding;
-      }
 
-      button {
-        margin-left: 1rem;
+        button {
+          margin-left: 1rem;
+        }
       }
     }
   }

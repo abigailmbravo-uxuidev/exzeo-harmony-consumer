@@ -212,19 +212,21 @@ const QuoteSearch = () => {
                         for. Please try again or feel free to contact us for
                         support.
                       </div>
-                      <Button
-                        className={Button.constants.classNames.secondary}
-                        data-test="reset"
-                        onClick={() => resetSearch(form)}
-                      >
-                        Try Again
-                      </Button>
+                      <div className="card-footer">
+                        <Button
+                          className={Button.constants.classNames.secondary}
+                          data-test="reset"
+                          onClick={() => resetSearch(form)}
+                        >
+                          Try Again
+                        </Button>
+                      </div>
                     </Modal>
                   )}
 
                   {searchState.result && searchState.invalidQuoteState && (
                     <Modal header="Error Occurred" size={Modal.sizes.medium}>
-                      <div>
+                      <div className="cardContent">
                         We apologize but this Quote has a status of{' '}
                         {searchState.result.quoteState} which is no longer
                         retrievable. For questions or edits, please contact us.
