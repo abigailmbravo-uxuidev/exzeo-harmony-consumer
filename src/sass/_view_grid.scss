@@ -76,6 +76,12 @@
     left: 223px;
     width: 63vw;
 
+    div {
+      position: fixed;
+      top: 432px;
+      padding-left: $padding * 2;
+    }
+
     .modal {
       position: fixed;
       top: 0;
