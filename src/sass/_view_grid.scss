@@ -77,7 +77,7 @@
     left: 223px;
     width: 63vw;
 
-    div {
+    .cardContent {
       position: fixed;
       top: 432px;
       padding-left: $padding * 2;
@@ -125,59 +125,6 @@
 
       button {
         margin-left: 1rem;
-      }
-    }
-
-    //results toaster styling
-    .toaster {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      background-color: rgba($black, 0.54);
-
-      .card {
-        background-color: $red;
-        height: 175px;
-        background-color: $navy;
-        position: absolute;
-        right: calc((100vw - 102rem) / 2);
-        left: 0;
-        width: auto;
-
-        .cardContent {
-          color: white;
-          font-weight: $bold;
-          font-size: $fontSizeBase;
-        }
-
-        svg {
-          color: white;
-          &.fa-chevron {
-            font-size: 100px;
-            background-color: red;
-            border-radius: 50%;
-            height: 100px;
-            width: 100px;
-          }
-        }
-
-        button {
-          margin: 0;
-          background-color: transparent;
-          border-color: transparent;
-          box-shadow: none;
-          padding: 0;
-          position: fixed;
-          right: 151px;
-          top: 520px;
-          z-index: 0;
-          font-size: $fontSizeBody;
-        }
       }
     }
   }
