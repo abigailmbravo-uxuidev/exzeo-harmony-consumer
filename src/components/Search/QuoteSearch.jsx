@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
   Input,
@@ -205,7 +206,8 @@ const QuoteSearch = () => {
                 <React.Fragment>
                   {searchState.noResults && (
                     <Toaster handleClick={() => resetSearch(form)}>
-                      <div>
+                      <FontAwesomeIcon icon="chevron-right" size="sm" />
+                      <div className="cardContent">
                         Oops! We were unable to find the quote you were looking
                         for. Please try again or feel free to contact us for
                         support.

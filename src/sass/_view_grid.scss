@@ -1,6 +1,7 @@
 //consumer view grid styling
 
 .view-grid {
+  width: 100%;
   .form-footer {
     width: 100%;
     display: flex;
@@ -70,7 +71,7 @@
   }
 
   //results modal styling
-  .results {
+  .resultsModal {
     position: absolute;
     top: 27px;
     left: 223px;
@@ -129,15 +130,40 @@
 
     //results toaster styling
     .toaster {
-      margin: 1rem;
-      .card {
-        padding: 1rem;
-        background-color: $red;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba($black, 0.54);
 
-        div {
+      .card {
+        background-color: $red;
+        height: 175px;
+        background-color: $navy;
+        position: absolute;
+        right: calc((100vw - 102rem) / 2);
+        left: 0;
+        width: auto;
+
+        .cardContent {
           color: white;
           font-weight: $bold;
           font-size: $fontSizeBase;
+        }
+
+        svg {
+          color: white;
+          &.fa-chevron {
+            font-size: 100px;
+            background-color: red;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+          }
         }
 
         button {
