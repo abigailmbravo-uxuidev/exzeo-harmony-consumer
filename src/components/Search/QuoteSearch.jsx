@@ -73,7 +73,7 @@ const QuoteSearch = () => {
   }
 
   return (
-    <div className="view-grid">
+    <>
       <h1 className="title">Retrieve Quote</h1>
       <Form
         onSubmit={handleSearchSubmit}
@@ -260,7 +260,7 @@ const QuoteSearch = () => {
           </>
         )}
       </Form>
-    </div>
+    </>
   );
 };
 

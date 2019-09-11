@@ -41,7 +41,7 @@ const AddressSearch = () => {
   }
 
   return (
-    <div className="view-grid">
+    <>
       <h1 className="title">Address</h1>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
@@ -119,7 +119,7 @@ const AddressSearch = () => {
           </form>
         )}
       </Form>
-    </div>
+    </>
   );
 };
 
