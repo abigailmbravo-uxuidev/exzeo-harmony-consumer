@@ -90,18 +90,38 @@
 
       .card {
         margin: 10rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
       }
 
       .card-header {
         display: flex;
         background-color: $blue;
         color: white;
+        padding: $padding;
+        font-size: $fontSizeBase;
+        font-family: $serif;
+        font-weight: $bold;
+      }
+
+      div {
+        padding: $padding $padding 0 $padding;
+        color: $navy;
       }
 
       .card-footer {
         display: flex;
+        flex-direction: row-reverse;
+        padding: $padding $padding 0 $padding;
+      }
+
+      button {
+        margin-left: 1rem;
       }
     }
+
+    //results toaster styling
     .toaster {
       margin: 1rem;
       .card {
