@@ -1,0 +1,10 @@
+{
+  "projectId": "4bc7ce4d-e13a-4921-b8f2-0daa594a2396",
+  "chromeWebSecurity": false,
+  "testFiles": "**/**.spec.js",
+  "video": false,
+  "defaultCommandTimeout": 20000,
+  "requestTimeout": 60000,
+  "responseTimeout": 60000,
+  "pageLoadTimeout": 60000
+}

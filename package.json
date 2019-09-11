@@ -8,7 +8,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false",
     "test:watch": "react-scripts test",
-    "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js"
+    "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js",
+    "cypress": "react-scripts cypress"
   },
   "dependencies": {
     "@exzeo/core-ui": "0.0.0-5f3755d",
