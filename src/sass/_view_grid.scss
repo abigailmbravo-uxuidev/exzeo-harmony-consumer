@@ -86,8 +86,7 @@
       flex-direction: column;
       padding: 0;
       width: 63vw;
-
-      .cardContent {
+      background .cardContent {
         position: fixed;
         top: 432px;
         padding-left: $padding * 2;
@@ -110,6 +109,14 @@
 
         button {
           margin-left: 1rem;
+        }
+
+        span {
+          font-size: 1000px;
+          svg {
+            &.fa-chevron {
+            }
+          }
         }
       }
     }

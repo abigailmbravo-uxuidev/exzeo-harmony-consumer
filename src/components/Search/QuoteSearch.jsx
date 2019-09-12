@@ -205,7 +205,9 @@ const QuoteSearch = () => {
                 <React.Fragment>
                   {searchState.noResults && (
                     <Modal header="Error Occurred" size={Modal.sizes.medium}>
-                      <FontAwesomeIcon icon="chevron-right" size="sm" />
+                      <span>
+                        <FontAwesomeIcon icon="chevron-right" />
+                      </span>
                       <div className="cardContent">
                         Oops! We were unable to find the quote you were looking
                         for. Please try again or feel free to contact us for
