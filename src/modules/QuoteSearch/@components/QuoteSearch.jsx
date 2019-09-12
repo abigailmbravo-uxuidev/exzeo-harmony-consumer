@@ -164,22 +164,35 @@ const QuoteSearch = () => {
               {searchState.hasSearched && (
                 <React.Fragment>
                   {searchState.noResults && (
-                    <Modal header="Error Occurred" size={Modal.sizes.medium}>
-                      <span>
-                        <FontAwesomeIcon icon="chevron-right" />
-                      </span>
+                    <Modal
+                      header={
+                        <span>
+                          <FontAwesomeIcon icon="trophy" />
+                        </span>
+                      }
+                      size={Modal.sizes.medium}
+                    >
                       <div className="cardContent">
-                        Oops! We were unable to find the quote you were looking
-                        for. Please try again or feel free to contact us for
-                        support.
+                        <p>
+                          Oops! We were unable to find the quote you were
+                          looking for. Please try again or feel free to contact
+                          us for support.
+                        </p>
                       </div>
                       <div className="card-footer">
+                        <Button
+                          className={Button.constants.classNames.primary}
+                          data-test="reset"
+                          onClick={() => resetSearch(form)}
+                        >
+                          Send for Signature
+                        </Button>
                         <Button
                           className={Button.constants.classNames.secondary}
                           data-test="reset"
                           onClick={() => resetSearch(form)}
                         >
-                          Try Again
+                          Edit
                         </Button>
                       </div>
                     </Modal>

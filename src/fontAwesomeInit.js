@@ -7,7 +7,8 @@ import {
   faPaperPlane,
   faHome,
   faCheckCircle,
-  faKey
+  faKey,
+  faTrophy
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -18,5 +19,6 @@ library.add(
   faPaperPlane,
   faHome,
   faCheckCircle,
-  faKey
+  faKey,
+  faTrophy
 );

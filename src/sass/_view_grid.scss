@@ -89,10 +89,12 @@
     .card {
       display: flex;
       flex-direction: column;
-      padding: 0;
+      padding: 0 $padding;
       margin: 0;
       width: 100%;
       margin-left: 16rem;
+      background-color: $navy;
+      flex-wrap: wrap;
 
       &:hover {
         transform: none;
@@ -100,33 +102,64 @@
 
       .cardContent {
         padding: $padding;
+        background-color: $navy;
+        color: $white;
+        display: flex;
+        padding-left: 150px;
+
+        p {
+          color: white;
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding-left: $padding;
+          font-size: $fontSizeBase;
+          font-weight: $bold;
+          line-height: 1.2;
+        }
+
+        span {
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
       }
 
       .card-header {
         display: flex;
-        background-color: $blue;
-        color: white;
         padding: $padding;
-        font-size: $fontSizeBase;
-        font-family: $serif;
-        font-weight: $bold;
+        width: 32%;
+        position: absolute;
       }
 
       .card-footer {
         display: flex;
         flex-direction: row-reverse;
         padding: $padding $padding 0 $padding;
+        background-color: $navy;
+        padding: 0 32px 0 150px;
+        margin-bottom: 1rem;
+        margin-top: 0.75rem;
+        flex-direction: row-reverse;
 
         button {
           margin-left: 1rem;
+          margin-bottom: 1rem;
+          padding: 0.4rem 1rem;
         }
+      }
+      span {
+        font-size: 50px;
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: 0 8px 12px darken($navy, 15%);
+        width: 125px;
+        height: 125px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        span {
-          font-size: 1000px;
-          svg {
-            &.fa-chevron {
-            }
-          }
+        svg {
+          color: #ffd700;
+          font-size: 80px;
         }
       }
     }
