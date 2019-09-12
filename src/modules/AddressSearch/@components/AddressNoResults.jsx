@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NoResults = () => {
+const AddressNoResults = () => {
   return (
     <div>
       We're sorry, we're unable to retrieve the address you've entered. Please
@@ -10,4 +10,4 @@ const NoResults = () => {
   );
 };
 
-export default NoResults;
+export default AddressNoResults;

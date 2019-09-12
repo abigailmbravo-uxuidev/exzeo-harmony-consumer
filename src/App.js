@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { AppFooter } from '@exzeo/harmony-core';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import QuoteWorkflow from 'components/QuoteWorkflow';
-import Test from 'components/Test';
-import { AddressSearch, QuoteSearch } from 'components/Search';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
+import QuoteSearch from 'modules/QuoteSearch';
+import AddressSearch from './modules/AddressSearch';
+
+import Test from 'components/Test';
 
 const App = () => {
   return (
