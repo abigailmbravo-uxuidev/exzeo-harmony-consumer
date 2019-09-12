@@ -13,6 +13,8 @@ import {
 
 import { searchAddress } from '@exzeo/harmony-core';
 
+import { CONTACT_PHONE } from '../../constants/contactInformation';
+
 import AddressCard from './AddressCard';
 import NoResults from './NoResults';
 
@@ -96,9 +98,9 @@ const AddressSearch = () => {
                       family dwellings in the state of Florida.
                       <br />
                       <br />
-                      If you still have problems, please{' '}
-                      <a href="555-555-5555">call us</a>&nbsp;and one of our
-                      representative will be glad to help you.
+                      If you still have problems, please&nbsp;
+                      <a href={CONTACT_PHONE.href}>call us</a>&nbsp;and one of
+                      our representative will be glad to help you.
                     </p>
                   </>
                 ))}
