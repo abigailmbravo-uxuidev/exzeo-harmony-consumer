@@ -73,23 +73,33 @@
   //results modal styling
   .modal {
     position: fixed;
-    top: 27px;
+    top: 64px;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba($black, 0.54);
     z-index: 10;
+    padding-left: calc((100vw - 102rem) / 2);
+    padding-right: calc(((100vw - 102rem) / 2) + 32rem);
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: flex-start;
 
     .card {
-      margin: 10rem;
       display: flex;
       flex-direction: column;
       padding: 0;
-      width: 63vw;
-      background .cardContent {
-        position: fixed;
-        top: 432px;
-        padding-left: $padding * 2;
+      margin: 0;
+      width: 100%;
+      margin-left: 16rem;
+
+      &:hover {
+        transform: none;
+      }
+
+      .cardContent {
+        padding: $padding;
       }
 
       .card-header {
@@ -118,6 +128,13 @@
             }
           }
         }
+      }
+    }
+
+    //for phone
+    @include forPhoneOnly {
+      .card {
+        margin-left: 0;
       }
     }
   }
