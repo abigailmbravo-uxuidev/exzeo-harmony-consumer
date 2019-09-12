@@ -200,6 +200,7 @@ const QuoteSearch = () => {
             </form>
             <section className="results">
               {loading && <SectionLoader />}
+              <SectionLoader />
 
               {searchState.hasSearched && (
                 <React.Fragment>
