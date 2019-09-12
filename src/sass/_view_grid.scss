@@ -160,6 +160,12 @@
     justify-content: flex-end;
     padding-top: 1rem;
 
+    :disabled {
+      background-color: rgba($navy, 0.3);
+      border-color: transparent;
+      color: $extraLightGrey;
+    }
+
     button {
       margin-left: 1rem;
     }
