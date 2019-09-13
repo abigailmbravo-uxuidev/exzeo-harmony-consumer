@@ -2,12 +2,18 @@
 
 .view-grid {
   width: 100%;
-  padding: ($padding / 2) 0 0 $padding;
+  padding: $padding 0 0 $padding;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
 
-  h1.title {
-    padding-top: 4rem;
+  .title {
+    margin-bottom: 1rem;
+    font-size: $fontSizeHeader;
+    font-weight: $bold;
+    font-family: $serif;
+    color: $navy;
   }
 
   .form-footer {
@@ -237,7 +243,6 @@
     section {
       display: flex;
       flex-wrap: wrap;
-      padding: 0;
     }
 
     section {
