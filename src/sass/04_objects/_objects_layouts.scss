@@ -1,16 +1,26 @@
 //element structure
 
+//body layout
+body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 //main layout
 .harmony-consumer {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  flex-grow: 0;
+  flex-shrink: 0;
 
-  //element layout
-
+  //region layout
   div[role='region'] {
     overflow: hidden;
     width: 100%;
+    height: calc(100vh - 4rem);
+    flex-grow: 0;
+    flex-shrink: 0;
 
     nav[role='navigation'] {
       z-index: 10;
@@ -18,7 +28,7 @@
       flex-grow: 0;
       flex-shrink: 0;
       margin-left: 2rem;
-      padding: ($padding * 2) 0 ($padding * 2) (calc((100vw - 102rem) / 2));
+      padding: 0 0 0 (calc((100vw - 102rem) / 2));
       width: calc(((100vw - 102rem) / 2) + 13rem);
 
       @include forPhoneOnly {
@@ -35,41 +45,7 @@
         0;
       width: 100%;
 
-      //retrieve styling on search page
-
-      /*section {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-
-        hr {
-          margin: 1rem 0 1rem 0;
-          width: 100%;
-        }
-
-        label {
-          margin-bottom: 0.25rem;
-        }
-
-        p {
-          margin-bottom: 1rem;
-        }
-
-        .form-footer {
-          display: flex;
-          width: 100%;
-          justify-content: flex-end;
-
-          a {
-            margin-right: 1rem;
-          }
-        }
-      }*/
-
-      //underwriting page styling
-
       //mobile styling
-
       @include forPhoneOnly {
         form {
           margin-top: 3rem;
