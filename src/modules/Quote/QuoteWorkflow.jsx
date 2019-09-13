@@ -18,6 +18,7 @@ const QuoteWorkflow = ({ location }) => {
     <>
       <Gandalf
         formId="harmony-quote"
+        formClassName=""
         currentPage={0}
         handleSubmit={x => x}
         initialValues={quote}
