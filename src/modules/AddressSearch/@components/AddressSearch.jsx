@@ -21,10 +21,10 @@ const AddressSearch = ({ location, match }) => {
 
   return (
     <>
-      <h1 className="title">Address</h1>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
+            <div className="title">Address</div>
             <div className="searchInputWrapper">
               <Field
                 name="address"
