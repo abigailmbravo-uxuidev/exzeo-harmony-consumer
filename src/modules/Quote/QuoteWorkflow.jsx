@@ -31,7 +31,9 @@ const QuoteWorkflow = ({ location }) => {
             className={Button.constants.classNames.primary}
             disabled
           >
-            don't touch :)
+            <marquee>
+              don't touch - does not work - don't qa this button
+            </marquee>
           </Button>
         )}
       />
