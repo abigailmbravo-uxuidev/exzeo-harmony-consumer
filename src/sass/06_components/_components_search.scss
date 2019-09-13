@@ -4,6 +4,8 @@
   position: relative;
   margin-bottom: 1rem;
   width: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
 
   .property-search {
     position: relative;
@@ -73,30 +75,61 @@
 
 //search result card styling
 .view-grid {
-  .results {
+  flex-direction: column;
+  .title {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
 
-    .card {
-      flex-direction: row;
-      padding: 0 $padding;
+    section {
+      flex-grow: 0;
+      flex-shrink: 0;
 
-      &:hover {
-        cursor: pointer;
-        transform: scale(0.99);
+      &.results {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
 
-        @include shadow(0, 1px, 4px, rgba($navy, 0.25));
-      }
+        .card {
+          flex-direction: row;
+          padding: 0 $padding;
 
-      footer {
-        width: auto;
+          &:hover {
+            cursor: pointer;
+            transform: scale(0.99);
+
+            @include shadow(0, 1px, 4px, rgba($navy, 0.25));
+          }
+
+          footer {
+            width: auto;
+          }
+        }
+
+        .component-loader {
+          height: auto;
+        }
       }
     }
 
-    .component-loader {
-      height: auto;
+    hr {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    footer {
+      flex-grow: 0;
+      flex-shrink: 0;
     }
   }
 }

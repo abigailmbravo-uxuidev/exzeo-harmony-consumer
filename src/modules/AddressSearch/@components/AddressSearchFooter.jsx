@@ -8,7 +8,7 @@ const AddressSearchFooter = () => {
       <p>Your quote will be saved up to 30 days.</p>
 
       <div className="form-footer">
-        <Link to="/retrieveQuote" className="btn btn-secondary">
+        <Link to="/retrieveQuote" className="">
           Retrieve Quote
         </Link>
       </div>

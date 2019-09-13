@@ -1,5 +1,6 @@
 //main content area styling
 main[role='main'] {
+  flex-direction: column;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;

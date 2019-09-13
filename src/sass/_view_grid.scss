@@ -2,6 +2,7 @@
 
 .view-grid {
   width: 100%;
+
   .form-footer {
     width: 100%;
     display: flex;
@@ -21,6 +22,7 @@
   .searchInputWrapper {
     p {
       margin-top: 0.5rem;
+      margin-bottom: 0;
     }
   }
 
@@ -36,14 +38,13 @@
 
     p {
       padding-top: ($padding / 4);
-      padding-bottom: 0;
-      margin-bottom: 0.5rem;
+      padding-bottom: ($padding / 4);
+      margin: 0;
     }
 
     .form-footer {
       width: 100%;
       display: flex;
-      justify-content: flex-end;
       padding-top: 0;
     }
   }
@@ -170,118 +171,118 @@
       }
     }
   }
-}
 
-//retrieve quote styling
-.retrieveQuoteWrapper {
-  padding: 0 1rem 1rem 0;
-  width: 100%;
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  h1 {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .form-footer {
+  //retrieve quote styling
+  .retrieveQuoteWrapper {
+    padding: 0 1rem 1rem 0;
     width: 100%;
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .form-footer {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 1rem;
+
+      :disabled {
+        background-color: rgba($navy, 0.3);
+        border-color: transparent;
+        color: $extraLightGrey;
+      }
+
+      button {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  //view grid styling from harmony
+  .view-grid {
     display: flex;
-    justify-content: flex-end;
-    padding-top: 1rem;
+    flex-wrap: wrap;
+  }
 
-    :disabled {
-      background-color: rgba($navy, 0.3);
-      border-color: transparent;
-      color: $extraLightGrey;
-    }
-
-    button {
-      margin-left: 1rem;
+  .view-grid {
+    > * {
+      padding: $padding;
+      width: 100%;
     }
   }
-}
+  // TITLE component
 
-//view grid styling from harmony
-.view-grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.view-grid {
-  > * {
-    padding: $padding;
+  .title {
+    margin: 0.5rem 0;
+    padding: ($padding / 2) $padding;
     width: 100%;
-  }
-}
-// TITLE component
+    color: $navy;
+    font-size: $fontSizeHeader;
+    font-family: $serif;
+    font-weight: bold;
 
-.title {
-  margin: 0.5rem 0;
-  padding: ($padding / 2) $padding;
-  width: 100%;
-  color: $navy;
-  font-size: $fontSizeHeader;
-  font-family: $serif;
-  font-weight: bold;
+    @include forPhoneOnly {
+      font-size: $fontSizeSubheader--small;
 
-  @include forPhoneOnly {
-    font-size: $fontSizeSubheader--small;
+      .fa {
+        font-size: $fontSizeSubheader--small;
+      }
+    }
 
     .fa {
       font-size: $fontSizeSubheader--small;
     }
   }
+  // SECTION componet
 
-  .fa {
-    font-size: $fontSizeSubheader--small;
-  }
-}
-// SECTION componet
-
-.view-grid {
-  section {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-
-  section {
-    display: flex;
-
-    > * {
-      padding: $padding;
+  .view-grid {
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
     }
-  }
-}
 
-// responsize styles
-@supports (display: grid) {
-  @include forPhoneOnly {
-    .view-grid,
-    .view-grid section {
-      .view-col-1,
-      .view-col-10,
-      .view-col-11,
-      .view-col-2,
-      .view-col-3,
-      .view-col-4,
-      .view-col-5,
-      .view-col-6,
-      .view-col-7,
-      .view-col-8,
-      .view-col-9 {
-        width: 100%;
+    section {
+      display: flex;
+
+      > * {
+        padding: $padding;
       }
     }
-    .view-grid {
-      > div {
-        padding: $padding * 2;
+  }
+
+  // responsize styles
+  @supports (display: grid) {
+    @include forPhoneOnly {
+      .view-grid,
+      .view-grid section {
+        .view-col-1,
+        .view-col-10,
+        .view-col-11,
+        .view-col-2,
+        .view-col-3,
+        .view-col-4,
+        .view-col-5,
+        .view-col-6,
+        .view-col-7,
+        .view-col-8,
+        .view-col-9 {
+          width: 100%;
+        }
       }
-      > section > dl {
-        padding: 0 ($padding * 2);
+      .view-grid {
+        > div {
+          padding: $padding * 2;
+        }
+        > section > dl {
+          padding: 0 ($padding * 2);
+        }
       }
     }
   }

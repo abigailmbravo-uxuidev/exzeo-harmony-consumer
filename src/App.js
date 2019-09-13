@@ -50,8 +50,8 @@ const App = () => {
                 />
               </QuoteContextProvider>
             </RouteErrorBoundary>
+            <AppFooter />
           </div>
-          <AppFooter />
         </main>
       </div>
     </Router>
