@@ -50,10 +50,9 @@ const App = () => {
               />
             </RouteErrorBoundary>
           </div>
+          <AppFooter />
         </main>
       </div>
-
-      <AppFooter />
     </Router>
   );
 };

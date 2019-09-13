@@ -60,8 +60,8 @@ body {
     }
   }
 
+  //region layout for phone
   div[role='region'] {
-    //nav for phone
     @include forPhoneOnly {
       nav[role='navigation'] {
         position: fixed;
@@ -142,6 +142,19 @@ body {
     @include forMinWidth {
       main[role='main'] {
         padding-right: ($padding * 1.5);
+      }
+    }
+  }
+
+  //footer layout
+  footer {
+    width: 100%;
+    div[role='banner'] {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      small {
+        font-size: $fontSizeBody;
       }
     }
   }
