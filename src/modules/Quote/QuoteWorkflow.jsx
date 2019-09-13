@@ -2,9 +2,8 @@ import React from 'react';
 import { Gandalf } from '@exzeo/harmony-core';
 import { Button } from '@exzeo/core-ui';
 
-import template from '../mock-data/mockAF3';
-
-import InfoBar from './InfoBar';
+import InfoBar from 'components/InfoBar';
+import MOCK_AF3_TEMPLATE from 'mock-data/mockAF3';
 
 const QuoteWorkflow = ({ location }) => {
   return (
@@ -15,7 +14,7 @@ const QuoteWorkflow = ({ location }) => {
         currentPage={0}
         handleSubmit={x => x}
         initialValues={{}}
-        template={template}
+        template={MOCK_AF3_TEMPLATE}
         transformConfig={{}}
         options={{}}
         renderFooter={() => (

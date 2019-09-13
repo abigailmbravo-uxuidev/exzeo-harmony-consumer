@@ -4,10 +4,10 @@ import { AppFooter } from '@exzeo/harmony-core';
 
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
-import QuoteWorkflow from 'components/QuoteWorkflow';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
 import QuoteSearch from 'modules/QuoteSearch';
 import AddressSearch from './modules/AddressSearch';
+import { QuoteContextProvider, QuoteWorkflow } from './modules/Quote';
 
 import Test from 'components/Test';
 
@@ -24,30 +24,31 @@ const App = () => {
         <main role="main">
           <div className="view-grid">
             <RouteErrorBoundary>
-              <Route
-                exact
-                path="/retrieveQuote"
-                render={routeProps => <QuoteSearch />}
-              />
+              <QuoteContextProvider>
+                <Route
+                  exact
+                  path="/retrieveQuote"
+                  render={routeProps => <QuoteSearch />}
+                />
 
-              <Route
-                exact
-                path="/searchAddress"
-                render={routeProps => <AddressSearch />}
-              />
+                <Route
+                  exact
+                  path="/searchAddress"
+                  render={routeProps => <AddressSearch {...routeProps} />}
+                />
 
-              {/* Gandalf owns this */}
-              <Route
-                exact
-                path="/quote"
-                render={routeProps => <QuoteWorkflow {...routeProps} />}
-              />
+                {/* Gandalf owns this */}
+                <Route
+                  path="/quote"
+                  render={routeProps => <QuoteWorkflow {...routeProps} />}
+                />
 
-              <Route
-                exact
-                path="/test"
-                render={routeProps => <Test {...routeProps} />}
-              />
+                <Route
+                  exact
+                  path="/test"
+                  render={routeProps => <Test {...routeProps} />}
+                />
+              </QuoteContextProvider>
             </RouteErrorBoundary>
           </div>
           <AppFooter />

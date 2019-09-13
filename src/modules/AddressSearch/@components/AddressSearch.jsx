@@ -16,7 +16,7 @@ import AddressResults from './AddressResults';
 import AddressSearchFooter from './AddressSearchFooter';
 import { useAddressSearch } from '../hooks';
 
-const AddressSearch = () => {
+const AddressSearch = ({ location, match }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
 
   return (
@@ -63,7 +63,11 @@ const AddressSearch = () => {
                 (searchState.noResults ? (
                   <AddressNoResults />
                 ) : (
-                  <AddressResults results={searchState.results} />
+                  <AddressResults
+                    results={searchState.results}
+                    companyCode={'TTIC'}
+                    product={'AF3'}
+                  />
                 ))}
             </section>
 

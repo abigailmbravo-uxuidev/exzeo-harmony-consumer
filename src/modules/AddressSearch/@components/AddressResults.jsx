@@ -1,14 +1,33 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { SectionLoader } from '@exzeo/core-ui';
 
-import { CONTACT_PHONE } from '../../../constants/contactInformation';
+import { CONTACT_PHONE } from 'constants/contactInformation';
+import { useQuote } from 'modules/Quote';
 
 import AddressCard from './AddressCard';
 
-const AddressResults = ({ results }) => {
+const AddressResults = ({ results, companyCode, product }) => {
+  const { quote, loading, startQuote } = useQuote();
+
+  async function handleClick(address) {
+    await startQuote(address, companyCode, product);
+  }
+
+  if (quote) {
+    return <Redirect to="/quote" />;
+  }
+
   return (
     <>
+      {loading && <SectionLoader />}
+
       {results.map(property => (
-        <AddressCard key={property.id} property={property} />
+        <AddressCard
+          key={property.id}
+          property={property}
+          handleClick={handleClick}
+        />
       ))}
 
       <p>
