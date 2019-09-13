@@ -77,7 +77,7 @@ const QuoteSearch = () => {
 
   return (
     <>
-      <h1 className="title">Retrieve Quote</h1>
+      <div className="title">Retrieve Quote</div>
       <Form
         onSubmit={handleSearchSubmit}
         subscription={{ pristine: true, submitting: true }}
