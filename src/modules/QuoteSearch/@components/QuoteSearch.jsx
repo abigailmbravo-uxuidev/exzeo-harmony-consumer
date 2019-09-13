@@ -141,7 +141,51 @@ const QuoteSearch = () => {
                   )}
                 </Field>
 
-                {/* TODO #1 from below goes here */}
+                {/*<Field name="hasQuoteNumber">*/}
+                {/*  {({ input, meta }) => (*/}
+                {/*    <Switch*/}
+                {/*      input={input}*/}
+                {/*      meta={meta}*/}
+                {/*      styleName="switch"*/}
+                {/*      label="Do you have access to the Quote Number"*/}
+                {/*      dataTest="hasQuoteNumber"*/}
+                {/*    />*/}
+                {/*  )}*/}
+                {/*</Field>*/}
+
+                {/*{values.hasQuoteNumber ? (*/}
+                {/*  <Field*/}
+                {/*    name="quoteNumber"*/}
+                {/*    validate={composeValidators([validation.isRequired])}*/}
+                {/*  >*/}
+                {/*    {({ input, meta }) => (*/}
+                {/*      <Input*/}
+                {/*        input={input}*/}
+                {/*        meta={meta}*/}
+                {/*        styleName="required"*/}
+                {/*        label="Quote Number"*/}
+                {/*        dataTest="quoteNumber"*/}
+                {/*        placeholder="TTIC-A3-"*/}
+                {/*      />*/}
+                {/*    )}*/}
+                {/*  </Field>*/}
+                {/*) : (*/}
+                {/*  <Field*/}
+                {/*    name="email"*/}
+                {/*    validate={composeValidators([validation.isRequired])}*/}
+                {/*  >*/}
+                {/*    {({ input, meta }) => (*/}
+                {/*      <Input*/}
+                {/*        input={input}*/}
+                {/*        meta={meta}*/}
+                {/*        styleName="required"*/}
+                {/*        label="Email"*/}
+                {/*        dataTest="email"*/}
+                {/*        placeholder="jsmith@email.com"*/}
+                {/*      />*/}
+                {/*    )}*/}
+                {/*  </Field>*/}
+                {/*)}*/}
 
                 <div className="form-footer">
                   <Link to="/searchAddress" className="btn btn-secondary">
@@ -232,7 +276,15 @@ const QuoteSearch = () => {
                 </React.Fragment>
               )}
 
-              {/*  TODO #2 from below goes here */}
+              {/*{searchState.hasSearched &&*/}
+              {/*  (searchState.noResults ? (*/}
+              {/*    <NoResults />*/}
+              {/*  ) : (*/}
+              {/*    <QuoteCard*/}
+              {/*      key={searchState.result.quoteNumber}*/}
+              {/*      quote={searchState.result}*/}
+              {/*    />*/}
+              {/*  ))}*/}
             </section>
           </>
         )}
@@ -242,167 +294,3 @@ const QuoteSearch = () => {
 };
 
 export default QuoteSearch;
-
-// TODO #1 Logic for handling either email address or quoteNumber dependent on user input
-{
-  /*<Field name="hasQuoteNumber">*/
-}
-{
-  /*  {({ input, meta }) => (*/
-}
-{
-  /*    <Switch*/
-}
-{
-  /*      input={input}*/
-}
-{
-  /*      meta={meta}*/
-}
-{
-  /*      styleName="switch"*/
-}
-{
-  /*      label="Do you have access to the Quote Number"*/
-}
-{
-  /*      dataTest="hasQuoteNumber"*/
-}
-{
-  /*    />*/
-}
-{
-  /*  )}*/
-}
-{
-  /*</Field>*/
-}
-
-{
-  /*{values.hasQuoteNumber ? (*/
-}
-{
-  /*  <Field*/
-}
-{
-  /*    name="quoteNumber"*/
-}
-{
-  /*    validate={composeValidators([validation.isRequired])}*/
-}
-{
-  /*  >*/
-}
-{
-  /*    {({ input, meta }) => (*/
-}
-{
-  /*      <Input*/
-}
-{
-  /*        input={input}*/
-}
-{
-  /*        meta={meta}*/
-}
-{
-  /*        styleName="required"*/
-}
-{
-  /*        label="Quote Number"*/
-}
-{
-  /*        dataTest="quoteNumber"*/
-}
-{
-  /*        placeholder="TTIC-A3-"*/
-}
-{
-  /*      />*/
-}
-{
-  /*    )}*/
-}
-{
-  /*  </Field>*/
-}
-{
-  /*) : (*/
-}
-{
-  /*  <Field*/
-}
-{
-  /*    name="email"*/
-}
-{
-  /*    validate={composeValidators([validation.isRequired])}*/
-}
-{
-  /*  >*/
-}
-{
-  /*    {({ input, meta }) => (*/
-}
-{
-  /*      <Input*/
-}
-{
-  /*        input={input}*/
-}
-{
-  /*        meta={meta}*/
-}
-{
-  /*        styleName="required"*/
-}
-{
-  /*        label="Email"*/
-}
-{
-  /*        dataTest="email"*/
-}
-{
-  /*        placeholder="jsmith@email.com"*/
-}
-{
-  /*      />*/
-}
-{
-  /*    )}*/
-}
-{
-  /*  </Field>*/
-}
-{
-  /*)}*/
-}
-
-// TODO #2 Logic for handling searching by email OR quoteNumber
-{
-  /*{searchState.hasSearched &&*/
-}
-{
-  /*  (searchState.noResults ? (*/
-}
-{
-  /*    <NoResults />*/
-}
-{
-  /*  ) : (*/
-}
-{
-  /*    <QuoteCard*/
-}
-{
-  /*      key={searchState.result.quoteNumber}*/
-}
-{
-  /*      quote={searchState.result}*/
-}
-{
-  /*    />*/
-}
-{
-  /*  ))}*/
-}
