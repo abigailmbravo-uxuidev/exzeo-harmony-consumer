@@ -2,18 +2,25 @@ import React from 'react';
 import { Gandalf } from '@exzeo/harmony-core';
 import { Button } from '@exzeo/core-ui';
 
+import { useQuote } from 'modules/Quote';
 import InfoBar from 'components/InfoBar';
+
 import MOCK_AF3_TEMPLATE from 'mock-data/mockAF3';
 
 const QuoteWorkflow = ({ location }) => {
+  const { quote } = useQuote();
+
+  if (!quote) {
+    return <div>You shouldn't be here :(</div>;
+  }
+
   return (
     <>
-      <InfoBar />
       <Gandalf
         formId="harmony-quote"
         currentPage={0}
         handleSubmit={x => x}
-        initialValues={{}}
+        initialValues={quote}
         template={MOCK_AF3_TEMPLATE}
         transformConfig={{}}
         options={{}}
@@ -21,8 +28,9 @@ const QuoteWorkflow = ({ location }) => {
           <Button
             data-test="submit"
             className={Button.constants.classNames.primary}
+            disabled
           >
-            test
+            don't touch :)
           </Button>
         )}
       />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { createQuote } from '@exzeo/harmony-core';
+import { formatDate, FORMATS } from '@exzeo/core-ui/src/Utilities/date';
 
 const QuoteContext = React.createContext();
 
@@ -22,7 +23,9 @@ export function useQuote() {
         companyCode,
         product
       });
-      setQuote(quote);
+
+      const formattedQuote = formatQuoteForUser(quote);
+      setQuote(formattedQuote);
     } catch (error) {
       throw Error('Error creating quote');
     } finally {
@@ -41,4 +44,25 @@ export function QuoteContextProvider(props) {
   const [quote, setQuote] = React.useState(null);
   const value = React.useMemo(() => [quote, setQuote], [quote]);
   return <QuoteContext.Provider value={value} {...props} />;
+}
+
+function formatQuoteForUser(quoteData) {
+  quoteData.effectiveDate = formatDate(
+    quoteData.effectiveDate,
+    FORMATS.SECONDARY
+  );
+
+  // if (quoteData.policyHolders[1] && quoteData.policyHolders[1].firstName) {
+  //   quoteData.additionalPolicyholder = true;
+  // }
+
+  // if (quoteData.product === 'AF3') {
+  //   quoteData.personalPropertySlider = Math.ceil(
+  //     (quoteData.coverageLimits.personalProperty.amount * 100) /
+  //     quoteData.coverageLimits.building.amount
+  //   );
+  //   return quoteData;
+  // }
+
+  return quoteData;
 }

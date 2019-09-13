@@ -1,6 +1,32 @@
 {
   "pages": [
     {
+      "name": "underwriting",
+      "step": {},
+      "components": [
+        {
+          "id": "7aa23968-20b5-4f48-a579-3d14b293aa87",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Underwriting Questions"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "95ace9fe-1a7a-4d2f-935e-a5853bd5f718",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$UNDERWRITING"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
       "name": "customerInfo",
       "step": {},
       "components": [
