@@ -2,6 +2,14 @@
 
 .view-grid {
   width: 100%;
+  padding: ($padding / 2) 0 0 $padding;
+  display: flex;
+  flex-direction: column;
+
+  h1.title {
+    padding-top: 4rem;
+  }
+
   .form-footer {
     width: 100%;
     display: flex;
@@ -11,11 +19,6 @@
 
   .switch {
     margin-bottom: 0;
-  }
-
-  //title for headers
-  .title {
-    margin: 0;
   }
 
   .searchInputWrapper {
@@ -28,6 +31,7 @@
   section {
     overflow: hidden;
     margin: 0 -1rem;
+    padding-left: $padding;
 
     label {
       padding-top: ($padding / 4);
@@ -214,17 +218,6 @@
       padding: $padding;
       width: 100%;
     }
-  }
-  // TITLE component
-
-  .title {
-    margin: 0.5rem 0;
-    padding: ($padding / 2) $padding;
-    width: 100%;
-    color: $navy;
-    font-size: $fontSizeHeader;
-    font-family: $serif;
-    font-weight: bold;
 
     @include forPhoneOnly {
       font-size: $fontSizeSubheader--small;

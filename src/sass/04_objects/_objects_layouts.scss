@@ -55,7 +55,7 @@ body {
       }
 
       h1 {
-        padding-top: $padding;
+        padding-top: ($padding / 2);
       }
     }
   }
