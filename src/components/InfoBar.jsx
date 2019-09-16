@@ -5,7 +5,7 @@ const InfoBar = ({ initialValues }) => {
   return (
     <div className="infoBar">
       <h2>
-        Premium
+        Premium:&nbsp;
         <strong>{format.toCurrency(initialValues.rating.netPremium)}</strong>
       </h2>
       <label>
