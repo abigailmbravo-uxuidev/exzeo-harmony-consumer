@@ -85,7 +85,7 @@ const QuoteSearch = () => {
         {({ handleSubmit, submitting, pristine, form }) => (
           <>
             <form onSubmit={handleSubmit}>
-              <div className="retrieveQuoteWrapper">
+              <section className="retrieveQuoteWrapper">
                 <Field
                   name="lastName"
                   validate={composeValidators([
@@ -188,9 +188,6 @@ const QuoteSearch = () => {
                 {/*)}*/}
 
                 <div className="form-footer">
-                  <Link to="/searchAddress" className="btn btn-secondary">
-                    New Quote
-                  </Link>
                   <Button
                     className={Button.constants.classNames.primary}
                     type="submit"
@@ -200,7 +197,13 @@ const QuoteSearch = () => {
                     Retrieve Quote
                   </Button>
                 </div>
-              </div>
+                <hr />
+                <label>Never quoted your address? No problem!</label>
+                <p>Your address can be found with the link below.</p>
+                <Link to="/searchAddress" className="">
+                  New Quote
+                </Link>
+              </section>
             </form>
             <section className="results">
               {loading && <SectionLoader />}

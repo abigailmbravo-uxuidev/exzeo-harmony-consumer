@@ -196,6 +196,10 @@
   .retrieveQuoteWrapper {
     padding: 0 1rem 1rem 0;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
 
     .form-group {
       margin-bottom: 1rem;
