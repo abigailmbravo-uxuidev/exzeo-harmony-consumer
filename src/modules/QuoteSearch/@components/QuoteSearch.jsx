@@ -13,7 +13,7 @@ import {
   // Switch
 } from '@exzeo/core-ui';
 
-import { retrieveQuote } from '@exzeo/harmony-core';
+import { quoteData } from '@exzeo/harmony-core';
 
 // import QuoteCard from './QuoteCard';
 // import NoResults from './NoResults';
@@ -52,7 +52,7 @@ const QuoteSearch = () => {
 
       setLoading(true);
       // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
-      const result = await retrieveQuote(params);
+      const result = await quoteData.retrieveQuote(params);
       const quoteFound = result && result.quoteNumber;
 
       setSearchState({

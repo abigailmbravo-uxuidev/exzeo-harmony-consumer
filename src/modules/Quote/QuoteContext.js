@@ -1,5 +1,5 @@
 import React from 'react';
-import { createQuote } from '@exzeo/harmony-core';
+import { quoteData } from '@exzeo/harmony-core';
 import { formatDate, FORMATS } from '@exzeo/core-ui/src/Utilities/date';
 
 const QuoteContext = React.createContext();
@@ -14,10 +14,31 @@ export function useQuote() {
 
   const [quote, setQuote] = context;
 
-  const startQuote = async (address, companyCode, product) => {
+  const retrieveQuote = async (quoteNumber, lastName, zipCode, email) => {
     try {
       setLoading(true);
-      const quote = await createQuote({
+      const params = {
+        lastName,
+        zipCode,
+        email,
+        quoteNumber
+      };
+
+      // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
+      const quote = await quoteData.retrieveQuote(params);
+      const formattedQuote = formatQuoteForUser(quote);
+      setQuote(formattedQuote);
+    } catch (error) {
+      throw Error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const createQuote = async (address, companyCode, product) => {
+    try {
+      setLoading(true);
+      const quote = await quoteData.createQuote({
         igdID: address.id,
         stateCode: address.physicalAddress.state,
         companyCode,
@@ -33,15 +54,31 @@ export function useQuote() {
     }
   };
 
+  const updateQuote = async (data, options) => {
+    try {
+      setLoading(true);
+      const quote = await quoteData.updateQuote(data);
+
+      const formattedQuote = formatQuoteForUser(quote);
+      setQuote(formattedQuote);
+    } catch (error) {
+      throw Error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return {
     quote,
     loading,
-    startQuote
+    createQuote,
+    retrieveQuote,
+    updateQuote
   };
 }
 
 export function QuoteContextProvider(props) {
-  const [quote, setQuote] = React.useState(null);
+  const [quote, setQuote] = React.useState({});
   const value = React.useMemo(() => [quote, setQuote], [quote]);
   return <QuoteContext.Provider value={value} {...props} />;
 }

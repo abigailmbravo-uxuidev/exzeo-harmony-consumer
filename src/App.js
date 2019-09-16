@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { AppFooter } from '@exzeo/harmony-core';
 
+import { ROUTES } from 'constants/navigation';
+import QuoteSearch from 'modules/QuoteSearch';
+import AddressSearch from 'modules/AddressSearch';
+import { QuoteContextProvider, QuoteWorkflow } from 'modules/Quote';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
-import QuoteSearch from 'modules/QuoteSearch';
-import AddressSearch from './modules/AddressSearch';
-import { QuoteContextProvider, QuoteWorkflow } from './modules/Quote';
 
 import Test from 'components/Test';
 
@@ -27,19 +28,19 @@ const App = () => {
               <QuoteContextProvider>
                 <Route
                   exact
-                  path="/retrieveQuote"
+                  path={ROUTES.retrieveQuote.path}
                   render={routeProps => <QuoteSearch />}
                 />
 
                 <Route
                   exact
-                  path="/searchAddress"
+                  path={ROUTES.searchAddress.path}
                   render={routeProps => <AddressSearch {...routeProps} />}
                 />
 
                 {/* Gandalf owns this */}
                 <Route
-                  path="/quote"
+                  path={ROUTES.workflow.path}
                   render={routeProps => <QuoteWorkflow {...routeProps} />}
                 />
 

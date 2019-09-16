@@ -1,39 +1,70 @@
-import React from 'react';
-import { Gandalf } from '@exzeo/harmony-core';
-import { Button } from '@exzeo/core-ui';
+import React, { useEffect, useMemo } from 'react';
+import { Gandalf, getConfigForJsonTransform } from '@exzeo/harmony-core';
+import { Button, SectionLoader } from '@exzeo/core-ui';
 
-import { useQuote } from 'modules/Quote';
-import InfoBar from 'components/InfoBar';
+import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
 
-import MOCK_AF3_TEMPLATE from 'mock-data/mockAF3';
+import { useWorkflowTemplate } from './hooks';
+import { useQuote } from './QuoteContext';
 
-const QuoteWorkflow = ({ location }) => {
-  const { quote } = useQuote();
+const EMPTY_OBJ = {};
 
-  if (!quote) {
-    return <div>You shouldn't be here :(</div>;
+const QuoteWorkflow = ({ history, location, match }) => {
+  const {
+    loading: quoteLoading,
+    quote,
+    retrieveQuote,
+    updateQuote
+  } = useQuote();
+  const { template } = useWorkflowTemplate(quote);
+  const transformConfig = useMemo(() => getConfigForJsonTransform(template), [
+    template
+  ]);
+  const currentPage = ROUTES[`${match.params.step}`].workflowPage;
+
+  // TODO really only necessary for development (auto-refreshing)
+  useEffect(() => {
+    (async function() {
+      if (!quote.quoteNumber) await retrieveQuote(match.params.quoteNumber);
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function handleGandalfSubmit(data, options) {
+    const testing = 'testing';
+    try {
+      const test = 'test';
+      await updateQuote(data);
+
+      history.replace(WORKFLOW_ROUTING[match.params.step]);
+    } catch (error) {
+      throw Error(error);
+    }
+  }
+
+  if (quoteLoading || !template) {
+    return <SectionLoader />;
   }
 
   return (
     <>
       <Gandalf
         formId="harmony-quote"
-        formClassName="workFlow"
-        currentPage={0}
-        handleSubmit={x => x}
+        formClassName="workflow"
+        currentPage={currentPage}
+        handleSubmit={handleGandalfSubmit}
         initialValues={quote}
-        template={MOCK_AF3_TEMPLATE}
-        transformConfig={{}}
-        options={{}}
-        renderFooter={() => (
+        template={template}
+        transformConfig={transformConfig}
+        options={EMPTY_OBJ}
+        renderFooter={({ pristine, submitting }) => (
           <Button
+            type="submit"
             data-test="submit"
             className={Button.constants.classNames.primary}
-            disabled
+            disabled={pristine || submitting}
           >
-            <marquee>
-              don't touch - does not work - don't qa this button
-            </marquee>
+            Continue
           </Button>
         )}
       />

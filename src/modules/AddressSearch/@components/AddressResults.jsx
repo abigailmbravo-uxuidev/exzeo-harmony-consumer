@@ -15,7 +15,7 @@ const AddressResults = ({ results, companyCode, product }) => {
   }
 
   if (quote) {
-    return <Redirect to="/quote" />;
+    return <Redirect to={`/quote/${quote.quoteNumber}/underwriting`} />;
   }
 
   return (
