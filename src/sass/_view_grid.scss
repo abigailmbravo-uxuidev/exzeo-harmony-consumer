@@ -8,6 +8,29 @@
   flex-grow: 1;
   flex-shrink: 1;
 
+  //customize quote styling
+  .workflow {
+    .range-wrapper {
+      .range-control-wrapper {
+        margin-top: 2.5rem;
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+    .slider-component {
+      .form-group {
+        label {
+          font-size: $fontSizeSubheader;
+          font-family: $serif;
+          margin-bottom: 1rem;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
   .form-group {
     margin-bottom: 1rem;
 
