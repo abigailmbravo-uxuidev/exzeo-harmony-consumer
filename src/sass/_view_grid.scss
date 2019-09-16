@@ -8,6 +8,21 @@
   flex-grow: 1;
   flex-shrink: 1;
 
+  .form-group {
+    margin-bottom: 1rem;
+
+    &.radio {
+      &.segmented {
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+    }
+
+    label {
+      margin-bottom: 1rem;
+    }
+  }
+
   footer {
     padding: $padding;
   }
@@ -27,10 +42,6 @@
     flex-grow: 1;
     flex-shrink: 1;
     align-items: flex-start;
-
-    .btn {
-      margin-top: 0.5rem;
-    }
   }
 
   .switch {
@@ -204,10 +215,6 @@
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
-
-    .form-group {
-      margin-bottom: 1rem;
-    }
 
     h1 {
       margin-bottom: 0;
