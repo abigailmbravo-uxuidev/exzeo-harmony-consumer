@@ -9,12 +9,6 @@
 
   .property-search {
     position: relative;
-
-    &:hover {
-      ~ button {
-        background-color: mix($blue, $navy, 80%);
-      }
-    }
   }
 
   input {
@@ -24,21 +18,7 @@
   //search bar button override
 
   button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    height: 3.25rem;
-    width: 3rem;
-    border: 0;
-    color: $navy;
-    display: flex;
-    justify-content: center;
-    background-color: transparent;
-
-    &.btn {
-      box-shadow: none;
-    }
+    display: none;
   }
 }
 

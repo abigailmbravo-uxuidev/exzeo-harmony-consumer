@@ -27,6 +27,10 @@
     flex-grow: 1;
     flex-shrink: 1;
     align-items: flex-start;
+
+    .btn {
+      margin-top: 0.5rem;
+    }
   }
 
   .switch {
