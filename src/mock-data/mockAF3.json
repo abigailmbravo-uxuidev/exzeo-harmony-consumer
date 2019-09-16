@@ -27,262 +27,119 @@
       ]
     },
     {
-      "name": "customerInfo",
+      "name": "customize",
       "step": {},
       "components": [
         {
-          "id": 1,
+          "id": 133333,
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Primary Policyholder"
+            "text": "Coverage Limits",
+            "icon": "fa fa-line-chart"
           },
           "formData": {},
           "children": []
         },
         {
-          "id": 3,
-          "type": "$INPUT",
+          "id": 133330,
+          "type": "$CUSTOM",
           "dependencies": [],
-          "path": "policyHolders[0].firstName",
           "data": {
-            "component": "text",
-            "label": "First Name",
-            "size": "12",
-            "validation": ["isValidNameFormat"]
+            "component": "$WARNING",
+            "as": "div"
           },
-          "formData": {
-            "path": "policyHolders.policyHolder.firstName",
-            "type": "string",
-            "required": true,
-            "metaData": {
-              "minLength": 1,
-              "maxLength": 255
-            }
-          },
+          "formData": {},
           "children": []
         },
         {
-          "id": 4,
-          "type": "$INPUT",
-          "path": "policyHolders[0].lastName",
+          "id": 3456354,
+          "type": "$CUSTOM",
           "dependencies": [],
           "data": {
-            "component": "text",
-            "label": "Last Name",
-            "size": "12",
-            "validation": ["isValidNameFormat"]
-          },
-          "formData": {
-            "path": "policyHolders.policyHolder.lastName",
-            "type": "string",
-            "required": true,
-            "metaData": {
-              "minLength": 1,
-              "maxLength": 255
+            "component": "$SLIDER_GROUP",
+            "extendedProperties": {
+              "primaryField": {
+                "name": "coverageLimits.building.value",
+                "label": "Building",
+                "min": "coverageLimits.building.minAmount",
+                "max": "coverageLimits.building.maxAmount",
+                "hint": "This is the dollar amount of coverage for the structure of your home. This amount should represent the total cost to rebuild your home to its current state in the event of a loss. If you have a Declarations Page from your current  policy it may be listed as Coverage A.  (Based on basic information of your home, we provide you a guide for a recommended value. You can move this number up or down based on more detailed information. For example, if you have an upgraded kitchen and bathroom, you may want to increase this number to ensure that you have adequate coverage in the event of a loss.)  "
+              },
+              "secondaryField": {
+                "name": "coverageLimits.personalProperty.value",
+                "label": "Personal Property",
+                "hint": "This is your personal belongings, or items located inside the home. This could include your furniture, clothing, bedding, dishes, etc. If you choose to have replacement cost coverage on Personal Property, you will be required to carry Personal Property limits at a minimum of 25% of your Dwelling limit."
+              },
+              "subscribe": true
             }
           },
+          "formData": {},
           "children": []
         },
         {
-          "id": 5,
+          "id": 678453,
           "type": "$INPUT",
-          "path": "policyHolders[0].emailAddress",
-          "dependencies": [],
-          "data": {
-            "component": "text",
-            "label": "Email Address",
-            "size": "8",
-            "validation": ["isEmail"]
-          },
-          "formData": {
-            "path": "policyHolders.policyHolder.emailAddress",
-            "type": "string",
-            "required": true,
-            "metaData": {
-              "minLength": 1,
-              "maxLength": 255
-            }
-          },
-          "children": []
-        },
-        {
-          "id": 6,
-          "type": "$INPUT",
-          "path": "policyHolders[0].primaryPhoneNumber",
-          "dependencies": [],
-          "data": {
-            "component": "phone",
-            "label": "Contact Phone",
-            "size": "4",
-            "validation": ["isPhone"]
-          },
-          "formData": {
-            "path": "policyHolders.policyHolder.primaryPhoneNumber",
-            "type": "string",
-            "required": true,
-            "metaData": {
-              "pattern": "^(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}$"
-            }
-          },
-          "children": []
-        },
-        {
-          "id": 8,
-          "type": "$INPUT",
-          "path": "additionalPolicyholder",
-          "dependencies": [],
+          "path": "coverageOptions.personalPropertyReplacementCost.answer",
+          "dependencies": [{ "pprcc": true }],
           "data": {
             "component": "switch",
-            "label": "Do you want to add an additional Policyholder?"
-          },
-          "formData": {},
-          "children": []
-        },
-        {
-          "id": 3453,
-          "type": "$SECTION",
-          "dependencies": [
-            {
-              "additionalPolicyholder": true
-            }
-          ],
-          "data": {},
-          "formData": {},
-          "children": [
-            {
-              "id": 7,
-              "type": "$TITLE",
-              "dependencies": [],
-              "data": {
-                "text": "Secondary Policyholder",
-                "icon": "fa fa-user-circle",
-                "children": []
-              },
-              "formData": {},
-              "children": []
-            },
-            {
-              "id": 10,
-              "type": "$INPUT",
-              "path": "policyHolders[1].firstName",
-              "dependencies": [],
-              "data": {
-                "component": "text",
-                "label": "First Name",
-                "size": "5",
-                "validation": ["isValidNameFormat"]
-              },
-              "formData": {
-                "path": "policyHolders.policyHolder.firstName",
-                "type": "string",
-                "required": true,
-                "metaData": {
-                  "minLength": 1,
-                  "maxLength": 255
-                }
-              },
-              "children": []
-            },
-            {
-              "id": 11,
-              "type": "$INPUT",
-              "path": "policyHolders[1].lastName",
-              "dependencies": [],
-              "data": {
-                "component": "text",
-                "label": "Last Name",
-                "size": "12",
-                "validation": ["isValidNameFormat"]
-              },
-              "formData": {
-                "path": "policyHolders.policyHolder.lastName",
-                "type": "string",
-                "required": true,
-                "metaData": {
-                  "minLength": 1,
-                  "maxLength": 255
-                }
-              },
-              "children": []
-            },
-            {
-              "id": 12,
-              "type": "$INPUT",
-              "path": "policyHolders[1].emailAddress",
-              "dependencies": [],
-              "data": {
-                "component": "text",
-                "label": "Email Address",
-                "size": "12",
-                "validation": ["isEmail"]
-              },
-              "formData": {
-                "path": "policyHolders.policyHolder.emailAddress",
-                "type": "string",
-                "required": true,
-                "metaData": {
-                  "minLength": 1,
-                  "maxLength": 255
-                }
-              },
-              "children": []
-            },
-            {
-              "id": 13,
-              "type": "$INPUT",
-              "path": "policyHolders[1].primaryPhoneNumber",
-              "dependencies": [],
-              "data": {
-                "component": "phone",
-                "label": "Contact Phone",
-                "size": "4",
-                "validation": ["isPhone"]
-              },
-              "formData": {
-                "path": "policyHolders.policyHolder.primaryPhoneNumber",
-                "type": "string",
-                "required": true,
-                "metaData": {
-                  "pattern": "^(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}$"
-                }
-              },
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": 3453111,
-          "type": "$TITLE",
-          "dependencies": [],
-          "data": {
-            "text": "Policy Details",
-            "icon": "fa fa-file-text"
-          },
-          "formData": {},
-          "children": []
-        },
-        {
-          "id": 15,
-          "type": "$INPUT",
-          "path": "effectiveDate",
-          "dependencies": [],
-          "data": {
-            "component": "date",
-            "label": "Effective Date",
+            "label": "Do you want Personal Property Replacement Cost Coverage?",
             "size": "12",
-            "extendedProperties": {
-              "min": "zipCodeSettings.minEffectiveDate",
-              "max": "zipCodeSettings.maxEffectiveDate"
-            },
-            "validation": ["minEffectiveDate", "isValidDate"]
+            "hint": "Replacement Cost Coverage replaces your damaged possessions at today's prices without deducting for depreciation. If you choose not to select this coverage, your loss for personal property will be paid out at Actual Cash Value."
           },
           "formData": {
-            "path": "effectiveDate",
-            "type": "string",
+            "path": "coverageOptions.personalPropertyReplacementCost.answer",
+            "type": "boolean",
+            "required": true,
+            "metaData": {}
+          },
+          "children": []
+        },
+        {
+          "id": 9545674,
+          "type": "$INPUT",
+          "path": "deductibles.buildingDeductible.value",
+          "dependencies": [],
+          "data": {
+            "segmented": true,
+            "component": "radio",
+            "label": "Deductible",
+            "size": "12",
+            "hint": "Building deductible help text goes here.",
+            "dataSource": [
+              {
+                "answer": 500,
+                "label": "$500"
+              },
+              {
+                "answer": 1000,
+                "label": "$1,000"
+              },
+              {
+                "answer": 2000,
+                "label": "$2,000"
+              },
+              {
+                "answer": 5000,
+                "label": "$5,000"
+              },
+              {
+                "answer": 10000,
+                "label": "$10,000"
+              }
+            ],
+            "extendedProperties": {
+              "output": "currency"
+            }
+          },
+          "formData": {
+            "path": "deductibles.buildingDeductible.value",
+            "type": "integer",
             "required": true,
             "metaData": {
-              "format": "date-time"
+              "target": "${it.deductibles.buildingDeductible.value}",
+              "format": "currency"
             }
           },
           "children": []
