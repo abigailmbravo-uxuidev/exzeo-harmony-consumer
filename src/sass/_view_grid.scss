@@ -126,7 +126,7 @@
       }
 
       .cardContent {
-        padding: $padding;
+        padding: ($padding / 4) 0 ($padding / 4) 0;
         background-color: $navy;
         color: $white;
         display: flex;

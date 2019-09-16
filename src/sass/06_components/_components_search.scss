@@ -66,6 +66,10 @@
           flex-direction: row;
           padding: 0 $padding;
 
+          .cardContent {
+            padding: ($padding / 4) 0 ($padding / 4) 0;
+          }
+
           &:hover {
             cursor: pointer;
             transform: scale(0.99);
