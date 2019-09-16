@@ -18,6 +18,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
   const {
     loading: quoteLoading,
     quote,
+    setQuote,
     retrieveQuote,
     updateQuote
   } = useQuote();
@@ -32,13 +33,14 @@ const QuoteWorkflow = ({ history, location, match }) => {
     (async function() {
       if (!quote.quoteNumber) await retrieveQuote(match.params.quoteNumber);
     })();
+
+    // unset the quote if we leave QuoteWorkflow
+    return () => setQuote({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleGandalfSubmit(data, options) {
-    const testing = 'testing';
     try {
-      const test = 'test';
       await updateQuote(data);
 
       history.replace(WORKFLOW_ROUTING[match.params.step]);

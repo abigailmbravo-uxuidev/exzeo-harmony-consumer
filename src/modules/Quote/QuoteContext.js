@@ -70,6 +70,7 @@ export function useQuote() {
 
   return {
     quote,
+    setQuote,
     loading,
     createQuote,
     retrieveQuote,

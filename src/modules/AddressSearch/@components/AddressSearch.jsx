@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
@@ -10,11 +10,12 @@ import {
   composeValidators
 } from '@exzeo/core-ui';
 
-import AddressNoResults from './AddressNoResults';
+import { useQuote } from 'modules/Quote';
 
+import { useAddressSearch } from '../hooks';
+import AddressNoResults from './AddressNoResults';
 import AddressResults from './AddressResults';
 import AddressSearchFooter from './AddressSearchFooter';
-import { useAddressSearch } from '../hooks';
 
 const AddressSearch = ({ location, match }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
