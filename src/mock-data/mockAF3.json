@@ -31,18 +31,27 @@
       "step": {},
       "components": [
         {
-          "id": 133333,
+          "id": "724dc9d4-916a-40ae-af3f-59a89d96bb87",
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Coverage Limits",
-            "icon": "fa fa-line-chart"
+            "text": "Customize Quote"
           },
           "formData": {},
           "children": []
         },
         {
-          "id": 3456354,
+          "id": "d3729808-475e-4ac9-8771-054971a2fb57",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a1729809-8376-4fed-aa2b-47e26ecbab22",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
@@ -50,15 +59,15 @@
             "extendedProperties": {
               "primaryField": {
                 "name": "coverageLimits.building.value",
-                "label": "Building",
+                "label": "Building Limit",
                 "min": "coverageLimits.building.minAmount",
                 "max": "coverageLimits.building.maxAmount",
-                "hint": "This is the dollar amount of coverage for the structure of your home. This amount should represent the total cost to rebuild your home to its current state in the event of a loss. If you have a Declarations Page from your current  policy it may be listed as Coverage A.  (Based on basic information of your home, we provide you a guide for a recommended value. You can move this number up or down based on more detailed information. For example, if you have an upgraded kitchen and bathroom, you may want to increase this number to ensure that you have adequate coverage in the event of a loss.)  "
+                "hint": "Bacon ipsum dolor amet filet mignon fatback chuck turducken, turkey jowl swine bacon spare ribs brisket beef. Spare ribs alcatra picanha pastrami pancetta boudin brisket frankfurter meatloaf."
               },
               "secondaryField": {
                 "name": "coverageLimits.personalProperty.value",
                 "label": "Personal Property",
-                "hint": "This is your personal belongings, or items located inside the home. This could include your furniture, clothing, bedding, dishes, etc. If you choose to have replacement cost coverage on Personal Property, you will be required to carry Personal Property limits at a minimum of 25% of your Dwelling limit."
+                "hint": "Bacon ipsum dolor amet spare ribs prosciutto pig, pork loin turkey kielbasa beef cow drumstick ham tri-tip corned beef. Cupim tri-tip chicken tenderloin, ham hock cow spare ribs swine. Drumstick shank jerky rump jowl."
               },
               "subscribe": true
             }
@@ -67,15 +76,15 @@
           "children": []
         },
         {
-          "id": 678453,
+          "id": "651e1469-f68c-4680-8aae-b63f5811708a",
           "type": "$INPUT",
           "path": "coverageOptions.personalPropertyReplacementCost.answer",
           "dependencies": [{ "pprcc": true }],
           "data": {
             "component": "switch",
-            "label": "Do you want Personal Property Replacement Cost Coverage?",
+            "label": "Personal Property Replacement Cost",
             "size": "12",
-            "hint": "Replacement Cost Coverage replaces your damaged possessions at today's prices without deducting for depreciation. If you choose not to select this coverage, your loss for personal property will be paid out at Actual Cash Value."
+            "hint": "Meatball t-bone ball tip shank cupim beef doner swine. Pork belly cow beef ribs sirloin ham, spare ribs capicola drumstick jowl corned beef landjaeger meatloaf."
           },
           "formData": {
             "path": "coverageOptions.personalPropertyReplacementCost.answer",
@@ -86,7 +95,7 @@
           "children": []
         },
         {
-          "id": 9545674,
+          "id": "1b8f3ea8-ad64-4c00-9c8c-3caa9c85a1a6",
           "type": "$INPUT",
           "path": "deductibles.buildingDeductible.value",
           "dependencies": [],
@@ -95,7 +104,7 @@
             "component": "radio",
             "label": "Deductible",
             "size": "12",
-            "hint": "Building deductible help text goes here.",
+            "hint": "Bacon ipsum dolor amet picanha frankfurter flank drumstick pastrami short loin pork chop corned beef. Short loin meatball drumstick turducken bresaola porchetta turkey ball tip chuck bacon frankfurter. Ribeye sirloin short ribs pork chop swine salami strip steak leberkas landjaeger cow cupim tail.",
             "dataSource": [
               {
                 "answer": 500,

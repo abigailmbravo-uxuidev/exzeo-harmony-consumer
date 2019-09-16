@@ -1,16 +1,16 @@
 import React from 'react';
+import { format } from '@exzeo/core-ui';
 
-const InfoBar = () => {
+const InfoBar = ({ initialValues }) => {
   return (
     <div className="infoBar">
       <h2>
-        <label>
-          Test Page: <strong>$000000</strong>{' '}
-        </label>
+        Premium
+        <strong>{format.toCurrency(initialValues.rating.netPremium)}</strong>
       </h2>
-      <p>
-        Not for consideration <strong>while testing</strong>
-      </p>
+      <label>
+        Quote Number <strong>{`# ${initialValues.quoteNumber}`}</strong>
+      </label>
     </div>
   );
 };

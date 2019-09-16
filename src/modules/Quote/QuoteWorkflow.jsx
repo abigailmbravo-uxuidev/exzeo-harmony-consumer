@@ -3,11 +3,16 @@ import { Gandalf, getConfigForJsonTransform } from '@exzeo/harmony-core';
 import { Button, SectionLoader } from '@exzeo/core-ui';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
+import InfoBar from 'components/InfoBar';
 
 import { useWorkflowTemplate } from './hooks';
 import { useQuote } from './QuoteContext';
 
 const EMPTY_OBJ = {};
+
+const CUSTOM_COMPONENTS = {
+  $INFO: InfoBar
+};
 
 const QuoteWorkflow = ({ history, location, match }) => {
   const {
@@ -54,6 +59,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
         currentPage={currentPage}
         handleSubmit={handleGandalfSubmit}
         initialValues={quote}
+        customComponents={CUSTOM_COMPONENTS}
         template={template}
         transformConfig={transformConfig}
         options={EMPTY_OBJ}
