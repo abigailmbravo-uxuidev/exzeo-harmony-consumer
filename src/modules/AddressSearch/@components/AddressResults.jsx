@@ -14,7 +14,7 @@ const AddressResults = ({ results, companyCode, product }) => {
     await startQuote(address, companyCode, product);
   }
 
-  if (quote) {
+  if (quote.quoteNumber) {
     return <Redirect to={`/quote/${quote.quoteNumber}/underwriting`} />;
   }
 
