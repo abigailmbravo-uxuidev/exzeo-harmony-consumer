@@ -147,8 +147,10 @@
     .segmented-answer-wrapper {
       display: flex;
       overflow: hidden;
-      border-radius: $borderRadius;
-      background-color: $white;
+      //@extendsborder-radius: $borderRadius;
+      //background-color: $white;
+
+      @include shadow(0, 3px, 6px, rgba($navy, 0.16));
 
       div {
         display: flex;
@@ -156,6 +158,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         border-right: 1px $lightGrey solid;
+        background-color: $white;
 
         @include transition(all 0.1s ease-in-out);
 
@@ -169,6 +172,11 @@
 
         &:last-of-type {
           border-right-width: 0;
+          border-radius: 0 $borderRadius $borderRadius 0;
+        }
+
+        &:first-of-type {
+          border-radius: $borderRadius 0 0 $borderRadius;
         }
 
         label {

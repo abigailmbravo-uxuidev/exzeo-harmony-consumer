@@ -63,6 +63,10 @@ nav[role='navigation'] {
         span {
           background-color: $lightGrey;
         }
+
+        p {
+          color: red;
+        }
       }
       //complete styling - styles first level li and children
       &.complete {
