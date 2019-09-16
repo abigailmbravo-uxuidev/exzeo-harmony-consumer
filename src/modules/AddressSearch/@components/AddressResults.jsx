@@ -8,10 +8,10 @@ import { useQuote } from 'modules/Quote';
 import AddressCard from './AddressCard';
 
 const AddressResults = ({ results, companyCode, product }) => {
-  const { quote, loading, startQuote } = useQuote();
+  const { quote, loading, createQuote } = useQuote();
 
   async function handleClick(address) {
-    await startQuote(address, companyCode, product);
+    await createQuote(address, companyCode, product);
   }
 
   if (quote.quoteNumber) {
