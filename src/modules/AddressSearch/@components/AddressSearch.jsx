@@ -71,8 +71,6 @@ const AddressSearch = ({ location, match }) => {
                 ))}
             </section>
 
-            <hr />
-
             <section>
               <AddressSearchFooter />
             </section>

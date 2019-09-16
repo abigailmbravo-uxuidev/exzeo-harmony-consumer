@@ -8,6 +8,10 @@
   flex-grow: 1;
   flex-shrink: 1;
 
+  footer {
+    padding: $padding;
+  }
+
   .title {
     margin-bottom: 1rem;
     font-size: $fontSizeHeader;
@@ -20,7 +24,9 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding-top: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: flex-start;
   }
 
   .switch {
@@ -36,6 +42,19 @@
 
   section {
     overflow: hidden;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+
+    &.results {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
 
     label {
       padding-top: ($padding / 4);
@@ -47,12 +66,6 @@
       padding-top: ($padding / 4);
       padding-bottom: ($padding / 4);
       margin: 0;
-    }
-
-    .form-footer {
-      width: 100%;
-      display: flex;
-      padding-top: 0;
     }
   }
 

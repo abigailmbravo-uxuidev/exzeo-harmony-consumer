@@ -89,17 +89,7 @@
     flex-shrink: 1;
 
     section {
-      flex-grow: 0;
-      flex-shrink: 0;
-
       &.results {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-        flex-grow: 1;
-        flex-shrink: 1;
-
         .card {
           flex-direction: row;
           padding: 0 $padding;
