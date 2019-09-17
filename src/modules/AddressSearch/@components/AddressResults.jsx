@@ -20,8 +20,9 @@ const AddressResults = ({ results, companyCode, product }) => {
 
   return (
     <>
+      {' '}
+      <SectionLoader />
       {loading && <SectionLoader />}
-
       {results.map(property => (
         <AddressCard
           key={property.id}
@@ -29,7 +30,6 @@ const AddressResults = ({ results, companyCode, product }) => {
           handleClick={handleClick}
         />
       ))}
-
       <p>
         If you don’t see your address in the list provided, try entering less
         address information to see if it comes up. Please note, at this time we
