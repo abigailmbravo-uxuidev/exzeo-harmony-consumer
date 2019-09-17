@@ -63,10 +63,6 @@ nav[role='navigation'] {
         span {
           background-color: $lightGrey;
         }
-
-        p {
-          color: red;
-        }
       }
       //complete styling - styles first level li and children
       &.complete {
@@ -131,7 +127,6 @@ nav[role='navigation'] {
       p {
         flex-grow: 0;
         flex-shrink: 0;
-        margin-top: 1rem;
         margin-right: 7px;
         margin-bottom: 0;
         min-height: 12px;
@@ -164,7 +159,6 @@ nav[role='navigation'] {
               color: $navy;
               flex-grow: 0;
               flex-shrink: 0;
-              margin-top: 1rem;
               margin-right: 7px;
               margin-bottom: 0;
               padding: 0 ($padding * 1.5625) 0 0;
@@ -173,6 +167,10 @@ nav[role='navigation'] {
               border-right: 2px $navy solid;
               text-align: right;
               line-height: 1.2;
+
+              &:first-of-type {
+                margin-top: $padding;
+              }
             }
             &.disabled {
               &.complete {
