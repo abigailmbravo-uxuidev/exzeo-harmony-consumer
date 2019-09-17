@@ -214,7 +214,7 @@ const QuoteSearch = () => {
                     <Modal
                       header={
                         <span>
-                          <FontAwesomeIcon icon="trophy" />
+                          <FontAwesomeIcon icon="exclamation-triangle" />
                         </span>
                       }
                       size={Modal.sizes.medium}
@@ -232,15 +232,14 @@ const QuoteSearch = () => {
                           data-test="reset"
                           onClick={() => resetSearch(form)}
                         >
-                          Send for Signature
+                          Try Again
                         </Button>
-                        <Button
+                        <Link
+                          to="/searchAddress"
                           className={Button.constants.classNames.secondary}
-                          data-test="reset"
-                          onClick={() => resetSearch(form)}
                         >
-                          Edit
-                        </Button>
+                          New Quote
+                        </Link>
                       </div>
                     </Modal>
                   )}

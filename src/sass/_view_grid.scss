@@ -169,6 +169,7 @@
       margin-left: 16rem;
       background-color: $navy;
       flex-wrap: wrap;
+      min-height: 176px;
 
       &:hover {
         transform: none;
@@ -186,6 +187,7 @@
           flex-grow: 1;
           flex-shrink: 1;
           padding-left: $padding;
+          padding-top: $padding;
           font-size: $fontSizeBase;
           font-weight: $bold;
           line-height: 1.2;
@@ -209,13 +211,11 @@
         padding: $padding $padding 0 $padding;
         background-color: $navy;
         padding: 0 32px 0 150px;
-        margin-bottom: 1rem;
         margin-top: 0.75rem;
         flex-direction: row-reverse;
 
         button {
           margin-left: 1rem;
-          margin-bottom: 1rem;
           padding: 0.4rem 1rem;
         }
       }
@@ -229,9 +229,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-bottom: 14px;
 
         svg {
-          color: #ffd700;
+          color: $red;
           font-size: 80px;
         }
       }

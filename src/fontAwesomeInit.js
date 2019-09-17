@@ -8,7 +8,8 @@ import {
   faHome,
   faCheckCircle,
   faKey,
-  faTrophy
+  faTrophy,
+  faExclamationTriangle
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -20,5 +21,6 @@ library.add(
   faHome,
   faCheckCircle,
   faKey,
-  faTrophy
+  faTrophy,
+  faExclamationTriangle
 );
