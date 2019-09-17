@@ -21,7 +21,6 @@ const AddressResults = ({ results, companyCode, product }) => {
   return (
     <>
       {' '}
-      <SectionLoader />
       {loading && <SectionLoader />}
       {results.map(property => (
         <AddressCard
