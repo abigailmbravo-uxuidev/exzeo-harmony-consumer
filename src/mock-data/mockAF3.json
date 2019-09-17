@@ -128,7 +128,7 @@
               }
             ],
             "extendedProperties": {
-              "output": "currency"
+              "output": ""
             }
           },
           "formData": {
