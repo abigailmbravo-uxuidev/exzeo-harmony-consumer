@@ -37,6 +37,10 @@
     &.radio {
       &.segmented {
         margin-bottom: 2rem;
+
+        label {
+          padding-left: 0;
+        }
       }
     }
 
