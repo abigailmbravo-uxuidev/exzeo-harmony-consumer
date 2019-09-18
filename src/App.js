@@ -10,6 +10,8 @@ import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
 
+import Test from 'components/Test';
+
 const App = () => {
   return (
     <Router>
@@ -21,6 +23,7 @@ const App = () => {
         <QuoteContextProvider>
           <Route
             path={[
+              '/test', // TODO: remove this before PR
               '/searchAddress',
               '/retrieveQuote',
               '/quote/:quoteNumber/:step'
@@ -47,6 +50,12 @@ const App = () => {
                 <Route
                   path={ROUTES.workflow.path}
                   render={routeProps => <QuoteWorkflow {...routeProps} />}
+                />
+
+                <Route
+                  exact
+                  path="/test"
+                  render={routeProps => <Test {...routeProps} />}
                 />
               </RouteErrorBoundary>
               <AppFooter />
