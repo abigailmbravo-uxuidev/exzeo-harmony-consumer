@@ -30,6 +30,11 @@ export const ROUTES = {
     path: 'summary',
     order: 5,
     workflowPage: 3
+  },
+  additionalInfo: {
+    path: 'additionalInfo',
+    order: 6,
+    workflowPage: 4
   }
 };
 

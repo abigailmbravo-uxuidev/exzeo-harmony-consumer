@@ -4,7 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
-const Navigation = ({ location }) => {
+import { ROUTES } from 'constants/navigation';
+
+const Navigation = ({ location, match, history }) => {
+  const locationOrder =
+    ROUTES[match.params.step || match.params.resource].order;
+
+  function testNavigationPermission(e, toStep) {
+    const to = ROUTES[toStep];
+    if (locationOrder < to.order) {
+      e.preventDefault();
+    }
+  }
+
   return (
     <>
       <button className="navOpener">
@@ -16,7 +28,7 @@ const Navigation = ({ location }) => {
           <li
             key="retrieve"
             className={classNames({
-              hide: location.pathname !== '/retrieveQuote'
+              hide: location.pathname !== ROUTES.retrieveQuote.path
             })}
           >
             <h3>Retrieve</h3>
@@ -30,20 +42,26 @@ const Navigation = ({ location }) => {
             key="quote"
             className={classNames({
               disabled: location.pathname === '/retrieveQuote',
-              complete: false
+              complete: locationOrder > ROUTES.additionalInfo.order
             })}
           >
             <h3>Quote</h3>
             {/*hide number span when li gets complete class*/}
-            <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
-            <p />
+            {locationOrder < ROUTES.additionalInfo.order && (
+              <>
+                <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
+                <p />
+              </>
+            )}
 
             <ul>
               <li key="address">
                 <NavLink
                   to="/searchAddress"
+                  onClick={e => testNavigationPermission(e, 'searchAddress')}
                   className={classNames({
-                    disabled: false
+                    disabled: false,
+                    complete: locationOrder > ROUTES.searchAddress.order
                   })}
                   activeClassName="active"
                 >
@@ -57,8 +75,13 @@ const Navigation = ({ location }) => {
 
               <li key="underwriting">
                 <NavLink
-                  to="/quote"
-                  className={classNames({ disabled: true, complete: false })}
+                  to={`/quote/${match.params.resourceNumber}/underwriting`}
+                  onClick={e => testNavigationPermission(e, 'underwriting')}
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.underwriting.order,
+                    complete: locationOrder > ROUTES.underwriting.order
+                  })}
                 >
                   <h3>Underwriting</h3>
                   <span>
@@ -69,7 +92,15 @@ const Navigation = ({ location }) => {
               </li>
 
               <li key="customize">
-                <a className={classNames('disabled')}>
+                <NavLink
+                  to={`/quote/${match.params.resourceNumber}/customize`}
+                  onClick={e => testNavigationPermission(e, 'customize')}
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.customize.order,
+                    complete: locationOrder > ROUTES.customize.order
+                  })}
+                >
                   <h3>Customize Quote</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
@@ -77,7 +108,7 @@ const Navigation = ({ location }) => {
                   <p>Building limit</p>
                   <p>Personal property</p>
                   <p>Deductible</p>
-                </a>
+                </NavLink>
               </li>
 
               <li key="share">
