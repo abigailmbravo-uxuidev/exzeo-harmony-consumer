@@ -73,7 +73,7 @@ const Navigation = ({ location, match, history }) => {
 
               <li key="underwriting">
                 <NavLink
-                  to={`/quote/${match.params.resourceNumber}/underwriting`}
+                  to={`/quote/${match.params.quoteNumber}/underwriting`}
                   onClick={e => testNavigationPermission(e, 'underwriting')}
                   activeClassName="active"
                   className={classNames({
@@ -91,7 +91,7 @@ const Navigation = ({ location, match, history }) => {
 
               <li key="customize">
                 <NavLink
-                  to={`/quote/${match.params.resourceNumber}/customize`}
+                  to={`/quote/${match.params.quoteNumber}/customize`}
                   onClick={e => testNavigationPermission(e, 'customize')}
                   activeClassName="active"
                   className={classNames({
