@@ -10,8 +10,6 @@ import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
 
-import Test from 'components/Test';
-
 const App = () => {
   return (
     <Router>
@@ -22,7 +20,11 @@ const App = () => {
         {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
         <QuoteContextProvider>
           <Route
-            path={['/:resource/:resourceNumber/:step', '/:resource']}
+            path={[
+              '/searchAddress',
+              '/retrieveQuote',
+              '/quote/:quoteNumber/:step'
+            ]}
             children={routeProps => <Navigation {...routeProps} />}
           />
 
@@ -45,12 +47,6 @@ const App = () => {
                 <Route
                   path={ROUTES.workflow.path}
                   render={routeProps => <QuoteWorkflow {...routeProps} />}
-                />
-
-                <Route
-                  exact
-                  path="/test"
-                  render={routeProps => <Test {...routeProps} />}
                 />
               </RouteErrorBoundary>
               <AppFooter />
