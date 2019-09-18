@@ -7,9 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { ROUTES } from 'constants/navigation';
 
 const Navigation = ({ location, match, history }) => {
-  const locationOrder = (match.params || {}).step
-    ? ROUTES[match.params.step].order
-    : 0;
+  const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
   function testNavigationPermission(e, toStep) {
     const to = ROUTES[toStep];

@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import { AppFooter } from '@exzeo/harmony-core';
 
 import { ROUTES } from 'constants/navigation';
@@ -18,22 +23,23 @@ const App = () => {
       <Header />
 
       <div role="region">
-        <Route exact path="/" render={() => <Redirect to="/searchAddress" />} />
-        {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
-        <QuoteContextProvider>
+        <Switch>
           <Route
-            path={[
-              '/test', // TODO: remove this before PR
-              '/searchAddress',
-              '/retrieveQuote',
-              '/quote/:quoteNumber/:step'
-            ]}
+            exact
+            path="/"
+            render={() => <Redirect to="/searchAddress" />}
+          />
+          {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
+          <Route
+            path={['/:searchType', '/quote/:quoteNumber/:step']}
             children={routeProps => <Navigation {...routeProps} />}
           />
+        </Switch>
 
-          <main role="main">
-            <div className="view-grid">
-              <RouteErrorBoundary>
+        <main role="main">
+          <div className="view-grid">
+            <RouteErrorBoundary>
+              <QuoteContextProvider>
                 <Route
                   exact
                   path={ROUTES.retrieveQuote.path}
@@ -57,11 +63,11 @@ const App = () => {
                   path="/test"
                   render={routeProps => <Test {...routeProps} />}
                 />
-              </RouteErrorBoundary>
-              <AppFooter />
-            </div>
-          </main>
-        </QuoteContextProvider>
+              </QuoteContextProvider>
+            </RouteErrorBoundary>
+            <AppFooter />
+          </div>
+        </main>
       </div>
     </Router>
   );
