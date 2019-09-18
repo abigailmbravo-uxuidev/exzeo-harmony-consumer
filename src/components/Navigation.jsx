@@ -60,7 +60,6 @@ const Navigation = ({ location, match, history }) => {
                   to="/searchAddress"
                   onClick={e => testNavigationPermission(e, 'searchAddress')}
                   className={classNames({
-                    disabled: false,
                     complete: locationOrder > ROUTES.searchAddress.order
                   })}
                   activeClassName="active"

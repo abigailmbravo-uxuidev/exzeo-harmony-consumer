@@ -22,10 +22,10 @@ const AddressSearch = ({ location, match }) => {
 
   return (
     <>
+      <div className="title">Address</div>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <div className="title">Address</div>
             <div className="searchInputWrapper">
               <Field
                 name="address"
@@ -57,6 +57,7 @@ const AddressSearch = ({ location, match }) => {
               </Button>
               <p>Enter the street address only (e.g., 123 Main Street)</p>
             </div>
+
             <section className="results">
               {loading && <SectionLoader />}
 
@@ -73,6 +74,15 @@ const AddressSearch = ({ location, match }) => {
             </section>
 
             <section>
+              <div className="form-footer">
+                <Button
+                  className={Button.constants.classNames.primary}
+                  type="submit"
+                  data-test="submit"
+                >
+                  Search Address
+                </Button>
+              </div>
               <AddressSearchFooter />
             </section>
           </form>

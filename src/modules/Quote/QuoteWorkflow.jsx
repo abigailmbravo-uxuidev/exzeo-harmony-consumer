@@ -70,7 +70,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
             type="submit"
             data-test="submit"
             className={Button.constants.classNames.primary}
-            disabled={pristine || submitting}
+            disabled={submitting}
           >
             Continue
           </Button>

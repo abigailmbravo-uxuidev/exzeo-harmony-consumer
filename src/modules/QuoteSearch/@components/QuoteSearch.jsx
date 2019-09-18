@@ -17,6 +17,7 @@ import { quoteData } from '@exzeo/harmony-core';
 
 // import QuoteCard from './QuoteCard';
 // import NoResults from './NoResults';
+import QuoteSearchFooter from './QuoteSearchFooter';
 
 export const VALID_QUOTE_STATES = [
   'Quote Started',
@@ -83,128 +84,110 @@ const QuoteSearch = () => {
         subscription={{ pristine: true, submitting: true }}
       >
         {({ handleSubmit, submitting, pristine, form }) => (
-          <>
-            <form onSubmit={handleSubmit}>
-              <section className="retrieveQuoteWrapper">
-                <Field
-                  name="lastName"
-                  validate={composeValidators([
-                    validation.isRequired,
-                    validation.isValidNameFormat
-                  ])}
-                >
-                  {({ input, meta }) => (
-                    <Input
-                      input={input}
-                      meta={meta}
-                      styleName="required"
-                      label="Last Name"
-                      dataTest="lastName"
-                      placeholder="Smith"
-                    />
-                  )}
-                </Field>
+          <form onSubmit={handleSubmit}>
+            <div className="retrieveQuoteWrapper">
+              <Field
+                name="lastName"
+                validate={composeValidators([
+                  validation.isRequired,
+                  validation.isValidNameFormat
+                ])}
+              >
+                {({ input, meta }) => (
+                  <Input
+                    input={input}
+                    meta={meta}
+                    styleName="required"
+                    label="Last Name"
+                    dataTest="lastName"
+                    placeholder="Smith"
+                  />
+                )}
+              </Field>
 
-                <Field
-                  name="zipCode"
-                  validate={composeValidators([
-                    validation.isRequired,
-                    validation.isZipCode
-                  ])}
-                >
-                  {({ input, meta }) => (
-                    <Input
-                      input={input}
-                      meta={meta}
-                      type="text"
-                      styleName="required"
-                      label="ZIP Code"
-                      dataTest="zipCode"
-                      placeholder="ZIP Code"
-                    />
-                  )}
-                </Field>
+              <Field
+                name="zipCode"
+                validate={composeValidators([
+                  validation.isRequired,
+                  validation.isZipCode
+                ])}
+              >
+                {({ input, meta }) => (
+                  <Input
+                    input={input}
+                    meta={meta}
+                    type="text"
+                    styleName="required"
+                    label="ZIP Code"
+                    dataTest="zipCode"
+                    placeholder="ZIP Code"
+                  />
+                )}
+              </Field>
 
-                <Field
-                  name="quoteNumber"
-                  validate={composeValidators([validation.isRequired])}
-                >
-                  {({ input, meta }) => (
-                    <Input
-                      input={input}
-                      meta={meta}
-                      styleName="required"
-                      label="Quote Number"
-                      dataTest="quoteNumber"
-                      placeholder="TTIC-A3-"
-                    />
-                  )}
-                </Field>
+              <Field
+                name="quoteNumber"
+                validate={composeValidators([validation.isRequired])}
+              >
+                {({ input, meta }) => (
+                  <Input
+                    input={input}
+                    meta={meta}
+                    styleName="required"
+                    label="Quote Number"
+                    dataTest="quoteNumber"
+                    placeholder="TTIC-A3-"
+                  />
+                )}
+              </Field>
 
-                {/*<Field name="hasQuoteNumber">*/}
-                {/*  {({ input, meta }) => (*/}
-                {/*    <Switch*/}
-                {/*      input={input}*/}
-                {/*      meta={meta}*/}
-                {/*      styleName="switch"*/}
-                {/*      label="Do you have access to the Quote Number"*/}
-                {/*      dataTest="hasQuoteNumber"*/}
-                {/*    />*/}
-                {/*  )}*/}
-                {/*</Field>*/}
+              {/*<Field name="hasQuoteNumber">*/}
+              {/*  {({ input, meta }) => (*/}
+              {/*    <Switch*/}
+              {/*      input={input}*/}
+              {/*      meta={meta}*/}
+              {/*      styleName="switch"*/}
+              {/*      label="Do you have access to the Quote Number"*/}
+              {/*      dataTest="hasQuoteNumber"*/}
+              {/*    />*/}
+              {/*  )}*/}
+              {/*</Field>*/}
 
-                {/*{values.hasQuoteNumber ? (*/}
-                {/*  <Field*/}
-                {/*    name="quoteNumber"*/}
-                {/*    validate={composeValidators([validation.isRequired])}*/}
-                {/*  >*/}
-                {/*    {({ input, meta }) => (*/}
-                {/*      <Input*/}
-                {/*        input={input}*/}
-                {/*        meta={meta}*/}
-                {/*        styleName="required"*/}
-                {/*        label="Quote Number"*/}
-                {/*        dataTest="quoteNumber"*/}
-                {/*        placeholder="TTIC-A3-"*/}
-                {/*      />*/}
-                {/*    )}*/}
-                {/*  </Field>*/}
-                {/*) : (*/}
-                {/*  <Field*/}
-                {/*    name="email"*/}
-                {/*    validate={composeValidators([validation.isRequired])}*/}
-                {/*  >*/}
-                {/*    {({ input, meta }) => (*/}
-                {/*      <Input*/}
-                {/*        input={input}*/}
-                {/*        meta={meta}*/}
-                {/*        styleName="required"*/}
-                {/*        label="Email"*/}
-                {/*        dataTest="email"*/}
-                {/*        placeholder="jsmith@email.com"*/}
-                {/*      />*/}
-                {/*    )}*/}
-                {/*  </Field>*/}
-                {/*)}*/}
+              {/*{values.hasQuoteNumber ? (*/}
+              {/*  <Field*/}
+              {/*    name="quoteNumber"*/}
+              {/*    validate={composeValidators([validation.isRequired])}*/}
+              {/*  >*/}
+              {/*    {({ input, meta }) => (*/}
+              {/*      <Input*/}
+              {/*        input={input}*/}
+              {/*        meta={meta}*/}
+              {/*        styleName="required"*/}
+              {/*        label="Quote Number"*/}
+              {/*        dataTest="quoteNumber"*/}
+              {/*        placeholder="TTIC-A3-"*/}
+              {/*      />*/}
+              {/*    )}*/}
+              {/*  </Field>*/}
+              {/*) : (*/}
+              {/*  <Field*/}
+              {/*    name="email"*/}
+              {/*    validate={composeValidators([validation.isRequired])}*/}
+              {/*  >*/}
+              {/*    {({ input, meta }) => (*/}
+              {/*      <Input*/}
+              {/*        input={input}*/}
+              {/*        meta={meta}*/}
+              {/*        styleName="required"*/}
+              {/*        label="Email"*/}
+              {/*        dataTest="email"*/}
+              {/*        placeholder="jsmith@email.com"*/}
+              {/*      />*/}
+              {/*    )}*/}
+              {/*  </Field>*/}
+              {/*)}*/}
+            </div>
 
-                <div className="form-footer">
-                  <Button
-                    className={Button.constants.classNames.primary}
-                    type="submit"
-                    data-test="submit"
-                    disabled={submitting || pristine}
-                  >
-                    Retrieve Quote
-                  </Button>
-                </div>
-                <hr />
-                <label>Never quoted your address? No problem!</label>
-                <p>Your address can be found with the link below.</p>
-                <Link to="/searchAddress" className="">
-                  New Quote
-                </Link>
-              </section>
-            </form>
             <section className="results">
               {loading && <SectionLoader />}
 
@@ -288,7 +271,22 @@ const QuoteSearch = () => {
               {/*    />*/}
               {/*  ))}*/}
             </section>
-          </>
+
+            <section>
+              {/* Quote Search Footer - combine with Address Search Footer */}
+              <div className="form-footer">
+                <Button
+                  className={Button.constants.classNames.primary}
+                  type="submit"
+                  data-test="submit"
+                  disabled={submitting || pristine}
+                >
+                  Retrieve Quote
+                </Button>
+              </div>
+              <QuoteSearchFooter />
+            </section>
+          </form>
         )}
       </Form>
     </>
