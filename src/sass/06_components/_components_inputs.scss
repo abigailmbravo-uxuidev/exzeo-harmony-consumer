@@ -270,6 +270,9 @@
     }
 
     .segmented-answer-wrapper {
+      > div {
+        overflow: hidden;
+      }
       display: flex;
       overflow: hidden;
       //@extendsborder-radius: $borderRadius;
@@ -332,6 +335,7 @@
         div {
           border-right-width: 0;
           border-bottom: 1px $lightGrey solid;
+          overflow: hidden;
 
           &:last-of-type {
             border-bottom-width: 0;

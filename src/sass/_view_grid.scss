@@ -34,6 +34,15 @@
         }
       }
     }
+
+    @include forPhoneOnly {
+      .form-footer {
+        .btn {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
   }
 
   .form-group {
@@ -343,6 +352,42 @@
         }
         > section > dl {
           padding: 0 ($padding * 2);
+        }
+      }
+    }
+  }
+}
+
+//view grid mobile style
+
+@include forPhoneOnly {
+  .view-grid {
+    padding: ($padding * 3) 0 0 0;
+    form {
+      section {
+        .form-footer {
+          .btn {
+            width: 100%;
+            margin: 0.5rem 0 0 0;
+          }
+        }
+      }
+    }
+    footer {
+      padding: $padding 0;
+    }
+
+    //title styling for phone
+    .workflow {
+      .title {
+        font-size: $fontSizeHeader--small;
+        margin-bottom: 0.25rem;
+      }
+
+      .fade-in {
+        .group-label {
+          font-size: $fontSizeSubheader--small;
+          font-weight: $normal;
         }
       }
     }
