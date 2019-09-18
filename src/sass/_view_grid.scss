@@ -48,9 +48,13 @@
   .form-group {
     margin-bottom: 1rem;
 
+    label {
+      font-size: $fontSizeBase;
+    }
+
     &.radio {
       &.segmented {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
 
         @include forPhoneOnly {
           margin-bottom: 1rem;
@@ -254,6 +258,50 @@
     @include forPhoneOnly {
       .card {
         margin-left: 0;
+        flex-direction: column;
+        justify-content: center;
+
+        .card-header {
+          flex-direction: column;
+          position: relative;
+          padding-left: 0;
+          width: 50%;
+          padding-right: 0;
+          align-items: center;
+        }
+
+        .cardContent {
+          text-align: center;
+          margin-bottom: 1rem;
+
+          p {
+            padding: 0 $padding;
+          }
+        }
+
+        .card-footer {
+          width: 100%;
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+
+          .btn,
+          .btn-primary {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            margin-left: 0;
+            padding: $padding/2;
+            text-align: center;
+          }
+
+          .btn-secondary {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            margin-left: 0;
+            padding: $padding/2;
+            text-align: center;
+          }
+        }
       }
     }
   }
@@ -391,7 +439,6 @@
       .fade-in {
         .group-label {
           font-size: $fontSizeSubheader--small;
-          font-weight: $normal;
         }
       }
     }
