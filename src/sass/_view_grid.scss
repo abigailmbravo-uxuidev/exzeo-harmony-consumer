@@ -52,6 +52,10 @@
       &.segmented {
         margin-bottom: 2rem;
 
+        @include forPhoneOnly {
+          margin-bottom: 1rem;
+        }
+
         label {
           padding-left: 0;
         }
