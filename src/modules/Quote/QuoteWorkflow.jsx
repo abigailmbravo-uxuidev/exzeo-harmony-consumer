@@ -1,12 +1,18 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Gandalf, getConfigForJsonTransform } from '@exzeo/harmony-core';
-import { Button, SectionLoader } from '@exzeo/core-ui';
+import { Button, SectionLoader, FormSpy } from '@exzeo/core-ui';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
 import InfoBar from 'components/InfoBar';
 
 import { useWorkflowTemplate } from './hooks';
 import { useQuote } from './QuoteContext';
+import TriggerRecalc from './TriggerRecalc';
+
+// Thin memoized wrapper around FormSpys to keep them from needlessly re-rendering.
+const MemoizedFormListeners = React.memo(({ children }) => (
+  <React.Fragment>{children}</React.Fragment>
+));
 
 const EMPTY_OBJ = {};
 
@@ -15,6 +21,7 @@ const CUSTOM_COMPONENTS = {
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {
+  const [recalc, setRecalc] = useState(false);
   const {
     loading: quoteLoading,
     quote,
@@ -26,7 +33,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
   const transformConfig = useMemo(() => getConfigForJsonTransform(template), [
     template
   ]);
-  const currentPage = ROUTES[`${match.params.step}`].workflowPage;
+  const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
 
   // TODO really only necessary for development (auto-refreshing)
   useEffect(() => {
@@ -58,7 +65,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
       <Gandalf
         formId="harmony-quote"
         formClassName="workflow"
-        currentPage={currentPage}
+        currentPage={workflowPage}
         handleSubmit={handleGandalfSubmit}
         initialValues={quote}
         customComponents={CUSTOM_COMPONENTS}
@@ -72,8 +79,23 @@ const QuoteWorkflow = ({ history, location, match }) => {
             className={Button.constants.classNames.primary}
             disabled={submitting}
           >
-            Continue
+            {recalc ? 'recalculate' : 'continue'}
           </Button>
+        )}
+        formListeners={() => (
+          <MemoizedFormListeners>
+            <FormSpy subscription={{ dirty: true }}>
+              {({ dirty }) => (
+                <TriggerRecalc
+                  dirty={dirty}
+                  isRecalc={recalc}
+                  setRecalc={setRecalc}
+                  workflowPage={workflowPage}
+                  recalcPage={ROUTES.customize.workflowPage}
+                />
+              )}
+            </FormSpy>
+          </MemoizedFormListeners>
         )}
       />
     </>
