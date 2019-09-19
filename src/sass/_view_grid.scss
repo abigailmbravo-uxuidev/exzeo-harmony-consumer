@@ -12,7 +12,10 @@
   .workflow {
     div {
       label {
-        padding-left: 0;
+        padding-left: $padding/2;
+      }
+      input {
+        padding-left: $padding/2;
       }
     }
     .range-wrapper {
