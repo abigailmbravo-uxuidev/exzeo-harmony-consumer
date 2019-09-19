@@ -6,10 +6,10 @@ import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
 import InfoBar from 'components/InfoBar';
 import Subtitle from 'components/Subtitle';
 
-import { useWorkflowTemplate } from './hooks';
-import { useQuote } from './QuoteContext';
+import { useWorkflowTemplate } from '../hooks';
+import { useQuote } from '../QuoteContext';
 import TriggerRecalc from './TriggerRecalc';
-import WorkflowFooter from 'modules/Quote/WorkflowFooter';
+import WorkflowFooter from 'modules/Quote/@components/WorkflowFooter';
 
 // Thin memoized wrapper around FormSpys to keep them from needlessly re-rendering.
 const MemoizedFormListeners = React.memo(({ children }) => (
