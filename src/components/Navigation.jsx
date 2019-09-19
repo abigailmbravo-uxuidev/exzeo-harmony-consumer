@@ -5,8 +5,11 @@ import { NavLink } from 'react-router-dom';
 /* animation will be applied here. classes will be: navSlideOut & navSlideIn */
 
 import { ROUTES } from 'constants/navigation';
+import { useQuote } from 'modules/Quote';
+import { format } from '@exzeo/core-ui';
 
 const Navigation = ({ location, match, history }) => {
+  const { quote } = useQuote();
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
   function testNavigationPermission(e, toStep) {
@@ -56,18 +59,33 @@ const Navigation = ({ location, match, history }) => {
             <ul>
               <li key="address">
                 <NavLink
-                  to="/searchAddress"
+                  to="#"
                   onClick={e => testNavigationPermission(e, 'searchAddress')}
+                  activeClassName="active"
                   className={classNames({
                     complete: locationOrder > ROUTES.searchAddress.order
                   })}
-                  activeClassName="active"
                 >
                   <h3>Address</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Enter your desired flood quote address.</p>
+                  {quote.quoteNumber ? (
+                    <>
+                      <p>
+                        <strong>
+                          {quote.property.physicalAddress.address1}
+                        </strong>
+                      </p>
+                      <p>
+                        {format.toCityStateZip(quote.property.physicalAddress)}
+                      </p>
+                      <p>{`Year built: ${quote.property.yearBuilt}`}</p>
+                      <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
+                    </>
+                  ) : (
+                    <p>Enter your desired flood quote address.</p>
+                  )}
                 </NavLink>
               </li>
 

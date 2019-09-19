@@ -6,7 +6,7 @@ const InfoBar = ({ initialValues }) => {
     <div className="infoBar">
       <h2>
         Premium:&nbsp;
-        <strong>{format.toCurrency(initialValues.rating.netPremium)}</strong>
+        <strong>{format.toCurrency(initialValues.rating.totalPremium)}</strong>
       </h2>
       <label>
         Quote Number <strong>{`# ${initialValues.quoteNumber}`}</strong>
