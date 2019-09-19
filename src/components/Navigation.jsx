@@ -13,13 +13,6 @@ const Navigation = ({ location, match, history }) => {
   const { quote } = useQuote();
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
-  function testNavigationPermission(e, toStep) {
-    const to = ROUTES[toStep];
-    if (locationOrder < to.order) {
-      e.preventDefault();
-    }
-  }
-
   return (
     <>
       <button className="navOpener" onClick={() => setNavOpen(state => !state)}>
