@@ -81,7 +81,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
             className={Button.constants.classNames.primary}
             disabled={submitting}
           >
-            {recalc ? 'recalculate' : 'continue'}
+            {recalc ? 'Recalculate' : 'Continue'}
           </Button>
         )}
         formListeners={() => (

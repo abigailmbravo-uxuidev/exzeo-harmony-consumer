@@ -26,15 +26,20 @@ export const ROUTES = {
     order: 4,
     workflowPage: 2
   },
-  summary: {
-    path: 'summary',
+  share: {
+    path: 'share',
     order: 5,
     workflowPage: 3
   },
-  additionalInfo: {
-    path: 'additionalInfo',
+  summary: {
+    path: 'summary',
     order: 6,
     workflowPage: 4
+  },
+  additionalInfo: {
+    path: 'additionalInfo',
+    order: 7,
+    workflowPage: 5
   }
 };
 

@@ -59,8 +59,11 @@ const Navigation = ({ location, match, history }) => {
             <ul>
               <li key="address">
                 <NavLink
-                  to="#"
-                  onClick={e => testNavigationPermission(e, 'searchAddress')}
+                  to={
+                    locationOrder > ROUTES.searchAddress.order
+                      ? '#'
+                      : '/searchAddress'
+                  }
                   activeClassName="active"
                   className={classNames({
                     complete: locationOrder > ROUTES.searchAddress.order
@@ -91,8 +94,11 @@ const Navigation = ({ location, match, history }) => {
 
               <li key="underwriting">
                 <NavLink
-                  to={`/quote/${match.params.quoteNumber}/underwriting`}
-                  onClick={e => testNavigationPermission(e, 'underwriting')}
+                  to={
+                    locationOrder < ROUTES.underwriting.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/underwriting`
+                  }
                   activeClassName="active"
                   className={classNames({
                     disabled: locationOrder < ROUTES.underwriting.order,
@@ -109,8 +115,11 @@ const Navigation = ({ location, match, history }) => {
 
               <li key="customize">
                 <NavLink
-                  to={`/quote/${match.params.quoteNumber}/customize`}
-                  onClick={e => testNavigationPermission(e, 'customize')}
+                  to={
+                    locationOrder < ROUTES.customize.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/customize`
+                  }
                   activeClassName="active"
                   className={classNames({
                     disabled: locationOrder < ROUTES.customize.order,
@@ -127,9 +136,20 @@ const Navigation = ({ location, match, history }) => {
                 </NavLink>
               </li>
 
-              <li key="share">
-                <a className="disabled">
-                  <h3>Save/Share Quote</h3>
+              <li key="save">
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.save.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/save`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.save.order,
+                    complete: locationOrder > ROUTES.save.order
+                  })}
+                >
+                  <h3>Save Quote</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
@@ -137,7 +157,31 @@ const Navigation = ({ location, match, history }) => {
                     Jerky id capicola ham hock nisi minim lorem sint sirloin
                     elit ground round ad.
                   </p>
-                </a>
+                </NavLink>
+              </li>
+
+              <li key="share">
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.share.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/share`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.share.order,
+                    complete: locationOrder > ROUTES.share.order
+                  })}
+                >
+                  <h3>Share Quote</h3>
+                  <span>
+                    <FontAwesomeIcon icon="check-circle" />
+                  </span>
+                  <p>
+                    Jerky id capicola ham hock nisi minim lorem sint sirloin
+                    elit ground round ad.
+                  </p>
+                </NavLink>
               </li>
             </ul>
           </li>
