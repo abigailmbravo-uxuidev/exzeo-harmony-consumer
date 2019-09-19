@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { noop, Switch } from '@exzeo/core-ui';
-import { AgencyCard } from '@exzeo/harmony-core';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, noop, Switch } from '@exzeo/core-ui';
+import { AgencyCard } from '@exzeo/harmony-core';
 
 const Summary = ({ initialValues }) => {
   const [editAgency, setEditAgency] = useState(false);
@@ -23,19 +24,34 @@ const Summary = ({ initialValues }) => {
           }}
         />
       </section>
-      <section>
-        <NavLink to="/underwriting">Edit Quote</NavLink>
-        <button type="button" onClick={x => x}>
-          Email Quote
-        </button>
+      <section className="iconContainer">
+        <NavLink
+          className={Button.constants.classNames.icon}
+          to="/underwriting"
+        >
+          <FontAwesomeIcon icon="edit" />
+          <label>Edit Quote</label>
+        </NavLink>
+        <Button
+          data-test="share"
+          className={Button.constants.classNames.icon}
+          onClick={noop}
+        >
+          <FontAwesomeIcon icon="paper-plane" />
+          <label>Email Quote</label>
+        </Button>
       </section>
       <section>
         <strong>To continue, you will need the following information</strong>
-        <p>Mortgage information</p>
-        <p>Name and Email address of additional owners</p>
-        <p>
-          Name and address of any other additional insured to add to your policy
-        </p>
+        <br />
+        <ul>
+          <li>Mortgage information</li>
+          <li>Name and Email address of additional owners</li>
+          <li>
+            Name and address of any other additional insured to add to your
+            policy
+          </li>
+        </ul>
       </section>
     </div>
   );
