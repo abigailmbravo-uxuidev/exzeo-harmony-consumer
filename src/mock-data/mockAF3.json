@@ -163,6 +163,18 @@
           "children": []
         },
         {
+          "id": "e926057b-bd06-428c-a42d-5618c1552cfe",
+          "type": "$SUBTITLE",
+          "dependencies": [],
+          "data": {
+            "className": "subtitle",
+            "strong": "To save & retrieve your quote later, please enter your name and email below",
+            "text": "Your information will be saved for 30 days. Please give more detail regarding emailing and sharing your quote with yourself."
+          },
+          "formData": {},
+          "children": []
+        },
+        {
           "id": "e1815d02-6f9b-4de4-8eec-69af3ae9634d",
           "type": "$INPUT",
           "dependencies": [],

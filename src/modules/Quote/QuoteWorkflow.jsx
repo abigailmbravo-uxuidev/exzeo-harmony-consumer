@@ -4,6 +4,7 @@ import { Button, SectionLoader, FormSpy } from '@exzeo/core-ui';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
 import InfoBar from 'components/InfoBar';
+import Subtitle from 'components/Subtitle';
 
 import { useWorkflowTemplate } from './hooks';
 import { useQuote } from './QuoteContext';
@@ -18,7 +19,8 @@ const MemoizedFormListeners = React.memo(({ children }) => (
 const EMPTY_OBJ = {};
 
 const CUSTOM_COMPONENTS = {
-  $INFO: InfoBar
+  $INFO: InfoBar,
+  $SUBTITLE: Subtitle
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {
