@@ -9,8 +9,8 @@ import { useQuote } from 'modules/Quote';
 import { format } from '@exzeo/core-ui';
 
 const Navigation = ({ location, match, history }) => {
-  const [navOpen, setNavOpen] = useState(false);
   const { quote } = useQuote();
+  const [navOpen, setNavOpen] = useState(false);
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
   return (
@@ -62,7 +62,7 @@ const Navigation = ({ location, match, history }) => {
                 <NavLink
                   to={
                     locationOrder > ROUTES.searchAddress.order
-                      ? '#'
+                      ? '/searchAddress'
                       : '/searchAddress'
                   }
                   activeClassName="active"
@@ -245,7 +245,6 @@ const Navigation = ({ location, match, history }) => {
               </li>
             </ul>
           </li>
-
           {/********** APPLICATION **********/}
         </ul>
       </nav>
