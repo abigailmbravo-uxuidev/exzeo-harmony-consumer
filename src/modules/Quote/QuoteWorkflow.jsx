@@ -8,6 +8,7 @@ import InfoBar from 'components/InfoBar';
 import { useWorkflowTemplate } from './hooks';
 import { useQuote } from './QuoteContext';
 import TriggerRecalc from './TriggerRecalc';
+import WorkflowFooter from 'modules/Quote/WorkflowFooter';
 
 // Thin memoized wrapper around FormSpys to keep them from needlessly re-rendering.
 const MemoizedFormListeners = React.memo(({ children }) => (
@@ -75,14 +76,11 @@ const QuoteWorkflow = ({ history, location, match }) => {
         transformConfig={transformConfig}
         options={EMPTY_OBJ}
         renderFooter={({ pristine, submitting }) => (
-          <Button
-            type="submit"
-            data-test="submit"
-            className={Button.constants.classNames.primary}
-            disabled={submitting}
-          >
-            {recalc ? 'Recalculate' : 'Continue'}
-          </Button>
+          <WorkflowFooter
+            submitting={submitting}
+            recalc={recalc}
+            workflowPage={workflowPage}
+          />
         )}
         formListeners={() => (
           <MemoizedFormListeners>
