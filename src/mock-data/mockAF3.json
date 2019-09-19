@@ -268,11 +268,45 @@
       "step": {},
       "components": [
         {
-          "id": "e926057b-bd06-428c-a42d-5618c1552cfe",
+          "id": "03733511-64f1-4eb4-b01f-460e7787864d",
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "We will be sharing things here!!!"
+            "text": "Quote Summary"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "94d0f811-0501-49c2-8be6-1fb909e10a12",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "c9394022-edd8-4ae0-901f-f99a903c3038",
+          "type": "$SUBTITLE",
+          "dependencies": [],
+          "data": {
+            "className": "subtitle",
+            "text": "You are so close to completing the process of purchasing your stand alone flood policy."
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-1600bb96de7c",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$CONSUMER_SUMMARY",
+            "extendedProperties": {
+              "subscribe": true
+            }
           },
           "formData": {},
           "children": []

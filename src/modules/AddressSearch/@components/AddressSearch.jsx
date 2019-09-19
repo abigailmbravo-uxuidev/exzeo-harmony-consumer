@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
@@ -9,8 +9,6 @@ import {
   validation,
   composeValidators
 } from '@exzeo/core-ui';
-
-import { useQuote } from 'modules/Quote';
 
 import { useAddressSearch } from '../hooks';
 import AddressNoResults from './AddressNoResults';

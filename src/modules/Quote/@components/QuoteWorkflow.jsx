@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Gandalf, getConfigForJsonTransform } from '@exzeo/harmony-core';
-import { Button, SectionLoader, FormSpy } from '@exzeo/core-ui';
+import { SectionLoader, FormSpy } from '@exzeo/core-ui';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
 import InfoBar from 'components/InfoBar';
@@ -9,7 +9,8 @@ import Subtitle from 'components/Subtitle';
 import { useWorkflowTemplate } from '../hooks';
 import { useQuote } from '../QuoteContext';
 import TriggerRecalc from './TriggerRecalc';
-import WorkflowFooter from 'modules/Quote/@components/WorkflowFooter';
+import WorkflowFooter from './WorkflowFooter';
+import Summary from './Summary';
 
 // Thin memoized wrapper around FormSpys to keep them from needlessly re-rendering.
 const MemoizedFormListeners = React.memo(({ children }) => (
@@ -20,7 +21,8 @@ const EMPTY_OBJ = {};
 
 const CUSTOM_COMPONENTS = {
   $INFO: InfoBar,
-  $SUBTITLE: Subtitle
+  $SUBTITLE: Subtitle,
+  $CONSUMER_SUMMARY: Summary
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {

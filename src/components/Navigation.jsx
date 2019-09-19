@@ -154,10 +154,7 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>
-                    Jerky id capicola ham hock nisi minim lorem sint sirloin
-                    elit ground round ad.
-                  </p>
+                  <p>Save your quote to retrieve later.</p>
                 </NavLink>
               </li>
 
@@ -178,10 +175,7 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>
-                    Jerky id capicola ham hock nisi minim lorem sint sirloin
-                    elit ground round ad.
-                  </p>
+                  <p>You will be able to share your new quote here.</p>
                 </NavLink>
               </li>
             </ul>
