@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { useQuote } from 'modules/Quote';
 import { format } from '@exzeo/core-ui';
 
 const Navigation = ({ location, match, history }) => {
+  const [navOpen, setNavOpen] = useState(false);
   const { quote } = useQuote();
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
@@ -21,10 +22,17 @@ const Navigation = ({ location, match, history }) => {
 
   return (
     <>
-      <button className="navOpener">
+      <button className="navOpener" onClick={() => setNavOpen(state => !state)}>
         <FontAwesomeIcon icon="chevron-right" size="sm" />
       </button>
-      <nav role="navigation" className="navSlideOut">
+
+      <nav
+        role="navigation"
+        className={classNames('navSlideOut', {
+          open: navOpen,
+          closed: !navOpen
+        })}
+      >
         <ul className="mainNavigation">
           {/********** RETRIEVE **********/}
           <li
