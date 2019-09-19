@@ -46,5 +46,7 @@ export const ROUTES = {
 export const WORKFLOW_ROUTING = {
   [ROUTES.underwriting.path]: ROUTES.customize.path,
   [ROUTES.customize.path]: ROUTES.save.path,
-  [ROUTES.save.path]: ROUTES.summary.path
+  [ROUTES.save.path]: ROUTES.share.path,
+  [ROUTES.share.path]: ROUTES.summary.path,
+  [ROUTES.summary.path]: ROUTES.additionalInfo.path
 };

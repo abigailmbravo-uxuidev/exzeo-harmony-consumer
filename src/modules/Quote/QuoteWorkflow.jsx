@@ -49,7 +49,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
 
   async function handleGandalfSubmit(data, options) {
     try {
-      await updateQuote(data);
+      await updateQuote(data, { workflowPage });
 
       if (!recalc) {
         history.replace(WORKFLOW_ROUTING[match.params.step]);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { quoteData } from '@exzeo/harmony-core';
 import { formatDate, FORMATS } from '@exzeo/core-ui/src/Utilities/date';
+import { ROUTES } from 'constants/navigation';
 
 const QuoteContext = React.createContext();
 
@@ -57,7 +58,9 @@ export function useQuote() {
   const updateQuote = async (data, options) => {
     try {
       setLoading(true);
-      const quote = await quoteData.updateQuote(data);
+      const updateData = formatQuoteForSubmit(data, options);
+
+      const quote = await quoteData.updateQuote(updateData);
 
       const formattedQuote = formatQuoteForUser(quote);
       setQuote(formattedQuote);
@@ -84,6 +87,18 @@ export function QuoteContextProvider(props) {
   return <QuoteContext.Provider value={value} {...props} />;
 }
 
+// Edit form data for quote-manager
+function formatQuoteForSubmit(data, options) {
+  if (options.workflowPage === ROUTES.save.workflowPage) {
+    data.policyHolders[0].electronicDelivery = false;
+    data.policyHolders[0].order = 0;
+    data.policyHolders[0].entityType = 'Person';
+  }
+
+  return data;
+}
+
+// Edit quote for Form
 function formatQuoteForUser(quoteData) {
   quoteData.effectiveDate = formatDate(
     quoteData.effectiveDate,

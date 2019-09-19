@@ -256,14 +256,11 @@
       "step": {},
       "components": [
         {
-          "id": 1,
-          "type": "$CUSTOM",
+          "id": "e926057b-bd06-428c-a42d-5618c1552cfe",
+          "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "extendedProperties": {
-              "subscribe": true
-            },
-            "component": "$SHARE"
+            "text": "We will be sharing things here!!!"
           },
           "formData": {},
           "children": []
