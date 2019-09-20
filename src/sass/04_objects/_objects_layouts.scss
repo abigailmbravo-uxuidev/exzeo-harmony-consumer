@@ -69,6 +69,26 @@ body {
     .harmony-quote {
       color: red;
     }
+
+    //share quote styling
+    .iconContainer {
+      flex-direction: row;
+
+      button {
+        .iconTyptap {
+          height: 2rem;
+
+          fill: $navy;
+          @include transition(all 0.1s ease-in-out);
+        }
+
+        &:hover {
+          .iconTyptap {
+            fill: $blue;
+          }
+        }
+      }
+    }
   }
 
   //region layout for phone

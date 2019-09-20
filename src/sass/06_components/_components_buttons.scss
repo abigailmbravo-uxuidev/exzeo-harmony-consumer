@@ -4,30 +4,32 @@ button,
 .btn,
 submit {
   margin-bottom: 2rem;
+  padding: ($padding / 2.5) ($padding * 1.5);
   border: 2px $blue solid;
+  border-radius: $borderRadius;
   background-color: $blue;
   color: $white;
-  border-radius: $borderRadius;
   font-weight: bold;
   font-size: $fontSizeSubheader;
   font-family: $serif;
-  padding: ($padding / 2.5) ($padding * 1.5);
+
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
 
   &:hover {
-    background-color: mix($blue, $navy, 80%);
     border-color: rgba($blue, 0);
-    @include shadow(0, 1px, 2px, rgba($navy, 0.5));
+    background-color: mix($blue, $navy, 80%);
     cursor: pointer;
+
+    @include shadow(0, 1px, 2px, rgba($navy, 0.5));
   }
 
   &.btn-secondary {
     background-color: $white;
     color: $blue;
     &:hover {
-      background-color: mix($blue, $navy, 80%);
       border-color: rgba($blue, 0);
+      background-color: mix($blue, $navy, 80%);
       color: $white;
     }
   }
@@ -48,26 +50,27 @@ submit {
 //icon button styling
 
 .iconContainer {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: ($padding / 2) 0;
   border-top: 1px rgba($lightGrey, 0.5) solid;
   border-bottom: 1px rgba($lightGrey, 0.5) solid;
-  padding: ($padding / 2) 0;
-  margin-bottom: 1rem;
-  display: flex;
 
   .btn-icon {
-    background-color: transparent;
-    border-width: 0;
-    @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
-    color: $navy;
     display: flex;
-    width: auto;
-    font-size: 2rem;
+    align-items: center;
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
-    align-items: center;
-    justify-items: center;
     margin: 0;
+    width: auto;
+    border-width: 0;
+    background-color: transparent;
+    color: $navy;
+    font-size: 2rem;
+
+    @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
+    justify-items: center;
 
     &:hover {
       color: $blue;
@@ -75,10 +78,10 @@ submit {
 
     label {
       width: auto;
-      font-family: $serif;
+      text-align: center;
       font-weight: normal;
       font-size: $fontSizeSubheader--small;
-      text-align: center;
+      font-family: $serif;
       cursor: pointer;
 
       @include forPhoneOnly {
