@@ -37,31 +37,31 @@ const Navigation = ({ location, match, history }) => {
               <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
             </>
           ) : (
-            <p></p>
+            <p />
           )}
         </div>
         <ul className="mainNavigation">
-          {/********** RETRIEVE **********/}
+          {/********** RETRIEVE QUOTE **********/}
           <li
-            key="retrieve"
+            key={ROUTES.retrieveQuote.label}
             className={classNames({
               hide: location.pathname !== ROUTES.retrieveQuote.path
             })}
           >
-            <h3>Retrieve</h3>
+            <h3>{ROUTES.retrieveQuote.label}</h3>
             <span />
             <p />
           </li>
-          {/********** RETRIEVE **********/}
+          {/********** RETRIEVE QUOTE **********/}
 
           {/********** SEARCH ADDRESS **********/}
           <li
-            key="retrieve"
+            key={ROUTES.searchAddress.label}
             className={classNames({
               hide: location.pathname !== ROUTES.searchAddress.path
             })}
           >
-            <h3>Search</h3>
+            <h3>{ROUTES.searchAddress.label}</h3>
             <span />
             <p />
           </li>
@@ -78,16 +78,11 @@ const Navigation = ({ location, match, history }) => {
             })}
           >
             <h3>Quote</h3>
-            {/*hide number span when li gets complete class*/}
-            {locationOrder < ROUTES.additionalInfo.order && (
-              <>
-                <span>1{/*<FontAwesomeIcon icon="check-circle" />*/}</span>
-                <p />
-              </>
-            )}
+            <span>1</span>
+            <p />
 
             <ul>
-              <li key="underwriting">
+              <li key={ROUTES.underwriting.label}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.underwriting.order
@@ -100,15 +95,19 @@ const Navigation = ({ location, match, history }) => {
                     complete: locationOrder > ROUTES.underwriting.order
                   })}
                 >
-                  <h3>Underwriting</h3>
+                  <h3>{ROUTES.underwriting.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>You have successfully answered the required questions.</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </NavLink>
               </li>
 
-              <li key="customize">
+              <li key={ROUTES.customize.label}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.customize.order
@@ -121,17 +120,19 @@ const Navigation = ({ location, match, history }) => {
                     complete: locationOrder > ROUTES.customize.order
                   })}
                 >
-                  <h3>Customize Quote</h3>
+                  <h3>{ROUTES.customize.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Building limit</p>
-                  <p>Personal property</p>
-                  <p>Deductible</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </NavLink>
               </li>
 
-              <li key="save">
+              <li key={ROUTES.save.label}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.save.order
@@ -144,15 +145,19 @@ const Navigation = ({ location, match, history }) => {
                     complete: locationOrder > ROUTES.save.order
                   })}
                 >
-                  <h3>Save Quote</h3>
+                  <h3>{ROUTES.save.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Save your quote to retrieve later.</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </NavLink>
               </li>
 
-              <li key="share">
+              <li key={ROUTES.share.label}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.share.order
@@ -165,11 +170,15 @@ const Navigation = ({ location, match, history }) => {
                     complete: locationOrder > ROUTES.share.order
                   })}
                 >
-                  <h3>Share Quote</h3>
+                  <h3>{ROUTES.share.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>You will be able to share your new quote here.</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </NavLink>
               </li>
             </ul>
@@ -188,7 +197,11 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Interesting things are happening</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </a>
               </li>
 
@@ -198,7 +211,11 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Super duper cool</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </a>
               </li>
 
@@ -208,7 +225,11 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Do some of the best things ever</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </a>
               </li>
 
@@ -218,7 +239,11 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Do some of the best things ever</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </a>
               </li>
 
@@ -228,7 +253,11 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  <p>Do some of the best things ever</p>
+                  {locationOrder <= ROUTES.underwriting.order ? (
+                    <p>text BEFORE</p>
+                  ) : (
+                    <p>text AFTER </p>
+                  )}
                 </a>
               </li>
             </ul>
