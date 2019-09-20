@@ -8,7 +8,7 @@ import { ROUTES } from 'constants/navigation';
 import { useQuote } from 'modules/Quote';
 import { format } from '@exzeo/core-ui';
 
-const Navigation = ({ location, match, history }) => {
+const Navigation = ({ location, match }) => {
   const { quote } = useQuote();
   const [navOpen, setNavOpen] = useState(false);
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
