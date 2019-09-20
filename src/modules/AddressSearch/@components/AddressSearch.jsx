@@ -20,7 +20,7 @@ const AddressSearch = ({ location, match }) => {
 
   return (
     <>
-      <div className="title">Address</div>
+      <div className="title">Search Address</div>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>

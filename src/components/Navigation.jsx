@@ -26,7 +26,7 @@ const Navigation = ({ location, match, history }) => {
           closed: !navOpen
         })}
       >
-        <div>
+        <div className="propertyAddressWrapper">
           {quote.quoteNumber ? (
             <>
               <p>
@@ -37,7 +37,7 @@ const Navigation = ({ location, match, history }) => {
               <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
             </>
           ) : (
-            <p>Enter your desired flood quote address.</p>
+            <p></p>
           )}
         </div>
         <ul className="mainNavigation">
@@ -61,7 +61,7 @@ const Navigation = ({ location, match, history }) => {
               hide: location.pathname !== ROUTES.searchAddress.path
             })}
           >
-            <h3>Search Address</h3>
+            <h3>Search</h3>
             <span />
             <p />
           </li>
