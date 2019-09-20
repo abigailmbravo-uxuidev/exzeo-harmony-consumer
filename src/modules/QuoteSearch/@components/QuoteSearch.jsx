@@ -17,7 +17,6 @@ import { quoteData } from '@exzeo/harmony-core';
 
 // import QuoteCard from './QuoteCard';
 // import NoResults from './NoResults';
-import QuoteSearchFooter from './QuoteSearchFooter';
 
 export const VALID_QUOTE_STATES = [
   'Quote Started',
@@ -284,7 +283,6 @@ const QuoteSearch = () => {
                   Retrieve Quote
                 </Button>
               </div>
-              <QuoteSearchFooter />
             </section>
           </form>
         )}

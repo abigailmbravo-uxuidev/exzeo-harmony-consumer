@@ -14,6 +14,7 @@ import { QuoteContextProvider, QuoteWorkflow } from 'modules/Quote';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
+import Footer from 'components/Footer';
 
 import Test from 'components/Test';
 
@@ -64,6 +65,7 @@ const App = () => {
                   render={routeProps => <Test {...routeProps} />}
                 />
               </RouteErrorBoundary>
+              <Footer />
               <AppFooter />
             </div>
           </main>

@@ -13,7 +13,6 @@ import {
 import { useAddressSearch } from '../hooks';
 import AddressNoResults from './AddressNoResults';
 import AddressResults from './AddressResults';
-import AddressSearchFooter from './AddressSearchFooter';
 
 const AddressSearch = ({ location, match }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
@@ -81,7 +80,6 @@ const AddressSearch = ({ location, match }) => {
                   Search Address
                 </Button>
               </div>
-              <AddressSearchFooter />
             </section>
           </form>
         )}
