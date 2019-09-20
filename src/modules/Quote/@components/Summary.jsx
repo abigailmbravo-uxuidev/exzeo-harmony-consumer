@@ -70,7 +70,7 @@ const Summary = ({ initialValues, formInstance }) => {
       {shareQuote && (
         <ModalPortal>
           <ShareModal
-            summaryType="consumer"
+            summaryType="agency"
             parentFormInstance={formInstance}
             closeModal={() => setShareQuote(false)}
           />
