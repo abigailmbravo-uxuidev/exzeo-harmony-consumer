@@ -33,7 +33,11 @@ const App = () => {
             />
             {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
             <Route
-              path={['/quote/:quoteNumber/:step', '/:searchType']}
+              path={[
+                '/searchAddress',
+                '/retrieveQuote',
+                '/quote/:quoteNumber/:step'
+              ]}
               children={routeProps => <Navigation {...routeProps} />}
             />
           </Switch>

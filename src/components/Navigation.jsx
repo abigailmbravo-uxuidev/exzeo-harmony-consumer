@@ -124,7 +124,7 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.customize.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
@@ -149,7 +149,7 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.save.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
@@ -174,7 +174,7 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.share.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
