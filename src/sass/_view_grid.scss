@@ -1,15 +1,28 @@
 //consumer view grid styling
 
 .view-grid {
-  width: 100%;
-  padding: $padding $padding 0 $padding;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
+  padding: $padding $padding 0 $padding;
+  width: 100%;
+
+  > div {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 
   //customize quote styling
   .workflow {
+    @include forPhoneOnly {
+      .form-footer {
+        .btn {
+          margin: 0;
+          width: 100%;
+        }
+      }
+    }
     div {
       label {
         padding-left: $padding/2;
@@ -30,19 +43,10 @@
     .slider-component {
       .form-group {
         label {
-          font-size: $fontSizeSubheader;
-          font-family: $serif;
           margin-bottom: 1rem;
           padding-left: 0;
-        }
-      }
-    }
-
-    @include forPhoneOnly {
-      .form-footer {
-        .btn {
-          width: 100%;
-          margin: 0;
+          font-size: $fontSizeSubheader;
+          font-family: $serif;
         }
       }
     }
@@ -85,19 +89,19 @@
 
   .title {
     margin-bottom: 1rem;
-    font-size: $fontSizeHeader;
-    font-weight: $bold;
-    font-family: $serif;
     color: $navy;
+    font-weight: $bold;
+    font-size: $fontSizeHeader;
+    font-family: $serif;
   }
 
   .form-footer {
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-start;
     flex-grow: 1;
     flex-shrink: 1;
-    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
   }
 
   .switch {
@@ -113,56 +117,56 @@
 
   section {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
-    flex-direction: column;
 
     &.results {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      margin: 0;
-      flex-shrink: 0;
       flex-grow: 0;
+      flex-shrink: 0;
+      margin: 0;
+      width: 100%;
     }
 
     label {
+      margin-bottom: 0;
       padding-top: ($padding / 4);
       padding-bottom: 0;
-      margin-bottom: 0;
     }
 
     p {
+      margin: 0;
       padding-top: ($padding / 4);
       padding-bottom: ($padding / 4);
-      margin: 0;
     }
   }
 
   //quote number infomation bar
   .infoBar {
-    width: 100%;
-    margin: 1rem 0 0 0;
-    padding: $padding;
     display: flex;
+    margin: 1rem 0 0 0;
     margin-top: 0;
     margin-bottom: 1rem;
+    padding: $padding;
+    width: 100%;
 
     h2 {
       font-weight: normal;
     }
 
     label {
-      margin-bottom: 0;
       display: flex;
       justify-content: flex-end;
+      margin-bottom: 0;
       width: auto;
       font-weight: normal;
     }
 
     p {
-      margin-bottom: 0;
       flex-direction: column-reverse;
+      margin-bottom: 0;
       width: auto;
       font-family: $serif;
     }
@@ -172,115 +176,37 @@
   .modal {
     position: fixed;
     top: 64px;
-    left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba($black, 0.54);
+    left: 0;
     z-index: 10;
-    padding-left: calc((100vw - 102rem) / 2);
-    padding-right: calc(((100vw - 102rem) / 2) + 32rem);
-    padding-top: 0;
-    padding-bottom: 0;
     display: flex;
     align-items: flex-start;
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      padding: 0 $padding;
-      margin: 0;
-      width: 100%;
-      margin-left: 16rem;
-      background-color: $navy;
-      flex-wrap: wrap;
-      min-height: 176px;
-
-      &:hover {
-        transform: none;
-      }
-
-      .cardContent {
-        padding: ($padding / 4) 0 ($padding / 4) 0;
-        background-color: $navy;
-        color: $white;
-        display: flex;
-        padding-left: 150px;
-
-        p {
-          color: white;
-          flex-grow: 1;
-          flex-shrink: 1;
-          padding-left: $padding;
-          padding-top: $padding;
-          font-size: $fontSizeBase;
-          font-weight: $bold;
-          line-height: 1.2;
-        }
-
-        span {
-          flex-grow: 0;
-          flex-shrink: 0;
-        }
-      }
-
-      .card-header {
-        display: flex;
-        padding: $padding;
-        width: 32%;
-        position: absolute;
-      }
-
-      .card-footer {
-        display: flex;
-        padding: $padding $padding 0 $padding;
-        background-color: $navy;
-        padding: 0 32px 0 150px;
-        margin-top: 0.75rem;
-        flex-direction: row-reverse;
-
-        button {
-          margin-left: 1rem;
-          padding: 0.4rem 1rem;
-        }
-      }
-      span {
-        font-size: 50px;
-        border-radius: 50%;
-        background-color: $white;
-        box-shadow: 0 8px 12px darken($navy, 15%);
-        width: 125px;
-        height: 125px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 14px;
-
-        svg {
-          color: $red;
-          font-size: 80px;
-        }
-      }
-    }
-
+    padding-top: 0;
+    padding-right: calc(((100vw - 102rem) / 2) + 32rem);
+    padding-bottom: 0;
+    padding-left: calc((100vw - 102rem) / 2);
+    background-color: rgba($black, 0.54);
     //for phone
+
     @include forPhoneOnly {
       .card {
-        margin-left: 0;
         flex-direction: column;
         justify-content: center;
+        margin-left: 0;
 
         .card-header {
-          flex-direction: column;
           position: relative;
+          align-items: center;
+          flex-direction: column;
+          padding-right: 0;
           padding-left: 0;
           width: 50%;
-          padding-right: 0;
-          align-items: center;
         }
 
         .cardContent {
-          text-align: center;
           margin-bottom: 1rem;
+          text-align: center;
 
           p {
             padding: 0 $padding;
@@ -288,10 +214,10 @@
         }
 
         .card-footer {
-          width: 100%;
           flex-direction: column;
-          padding: 0;
           margin: 0;
+          padding: 0;
+          width: 100%;
 
           .btn,
           .btn-primary {
@@ -312,16 +238,94 @@
         }
       }
     }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin: 0;
+      margin-left: 16rem;
+      padding: 0 $padding;
+      min-height: 176px;
+      width: 100%;
+      background-color: $navy;
+
+      &:hover {
+        transform: none;
+      }
+
+      .cardContent {
+        display: flex;
+        padding: ($padding / 4) 0 ($padding / 4) 0;
+        padding-left: 150px;
+        background-color: $navy;
+        color: $white;
+
+        p {
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding-top: $padding;
+          padding-left: $padding;
+          color: white;
+          font-weight: $bold;
+          font-size: $fontSizeBase;
+          line-height: 1.2;
+        }
+
+        span {
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+
+      .card-header {
+        position: absolute;
+        display: flex;
+        padding: $padding;
+        width: 32%;
+      }
+
+      .card-footer {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 0.75rem;
+        padding: $padding $padding 0 $padding;
+        padding: 0 32px 0 150px;
+        background-color: $navy;
+
+        button {
+          margin-left: 1rem;
+          padding: 0.4rem 1rem;
+        }
+      }
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 14px;
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: 0 8px 12px darken($navy, 15%);
+        font-size: 50px;
+
+        svg {
+          color: $red;
+          font-size: 80px;
+        }
+      }
+    }
   }
 
   //retrieve quote styling
   .retrieveQuoteWrapper {
-    padding: 0 0 0.5rem 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
+    padding: 0 0 0.5rem 0;
+    width: 100%;
 
     h1 {
       margin-bottom: 0;
@@ -329,14 +333,14 @@
     }
 
     .form-footer {
-      width: 100%;
       display: flex;
       justify-content: flex-end;
       padding-top: 1rem;
+      width: 100%;
 
       :disabled {
-        background-color: rgba($navy, 0.3);
         border-color: transparent;
+        background-color: rgba($navy, 0.3);
         color: $extraLightGrey;
       }
 
@@ -353,17 +357,16 @@
   }
 
   .view-grid {
-    > * {
-      padding: $padding;
-      width: 100%;
-    }
-
     @include forPhoneOnly {
       font-size: $fontSizeSubheader--small;
 
       .fa {
         font-size: $fontSizeSubheader--small;
       }
+    }
+    > * {
+      padding: $padding;
+      width: 100%;
     }
 
     .fa {
@@ -427,8 +430,8 @@
       section {
         .form-footer {
           .btn {
-            width: 100%;
             margin: 0.5rem 0 0 0;
+            width: 100%;
           }
         }
       }
@@ -440,8 +443,8 @@
     //title styling for phone
     .workflow {
       .title {
-        font-size: $fontSizeHeader--small;
         margin-bottom: 0.25rem;
+        font-size: $fontSizeHeader--small;
       }
 
       .fade-in {
