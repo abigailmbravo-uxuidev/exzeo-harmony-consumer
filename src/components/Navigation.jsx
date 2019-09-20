@@ -87,25 +87,6 @@ const Navigation = ({ location, match, history }) => {
             )}
 
             <ul>
-              <li key="address">
-                <NavLink
-                  to={
-                    locationOrder > ROUTES.searchAddress.order
-                      ? '/searchAddress'
-                      : '/searchAddress'
-                  }
-                  activeClassName="active"
-                  className={classNames({
-                    complete: locationOrder > ROUTES.searchAddress.order
-                  })}
-                >
-                  <h3>Address</h3>
-                  <span>
-                    <FontAwesomeIcon icon="check-circle" />
-                  </span>
-                </NavLink>
-              </li>
-
               <li key="underwriting">
                 <NavLink
                   to={
