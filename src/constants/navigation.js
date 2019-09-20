@@ -23,19 +23,19 @@ export const ROUTES = {
     path: 'customize',
     order: 3,
     workflowPage: 1,
-    label: 'Customize Quote'
+    label: 'Customize'
   },
   save: {
     path: 'save',
     order: 4,
     workflowPage: 2,
-    label: 'Save Quote'
+    label: 'Save'
   },
   share: {
     path: 'share',
     order: 5,
     workflowPage: 3,
-    label: 'Share Quote'
+    label: 'Share'
   },
   additionalInfo: {
     path: 'additionalInfo',
