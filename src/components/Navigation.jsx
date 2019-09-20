@@ -26,6 +26,20 @@ const Navigation = ({ location, match, history }) => {
           closed: !navOpen
         })}
       >
+        <div>
+          {quote.quoteNumber ? (
+            <>
+              <p>
+                <strong>{quote.property.physicalAddress.address1}</strong>
+              </p>
+              <p>{format.toCityStateZip(quote.property.physicalAddress)}</p>
+              <p>{`Year built: ${quote.property.yearBuilt}`}</p>
+              <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
+            </>
+          ) : (
+            <p>Enter your desired flood quote address.</p>
+          )}
+        </div>
         <ul className="mainNavigation">
           {/********** RETRIEVE **********/}
           <li
@@ -40,11 +54,26 @@ const Navigation = ({ location, match, history }) => {
           </li>
           {/********** RETRIEVE **********/}
 
+          {/********** SEARCH ADDRESS **********/}
+          <li
+            key="retrieve"
+            className={classNames({
+              hide: location.pathname !== ROUTES.searchAddress.path
+            })}
+          >
+            <h3>Search Address</h3>
+            <span />
+            <p />
+          </li>
+          {/********** SEARCH ADDRESS **********/}
+
           {/********** QUOTE **********/}
           <li
             key="quote"
             className={classNames({
-              disabled: location.pathname === '/retrieveQuote',
+              disabled:
+                location.pathname === '/searchAddress' ||
+                location.pathname === '/retrieveQuote',
               complete: locationOrder > ROUTES.additionalInfo.order
             })}
           >
@@ -74,22 +103,6 @@ const Navigation = ({ location, match, history }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {quote.quoteNumber ? (
-                    <>
-                      <p>
-                        <strong>
-                          {quote.property.physicalAddress.address1}
-                        </strong>
-                      </p>
-                      <p>
-                        {format.toCityStateZip(quote.property.physicalAddress)}
-                      </p>
-                      <p>{`Year built: ${quote.property.yearBuilt}`}</p>
-                      <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
-                    </>
-                  ) : (
-                    <p>Enter your desired flood quote address.</p>
-                  )}
                 </NavLink>
               </li>
 
