@@ -304,9 +304,7 @@
           "dependencies": [],
           "data": {
             "component": "$CONSUMER_SUMMARY",
-            "extendedProperties": {
-              "subscribe": true
-            }
+            "extendedProperties": {}
           },
           "formData": {},
           "children": []

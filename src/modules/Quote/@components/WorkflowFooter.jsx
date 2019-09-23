@@ -11,10 +11,12 @@ const WorkflowFooter = ({ submitting, recalc, workflowPage }) => {
         className={Button.constants.classNames.primary}
         disabled={submitting}
       >
-        {recalc
+        {workflowPage === ROUTES.customize.workflowPage && recalc
           ? 'Recalculate'
           : workflowPage === ROUTES.save.workflowPage
           ? 'Save'
+          : workflowPage === ROUTES.share.workflowPage
+          ? 'Continue to Purchase'
           : 'Continue'}
       </Button>
     </>

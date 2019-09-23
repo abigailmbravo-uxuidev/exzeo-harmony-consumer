@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, noop, Switch, ModalPortal } from '@exzeo/core-ui';
-import { AgencyCard, ShareModal } from '@exzeo/harmony-core';
+import {
+  Button,
+  noop,
+  Switch,
+  ModalPortal,
+  validation,
+  Field
+} from '@exzeo/core-ui';
+import {
+  AgencyCard,
+  ShareModal,
+  searchAgencies,
+  AgencyTypeAhead
+} from '@exzeo/harmony-core';
 import TypTapLogo from './TypTapLogo';
 
 const Summary = ({ initialValues, formInstance }) => {
   const [editAgency, setEditAgency] = useState(false);
   const [shareQuote, setShareQuote] = useState(false);
+  const [selectedAgency, setSelectedAgency] = useState(null);
+
+  useEffect(() => {
+    async function getAgency() {
+      const result = await searchAgencies(initialValues.agencyCode);
+      setSelectedAgency(result[0]);
+    }
+
+    getAgency();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
-      <AgencyCard />
+      {selectedAgency && <AgencyCard agency={selectedAgency} />}
+
       <section>
         <Switch
           label="Want to switch to an agency of your choice?"
@@ -26,6 +50,31 @@ const Summary = ({ initialValues, formInstance }) => {
           }}
         />
       </section>
+
+      {editAgency && (
+        <div className="well">
+          <Field name="agencyCode" validate={validation.isRequired}>
+            {({ input, meta }) => (
+              <AgencyTypeAhead
+                input={input}
+                meta={meta}
+                label="Agencies"
+                styleName="agencyCode"
+              />
+            )}
+          </Field>
+
+          <Button
+            type="button"
+            className={Button.constants.classNames.primary}
+            data-test="edit-agency"
+            disabled={!selectedAgency}
+            onClick={formInstance.handleSubmit}
+          >
+            Apply Change
+          </Button>
+        </div>
+      )}
 
       <section className="iconContainer">
         <Link className={Button.constants.classNames.icon} to="underwriting">
