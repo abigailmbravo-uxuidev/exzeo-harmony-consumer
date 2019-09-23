@@ -28,7 +28,7 @@ const Summary = ({ initialValues, formInstance }) => {
       </section>
 
       <section className="iconContainer">
-        <Link className={Button.constants.classNames.icon} to="/underwriting">
+        <Link className={Button.constants.classNames.icon} to="underwriting">
           <FontAwesomeIcon icon="edit" />
           <label>Edit Quote</label>
         </Link>
