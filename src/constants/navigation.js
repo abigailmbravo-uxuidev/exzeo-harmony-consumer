@@ -7,7 +7,7 @@ export const ROUTES = {
   searchAddress: {
     path: '/searchAddress',
     order: 1,
-    label: 'Search Address'
+    label: 'Search'
   },
   workflow: {
     path: '/quote/:quoteNumber/:step',
