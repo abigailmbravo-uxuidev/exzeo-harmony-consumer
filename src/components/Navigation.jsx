@@ -19,11 +19,21 @@ const Navigation = ({ location, match }) => {
         <FontAwesomeIcon icon="chevron-right" size="sm" />
       </button>
 
+      <div
+        className={classNames('navBackground', {
+          show: navOpen,
+          hide: !navOpen
+        })}
+        onClick={() => setNavOpen(state => !state)}
+      >
+        <FontAwesomeIcon icon="times" size="lg" />
+      </div>
+
       <nav
         role="navigation"
-        className={classNames('navSlideOut', {
-          open: navOpen,
-          closed: !navOpen
+        className={classNames('navWrapper', {
+          navSlideOut: navOpen,
+          navSlideIn: !navOpen
         })}
       >
         <div className="propertyAddressWrapper">
