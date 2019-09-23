@@ -71,12 +71,18 @@ export function useQuote() {
     }
   };
 
+  const setQuoteForUser = quote => {
+    const formattedQuote = formatQuoteForUser(quote);
+    setQuote(formattedQuote);
+  };
+
   return {
     quote,
     setQuote,
     loading,
     createQuote,
     retrieveQuote,
+    setQuoteForUser,
     updateQuote
   };
 }

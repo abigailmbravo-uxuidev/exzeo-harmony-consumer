@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Button,
@@ -14,6 +14,7 @@ import {
 } from '@exzeo/core-ui';
 
 import { quoteData } from '@exzeo/harmony-core';
+import { useQuote } from 'modules/Quote';
 
 // import QuoteCard from './QuoteCard';
 // import NoResults from './NoResults';
@@ -29,12 +30,25 @@ export const VALID_QUOTE_STATES = [
 const initialState = {
   hasSearched: false,
   result: null,
-  noResults: false
+  noResults: false,
+  invalidQuoteState: false
 };
 
 const QuoteSearch = () => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
+  const { quote, setQuoteForUser } = useQuote();
+
+  useEffect(() => {
+    if (searchState.hasSearched && !searchState.invalidQuoteState) {
+      setQuoteForUser(searchState.result);
+    }
+  }, [
+    searchState.hasSearched,
+    searchState.invalidQuoteState,
+    searchState.result,
+    setQuoteForUser
+  ]);
 
   async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
     try {
@@ -252,11 +266,14 @@ const QuoteSearch = () => {
                       </div>
                     </Modal>
                   )}
-                  {searchState.result && !searchState.invalidQuoteState && (
-                    <div>
-                      Yay we found your quote: {searchState.result.quoteNumber}
-                    </div>
-                  )}
+
+                  {searchState.result &&
+                    !searchState.invalidQuoteState &&
+                    quote.quoteNumber && (
+                      <Redirect
+                        to={`/quote/${quote.quoteNumber}/underwriting`}
+                      />
+                    )}
                 </React.Fragment>
               )}
 
