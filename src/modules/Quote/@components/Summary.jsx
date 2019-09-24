@@ -9,7 +9,8 @@ import {
   validation,
   Field,
   FormSpy,
-  useField
+  useField,
+  SectionLoader
 } from '@exzeo/core-ui';
 import {
   AgencyCard,
@@ -17,12 +18,15 @@ import {
   searchAgencies,
   AgencyTypeAhead
 } from '@exzeo/harmony-core';
+
+import { useQuote } from 'modules/Quote';
 import TypTapLogo from './TypTapLogo';
 
 const Summary = ({ initialValues, formInstance, formValues }) => {
   const [editAgency, setEditAgency] = useState(false);
   const [shareQuote, setShareQuote] = useState(false);
   const [selectedAgency, setSelectedAgency] = useState(null);
+  const { updateQuote, loading } = useQuote();
   const agentField = useField('agentCode');
 
   function toggleEditAgency() {
@@ -53,6 +57,8 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
 
   return (
     <>
+      {loading && <SectionLoader />}
+
       {selectedAgency && <AgencyCard agency={selectedAgency} />}
 
       <Switch
@@ -89,9 +95,9 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
                 className={Button.constants.classNames.primary}
                 data-test="edit-agency"
                 disabled={pristine || submitting}
-                onClick={formInstance.submit}
+                onClick={() => updateQuote(formValues)}
               >
-                Apply Change
+                Save
               </Button>
             )}
           </FormSpy>

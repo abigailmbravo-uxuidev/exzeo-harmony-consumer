@@ -55,7 +55,7 @@ export function useQuote() {
     }
   };
 
-  const updateQuote = async (data, options) => {
+  const updateQuote = async (data, options = {}) => {
     try {
       setLoading(true);
       const updateData = formatQuoteForSubmit(data, options);

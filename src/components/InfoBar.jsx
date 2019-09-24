@@ -1,9 +1,10 @@
 import React from 'react';
+import classNames from 'classnames';
 import { format } from '@exzeo/core-ui';
 
-const InfoBar = ({ initialValues }) => {
+const InfoBar = ({ initialValues, config }) => {
   return (
-    <div className="infoBar">
+    <div className={classNames('infoBar', { className: config.className })}>
       <h2>
         Premium:&nbsp;
         <strong>{format.toCurrency(initialValues.rating.totalPremium)}</strong>

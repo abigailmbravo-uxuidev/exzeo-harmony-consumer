@@ -15,6 +15,17 @@
           "children": []
         },
         {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO",
+            "className": "underwriting"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
           "id": "95ace9fe-1a7a-4d2f-935e-a5853bd5f718",
           "type": "$CUSTOM",
           "dependencies": [],
