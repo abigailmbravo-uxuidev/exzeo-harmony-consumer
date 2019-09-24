@@ -109,6 +109,7 @@ nav[role='navigation'] {
       }
       //complete styling - styles first level li and children
       &.complete {
+        margin-bottom: 0;
         a {
           span {
             background-color: $white;
@@ -217,15 +218,8 @@ nav[role='navigation'] {
                 margin-top: $padding;
               }
             }
+
             &.disabled {
-              &.complete {
-                span {
-                  background-color: $white;
-                  svg {
-                    color: $lightGrey;
-                  }
-                }
-              }
               h3 {
                 color: $lightGrey;
               }
@@ -239,15 +233,8 @@ nav[role='navigation'] {
               }
             }
             &.complete {
-              span {
-                background-color: $white;
-                svg {
-                  display: block;
-                  width: 1rem;
-                  height: 1rem;
-                  color: $navy;
-                }
-              }
+              display: none;
+              margin-bottom: 0;
             }
             &.active {
               cursor: default;
