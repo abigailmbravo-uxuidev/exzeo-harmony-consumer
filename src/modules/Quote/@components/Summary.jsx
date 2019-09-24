@@ -7,7 +7,9 @@ import {
   Switch,
   ModalPortal,
   validation,
-  Field
+  Field,
+  FormSpy,
+  useField
 } from '@exzeo/core-ui';
 import {
   AgencyCard,
@@ -17,45 +19,53 @@ import {
 } from '@exzeo/harmony-core';
 import TypTapLogo from './TypTapLogo';
 
-const Summary = ({ initialValues, formInstance }) => {
+const Summary = ({ initialValues, formInstance, formValues }) => {
   const [editAgency, setEditAgency] = useState(false);
   const [shareQuote, setShareQuote] = useState(false);
   const [selectedAgency, setSelectedAgency] = useState(null);
 
+  const agencyField = useField('agentCode');
+
   useEffect(() => {
     async function getAgency() {
-      const result = await searchAgencies(initialValues.agencyCode);
-      setSelectedAgency(result[0]);
+      const result = await searchAgencies({
+        agencyCode: formValues.agencyCode
+      });
+      const agency = result[0];
+      setSelectedAgency(agency);
+
+      if (initialValues.agencyCode !== formValues.agencyCode) {
+        agencyField.input.onChange(agency.agentOfRecord);
+      }
     }
 
     getAgency();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [formValues.agencyCode]);
 
   return (
-    <div>
+    <>
       {selectedAgency && <AgencyCard agency={selectedAgency} />}
 
-      <section>
-        <Switch
-          label="Want to switch to an agency of your choice?"
-          dataTest="test"
-          styleName="switch"
-          input={{
-            name: '',
-            value: editAgency,
-            onChange: () => setEditAgency(state => !state),
-            onFocus: noop,
-            onBlur: noop
-          }}
-        />
-      </section>
+      <Switch
+        label="Want to switch to an agency of your choice?"
+        dataTest="test"
+        styleName="switch"
+        input={{
+          name: '',
+          value: editAgency,
+          onChange: () => setEditAgency(state => !state),
+          onFocus: noop,
+          onBlur: noop
+        }}
+      />
 
       {editAgency && (
         <div className="well">
           <Field name="agencyCode" validate={validation.isRequired}>
             {({ input, meta }) => (
               <AgencyTypeAhead
+                dataTest="agency-select"
                 input={input}
                 meta={meta}
                 label="Agencies"
@@ -64,15 +74,19 @@ const Summary = ({ initialValues, formInstance }) => {
             )}
           </Field>
 
-          <Button
-            type="button"
-            className={Button.constants.classNames.primary}
-            data-test="edit-agency"
-            disabled={!selectedAgency}
-            onClick={formInstance.handleSubmit}
-          >
-            Apply Change
-          </Button>
+          <FormSpy subscription={{ pristine: true, submitting: true }}>
+            {({ pristine, submitting }) => (
+              <Button
+                type="button"
+                className={Button.constants.classNames.primary}
+                data-test="edit-agency"
+                disabled={pristine || submitting}
+                onClick={() => formInstance.submit()}
+              >
+                Apply Change
+              </Button>
+            )}
+          </FormSpy>
         </div>
       )}
 
@@ -103,18 +117,15 @@ const Summary = ({ initialValues, formInstance }) => {
         </a>
       </section>
 
-      <section>
-        <strong>To continue, you will need the following information</strong>
-        <br />
-        <ul>
-          <li>Mortgage information</li>
-          <li>Name and Email address of additional owners</li>
-          <li>
-            Name and address of any other additional insured to add to your
-            policy
-          </li>
-        </ul>
-      </section>
+      <strong>To continue, you will need the following information</strong>
+      <br />
+      <ul>
+        <li>Mortgage information</li>
+        <li>Name and Email address of additional owners</li>
+        <li>
+          Name and address of any other additional insured to add to your policy
+        </li>
+      </ul>
 
       {shareQuote && (
         <ModalPortal>
@@ -125,7 +136,7 @@ const Summary = ({ initialValues, formInstance }) => {
           />
         </ModalPortal>
       )}
-    </div>
+    </>
   );
 };
 
