@@ -187,8 +187,49 @@
     padding-bottom: 0;
     padding-left: calc((100vw - 102rem) / 2);
     background-color: rgba($black, 0.54);
-    //for phone
 
+    .card {
+      background-color: $white !important;
+
+      .card-header {
+        h4 {
+          display: none;
+        }
+      }
+      .share {
+        position: absolutely;
+
+        .card-block {
+          margin-top: 1rem;
+
+          .form-group {
+            color: $navy;
+            border-bottom: 1px solid $navy;
+
+            #toName {
+              background-color: rgba($extraLightGrey, 0.9);
+            }
+
+            #toEmail {
+              background-color: rgba($extraLightGrey, 0.9);
+            }
+          }
+        }
+
+        .card-footer {
+          padding-right: 0;
+          background-color: transparent;
+          display: flex;
+          flex-direction: row;
+
+          &.btn {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    //for phone
     @include forPhoneOnly {
       .card {
         flex-direction: column;
