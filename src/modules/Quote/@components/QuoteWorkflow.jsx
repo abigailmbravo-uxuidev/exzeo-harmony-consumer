@@ -69,6 +69,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
 
   return (
     <>
+      {quoteLoading && <SectionLoader />}
       <Gandalf
         formId="harmony-quote"
         formClassName="workflow"
