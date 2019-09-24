@@ -50,6 +50,22 @@
         }
       }
     }
+
+    .subtitle {
+      p {
+        margin-bottom: 1rem;
+        margin-right: 0;
+      }
+    }
+
+    //well styling
+    .well {
+      overflow: visible;
+      .form-group {
+        z-index: 100000;
+        overflow: visible;
+      }
+    }
   }
 
   .form-group {
@@ -149,9 +165,8 @@
   //quote number infomation bar
   .infoBar {
     display: flex;
-    margin: 1rem 0 0 0;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     padding: $padding;
     width: 100%;
 
