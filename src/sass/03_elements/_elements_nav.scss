@@ -109,7 +109,7 @@ nav[role='navigation'] {
       }
       //complete styling - styles first level li and children
       &.complete {
-        margin-bottom: 0;
+        margin-bottom: 1rem;
         a {
           span {
             background-color: $white;
@@ -119,6 +119,10 @@ nav[role='navigation'] {
               height: 1rem;
             }
           }
+        }
+
+        ul {
+          display: none;
         }
       }
 
@@ -233,7 +237,6 @@ nav[role='navigation'] {
               }
             }
             &.complete {
-              display: none;
               margin-bottom: 0;
             }
             &.active {
