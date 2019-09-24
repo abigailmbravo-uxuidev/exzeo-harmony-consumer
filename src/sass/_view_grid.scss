@@ -62,14 +62,17 @@
     &.radio {
       &.segmented {
         margin-bottom: 1.5rem;
+        &.segmented-answer-wrapper {
+          font-size: $fontSizeBase;
+          font-weight: $normal;
+        }
 
         @include forPhoneOnly {
           margin-bottom: 1rem;
         }
 
         .label-segmented {
-          font-weight: $normal;
-          font-size: $fontSizeBase;
+          font-size: $fontSizeSubheader;
         }
 
         label {
@@ -221,6 +224,7 @@
           background-color: transparent;
           display: flex;
           flex-direction: row;
+          justify-content: flex-end;
 
           &.btn {
             margin-right: 0;
@@ -297,7 +301,6 @@
 
       .cardContent {
         display: flex;
-        padding: ($padding / 4) 0 ($padding / 4) 0;
         padding-left: 150px;
         background-color: $navy;
         color: $white;
