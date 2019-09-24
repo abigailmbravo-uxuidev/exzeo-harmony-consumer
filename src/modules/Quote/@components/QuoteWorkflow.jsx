@@ -12,11 +12,6 @@ import TriggerRecalc from './TriggerRecalc';
 import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
 
-// Thin memoized wrapper around FormSpys to keep them from needlessly re-rendering.
-const MemoizedFormListeners = React.memo(({ children }) => (
-  <React.Fragment>{children}</React.Fragment>
-));
-
 const EMPTY_OBJ = {};
 
 const CUSTOM_COMPONENTS = {
@@ -34,11 +29,11 @@ const QuoteWorkflow = ({ history, location, match }) => {
     retrieveQuote,
     updateQuote
   } = useQuote();
+  const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const { template } = useWorkflowTemplate(quote);
   const transformConfig = useMemo(() => getConfigForJsonTransform(template), [
     template
   ]);
-  const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
 
   // TODO really only necessary for development (auto-refreshing)
   useEffect(() => {
@@ -55,7 +50,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
     try {
       await updateQuote(data, { workflowPage });
 
-      if (!recalc) {
+      if (!(recalc && workflowPage === ROUTES.customize.workflowPage)) {
         history.replace(WORKFLOW_ROUTING[match.params.step]);
       }
     } catch (error) {
@@ -80,28 +75,23 @@ const QuoteWorkflow = ({ history, location, match }) => {
         template={template}
         transformConfig={transformConfig}
         options={EMPTY_OBJ}
-        renderFooter={({ pristine, submitting }) => (
-          <WorkflowFooter
-            submitting={submitting}
-            recalc={recalc}
-            workflowPage={workflowPage}
-          />
-        )}
-        formListeners={() => (
-          <MemoizedFormListeners>
-            <FormSpy subscription={{ dirty: true }}>
-              {({ dirty }) => (
-                <TriggerRecalc
-                  dirty={dirty}
-                  isRecalc={recalc}
-                  setRecalc={setRecalc}
-                  workflowPage={workflowPage}
-                  recalcPage={ROUTES.customize.workflowPage}
-                />
-              )}
-            </FormSpy>
-          </MemoizedFormListeners>
-        )}
+        customHandlers={EMPTY_OBJ}
+        renderFooter={
+          <WorkflowFooter recalc={recalc} workflowPage={workflowPage} />
+        }
+        formListeners={
+          <FormSpy subscription={{ dirty: true }}>
+            {({ dirty }) => (
+              <TriggerRecalc
+                dirty={dirty}
+                isRecalc={recalc}
+                setRecalc={setRecalc}
+                workflowPage={workflowPage}
+                recalcPage={ROUTES.customize.workflowPage}
+              />
+            )}
+          </FormSpy>
+        }
       />
     </>
   );
