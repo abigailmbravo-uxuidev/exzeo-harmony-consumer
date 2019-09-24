@@ -63,7 +63,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
     }
   }
 
-  if (quoteLoading || !template) {
+  if (!quote.quoteNumber || !template) {
     return <SectionLoader />;
   }
 

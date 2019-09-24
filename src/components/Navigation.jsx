@@ -84,7 +84,7 @@ const Navigation = ({ location, match }) => {
               disabled:
                 location.pathname === '/searchAddress' ||
                 location.pathname === '/retrieveQuote',
-              complete: locationOrder > ROUTES.additionalInfo.order
+              complete: locationOrder >= ROUTES.additionalInfo.order
             })}
           >
             <h3>Quote</h3>
@@ -196,79 +196,141 @@ const Navigation = ({ location, match }) => {
           {/********** QUOTE ***********/}
 
           {/********** APPLICATION **********/}
-          <li key="application" className={classNames({ disabled: true })}>
+          <li
+            key="application"
+            className={classNames({
+              disabled: locationOrder < ROUTES.additionalInfo.order,
+              complete: false
+            })}
+          >
             <h3>Application</h3>
             <span>2</span>
             <p className="application" />
+
             <ul>
-              <li key="additionalInfo">
-                <a className={classNames('disabled')}>
-                  <h3>Additional Info</h3>
+              <li key={ROUTES.additionalInfo.label}>
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.additionalInfo.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/underwriting`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.additionalInfo.order,
+                    complete: locationOrder > ROUTES.additionalInfo.order
+                  })}
+                >
+                  <h3>{ROUTES.additionalInfo.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.additionalInfo.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
                   )}
-                </a>
+                </NavLink>
               </li>
 
-              <li key="policyholder">
-                <a className={classNames('disabled')}>
-                  <h3>Policyholder Info</h3>
+              <li key={ROUTES.policyholder.label}>
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.policyholder.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/underwriting`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.policyholder.order,
+                    complete: locationOrder > ROUTES.policyholder.order
+                  })}
+                >
+                  <h3>{ROUTES.policyholder.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.policyholder.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
                   )}
-                </a>
+                </NavLink>
               </li>
 
-              <li key="billing">
-                <a className={classNames('disabled')}>
-                  <h3>Billing Info</h3>
+              <li key={ROUTES.billing.label}>
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.billing.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/underwriting`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.billing.order,
+                    complete: locationOrder > ROUTES.billing.order
+                  })}
+                >
+                  <h3>{ROUTES.billing.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.billing.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
                   )}
-                </a>
+                </NavLink>
               </li>
 
-              <li key="summary">
-                <a className={classNames('disabled')}>
-                  <h3>Summary</h3>
+              <li key={ROUTES.summary.label}>
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.summary.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/underwriting`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.summary.order,
+                    complete: locationOrder > ROUTES.summary.order
+                  })}
+                >
+                  <h3>{ROUTES.summary.label}</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.summary.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
                   )}
-                </a>
+                </NavLink>
               </li>
 
-              <li key="complete">
-                <a className={classNames('disabled')}>
+              <li key={ROUTES.complete.label}>
+                <NavLink
+                  to={
+                    locationOrder < ROUTES.complete.order
+                      ? '#'
+                      : `/quote/${match.params.quoteNumber}/underwriting`
+                  }
+                  activeClassName="active"
+                  className={classNames({
+                    disabled: locationOrder < ROUTES.complete.order,
+                    complete: locationOrder > ROUTES.complete.order
+                  })}
+                >
                   <h3>You did it!!!</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.underwriting.order ? (
+                  {locationOrder <= ROUTES.complete.order ? (
                     <p>text BEFORE</p>
                   ) : (
                     <p>text AFTER </p>
                   )}
-                </a>
+                </NavLink>
               </li>
             </ul>
           </li>

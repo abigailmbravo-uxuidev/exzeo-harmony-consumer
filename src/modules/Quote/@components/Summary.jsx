@@ -23,8 +23,16 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
   const [editAgency, setEditAgency] = useState(false);
   const [shareQuote, setShareQuote] = useState(false);
   const [selectedAgency, setSelectedAgency] = useState(null);
+  const agentField = useField('agentCode');
 
-  const agencyField = useField('agentCode');
+  function toggleEditAgency() {
+    setEditAgency(state => {
+      if (state) {
+        formInstance.reset();
+      }
+      return !state;
+    });
+  }
 
   useEffect(() => {
     async function getAgency() {
@@ -35,7 +43,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
       setSelectedAgency(agency);
 
       if (initialValues.agencyCode !== formValues.agencyCode) {
-        agencyField.input.onChange(agency.agentOfRecord);
+        agentField.input.onChange(Number(agency.agentOfRecord));
       }
     }
 
@@ -54,7 +62,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
         input={{
           name: '',
           value: editAgency,
-          onChange: () => setEditAgency(state => !state),
+          onChange: () => toggleEditAgency(),
           onFocus: noop,
           onBlur: noop
         }}
@@ -81,7 +89,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
                 className={Button.constants.classNames.primary}
                 data-test="edit-agency"
                 disabled={pristine || submitting}
-                onClick={() => formInstance.submit()}
+                onClick={formInstance.submit}
               >
                 Apply Change
               </Button>

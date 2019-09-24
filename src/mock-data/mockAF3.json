@@ -139,7 +139,7 @@
       ]
     },
     {
-      "name": "customerInfo",
+      "name": "save",
       "step": {},
       "components": [
         {
@@ -307,6 +307,136 @@
             "extendedProperties": {
               "subscribe": true
             }
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "additionalInfo",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Additional Info Time!!!"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "policyholder",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Policyholder Time!!!"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "billing",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Billing Time!!!"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "summary",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Summary Time!!!"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "complete",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Complete Time!!!"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
           },
           "formData": {},
           "children": []

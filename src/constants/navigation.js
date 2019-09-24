@@ -1,4 +1,9 @@
 export const ROUTES = {
+  workflow: {
+    path: '/quote/:quoteNumber/:step',
+    order: null,
+    label: null
+  },
   retrieveQuote: {
     path: '/retrieveQuote',
     order: 0,
@@ -8,10 +13,6 @@ export const ROUTES = {
     path: '/searchAddress',
     order: 1,
     label: 'Search'
-  },
-  workflow: {
-    path: '/quote/:quoteNumber/:step',
-    order: null
   },
   underwriting: {
     path: 'underwriting',
@@ -40,7 +41,32 @@ export const ROUTES = {
   additionalInfo: {
     path: 'additionalInfo',
     order: 6,
-    workflowPage: 4
+    workflowPage: 4,
+    label: 'Additional Info'
+  },
+  policyholder: {
+    path: 'policyholder',
+    order: 7,
+    workflowPage: 5,
+    label: 'Policyholder Info'
+  },
+  billing: {
+    path: 'billing',
+    order: 8,
+    workflowPage: 6,
+    label: 'Billing Info'
+  },
+  summary: {
+    path: 'summary',
+    order: 9,
+    workflowPage: 7,
+    label: 'Summary'
+  },
+  complete: {
+    path: 'complete',
+    order: 10,
+    workflowPage: 8,
+    label: 'You Win!'
   }
 };
 
@@ -48,5 +74,9 @@ export const WORKFLOW_ROUTING = {
   [ROUTES.underwriting.path]: ROUTES.customize.path,
   [ROUTES.customize.path]: ROUTES.save.path,
   [ROUTES.save.path]: ROUTES.share.path,
-  [ROUTES.share.path]: ROUTES.additionalInfo.path
+  [ROUTES.share.path]: ROUTES.additionalInfo.path,
+  [ROUTES.additionalInfo.path]: ROUTES.policyholder.path,
+  [ROUTES.policyholder.path]: ROUTES.billing.path,
+  [ROUTES.billing.path]: ROUTES.summary.path,
+  [ROUTES.summary.path]: ROUTES.complete.path
 };

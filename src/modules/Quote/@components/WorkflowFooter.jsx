@@ -9,7 +9,9 @@ const WorkflowFooter = ({ submitting, recalc, workflowPage }) => {
         type="submit"
         data-test="submit"
         className={Button.constants.classNames.primary}
-        disabled={submitting}
+        disabled={
+          submitting || workflowPage === ROUTES.additionalInfo.workflowPage
+        }
       >
         {workflowPage === ROUTES.customize.workflowPage && recalc
           ? 'Recalculate'
