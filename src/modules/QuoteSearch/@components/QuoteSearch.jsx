@@ -214,6 +214,7 @@ const QuoteSearch = () => {
                         </span>
                       }
                       size={Modal.sizes.medium}
+                      className="success"
                     >
                       <div className="cardContent">
                         <p>
@@ -241,7 +242,11 @@ const QuoteSearch = () => {
                   )}
 
                   {searchState.result && searchState.invalidQuoteState && (
-                    <Modal header="Error Occurred" size={Modal.sizes.medium}>
+                    <Modal
+                      header="Error Occurred"
+                      size={Modal.sizes.medium}
+                      className="error"
+                    >
                       <div className="cardContent">
                         We apologize but this Quote has a status of{' '}
                         {searchState.result.quoteState} which is no longer
