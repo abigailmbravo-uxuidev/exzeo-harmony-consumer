@@ -72,10 +72,6 @@
   .form-group {
     margin-bottom: 1rem;
 
-    label {
-      font-size: $fontSizeBase;
-    }
-
     &.radio {
       &.segmented {
         margin-bottom: 1.5rem;
@@ -86,10 +82,6 @@
 
         @include forPhoneOnly {
           margin-bottom: 1rem;
-        }
-
-        .label-segmented {
-          font-size: $fontSizeSubheader;
         }
 
         label {
@@ -173,6 +165,7 @@
 
     h2 {
       font-weight: normal;
+      font-size: $fontSizeSubheader;
     }
 
     label {
@@ -505,12 +498,6 @@
       .title {
         margin-bottom: 0.25rem;
         font-size: $fontSizeHeader--small;
-      }
-
-      .fade-in {
-        .group-label {
-          font-size: $fontSizeSubheader--small;
-        }
       }
     }
   }

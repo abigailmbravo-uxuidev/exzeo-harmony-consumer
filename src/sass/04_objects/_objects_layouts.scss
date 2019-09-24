@@ -190,3 +190,16 @@ body {
     }
   }
 }
+
+//styling for underwriting question font size
+.underwriting {
+  .form-group {
+    &.radio {
+      &.segmented {
+        .label-segmented {
+          font-size: $fontSizeSubheader--small;
+        }
+      }
+    }
+  }
+}
