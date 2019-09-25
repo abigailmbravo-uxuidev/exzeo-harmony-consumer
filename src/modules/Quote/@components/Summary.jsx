@@ -27,6 +27,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
   const [shareQuote, setShareQuote] = useState(false);
   const [selectedAgency, setSelectedAgency] = useState(null);
   const { updateQuote, loading } = useQuote();
+  const agencyField = useField('agencyCode');
   const agentField = useField('agentCode');
 
   function toggleEditAgency() {
@@ -38,22 +39,27 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
     });
   }
 
+  async function saveUpdatedAgency(values) {
+    await updateQuote(values);
+    setEditAgency(false);
+  }
+
   useEffect(() => {
     async function getAgency() {
       const result = await searchAgencies({
-        agencyCode: formValues.agencyCode
+        agencyCode: formValues.editAgencyValue || initialValues.agencyCode
       });
+
       const agency = result[0];
       setSelectedAgency(agency);
 
-      if (initialValues.agencyCode !== formValues.agencyCode) {
-        agentField.input.onChange(Number(agency.agentOfRecord));
-      }
+      agencyField.input.onChange(Number(agency.agencyCode));
+      agentField.input.onChange(Number(agency.agentOfRecord));
     }
 
     getAgency();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formValues.agencyCode]);
+  }, [formValues.editAgencyValue]);
 
   return (
     <>
@@ -76,7 +82,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
 
       {editAgency && (
         <div className="well">
-          <Field name="agencyCode" validate={validation.isRequired}>
+          <Field name="editAgencyValue" validate={validation.isRequired}>
             {({ input, meta }) => (
               <AgencyTypeAhead
                 dataTest="agency-select"
@@ -95,7 +101,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
                 className={Button.constants.classNames.primary}
                 data-test="edit-agency"
                 disabled={pristine || submitting}
-                onClick={() => updateQuote(formValues)}
+                onClick={() => saveUpdatedAgency(formValues)}
               >
                 Save
               </Button>
