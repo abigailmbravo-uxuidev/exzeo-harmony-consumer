@@ -62,7 +62,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
       {selectedAgency && <AgencyCard agency={selectedAgency} />}
 
       <Switch
-        label="Want to switch to an agency of your choice?"
+        label="Do you want to change the agency?"
         dataTest="test"
         styleName="switch"
         input={{
