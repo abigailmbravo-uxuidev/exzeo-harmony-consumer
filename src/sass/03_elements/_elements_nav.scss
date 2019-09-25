@@ -192,6 +192,17 @@ nav[role='navigation'] {
         list-style: none;
         li {
           a {
+            padding-bottom: ($padding / 4);
+            &.complete {
+              span {
+                svg {
+                  display: flex;
+                  color: $navy;
+                  width: 1rem;
+                  height: 1rem;
+                }
+              }
+            }
             h3 {
               color: $navy;
             }
