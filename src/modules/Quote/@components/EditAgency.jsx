@@ -1,34 +1,78 @@
-import React, { useEffect } from 'react';
-import { Button, Field, useForm, validation } from '@exzeo/core-ui';
-import { searchAgencies, AgencyTypeAhead } from '@exzeo/harmony-core';
+import React, { useState, useEffect } from 'react';
+import { noop, Switch, validation, Field, useField } from '@exzeo/core-ui';
 
-const EditAgency = ({ initialValues, setSelectedAgency }) => {
-  const formInstance = useForm();
+import {
+  AgencyCard,
+  searchAgencies,
+  AgencyTypeAhead
+} from '@exzeo/harmony-core';
+
+const AgencySelect = ({ initialValues, formInstance, formValues }) => {
+  const [editAgency, setEditAgency] = useState(false);
+  const [selectedAgency, setSelectedAgency] = useState(null);
+  const agencyField = useField('agencyCode');
+  const agentField = useField('agentCode');
+
+  useEffect(() => {
+    async function getAgency() {
+      const result = await searchAgencies({
+        agencyCode: formValues.editAgencyValue || initialValues.agencyCode
+      });
+
+      const agency = result[0];
+      setSelectedAgency(agency);
+
+      agencyField.input.onChange(Number(agency.agencyCode));
+      agentField.input.onChange(Number(agency.agentOfRecord));
+    }
+
+    getAgency();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formValues.editAgencyValue]);
+
+  function toggleEditAgency() {
+    setEditAgency(state => {
+      if (state) {
+        formInstance.reset();
+      }
+      return !state;
+    });
+  }
 
   return (
-    <div className="well">
-      <Field name="agencyCode" validate={validation.isRequired}>
-        {({ input, meta }) => (
-          <AgencyTypeAhead
-            input={input}
-            meta={meta}
-            label="Agencies"
-            styleName="agencyCode"
-          />
-        )}
-      </Field>
+    <>
+      {selectedAgency && <AgencyCard agency={selectedAgency} />}
 
-      <Button
-        type="button"
-        className={Button.constants.classNames.primary}
-        data-test="edit-agency"
-        disabled={!selectedAgency}
-        onClick={formInstance.handleSubmit}
-      >
-        Apply Change
-      </Button>
-    </div>
+      <Switch
+        label="Do you want to change the agency?"
+        dataTest="test"
+        styleName="switch"
+        input={{
+          name: '',
+          value: editAgency,
+          onChange: () => toggleEditAgency(),
+          onFocus: noop,
+          onBlur: noop
+        }}
+      />
+
+      {editAgency && (
+        <div className="well">
+          <Field name="editAgencyValue" validate={validation.isRequired}>
+            {({ input, meta }) => (
+              <AgencyTypeAhead
+                dataTest="agency-select"
+                input={input}
+                meta={meta}
+                label="Agencies"
+                styleName="agencyCode"
+              />
+            )}
+          </Field>
+        </div>
+      )}
+    </>
   );
 };
 
-export default EditAgency;
+export default AgencySelect;

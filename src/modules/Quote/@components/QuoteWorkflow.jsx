@@ -11,13 +11,15 @@ import { useQuote } from '../QuoteContext';
 import TriggerRecalc from './TriggerRecalc';
 import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
+import EditAgency from './EditAgency';
 
 const EMPTY_OBJ = {};
 
 const CUSTOM_COMPONENTS = {
   $INFO: InfoBar,
   $SUBTITLE: Subtitle,
-  $CONSUMER_SUMMARY: Summary
+  $CONSUMER_SUMMARY: Summary,
+  $AGENCY_SELECT: EditAgency
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {

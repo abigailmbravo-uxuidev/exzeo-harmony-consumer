@@ -164,7 +164,7 @@
           "children": []
         },
         {
-          "id": "d3729808-475e-4ac9-8771-054971a2fb57",
+          "id": "226541ef-b177-4ff4-a987-397c91cd2a10",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
@@ -271,6 +271,19 @@
             }
           },
           "children": []
+        },
+        {
+          "id": "8f5c213f-d8ad-4ffc-8ce6-3c6d67e2ea32",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$AGENCY_SELECT",
+            "extendedProperties": {
+              "subscribe": true
+            }
+          },
+          "formData": {},
+          "children": []
         }
       ]
     },
@@ -315,9 +328,7 @@
           "dependencies": [],
           "data": {
             "component": "$CONSUMER_SUMMARY",
-            "extendedProperties": {
-              "subscribe": true
-            }
+            "extendedProperties": {}
           },
           "formData": {},
           "children": []
