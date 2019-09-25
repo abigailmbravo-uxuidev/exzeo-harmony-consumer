@@ -27,7 +27,8 @@
       &.switch {
         label {
           padding-left: 0;
-          background-color: red;
+          font-weight: $normal;
+          font-size: $fontSizeBase;
         }
       }
       label {

@@ -41,8 +41,6 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
 
   return (
     <>
-      {selectedAgency && <AgencyCard agency={selectedAgency} />}
-
       <Switch
         label="Do you want to change the agency?"
         dataTest="test"
@@ -71,6 +69,8 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
           </Field>
         </div>
       )}
+
+      {selectedAgency && <AgencyCard agency={selectedAgency} />}
     </>
   );
 };
