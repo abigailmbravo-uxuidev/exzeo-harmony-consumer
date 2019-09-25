@@ -23,28 +23,28 @@ const App = () => {
     <Router>
       <Header />
 
-      <QuoteContextProvider>
-        <div role="region">
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => <Redirect to="/searchAddress" />}
-            />
-            {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
-            <Route
-              path={[
-                '/searchAddress',
-                '/retrieveQuote',
-                '/quote/:quoteNumber/:step'
-              ]}
-              children={routeProps => <Navigation {...routeProps} />}
-            />
-          </Switch>
+      <RouteErrorBoundary>
+        <QuoteContextProvider>
+          <div role="region">
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => <Redirect to="/searchAddress" />}
+              />
+              {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
+              <Route
+                path={[
+                  '/searchAddress',
+                  '/retrieveQuote',
+                  '/quote/:quoteNumber/:step'
+                ]}
+                children={routeProps => <Navigation {...routeProps} />}
+              />
+            </Switch>
 
-          <main role="main">
-            <div className="view-grid">
-              <RouteErrorBoundary>
+            <main role="main">
+              <div className="view-grid">
                 <Route
                   exact
                   path={ROUTES.retrieveQuote.path}
@@ -68,13 +68,13 @@ const App = () => {
                   path="/test"
                   render={routeProps => <Test {...routeProps} />}
                 />
-              </RouteErrorBoundary>
-              <Footer />
-              <AppFooter />
-            </div>
-          </main>
-        </div>
-      </QuoteContextProvider>
+                <Footer />
+                <AppFooter />
+              </div>
+            </main>
+          </div>
+        </QuoteContextProvider>
+      </RouteErrorBoundary>
     </Router>
   );
 };
