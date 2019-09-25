@@ -366,10 +366,6 @@
     margin-bottom: 2rem;
     background-color: transparent;
 
-    .coverageOptions.personalPropertyReplacementCost.answer {
-      padding-left: 0;
-    }
-
     label {
       position: relative; //js added
       display: flex;
@@ -451,6 +447,28 @@
     color: $navy;
     font-family: $serif;
     font-weight: $bold;
+
+    .react-select__menu {
+      .react-select__menu-list {
+        .react-select__option {
+          &:hover {
+            background-color: rgba($blue, 0.25);
+          }
+
+          &.react-select__option--is-selected {
+            background-color: $blue;
+          }
+
+          &.react-select__option--is-focused {
+            background-color: rgba($blue, 0.25);
+
+            &.react-select__option--is-selected {
+              color: $navy;
+            }
+          }
+        }
+      }
+    }
 
     .react-select__control {
       border-color: rgba($navy, 0.5);
