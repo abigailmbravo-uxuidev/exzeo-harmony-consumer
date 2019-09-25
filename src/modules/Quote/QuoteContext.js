@@ -49,7 +49,7 @@ export function useQuote() {
       const formattedQuote = formatQuoteForUser(quote);
       setQuote(formattedQuote);
     } catch (error) {
-      throw Error('Error creating quote');
+      throw Error(error);
     } finally {
       setLoading(false);
     }
