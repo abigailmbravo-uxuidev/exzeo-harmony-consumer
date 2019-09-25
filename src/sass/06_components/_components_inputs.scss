@@ -366,6 +366,10 @@
     margin-bottom: 2rem;
     background-color: transparent;
 
+    .coverageOptions.personalPropertyReplacementCost.answer {
+      padding-left: 0;
+    }
+
     label {
       position: relative; //js added
       display: flex;

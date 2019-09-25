@@ -24,6 +24,11 @@
       }
     }
     div {
+      &.switch {
+        label {
+          padding-left: 0;
+        }
+      }
       label {
         padding-left: $padding/2;
       }
@@ -55,6 +60,7 @@
       p {
         margin-bottom: 1rem;
         margin-right: 0;
+        max-width: 100%;
       }
     }
 
