@@ -131,7 +131,7 @@ const Summary = ({ initialValues, formInstance, formValues }) => {
         </a>
       </section>
 
-      <strong>To continue, you will need the following information</strong>
+      <strong>To continue, you will need the following information:</strong>
       <br />
       <ul>
         <li>Mortgage information</li>
