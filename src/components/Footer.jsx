@@ -5,7 +5,7 @@ const QuoteSearchFooter = () => {
   return (
     <footer className="navFooter">
       <hr />
-      <label>Need to start over? Or retrieve another quote?</label>
+      <label>Need to start over? Or retrieve a quote?</label>
       <div>
         <span>
           <Link to="/searchAddress">New Quote</Link>
