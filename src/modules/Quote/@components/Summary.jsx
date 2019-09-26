@@ -11,31 +11,14 @@ const Summary = ({ initialValues, formInstance }) => {
 
   return (
     <>
-      <section className="iconContainer">
-        <Link className={Button.constants.classNames.icon} to="underwriting">
-          <FontAwesomeIcon icon="edit" />
-          <label>Edit Quote</label>
-        </Link>
-
+      <section className="well">
         <Button
           data-test="share"
           className={Button.constants.classNames.icon}
           onClick={() => setShareQuote(true)}
         >
-          <FontAwesomeIcon icon="paper-plane" />
-          <label>Email Quote</label>
+          Send Email
         </Button>
-
-        <a
-          data-test="home"
-          className={Button.constants.classNames.icon}
-          href="https://www.typtap.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <TypTapLogo />
-          <label>www.TypTap.com</label>
-        </a>
       </section>
 
       <strong>To continue, you will need the following information:</strong>

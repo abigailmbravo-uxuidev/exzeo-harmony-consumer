@@ -36,7 +36,7 @@ export const ROUTES = {
     path: 'share',
     order: 5,
     workflowPage: 3,
-    label: 'Share'
+    label: 'Congrats!'
   },
   additionalInfo: {
     path: 'additionalInfo',
