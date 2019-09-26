@@ -302,6 +302,16 @@
           "children": []
         },
         {
+          "id": "94d0f811-0501-49c2-8be6-1fb909e10a12",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
           "id": "c9394022-edd8-4ae0-901f-f99a903c3038",
           "type": "$SUBTITLE",
           "dependencies": [],
@@ -309,16 +319,6 @@
             "className": "subtitle",
             "strong": "Your quote has been saved!",
             "text": "You are so close to completing the process of purchasing your stand alone flood policy."
-          },
-          "formData": {},
-          "children": []
-        },
-        {
-          "id": "94d0f811-0501-49c2-8be6-1fb909e10a12",
-          "type": "$CUSTOM",
-          "dependencies": [],
-          "data": {
-            "component": "$INFO"
           },
           "formData": {},
           "children": []
