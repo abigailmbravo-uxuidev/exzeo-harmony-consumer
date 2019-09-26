@@ -11,6 +11,7 @@ import { ROUTES } from 'constants/navigation';
 import QuoteSearch from 'modules/QuoteSearch';
 import AddressSearch from 'modules/AddressSearch';
 import { QuoteContextProvider, QuoteWorkflow } from 'modules/Quote';
+import ThankYou from 'components/ThankYou';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
@@ -32,14 +33,14 @@ const App = () => {
                 path="/"
                 render={() => <Redirect to="/searchAddress" />}
               />
-              {/* This component will always render, no matter the route, and will have access to the Route props (Navigation needs to know where we are :p) */}
+              {/* Nav 'path' array must include all routes/patterns that we want Nav rendering (Navigation needs to know where we are :p) */}
               <Route
                 path={[
                   '/searchAddress',
                   '/retrieveQuote',
                   '/quote/:quoteNumber/:step'
                 ]}
-                children={routeProps => <Navigation {...routeProps} />}
+                render={routeProps => <Navigation {...routeProps} />}
               />
             </Switch>
 
@@ -61,6 +62,12 @@ const App = () => {
                 <Route
                   path={ROUTES.workflow.path}
                   render={routeProps => <QuoteWorkflow {...routeProps} />}
+                />
+
+                <Route
+                  exact
+                  path="/thankYou"
+                  render={routeProps => <ThankYou {...routeProps} />}
                 />
 
                 <Route

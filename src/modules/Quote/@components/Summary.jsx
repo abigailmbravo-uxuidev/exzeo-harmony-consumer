@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ModalPortal, noop, Switch } from '@exzeo/core-ui';
+import { noop, Switch } from '@exzeo/core-ui';
 import { ShareModal } from '@exzeo/harmony-core';
 
 const Summary = ({ formInstance }) => {
@@ -9,7 +9,7 @@ const Summary = ({ formInstance }) => {
     <>
       <Switch
         label="Do you want to share your quote?"
-        dataTest="test"
+        dataTest="share-quote"
         styleName="switch"
         input={{
           name: '',

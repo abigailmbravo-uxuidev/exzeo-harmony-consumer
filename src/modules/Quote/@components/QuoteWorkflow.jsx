@@ -53,7 +53,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
       await updateQuote(data, { workflowPage });
 
       if (!(recalc && workflowPage === ROUTES.customize.workflowPage)) {
-        history.replace(WORKFLOW_ROUTING[match.params.step]);
+        history.push(WORKFLOW_ROUTING[match.params.step]);
       }
     } catch (error) {
       throw Error(error);
