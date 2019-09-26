@@ -296,7 +296,7 @@
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Share Quote Summary"
+            "text": "Share Quote"
           },
           "formData": {},
           "children": []
@@ -317,6 +317,7 @@
           "dependencies": [],
           "data": {
             "className": "subtitle",
+            "strong": "Congratulations! Your quote has been saved!",
             "text": "You are so close to completing the process of purchasing your stand alone flood policy."
           },
           "formData": {},

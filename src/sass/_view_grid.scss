@@ -29,6 +29,7 @@
           padding-left: 0;
           font-weight: $normal;
           font-size: $fontSizeBase;
+          padding-left: ($padding / 2);
         }
       }
       label {
@@ -69,6 +70,7 @@
     //well styling
     .well {
       overflow: visible;
+      padding-bottom: 0;
 
       .form-group {
         z-index: 14;

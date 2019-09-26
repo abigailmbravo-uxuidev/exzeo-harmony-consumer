@@ -473,6 +473,10 @@
     .react-select__control {
       border-color: rgba($navy, 0.5);
 
+      &:hover {
+        cursor: pointer;
+      }
+
       .react-select__indicators {
         .react-select__indicator-separator {
         }
