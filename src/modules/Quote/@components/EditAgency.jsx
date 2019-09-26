@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { noop, Switch, validation, Field, useField } from '@exzeo/core-ui';
+import {
+  noop,
+  SectionLoader,
+  Switch,
+  validation,
+  Field,
+  useField
+} from '@exzeo/core-ui';
 
 import {
   AgencyCard,
@@ -10,11 +17,13 @@ import {
 const AgencySelect = ({ initialValues, formInstance, formValues }) => {
   const [editAgency, setEditAgency] = useState(false);
   const [selectedAgency, setSelectedAgency] = useState(null);
+  const [loading, setLoading] = useState(false);
   const agencyField = useField('agencyCode');
   const agentField = useField('agentCode');
 
   useEffect(() => {
     async function getAgency() {
+      setLoading(true);
       const result = await searchAgencies({
         agencyCode: formValues.editAgencyValue || initialValues.agencyCode
       });
@@ -24,6 +33,8 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
 
       agencyField.input.onChange(Number(agency.agencyCode));
       agentField.input.onChange(Number(agency.agentOfRecord));
+
+      setLoading(false);
       setEditAgency(false);
     }
 
@@ -64,14 +75,20 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
                 input={input}
                 meta={meta}
                 label="Agencies"
-                styleName="agencyCode"
+                styleName="type-ahead"
               />
             )}
           </Field>
         </div>
       )}
 
-      {selectedAgency && <AgencyCard agency={selectedAgency} />}
+      <div className="card-container">
+        {loading ? (
+          <SectionLoader />
+        ) : selectedAgency ? (
+          <AgencyCard agency={selectedAgency} />
+        ) : null}
+      </div>
     </>
   );
 };
