@@ -24,6 +24,7 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
 
       agencyField.input.onChange(Number(agency.agencyCode));
       agentField.input.onChange(Number(agency.agentOfRecord));
+      setEditAgency(false);
     }
 
     getAgency();
