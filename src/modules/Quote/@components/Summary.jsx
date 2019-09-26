@@ -8,7 +8,7 @@ const Summary = ({ formInstance }) => {
   return (
     <>
       <Switch
-        label="Do you want to change the agency?"
+        label="Do you want to share your quote?"
         dataTest="test"
         styleName="switch"
         input={{
