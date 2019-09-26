@@ -209,7 +209,7 @@ const QuoteSearch = () => {
                   {searchState.noResults && (
                     <Modal
                       header={
-                        <span>
+                        <span className="modalIcons">
                           <FontAwesomeIcon icon="exclamation-triangle" />
                         </span>
                       }
