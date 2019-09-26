@@ -69,9 +69,80 @@
     //well styling
     .well {
       overflow: visible;
-      padding: 0;
+      padding: $padding $padding 0 $padding;
       display: flex;
       margin-top: 0.5rem;
+      position: relative;
+
+      //results modal styling
+      .modal {
+        z-index: 10;
+        display: flex;
+
+        .card {
+          margin: 0;
+          background-color: transparent;
+          padding: 0;
+          box-shadow: 0 0 0 0 rgba($white, 0);
+
+          .card-footer {
+            display: flex;
+            margin-top: 0.75rem;
+            position: unset;
+
+            button {
+              padding: 0.4rem 1rem;
+              margin: 0;
+            }
+          }
+
+          .share {
+            z-index: 1;
+            .card-block {
+              padding: 0;
+              margin-top: 0;
+
+              .form-group {
+                color: $navy;
+                width: 100%;
+
+                #toName {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+
+                #toEmail {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+              }
+
+              .error {
+                span {
+                  box-shadow: none;
+                  background-color: transparent;
+                  font-size: $fontSizeBase;
+                  border-radius: 0;
+                  width: 100%;
+                  height: auto;
+                  display: block;
+                  padding: ($padding / 4) 0 0 ($padding / 2);
+                  font-size: $fontSizeBody;
+                }
+              }
+            }
+          }
+
+          .card-header {
+            h4 {
+              display: none;
+            }
+          }
+        }
+
+        .form-group {
+          z-index: 14;
+          overflow: visible;
+        }
+      }
 
       //for phone
       @include forPhoneOnly {
@@ -128,11 +199,8 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        margin: 0;
-        margin-left: 1rem;
         padding: 0 $padding;
         min-height: 176px;
-        width: 100%;
         background-color: $navy;
 
         &:hover {
@@ -171,15 +239,16 @@
 
         .card-footer {
           display: flex;
-          flex-direction: row-reverse;
           margin-top: 0.75rem;
-          padding: $padding $padding 0 $padding;
-          padding: 0 32px 0 150px;
-          background-color: $navy;
+          position: relative;
 
           button {
-            margin-left: 1rem;
             padding: 0.4rem 1rem;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin: 0;
           }
         }
         .modalIcons {
@@ -199,87 +268,6 @@
             font-size: 80px;
           }
         }
-      }
-    }
-
-    //results modal styling
-    .modal {
-      z-index: 10;
-      display: flex;
-
-      .card {
-        margin: 0;
-        background-color: transparent;
-        padding: 0;
-
-        .share {
-          z-index: 1;
-          .card-block {
-            padding: 0 $padding;
-
-            .error {
-              span {
-                box-shadow: none;
-                background-color: transparent;
-                font-size: $fontSizeBase;
-                border-radius: 0;
-                width: 100%;
-                height: auto;
-                display: block;
-                padding: ($padding / 4) 0 0 ($padding / 2);
-                font-size: $fontSizeBody;
-              }
-            }
-          }
-        }
-
-        .card-header {
-          h4 {
-            display: none;
-          }
-        }
-        .share {
-          position: absolutely;
-
-          .card-block {
-            margin-top: 1rem;
-
-            .form-group {
-              color: $navy;
-
-              #toName {
-                background-color: rgba($extraLightGrey, 0.9);
-              }
-
-              #toEmail {
-                background-color: rgba($extraLightGrey, 0.9);
-              }
-            }
-          }
-
-          .card-footer {
-            padding: 0;
-            background-color: $blue;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            width: 100%;
-
-            &.button,
-            .btn {
-              margin: 0;
-              width: 100%;
-              z-index: 20;
-              box-shadow: none;
-              padding: ($padding/2) 0;
-            }
-          }
-        }
-      }
-
-      .form-group {
-        z-index: 14;
-        overflow: visible;
       }
     }
   }
@@ -377,6 +365,11 @@
     margin-bottom: 0.5rem;
     padding: $padding;
     width: 100%;
+
+    @include forPhoneOnly {
+      width: 100vw;
+      margin-top: 1rem;
+    }
 
     h2 {
       font-weight: normal;

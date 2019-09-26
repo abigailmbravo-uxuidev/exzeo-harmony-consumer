@@ -170,11 +170,6 @@ body {
         }
       }
     }
-    @include forMinWidth {
-      main[role='main'] {
-        padding-right: ($padding * 1.5);
-      }
-    }
   }
 
   //footer layout

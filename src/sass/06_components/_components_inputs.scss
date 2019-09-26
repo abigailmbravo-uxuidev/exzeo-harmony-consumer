@@ -442,7 +442,8 @@
 
 //type ahead styling
 
-.form-group {
+.type-ahead {
+  overflow: visible;
   .TypeAhead {
     color: $navy;
     font-family: $serif;
