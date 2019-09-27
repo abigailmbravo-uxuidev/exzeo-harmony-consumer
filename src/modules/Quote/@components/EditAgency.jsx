@@ -43,11 +43,12 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
   }, [formValues.editAgencyValue]);
 
   function toggleEditAgency() {
-    setEditAgency(state => {
-      if (state) {
-        formInstance.reset();
+    setEditAgency(editing => {
+      if (editing) {
+        agencyField.input.onChange(initialValues.agencyCode);
+        agentField.input.onChange(initialValues.agentCode);
       }
-      return !state;
+      return !editing;
     });
   }
 
