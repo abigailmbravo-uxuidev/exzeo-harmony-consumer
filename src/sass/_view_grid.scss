@@ -298,8 +298,36 @@
     }
   }
 
+  .navFooter {
+    @include forPhoneOnly {
+      align-content: center;
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      label {
+        text-align: center;
+      }
+
+      & div {
+        text-align: center;
+      }
+    }
+  }
+
   footer {
     padding: $padding;
+
+    @include forPhoneOnly {
+      margin-bottom: 1rem;
+
+      div[role='banner'] {
+        flex-direction: column;
+
+        small {
+          align-self: center;
+        }
+      }
+    }
   }
 
   .title {
@@ -308,6 +336,10 @@
     font-weight: $bold;
     font-size: $fontSizeHeader;
     font-family: $serif;
+
+    @include forPhoneOnly {
+      font-size: $fontSizeSubheader;
+    }
   }
 
   .form-footer {
