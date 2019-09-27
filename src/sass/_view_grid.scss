@@ -586,7 +586,11 @@
 
 @include forPhoneOnly {
   .view-grid {
-    padding: ($padding * 3) 0 0 0;
+    padding: ($padding * 4) 0 0 0;
+
+    .title {
+      padding-top: $padding/4;
+    }
     form {
       section {
         .form-footer {
