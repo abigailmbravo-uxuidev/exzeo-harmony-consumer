@@ -31,6 +31,8 @@ const Summary = ({ formInstance }) => {
         </section>
       )}
 
+      <hr />
+
       <strong>To continue, you will need the following information:</strong>
       <br />
       <ul>
