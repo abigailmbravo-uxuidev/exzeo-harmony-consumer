@@ -55,9 +55,18 @@
       margin-bottom: 0.25rem;
       margin-top: 0.25rem;
       font-family: $serif;
+
+      @include forPhoneOnly {
+        font-size: $fontSizeBase;
+        margin-top: 0.5rem;
+      }
     }
     p {
       margin-bottom: 0;
+
+      @include forPhoneOnly {
+        padding-top: $padding/4;
+      }
     }
   }
 
