@@ -341,7 +341,7 @@
       "step": {},
       "components": [
         {
-          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "id": "f0de721b-8ef9-45d0-b4eb-a9e63683db99",
           "type": "$TITLE",
           "dependencies": [],
           "data": {
@@ -351,11 +351,30 @@
           "children": []
         },
         {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "id": "ef984728-30da-4cb0-a3ca-889d38d4de78",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
             "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "4ec27471-20cb-4fcb-80d3-445528271456",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$ADDITIONAL_INTERESTS",
+            "extendedProperties": {
+              "types": [
+                "mortgagee",
+                "additionalInsured",
+                "additionalInterest",
+                "premiumFinance",
+                "billPayer"
+              ]
+            }
           },
           "formData": {},
           "children": []

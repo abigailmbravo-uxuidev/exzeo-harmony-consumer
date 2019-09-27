@@ -12,6 +12,7 @@ import TriggerRecalc from './TriggerRecalc';
 import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
 import EditAgency from './EditAgency';
+import AdditionalInterests from './AdditionalInterests';
 
 const EMPTY_OBJ = {};
 
@@ -19,7 +20,8 @@ const CUSTOM_COMPONENTS = {
   $INFO: InfoBar,
   $SUBTITLE: Subtitle,
   $CONSUMER_SUMMARY: Summary,
-  $AGENCY_SELECT: EditAgency
+  $AGENCY_SELECT: EditAgency,
+  $ADDITIONAL_INTERESTS: AdditionalInterests
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {
