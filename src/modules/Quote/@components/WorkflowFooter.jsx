@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const WorkflowFooter = ({ recalc, workflowPage }) => {
   return (
     <FormSpy subscription={{ submitting: true }}>
-      {({ submitting }) => (
+      {({ submitting, form }) => (
         <>
           {workflowPage === ROUTES.share.workflowPage ? (
             <>
@@ -26,9 +26,11 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
             </>
           ) : (
             <Button
-              type="submit"
+              type="button"
               data-test="submit"
               className={Button.constants.classNames.primary}
+              onKeyPress={e => e.charCode === 13 && form.submit(e)}
+              onClick={form.submit}
               disabled={
                 submitting ||
                 //  TODO temporary disabled so we don't pass this page
