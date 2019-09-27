@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ThankYou = () => {
   return (
-    <div className="card">
+    <div className="card thankYouCard">
       <section className="thankYouCircle">
         <FontAwesomeIcon icon="circle" />
       </section>

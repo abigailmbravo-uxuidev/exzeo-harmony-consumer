@@ -15,48 +15,50 @@
 
   //thank you page
   .card {
-    width: auto;
-    align-self: center;
-    background-color: $navy;
-    padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-left: 12rem;
-    margin-right: 12rem;
-    margin-bottom: 0;
-
-    .thankYouCircle {
-      display: none;
-    }
-
-    .thankYouIcon {
-      color: white;
-      align-items: center;
-      font-size: 10rem;
+    &.thankYouCard {
+      width: auto;
+      align-self: center;
+      background-color: $navy;
+      padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       flex-grow: 0;
       flex-shrink: 0;
-      z-index: 15;
-
-      svg {
-      }
-    }
-
-    .thankYouTitle {
-      font-size: $fontSizeHeader;
-      font-weight: $bold;
-      font-family: $serif;
-      text-align: center;
-      color: $white;
-      margin-top: 1rem;
-      z-index: 15;
-      color: $white;
-    }
-
-    p {
-      color: $white;
-      text-align: center;
+      margin-left: 12rem;
+      margin-right: 12rem;
       margin-bottom: 0;
-      flex-grow: 0;
+
+      .thankYouCircle {
+        display: none;
+      }
+
+      .thankYouIcon {
+        color: white;
+        align-items: center;
+        font-size: 10rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        z-index: 15;
+
+        svg {
+        }
+      }
+
+      .thankYouTitle {
+        font-size: $fontSizeHeader;
+        font-weight: $bold;
+        font-family: $serif;
+        text-align: center;
+        color: $white;
+        margin-top: 1rem;
+        z-index: 15;
+        color: $white;
+      }
+
+      p {
+        color: $white;
+        text-align: center;
+        margin-bottom: 0;
+        flex-grow: 0;
+      }
     }
   }
 
