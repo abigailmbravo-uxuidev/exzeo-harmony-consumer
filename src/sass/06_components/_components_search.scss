@@ -9,6 +9,10 @@
 
   .property-search {
     position: relative;
+
+    @include forPhoneOnly {
+      margin-bottom: 0.5rem;
+    }
   }
 
   input {
