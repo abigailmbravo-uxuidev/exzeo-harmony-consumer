@@ -117,7 +117,7 @@ const Test = ({ location }) => {
       </div>
       <div className="form-group view-col-12 switch valid">
         <label className="">
-          Do you want Personal Property Replacement Cost Coverage?
+          I want Personal Property Replacement Cost Coverage
           <span>
             <i
               className="fa fa-info-circle"

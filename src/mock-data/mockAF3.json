@@ -93,7 +93,7 @@
           "dependencies": [{ "pprcc": true }],
           "data": {
             "component": "switch",
-            "label": "Personal Property Replacement Cost",
+            "label": "I want Personal Property Replacement Cost",
             "hint": "Meatball t-bone ball tip shank cupim beef doner swine. Pork belly cow beef ribs sirloin ham, spare ribs capicola drumstick jowl corned beef landjaeger meatloaf."
           },
           "formData": {

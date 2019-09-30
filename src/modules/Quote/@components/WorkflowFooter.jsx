@@ -11,17 +11,17 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
           {workflowPage === ROUTES.share.workflowPage ? (
             <>
               <Link
-                to="additionalInfo"
-                className={Button.constants.classNames.primary}
-              >
-                Continue to Purchase
-              </Link>
-              <Link
                 key="secondary"
                 to="/thankYou"
                 className={Button.constants.classNames.secondary}
               >
-                Take care now, bye bye then!
+                Save & Continue Later
+              </Link>
+              <Link
+                to="additionalInfo"
+                className={Button.constants.classNames.primary}
+              >
+                Continue to Purchase
               </Link>
             </>
           ) : (
