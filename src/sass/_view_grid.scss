@@ -59,6 +59,14 @@
         top: -11rem;
         width: 55rem;
 
+        @include forPhoneOnly {
+          position: absolute;
+          left: -12.5rem;
+          right: -12.5rem;
+          top: -3.75rem;
+          width: 44rem;
+        }
+
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
           fill: rgba($navy, 0.75);
@@ -76,8 +84,8 @@
         animation-name: tada;
         animation-delay: 2s;
 
-        .animation {
-          color: red;
+        .fa-trophy {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
         }
       }
 

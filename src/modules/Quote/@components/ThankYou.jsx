@@ -5,15 +5,9 @@ const ThankYou = () => {
   return (
     <div className="card thankYouCard">
       <section className="thankYouCircle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 879.11 270.75">
-          <title>Asset 2</title>
-          <g id="Layer_2" data-name="Layer 2">
-            <g id="Layer_1-2" data-name="Layer 1">
-              <path
-                class="cls-1"
-                d="M0,0C81,160.6,247.41,270.75,439.55,270.75S798.11,160.6,879.11,0Z"
-              />
-            </g>
+        <svg>
+          <g>
+            <path d="M0,0C81,160.6,247.41,270.75,439.55,270.75S798.11,160.6,879.11,0Z" />
           </g>
         </svg>
       </section>
