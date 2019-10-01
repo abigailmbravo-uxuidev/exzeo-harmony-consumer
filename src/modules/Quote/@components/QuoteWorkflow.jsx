@@ -13,6 +13,7 @@ import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
 import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
+import ThankYou from './ThankYou';
 
 const EMPTY_OBJ = {};
 
@@ -21,7 +22,8 @@ const CUSTOM_COMPONENTS = {
   $SUBTITLE: Subtitle,
   $CONSUMER_SUMMARY: Summary,
   $AGENCY_SELECT: EditAgency,
-  $ADDITIONAL_INTERESTS: AdditionalInterests
+  $ADDITIONAL_INTERESTS: AdditionalInterests,
+  $THANK_YOU: ThankYou
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {

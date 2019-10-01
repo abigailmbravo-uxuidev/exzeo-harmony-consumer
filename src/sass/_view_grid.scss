@@ -18,16 +18,29 @@
     &.thankYouCard {
       width: auto;
       align-self: center;
-      background-color: $navy;
+      background-color: $blue;
       padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       flex-grow: 0;
       flex-shrink: 0;
-      margin-left: 12rem;
-      margin-right: 12rem;
-      margin-bottom: 0;
+      position: relative;
+      margin: 0 auto;
+      width: 34rem;
+
+      @include forPhoneOnly {
+        width: 100%;
+      }
 
       .thankYouCircle {
-        display: none;
+        position: absolute;
+        left: -10.5rem;
+        right: -10.5rem;
+        top: -11rem;
+        width: 55rem;
+
+        svg {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.75));
+          fill: rgba($navy, 0.75);
+        }
       }
 
       .thankYouIcon {

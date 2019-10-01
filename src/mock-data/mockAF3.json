@@ -484,6 +484,22 @@
           "children": []
         }
       ]
+    },
+    {
+      "name": "thankyou",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$THANK_YOU"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
     }
   ]
 }

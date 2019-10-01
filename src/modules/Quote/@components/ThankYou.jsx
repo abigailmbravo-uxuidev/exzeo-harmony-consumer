@@ -5,13 +5,13 @@ const ThankYou = () => {
   return (
     <div className="card thankYouCard">
       <section className="thankYouCircle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 946.74 357.43">
-          <title>half circle</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 879.11 270.75">
+          <title>Asset 2</title>
           <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
               <path
                 class="cls-1"
-                d="M0,0C58.54,206.31,248.3,357.43,473.37,357.43S888.2,206.31,946.74,0Z"
+                d="M0,0C81,160.6,247.41,270.75,439.55,270.75S798.11,160.6,879.11,0Z"
               />
             </g>
           </g>
