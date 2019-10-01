@@ -345,7 +345,7 @@
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Additional Info Time!!!"
+            "text": "Additional Information"
           },
           "formData": {},
           "children": []
@@ -366,14 +366,9 @@
           "dependencies": [],
           "data": {
             "component": "$ADDITIONAL_INTERESTS",
+            "className": "additionalInfo",
             "extendedProperties": {
-              "types": [
-                "mortgagee",
-                "additionalInsured",
-                "additionalInterest",
-                "premiumFinance",
-                "billPayer"
-              ]
+              "types": ["mortgagee", "additionalInsured", "additionalInterest"]
             }
           },
           "formData": {},
@@ -390,7 +385,7 @@
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Policyholder Time!!!"
+            "text": "Additional Information"
           },
           "formData": {},
           "children": []
