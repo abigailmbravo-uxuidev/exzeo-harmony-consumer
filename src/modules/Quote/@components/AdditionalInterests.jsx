@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, Radio, validation } from '@exzeo/core-ui';
+import { Form, Field, Radio, validation } from '@exzeo/core-ui';
 // import {} from '@exzeo/harmony-core';
 
 // function setInitialState(initialValues) {
@@ -8,6 +8,11 @@ import { Field, Radio, validation } from '@exzeo/core-ui';
 //     return;
 //   });
 // }
+
+const BOOL_OPTIONS = [
+  { answer: true, label: 'YES' },
+  { answer: false, label: 'NO' }
+];
 
 const AdditionalInterests = ({ config, initialValues }) => {
   // const [answers, setAnswers] = useState(setInitialState(initialValues));
@@ -19,6 +24,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
           <Radio
             input={input}
             meta={meta}
+            answers={BOOL_OPTIONS}
             styleName="additionalInterest"
             dataTest="mortgagee1"
             label="Do you have a mortgage?"
@@ -32,6 +38,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
           <Radio
             input={input}
             meta={meta}
+            answers={BOOL_OPTIONS}
             styleName="additionalInterest"
             dataTest="additionalInsured1"
             label="Are there any additional insureds on the property (other than the mortgage company)?"
@@ -45,6 +52,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
           <Radio
             input={input}
             meta={meta}
+            answers={BOOL_OPTIONS}
             styleName="additionalInterest"
             dataTest="additionalInterest1"
             label="Are there any additional interests?"
