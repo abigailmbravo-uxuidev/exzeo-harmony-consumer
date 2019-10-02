@@ -13,10 +13,9 @@
     flex-shrink: 1;
   }
 
-  //thank you page
   .card {
+    //thank you page
     &.thankYouCard {
-      width: auto;
       align-self: center;
       background-color: $blue;
       padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
@@ -107,6 +106,95 @@
         flex-grow: 0;
       }
     }
+    //congratulations
+    &.congratsCard {
+      align-self: center;
+      padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
+      flex-grow: 0;
+      flex-shrink: 0;
+      position: relative;
+      margin: 0 auto;
+      width: 34rem;
+      label {
+        font-family: $serif;
+        font-size: $fontSizeHeader;
+        text-align: center;
+        z-index: 20;
+        color: $navy;
+        padding-top: $padding;
+      }
+      .confettiWrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      .congratsCircle {
+        position: absolute;
+        left: -8rem;
+        right: -8rem;
+        top: -6rem;
+        width: 54rem;
+        z-index: 0;
+
+        svg {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+          fill: $navy;
+          g {
+            path {
+            }
+          }
+        }
+      }
+
+      .congratsIcon {
+        color: white;
+        align-items: center;
+        font-size: 10rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        z-index: 15;
+        animation-duration: 1.5s;
+        animation-name: tada;
+        animation-delay: 2s;
+
+        svg {
+          fill: $white;
+          height: 15rem;
+          width: 15rem;
+        }
+      }
+    }
+  }
+
+  //additional info styling
+
+  .additionalInfo {
+    .form-group {
+      &.additionalInterest {
+        &.radio {
+          &.segmented {
+            margin-bottom: 1rem;
+            label {
+              font-size: $fontSizeSubheader--small;
+            }
+            .segmented-answer-wrapper {
+              width: 35%;
+
+              @include forPhoneOnly {
+                width: 100%;
+              }
+
+              label {
+                padding: $padding/2;
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   //customize quote styling
@@ -155,6 +243,10 @@
     }
 
     .subtitle {
+      strong {
+        margin-bottom: 0.25rem;
+        display: block;
+      }
       p {
         margin-bottom: 1rem;
         margin-right: 0;
@@ -702,21 +794,17 @@
 
 //confetti
 
-.confettiWrapper {
-  position: relative;
-  min-height: 50vh;
-}
 [class|='confetti'] {
   position: absolute;
 }
-$colors: ($blue, $blue, $blue);
-@for $i from 0 through 150 {
+$colors: $blue, $red, $green, $navy, gold;
+@for $i from 0 through 550 {
   $w: random(8);
   $l: random(100);
   .confetti-#{$i} {
     width: #{$w}px;
     height: #{$w * 0.4}px;
-    background-color: nth($colors, random(3));
+    background-color: nth($colors, random(5));
     top: -10%;
     left: unquote($l + '%');
     opacity: random() + 0.5;
