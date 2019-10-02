@@ -30,7 +30,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="mortgagee1"
-                  label="Do you have a mortgage?"
+                  label="Do you have a mortgage? *"
                   segmented
                 />
               )}
@@ -45,7 +45,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                     answers={BOOL_OPTIONS}
                     styleName="additionalInterest radio"
                     dataTest="mortgagee2"
-                    label="Do you have another mortgage (someone else that can take your house if you don't pay)?"
+                    label="Do you have another mortgage (someone else that can take your house if you don't pay)? *"
                     segmented
                   />
                 )}
@@ -74,7 +74,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="additionalInterest1"
-                  label="Are there any additional interests?"
+                  label="Are there any additional interests (someone additional that is interested in your home)?"
                   segmented
                 />
               )}

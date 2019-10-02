@@ -4,6 +4,10 @@ import { ROUTES } from 'constants/navigation';
 import { Link } from 'react-router-dom';
 
 const WorkflowFooter = ({ recalc, workflowPage }) => {
+  if (workflowPage === ROUTES.additionalInfo.workflowPage) {
+    return null;
+  }
+
   return (
     <FormSpy subscription={{ submitting: true }}>
       {({ submitting, form }) => (
