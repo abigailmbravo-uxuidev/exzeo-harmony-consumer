@@ -21,7 +21,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
             meta={meta}
             styleName="additionalInterest"
             dataTest="mortgagee1"
-            label="Do you have a mortgage? *"
+            label="Do you have a mortgage?"
             segmented
           />
         )}
@@ -34,7 +34,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
             meta={meta}
             styleName="additionalInterest"
             dataTest="additionalInsured1"
-            label="Are there any additional insureds on the property (other than the mortgage company)? *"
+            label="Are there any additional insureds on the property (other than the mortgage company)?"
             segmented
           />
         )}
@@ -47,7 +47,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
             meta={meta}
             styleName="additionalInterest"
             dataTest="additionalInterest1"
-            label="Are there any additional interests blah blah blah? *"
+            label="Are there any additional interests?"
             segmented
           />
         )}
