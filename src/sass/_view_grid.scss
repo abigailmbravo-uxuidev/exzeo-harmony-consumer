@@ -17,7 +17,6 @@
     //thank you page
     &.thankYouCard {
       align-self: center;
-      background-color: $blue;
       padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       flex-grow: 0;
       flex-shrink: 0;
@@ -25,38 +24,30 @@
       margin: 0 auto;
       width: 34rem;
 
-      background: linear-gradient(
-        -45deg,
-        $navy,
-        $blue,
-        rgba($green, 0.75),
-        rgba($blue, 0.75)
-      );
-      background-size: 400% 400%;
-      animation: gradientBG 5s ease infinite;
-
-      @keyframes gradientBG {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
+      label {
+        font-family: $serif;
+        font-size: $fontSizeHeader;
+        text-align: center;
+        z-index: 20;
+        color: $navy;
+        padding-top: $padding;
       }
 
-      @include forPhoneOnly {
-        width: 100%;
+      .confettiWrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
       }
 
       .thankYouCircle {
         position: absolute;
-        left: -10.5rem;
-        right: -10.5rem;
-        top: -11rem;
-        width: 55rem;
+        left: -8rem;
+        right: -8rem;
+        top: -6rem;
+        width: 54rem;
+        z-index: 0;
 
         @include forPhoneOnly {
           position: absolute;
@@ -68,7 +59,7 @@
 
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-          fill: rgba($navy, 0.75);
+          fill: $navy;
         }
       }
 
@@ -83,27 +74,12 @@
         animation-name: tada;
         animation-delay: 2s;
 
-        .fa-trophy {
-          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+        svg {
+          fill: $white;
+          height: 15rem;
+          width: 15rem;
+          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
         }
-      }
-
-      .thankYouTitle {
-        font-size: $fontSizeHeader;
-        font-weight: $bold;
-        font-family: $serif;
-        text-align: center;
-        color: $white;
-        margin-top: 1rem;
-        z-index: 15;
-        color: $white;
-      }
-
-      p {
-        color: $white;
-        text-align: center;
-        margin-bottom: 0;
-        flex-grow: 0;
       }
     }
     //congratulations
@@ -115,6 +91,7 @@
       position: relative;
       margin: 0 auto;
       width: 34rem;
+
       label {
         font-family: $serif;
         font-size: $fontSizeHeader;
@@ -141,10 +118,6 @@
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
           fill: $navy;
-          g {
-            path {
-            }
-          }
         }
       }
 
@@ -163,6 +136,7 @@
           fill: $white;
           height: 15rem;
           width: 15rem;
+          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
         }
       }
     }

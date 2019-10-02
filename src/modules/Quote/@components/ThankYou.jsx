@@ -170,7 +170,7 @@ const ThankYou = () => {
               <stop offset="0%" stop-color="gold">
                 <animate
                   attributeName="offset"
-                  values=".1; .2; .3; .4"
+                  values=".1; .2; .3; .4; .3; .2; .1;"
                   dur="5s"
                   repeatCount="1"
                 ></animate>
@@ -180,7 +180,7 @@ const ThankYou = () => {
                 <animate
                   attributeName="stop-color"
                   values="gold; white; gold"
-                  dur="5s"
+                  dur="5.5s"
                   repeatCount="1"
                 ></animate>
               </stop>
@@ -188,7 +188,7 @@ const ThankYou = () => {
               <stop offset="100%" stop-color="gold">
                 <animate
                   attributeName="offset"
-                  values=".9; .8; .7; .6"
+                  values=".9; .8; .7; .6; .7; .8; .9;"
                   dur="5s"
                   repeatCount="1"
                 ></animate>
