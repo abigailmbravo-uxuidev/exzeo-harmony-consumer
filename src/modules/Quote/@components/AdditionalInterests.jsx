@@ -25,7 +25,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
             input={input}
             meta={meta}
             answers={BOOL_OPTIONS}
-            styleName="additionalInterest"
+            styleName="additionalInterest radio"
             dataTest="mortgagee1"
             label="Do you have a mortgage?"
             segmented
@@ -39,7 +39,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
             input={input}
             meta={meta}
             answers={BOOL_OPTIONS}
-            styleName="additionalInterest"
+            styleName="additionalInterest radio"
             dataTest="additionalInsured1"
             label="Are there any additional insureds on the property (other than the mortgage company)?"
             segmented
@@ -53,7 +53,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
             input={input}
             meta={meta}
             answers={BOOL_OPTIONS}
-            styleName="additionalInterest"
+            styleName="additionalInterest radio"
             dataTest="additionalInterest1"
             label="Are there any additional interests?"
             segmented
