@@ -13,7 +13,7 @@ import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
 import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
-import ThankYou from './ThankYou';
+import ThankYou from './WorkflowComplete';
 
 const EMPTY_OBJ = {};
 

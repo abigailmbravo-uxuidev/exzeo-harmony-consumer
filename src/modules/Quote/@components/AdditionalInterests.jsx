@@ -30,7 +30,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="mortgagee1"
-                  label="Do you have a mortgage? *"
+                  label="Do you have a mortgage for this property?"
                   segmented
                 />
               )}
@@ -60,7 +60,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="additionalInsured1"
-                  label="Are there any additional insureds on the property (other than the mortgage company)?"
+                  label="Are there any additional insureds on the property (other than the mortgage company or secondary homeowner)?"
                   segmented
                 />
               )}
@@ -74,7 +74,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="additionalInterest1"
-                  label="Are there any additional interests (someone additional that is interested in your home)?"
+                  label="Are there any additional interests (someone interested in your home being insured that isn't an owner - such as a homeowners association)?"
                   segmented
                 />
               )}
