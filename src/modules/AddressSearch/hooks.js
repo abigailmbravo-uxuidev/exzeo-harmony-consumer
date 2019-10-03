@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { searchAddress } from '@exzeo/harmony-core';
+import { searchData } from '@exzeo/harmony-core';
 
 const initialState = {
   hasSearched: false,
@@ -15,7 +15,7 @@ export function useAddressSearch() {
     searchState.hasSearched && setSearchState(initialState);
     try {
       setLoading(true);
-      const results = await searchAddress(values.address);
+      const results = await searchData.searchAddress(values.address);
       setSearchState({
         hasSearched: true,
         results: results.IndexResult,
