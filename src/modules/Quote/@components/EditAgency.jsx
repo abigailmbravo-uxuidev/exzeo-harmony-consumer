@@ -57,7 +57,7 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
       <Switch
         label="I want to change my agency"
         dataTest="edit-agency"
-        styleName="switch"
+        styleName="switch agencySelect"
         input={{
           name: '',
           value: editAgency,

@@ -94,8 +94,21 @@
     margin-bottom: 0;
     padding: ($padding / 2) ($padding / 2) 0;
 
+    @include forPhoneOnly {
+      position: relative;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-right: 0;
+      width: 100%;
+    }
+
     > span {
-      display: block;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 1;
+
       .fa-info-circle {
         position: relative;
         display: flex;
@@ -107,11 +120,68 @@
         border-radius: 50%;
         background: $blue;
 
+        @include forPhoneOnly {
+          justify-content: flex-start;
+          margin: 0;
+          width: 100%;
+          background: transparent;
+        }
+
         &:after {
           color: $white;
           content: 'i';
           font-style: normal;
           font-size: 0.75rem;
+
+          @include forPhoneOnly {
+            color: $blue;
+            content: 'more info';
+          }
+        }
+      }
+
+      //tooltip styling
+
+      .__react_component_tooltip {
+        &.type-error {
+          padding: 1rem;
+          max-width: 20rem;
+          border-radius: $borderRadius;
+          background-color: $white;
+          box-shadow: 0 8px 12px rgba($navy, 0.15);
+          color: $navy;
+          font-weight: normal;
+          font-size: $fontSizeBody;
+          font-family: $sans;
+          line-height: 1.4;
+          opacity: 1;
+
+          @include forPhoneOnly {
+            position: relative;
+            display: none;
+            padding: 0;
+            background: transparent;
+            box-shadow: 0 0 0 rgba($white, 0);
+
+            &.show {
+              top: 0 !important;
+              left: 0 !important;
+              display: flex;
+              margin: 0;
+              max-width: 100%;
+              width: 100%;
+
+              &:after {
+                display: none;
+              }
+            }
+          }
+
+          &.place-right {
+            &:after {
+              border-right-color: $white;
+            }
+          }
         }
       }
     }
@@ -357,6 +427,7 @@
           span {
             flex-grow: 1;
             flex-shrink: 1;
+            width: 100%;
           }
 
           &.selected {
@@ -370,8 +441,8 @@
   &.segmented {
     @include forPhoneOnly {
       label {
-        margin-bottom: 1rem;
-        font-size: $fontSizeSubheader--small;
+        //margin-bottom: 1rem;
+        //font-size: $fontSizeSubheader--small;
       }
       .segmented-answer-wrapper {
         flex-direction: column;
@@ -467,7 +538,7 @@
       }
     }
   }
-  &.switch {
+  &.shareSwitch {
     @include forPhoneOnly {
       label {
         font-size: $fontSizeSubheader--small;
@@ -537,28 +608,4 @@ hr {
   padding-bottom: 0;
   height: 1px;
   background-color: $lightGrey;
-}
-
-//tooltip styling
-
-.__react_component_tooltip {
-  &.type-error {
-    padding: 1rem;
-    max-width: 20rem;
-    border-radius: $borderRadius;
-    background-color: $white;
-    box-shadow: 0 8px 12px rgba($navy, 0.15);
-    color: $navy;
-    font-weight: normal;
-    font-size: $fontSizeBody;
-    font-family: $sans;
-    line-height: 1.4;
-    opacity: 1;
-
-    &.place-right {
-      &:after {
-        border-right-color: $white;
-      }
-    }
-  }
 }

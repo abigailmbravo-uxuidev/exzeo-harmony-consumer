@@ -214,7 +214,7 @@
       }
     }
     div {
-      &.switch {
+      &.agencySelect {
         label {
           padding-left: 0;
           font-weight: $normal;
@@ -226,6 +226,11 @@
       }
       input {
         padding-left: $padding/2;
+      }
+      &.switch {
+        label {
+          padding-left: 0;
+        }
       }
     }
     .range-wrapper {

@@ -10,7 +10,7 @@ const Summary = ({ formInstance }) => {
       <Switch
         label="I want to share & email my quote"
         dataTest="share-quote"
-        styleName="switch"
+        styleName="switch shareSwitch"
         input={{
           name: '',
           value: shareQuote,
