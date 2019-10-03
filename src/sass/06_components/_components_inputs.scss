@@ -93,6 +93,7 @@
     align-items: center;
     margin-bottom: 0;
     padding: ($padding / 2) ($padding / 2) 0;
+    line-height: 1.2;
 
     @include forPhoneOnly {
       position: relative;
@@ -227,6 +228,10 @@
 
   .range-wrapper {
     position: relative;
+
+    @include forPhoneOnly {
+      margin-top: -2.5rem;
+    }
     .range-value {
       position: absolute;
       top: 0;
@@ -477,15 +482,12 @@
       position: relative; //js added
       z-index: 10;
       display: flex;
-      align-items: center;
-      flex-direction: row;
       flex-grow: 1;
       flex-shrink: 1;
       justify-content: space-between;
       margin-bottom: 0;
       font-size: $fontSizeSubheader;
       font-family: $serif;
-      line-height: 1.45;
 
       span {
         flex-grow: 1;
