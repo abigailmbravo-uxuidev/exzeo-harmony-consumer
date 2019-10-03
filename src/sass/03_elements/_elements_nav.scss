@@ -87,8 +87,10 @@ nav[role='navigation'] {
       margin-bottom: 0.75rem;
       text-align: right;
 
-      a {
+      > a {
         width: 100%;
+        cursor: default;
+        color: $navy;
 
         @include forPhoneOnly {
           flex-direction: row-reverse;
@@ -120,8 +122,9 @@ nav[role='navigation'] {
       &.complete {
         margin-bottom: 1rem;
         a {
+          cursor: pointer;
           span {
-            background-color: $green;
+            background-color: $navy;
             color: $white;
             svg {
               width: 1rem;
@@ -203,6 +206,7 @@ nav[role='navigation'] {
         li {
           a {
             padding-bottom: ($padding / 4);
+            cursor: pointer;
             &.complete {
               span {
                 svg {
