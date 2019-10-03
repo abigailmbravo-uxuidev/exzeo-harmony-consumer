@@ -16,12 +16,12 @@
   .card {
     //thank you page
     &.thankYouCard {
+      position: relative;
       align-self: center;
-      padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       flex-grow: 0;
       flex-shrink: 0;
-      position: relative;
       margin: 0 auto;
+      padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       width: 34rem;
 
       @include forPhoneOnly {
@@ -29,73 +29,75 @@
       }
 
       label {
-        font-family: $serif;
-        font-size: $fontSizeHeader;
-        text-align: center;
         z-index: 20;
-        color: $navy;
-        padding-top: $padding;
         z-index: 1;
+        padding-top: $padding;
+        color: $navy;
+        text-align: center;
+        font-size: $fontSizeHeader;
+        font-family: $serif;
       }
 
       .confettiWrapper {
         position: absolute;
-        left: 0;
-        right: 0;
         top: 0;
+        right: 0;
         bottom: 0;
+        left: 0;
       }
 
       .thankYouCircle {
         position: absolute;
-        left: -8rem;
-        right: -8rem;
         top: -6rem;
-        width: 54rem;
+        right: -8rem;
+        left: -8rem;
         z-index: 0;
+        width: 54rem;
 
         @include forPhoneOnly {
           position: absolute;
-          left: -20rem;
-          right: -20rem;
           top: -1rem;
+          right: -20rem;
+          left: -20rem;
           width: 64rem;
         }
 
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+
           fill: $navy;
         }
       }
 
       .thankYouIcon {
-        color: white;
+        z-index: 15;
+        z-index: 1;
         align-items: center;
-        font-size: 10rem;
         flex-grow: 0;
         flex-shrink: 0;
-        z-index: 15;
-        animation-duration: 1.5s;
+        color: white;
+        font-size: 10rem;
         animation-name: tada;
+        animation-duration: 1.5s;
         animation-delay: 2s;
-        z-index: 1;
 
         svg {
-          fill: $white;
-          height: 15rem;
           width: 15rem;
+          height: 15rem;
           filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+
+          fill: $white;
         }
       }
     }
     //congratulations
     &.congratsCard {
+      position: relative;
       align-self: center;
-      padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       flex-grow: 0;
       flex-shrink: 0;
-      position: relative;
       margin: 0 auto;
+      padding: ($padding * 2) ($padding * 2) ($padding * 1.5);
       width: 34rem;
 
       @include forPhoneOnly {
@@ -103,60 +105,62 @@
       }
 
       label {
-        font-family: $serif;
-        font-size: $fontSizeHeader;
-        text-align: center;
         z-index: 20;
-        color: $navy;
-        padding-top: $padding;
         z-index: 1;
+        padding-top: $padding;
+        color: $navy;
+        text-align: center;
+        font-size: $fontSizeHeader;
+        font-family: $serif;
       }
       .confettiWrapper {
         position: absolute;
-        left: 0;
-        right: 0;
         top: 0;
+        right: 0;
         bottom: 0;
+        left: 0;
       }
       .congratsCircle {
         position: absolute;
-        left: -8rem;
-        right: -8rem;
         top: -6rem;
-        width: 54rem;
+        right: -8rem;
+        left: -8rem;
         z-index: 0;
+        width: 54rem;
 
         @include forPhoneOnly {
           position: absolute;
-          left: -20rem;
-          right: -20rem;
           top: -1rem;
+          right: -20rem;
+          left: -20rem;
           width: 64rem;
         }
 
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+
           fill: $navy;
         }
       }
 
       .congratsIcon {
-        color: white;
+        z-index: 15;
+        z-index: 1;
         align-items: center;
-        font-size: 10rem;
         flex-grow: 0;
         flex-shrink: 0;
-        z-index: 15;
-        animation-duration: 1.5s;
+        color: white;
+        font-size: 10rem;
         animation-name: tada;
+        animation-duration: 1.5s;
         animation-delay: 2s;
-        z-index: 1;
 
         svg {
-          fill: $white;
-          height: 15rem;
           width: 15rem;
+          height: 15rem;
           filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+
+          fill: $white;
         }
       }
     }
@@ -241,95 +245,25 @@
 
     .subtitle {
       strong {
-        margin-bottom: 0.25rem;
         display: block;
+        margin-bottom: 0.25rem;
       }
       p {
-        margin-bottom: 1rem;
         margin-right: 0;
+        margin-bottom: 1rem;
         max-width: 100%;
       }
     }
 
     //well styling
     .well {
-      overflow: visible;
-      padding: $padding $padding 0 $padding;
-      display: flex;
-      margin-top: 0.5rem;
       position: relative;
-
-      //results modal styling
-      .modal {
-        z-index: 10;
-        display: flex;
-
-        .card {
-          margin: 0;
-          background-color: transparent;
-          padding: 0;
-          box-shadow: 0 0 0 0 rgba($white, 0);
-
-          .card-footer {
-            display: flex;
-            margin-top: 0.75rem;
-            position: unset;
-
-            button {
-              padding: 0.4rem 1rem;
-              margin: 0;
-            }
-          }
-
-          .share {
-            z-index: 1;
-            .card-block {
-              padding: 0;
-              margin-top: 0;
-
-              .form-group {
-                color: $navy;
-                width: 100%;
-
-                #toName {
-                  background-color: rgba($extraLightGrey, 0.9);
-                }
-
-                #toEmail {
-                  background-color: rgba($extraLightGrey, 0.9);
-                }
-              }
-
-              .error {
-                span {
-                  box-shadow: none;
-                  background-color: transparent;
-                  font-size: $fontSizeBase;
-                  border-radius: 0;
-                  width: 100%;
-                  height: auto;
-                  display: block;
-                  padding: ($padding / 4) 0 0 ($padding / 2);
-                  font-size: $fontSizeBody;
-                }
-              }
-            }
-          }
-
-          .card-header {
-            h4 {
-              display: none;
-            }
-          }
-        }
-
-        .form-group {
-          z-index: 14;
-          overflow: visible;
-        }
-      }
-
+      display: flex;
+      overflow: visible;
+      margin-top: 0.5rem;
+      padding: $padding $padding 0 $padding;
       //for phone
+
       @include forPhoneOnly {
         .card {
           flex-direction: column;
@@ -380,6 +314,76 @@
         }
       }
 
+      //results modal styling
+      .modal {
+        z-index: 10;
+        display: flex;
+
+        .card {
+          margin: 0;
+          padding: 0;
+          background-color: transparent;
+          box-shadow: 0 0 0 0 rgba($white, 0);
+
+          .card-footer {
+            position: unset;
+            display: flex;
+            margin-top: 0.75rem;
+
+            button {
+              margin: 0;
+              padding: 0.4rem 1rem;
+            }
+          }
+
+          .share {
+            z-index: 1;
+            .card-block {
+              margin-top: 0;
+              padding: 0;
+
+              .form-group {
+                width: 100%;
+                color: $navy;
+
+                #toName {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+
+                #toEmail {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+              }
+
+              .error {
+                span {
+                  display: block;
+                  padding: ($padding / 4) 0 0 ($padding / 2);
+                  width: 100%;
+                  height: auto;
+                  border-radius: 0;
+                  background-color: transparent;
+                  box-shadow: none;
+                  font-size: $fontSizeBase;
+                  font-size: $fontSizeBody;
+                }
+              }
+            }
+          }
+
+          .card-header {
+            h4 {
+              display: none;
+            }
+          }
+        }
+
+        .form-group {
+          z-index: 14;
+          overflow: visible;
+        }
+      }
+
       .card {
         display: flex;
         flex-direction: column;
@@ -423,17 +427,17 @@
         }
 
         .card-footer {
+          position: relative;
           display: flex;
           margin-top: 0.75rem;
-          position: relative;
 
           button {
-            padding: 0.4rem 1rem;
             position: absolute;
-            left: 0;
             right: 0;
-            width: 100%;
+            left: 0;
             margin: 0;
+            padding: 0.4rem 1rem;
+            width: 100%;
           }
         }
         .modalIcons {
@@ -463,16 +467,16 @@
     &.radio {
       &.segmented {
         margin-bottom: 1.5rem;
-        &.segmented-answer-wrapper {
-          font-size: $fontSizeBase;
-          font-weight: $normal;
-        }
 
         @include forPhoneOnly {
           margin-bottom: 1rem;
         }
+        &.segmented-answer-wrapper {
+          font-weight: $normal;
+          font-size: $fontSizeBase;
+        }
 
-        label {
+        > label {
           padding-left: 0;
         }
       }
@@ -594,8 +598,8 @@
     width: 100%;
 
     @include forPhoneOnly {
-      width: 100vw;
       margin-top: 1rem;
+      width: 100vw;
     }
 
     h2 {
@@ -799,11 +803,11 @@ $colors: $blue, $red, $green, $navy, gold;
   $w: random(8);
   $l: random(100);
   .confetti-#{$i} {
+    top: -10%;
+    left: unquote($l + '%');
     width: #{$w}px;
     height: #{$w * 0.4}px;
     background-color: nth($colors, random(5));
-    top: -10%;
-    left: unquote($l + '%');
     opacity: random() + 0.5;
     transform: rotate(#{random() * 360}deg);
     animation: drop-#{$i}
