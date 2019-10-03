@@ -45,7 +45,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                     answers={BOOL_OPTIONS}
                     styleName="additionalInterest radio"
                     dataTest="mortgagee2"
-                    label="Do you have another mortgage (someone else that can take your house if you don't pay)? *"
+                    label="Do you have a second mortgage for this property?"
                     segmented
                   />
                 )}
