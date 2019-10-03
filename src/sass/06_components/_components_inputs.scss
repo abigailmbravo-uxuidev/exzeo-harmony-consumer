@@ -88,7 +88,7 @@
 
   label {
     position: absolute;
-    z-index: 20;
+    z-index: 30;
     display: flex;
     align-items: center;
     margin-bottom: 0;
@@ -291,12 +291,14 @@
 
     label {
       position: relative; //js added
+      z-index: 20;
       margin-bottom: 1.5rem;
       font-size: $fontSizeSubheader;
       font-family: $serif;
     }
 
     .segmented-answer-wrapper {
+      z-index: 10;
       display: flex;
       overflow: hidden;
       //@extendsborder-radius: $borderRadius;
@@ -510,11 +512,6 @@
 
       &:hover {
         cursor: pointer;
-      }
-
-      .react-select__indicators {
-        .react-select__indicator-separator {
-        }
       }
 
       .react-select__placeholder {
