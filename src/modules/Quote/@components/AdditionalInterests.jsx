@@ -1,13 +1,30 @@
 import React from 'react';
-import { Form, Field, Radio, validation } from '@exzeo/core-ui';
-// import {} from '@exzeo/harmony-core';
+import {
+  Form,
+  Field,
+  useField,
+  ModalPortal,
+  Radio,
+  validation
+} from '@exzeo/core-ui';
+import {
+  getGroupedAdditionalInterests,
+  getMortgageeOrderOptions,
+  initializeAdditionalInterestForm,
+  useFetchAdditionalInterestEnums,
+  AI_TYPES,
+  AdditionalInterestModal,
+  AdditionalInterestCard
+} from '@exzeo/harmony-core';
 
-// function setInitialState(initialValues) {
-//   const answers = {};
-//   initialValues.additionalInterests.forEach(ai => {
-//     return;
-//   });
-// }
+function setInitialValues(groupedAI) {
+  return {
+    mortgagee1: groupedAI[AI_TYPES.mortgagee].length > 0,
+    mortgagee2: groupedAI[AI_TYPES.mortgagee].length === 2,
+    additionalInsured: groupedAI[AI_TYPES.additionalInsured].length > 0,
+    additionalInterest: groupedAI[AI_TYPES.additionalInterest].length > 0
+  };
+}
 
 const BOOL_OPTIONS = [
   { answer: true, label: 'YES' },
@@ -15,12 +32,17 @@ const BOOL_OPTIONS = [
 ];
 
 const AdditionalInterests = ({ config, initialValues }) => {
+  const groupedAI = getGroupedAdditionalInterests(
+    initialValues.additionalInterests
+  );
+  const { options, loaded } = useFetchAdditionalInterestEnums();
+
   // const [answers, setAnswers] = useState(setInitialState(initialValues));
 
   return (
     <div className={config.className}>
-      <Form onSubmit={x => x}>
-        {({ handleSubmit, values }) => (
+      <Form onSubmit={x => x} initialValues={setInitialValues(groupedAI)}>
+        {({ handleSubmit, values, form }) => (
           <>
             <Field name="mortgagee1" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -35,6 +57,38 @@ const AdditionalInterests = ({ config, initialValues }) => {
                 />
               )}
             </Field>
+
+            {values.mortgagee1 === true && !groupedAI[AI_TYPES.mortgagee][0] && (
+              <ModalPortal>
+                <AdditionalInterestModal
+                  label={`Add ${AI_TYPES.mortgagee}`}
+                  type={AI_TYPES.mortgagee}
+                  options={options}
+                  mortgageeOrderOptions={getMortgageeOrderOptions(
+                    null,
+                    options,
+                    groupedAI
+                  )}
+                  initialValues={initializeAdditionalInterestForm(
+                    AI_TYPES.mortgagee,
+                    {},
+                    options,
+                    groupedAI
+                  )}
+                  handleCancel={() => form.change('mortgagee1', false)}
+                  handleFormSubmit={x => x}
+                />
+              </ModalPortal>
+            )}
+
+            {values.mortgagee1 === true &&
+              !!groupedAI[AI_TYPES.mortgagee][0] && (
+                <AdditionalInterestCard
+                  ai={groupedAI[AI_TYPES.mortgagee][0]}
+                  handleDelete={x => x}
+                  handleEdit={x => x}
+                />
+              )}
 
             {values.mortgagee1 === true && (
               <Field name="mortgagee2" validate={validation.isRequired}>
@@ -52,7 +106,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
               </Field>
             )}
 
-            <Field name="additionalInsured1" validate={validation.isRequired}>
+            <Field name="additionalInsured" validate={validation.isRequired}>
               {({ input, meta }) => (
                 <Radio
                   input={input}
@@ -66,7 +120,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
               )}
             </Field>
 
-            <Field name="additionalInterest1" validate={validation.isRequired}>
+            <Field name="additionalInterest" validate={validation.isRequired}>
               {({ input, meta }) => (
                 <Radio
                   input={input}
