@@ -12,9 +12,9 @@
   &.required {
     label {
       &:after {
-        content: '*';
-        color: $red;
         margin-left: 0.25rem;
+        color: $red;
+        content: '*';
       }
     }
   }
@@ -53,8 +53,8 @@
     }
 
     &::selection {
-      color: $navy;
       background: rgba($blue, 0.5);
+      color: $navy;
     }
 
     &:hover {
@@ -88,8 +88,34 @@
 
   label {
     position: absolute;
+    z-index: 20;
+    display: flex;
+    align-items: center;
     margin-bottom: 0;
     padding: ($padding / 2) ($padding / 2) 0;
+
+    > span {
+      display: block;
+      .fa-info-circle {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.25rem;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background: $blue;
+
+        &:after {
+          color: $white;
+          content: 'i';
+          font-style: normal;
+          font-size: $fontSizeBody;
+          line-height: 1;
+        }
+      }
+    }
   }
 
   &.error {
@@ -138,13 +164,13 @@
       width: 100%;
 
       input {
-        background-color: transparent;
-        border-bottom-width: 0;
         width: 100%;
+        border-bottom-width: 0;
+        background-color: transparent;
         text-align: center;
-        font-family: $serif;
         font-weight: $bold;
         font-size: $fontSizeSubheader--small;
+        font-family: $serif;
       }
     }
     .range-control-wrapper {
@@ -163,12 +189,13 @@
       }
     }
     input[type='range'] {
-      -webkit-appearance: none;
-      width: 100%;
       margin: 4.5px 0;
-      background-color: transparent;
-      border-bottom-width: 0;
       padding-top: $padding;
+      width: 100%;
+      border-bottom-width: 0;
+      background-color: transparent;
+
+      -webkit-appearance: none;
     }
     input[type='range']:focus {
       outline: none;
@@ -176,23 +203,24 @@
     input[type='range']::-webkit-slider-runnable-track {
       width: 100%;
       height: 11px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-      background: #1d404e;
-      border-radius: 25px;
       border: 0px solid #010101;
+      border-radius: 25px;
+      background: #1d404e;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+      cursor: pointer;
     }
     input[type='range']::-webkit-slider-thumb {
-      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
-        0px 0px 1px rgba(36, 79, 97, 0.5);
-      border: 0px solid rgba(255, 255, 255, 0);
-      height: 20px;
+      margin-top: -4.5px;
       width: 20px;
+      height: 20px;
+      border: 0px solid rgba(255, 255, 255, 0);
       border-radius: 20px;
       background: #ffffff;
+      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
+        0px 0px 1px rgba(36, 79, 97, 0.5);
       cursor: pointer;
+
       -webkit-appearance: none;
-      margin-top: -4.5px;
     }
     input[type='range']:focus::-webkit-slider-runnable-track {
       background: #000000;
@@ -200,52 +228,52 @@
     input[type='range']::-moz-range-track {
       width: 100%;
       height: 11px;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-      background: #1d404e;
-      border-radius: 25px;
       border: 0px solid #010101;
+      border-radius: 25px;
+      background: #1d404e;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+      cursor: pointer;
     }
     input[type='range']::-moz-range-thumb {
-      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
-        0px 0px 1px rgba(36, 79, 97, 0.5);
-      border: 0px solid rgba(255, 255, 255, 0);
-      height: 20px;
       width: 20px;
+      height: 20px;
+      border: 0px solid rgba(255, 255, 255, 0);
       border-radius: 20px;
       background: #ffffff;
+      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
+        0px 0px 1px rgba(36, 79, 97, 0.5);
       cursor: pointer;
     }
     input[type='range']::-ms-track {
       width: 100%;
       height: 11px;
-      cursor: pointer;
-      background: transparent;
       border-color: transparent;
+      background: transparent;
       color: transparent;
+      cursor: pointer;
     }
     input[type='range']::-ms-fill-lower {
-      background: #ffffff;
       border: 0px solid #010101;
       border-radius: 50px;
+      background: #ffffff;
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
     }
     input[type='range']::-ms-fill-upper {
-      background: #1d404e;
       border: 0px solid #010101;
       border-radius: 50px;
+      background: #1d404e;
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
     }
     input[type='range']::-ms-thumb {
-      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
-        0px 0px 1px rgba(36, 79, 97, 0.5);
-      border: 0px solid rgba(255, 255, 255, 0);
-      height: 20px;
       width: 20px;
+      height: 20px;
+      height: 11px;
+      border: 0px solid rgba(255, 255, 255, 0);
       border-radius: 20px;
       background: #ffffff;
+      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
+        0px 0px 1px rgba(36, 79, 97, 0.5);
       cursor: pointer;
-      height: 11px;
     }
     input[type='range']:focus::-ms-fill-lower {
       background: #1d404e;
@@ -270,15 +298,15 @@
     }
 
     .segmented-answer-wrapper {
-      > div {
-        overflow: hidden;
-      }
       display: flex;
       overflow: hidden;
       //@extendsborder-radius: $borderRadius;
       //background-color: $white;
 
       @include shadow(0, 3px, 6px, rgba($navy, 0.16));
+      > div {
+        overflow: hidden;
+      }
 
       div {
         display: flex;
@@ -316,12 +344,19 @@
         }
 
         label {
+          flex-grow: 1;
+          flex-shrink: 1;
           margin-bottom: 0;
           padding: ($padding / 2) ($padding);
           text-align: center;
           font-size: $fontSizeBase;
           font-family: $serif;
           line-height: 1.2;
+
+          span {
+            flex-grow: 1;
+            flex-shrink: 1;
+          }
 
           &.selected {
             background-color: $navy;
@@ -341,9 +376,9 @@
         flex-direction: column;
 
         div {
+          overflow: hidden;
           border-right-width: 0;
           border-bottom: 1px $lightGrey solid;
-          overflow: hidden;
 
           &:last-of-type {
             border-bottom-width: 0;
@@ -446,8 +481,8 @@
   overflow: visible;
   .TypeAhead {
     color: $navy;
-    font-family: $serif;
     font-weight: $bold;
+    font-family: $serif;
 
     .react-select__menu {
       .react-select__menu-list {
@@ -484,8 +519,8 @@
       }
 
       .react-select__placeholder {
-        font-weight: $normal;
         color: rgba($navy, 0.3);
+        font-weight: $normal;
       }
 
       &.react-select__control--is-focused {
@@ -499,11 +534,11 @@
 //other styling
 
 hr {
-  background-color: $lightGrey;
   flex-grow: 1;
   flex-shrink: 1;
-  height: 1px;
+  margin: 2rem 0 0.5rem 0;
   padding-top: 0;
   padding-bottom: 0;
-  margin: 2rem 0 0.5rem 0;
+  height: 1px;
+  background-color: $lightGrey;
 }
