@@ -475,6 +475,7 @@
 
     label {
       position: relative; //js added
+      z-index: 10;
       display: flex;
       align-items: center;
       flex-direction: row;
