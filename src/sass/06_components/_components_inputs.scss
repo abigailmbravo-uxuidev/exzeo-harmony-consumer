@@ -102,8 +102,8 @@
         align-items: center;
         justify-content: center;
         margin-left: 0.25rem;
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 0.9375rem;
+        height: 0.9375rem;
         border-radius: 50%;
         background: $blue;
 
@@ -111,8 +111,7 @@
           color: $white;
           content: 'i';
           font-style: normal;
-          font-size: $fontSizeBody;
-          line-height: 1;
+          font-size: 0.75rem;
         }
       }
     }
@@ -541,4 +540,28 @@ hr {
   padding-bottom: 0;
   height: 1px;
   background-color: $lightGrey;
+}
+
+//tooltip styling
+
+.__react_component_tooltip {
+  &.type-error {
+    padding: 1rem;
+    max-width: 20rem;
+    border-radius: $borderRadius;
+    background-color: $white;
+    box-shadow: 0 8px 12px rgba($navy, 0.15);
+    color: $navy;
+    font-weight: normal;
+    font-size: $fontSizeBody;
+    font-family: $sans;
+    line-height: 1.4;
+    opacity: 1;
+
+    &.place-right {
+      &:after {
+        border-right-color: $white;
+      }
+    }
+  }
 }
