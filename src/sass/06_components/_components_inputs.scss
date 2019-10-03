@@ -292,7 +292,7 @@
 
         &:hover {
           label {
-            background-color: $blue;
+            background-color: mix($blue, $navy, 80%);
             color: $white;
             cursor: pointer;
           }
@@ -324,7 +324,7 @@
           line-height: 1.2;
 
           &.selected {
-            background-color: $blue;
+            background-color: $navy;
             color: $white;
           }
         }
