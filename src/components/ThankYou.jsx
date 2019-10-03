@@ -213,6 +213,9 @@ const ThankYou = () => {
         you need our help, call us, email us, send a carry pigeon, whatever!
         We're here and love to talk all things insurance!
       </p>
+      <a href="https://typtap.com/" target="_self" rel="noopener noreferrer">
+        www.typtap.com
+      </a>
     </div>
   );
 };
