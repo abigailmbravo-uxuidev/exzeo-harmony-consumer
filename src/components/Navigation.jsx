@@ -87,9 +87,17 @@ const Navigation = ({ location, match }) => {
               complete: locationOrder >= ROUTES.additionalInfo.order
             })}
           >
-            <h3>Quote</h3>
-            <span>1</span>
-            <p />
+            <Link
+              to={
+                locationOrder < ROUTES.additionalInfo.order
+                  ? '#'
+                  : `/quote/${match.params.quoteNumber}/underwriting`
+              }
+            >
+              <h3>Quote</h3>
+              <span>1</span>
+              <p />
+            </Link>
 
             <ul>
               <li key={ROUTES.underwriting.label}>
