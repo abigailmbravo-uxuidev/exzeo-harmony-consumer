@@ -554,6 +554,9 @@
 
 .type-ahead {
   overflow: visible;
+  label {
+    position: relative;
+  }
   .TypeAhead {
     color: $navy;
     font-weight: $bold;
