@@ -120,13 +120,19 @@
           width: 100%;
           background: transparent;
         }
+        &:hover {
+          cursor: pointer;
+        }
 
         &:after {
           color: $white;
           content: 'i';
+          font-weight: $bold;
           font-style: normal;
           font-size: 0.75rem;
 
+          -webkit-font-smoothing: auto;
+          font-smooth: auto;
           @include forPhoneOnly {
             color: $blue;
             content: 'more info';
