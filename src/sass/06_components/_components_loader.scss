@@ -1,16 +1,16 @@
 .component-loader,
 .loader {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba($white, 0.8);
   color: $lightGrey;
-  position: fixed;
-  top: 64px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 21;
 
   &.loader-sm {
   }
