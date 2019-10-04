@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
+import { Form, Field, ModalPortal, Radio, validation } from '@exzeo/core-ui';
 import {
-  Form,
-  Field,
-  useField,
-  ModalPortal,
-  Radio,
-  validation
-} from '@exzeo/core-ui';
-import {
-  getGroupedAdditionalInterests,
   getMortgageeOrderOptions,
   initializeAdditionalInterestForm,
-  useFetchAdditionalInterestEnums,
-  updateAdditionalInterests,
+  useAdditionalInterests,
   AI_TYPES,
   AdditionalInterestModal,
   AdditionalInterestCard
@@ -46,14 +37,16 @@ const AdditionalInterests = ({
   customHandlers
 }) => {
   const [modal, setModal] = useState(INITIAL_STATE);
-
-  const groupedAI = getGroupedAdditionalInterests(
-    initialValues.additionalInterests
-  );
-  const { options, loaded } = useFetchAdditionalInterestEnums();
+  const {
+    groupedAdditionalInterests,
+    update,
+    remove,
+    options
+    // loaded
+  } = useAdditionalInterests(initialValues);
 
   async function submitAdditionalInterest(additionalInterest, aiFormInstance) {
-    const data = updateAdditionalInterests(
+    const data = update(
       additionalInterest,
       initialValues,
       modal.selected, // isEdit
@@ -65,9 +58,18 @@ const AdditionalInterests = ({
     setModal(INITIAL_STATE);
   }
 
+  function deleteAdditionalInterest(ai) {
+    const data = remove(ai, initialValues, initialValues.additionalInterests);
+
+    customHandlers.handleSubmit(data);
+  }
+
   return (
     <div className={config.className}>
-      <Form onSubmit={x => x} initialValues={setInitialValues(groupedAI)}>
+      <Form
+        onSubmit={x => x}
+        initialValues={setInitialValues(groupedAdditionalInterests)}
+      >
         {({ handleSubmit, values, form }) => (
           <>
             <Field name="mortgagee1" validate={validation.isRequired}>
@@ -86,7 +88,7 @@ const AdditionalInterests = ({
             </Field>
 
             {values.mortgagee1 === true &&
-              (!groupedAI[AI_TYPES.mortgagee][0] ||
+              (!groupedAdditionalInterests[AI_TYPES.mortgagee][0] ||
                 (modal.show && modal.relatedField === 'mortgagee1')) && (
                 <ModalPortal>
                   <AdditionalInterestModal
@@ -96,13 +98,13 @@ const AdditionalInterests = ({
                     mortgageeOrderOptions={getMortgageeOrderOptions(
                       modal.selected,
                       options,
-                      groupedAI
+                      groupedAdditionalInterests
                     )}
                     initialValues={initializeAdditionalInterestForm(
                       AI_TYPES.mortgagee,
                       modal.selected,
                       options,
-                      groupedAI
+                      groupedAdditionalInterests
                     )}
                     handleCancel={() =>
                       modal.show
@@ -114,22 +116,28 @@ const AdditionalInterests = ({
                 </ModalPortal>
               )}
 
-            {values.mortgagee1 === true && !!groupedAI[AI_TYPES.mortgagee][0] && (
-              <ul className="mortgagee1List">
-                <AdditionalInterestCard
-                  ai={groupedAI[AI_TYPES.mortgagee][0]}
-                  handleDelete={x => x}
-                  handleEdit={() =>
-                    setModal({
-                      type: AI_TYPES.mortgagee,
-                      selected: groupedAI[AI_TYPES.mortgagee][0],
-                      show: true,
-                      relatedField: 'mortgagee1'
-                    })
-                  }
-                />
-              </ul>
-            )}
+            {values.mortgagee1 === true &&
+              !!groupedAdditionalInterests[AI_TYPES.mortgagee][0] && (
+                <ul className="mortgagee1List">
+                  <AdditionalInterestCard
+                    ai={groupedAdditionalInterests[AI_TYPES.mortgagee][0]}
+                    handleDelete={() =>
+                      deleteAdditionalInterest(
+                        groupedAdditionalInterests[AI_TYPES.mortgagee][0]
+                      )
+                    }
+                    handleEdit={() =>
+                      setModal({
+                        type: AI_TYPES.mortgagee,
+                        selected:
+                          groupedAdditionalInterests[AI_TYPES.mortgagee][0],
+                        show: true,
+                        relatedField: 'mortgagee1'
+                      })
+                    }
+                  />
+                </ul>
+              )}
 
             {values.mortgagee1 === true && (
               <Field name="mortgagee2" validate={validation.isRequired}>
@@ -147,6 +155,58 @@ const AdditionalInterests = ({
                 )}
               </Field>
             )}
+
+            {values.mortgagee2 === true &&
+              (!groupedAdditionalInterests[AI_TYPES.mortgagee][1] ||
+                (modal.show && modal.relatedField === 'mortgagee2')) && (
+                <ModalPortal>
+                  <AdditionalInterestModal
+                    label={`Add ${AI_TYPES.mortgagee}`}
+                    type={AI_TYPES.mortgagee}
+                    options={options}
+                    mortgageeOrderOptions={getMortgageeOrderOptions(
+                      modal.selected,
+                      options,
+                      groupedAdditionalInterests
+                    )}
+                    initialValues={initializeAdditionalInterestForm(
+                      AI_TYPES.mortgagee,
+                      modal.selected,
+                      options,
+                      groupedAdditionalInterests
+                    )}
+                    handleCancel={() =>
+                      modal.show
+                        ? setModal(INITIAL_STATE)
+                        : form.change('mortgagee2', false)
+                    }
+                    handleFormSubmit={submitAdditionalInterest}
+                  />
+                </ModalPortal>
+              )}
+
+            {values.mortgagee2 === true &&
+              !!groupedAdditionalInterests[AI_TYPES.mortgagee][1] && (
+                <ul className="mortgagee1List">
+                  <AdditionalInterestCard
+                    ai={groupedAdditionalInterests[AI_TYPES.mortgagee][1]}
+                    handleDelete={() =>
+                      deleteAdditionalInterest(
+                        groupedAdditionalInterests[AI_TYPES.mortgagee][1]
+                      )
+                    }
+                    handleEdit={() =>
+                      setModal({
+                        type: AI_TYPES.mortgagee,
+                        selected:
+                          groupedAdditionalInterests[AI_TYPES.mortgagee][1],
+                        show: true,
+                        relatedField: 'mortgagee2'
+                      })
+                    }
+                  />
+                </ul>
+              )}
 
             <Field name="additionalInsured" validate={validation.isRequired}>
               {({ input, meta }) => (
