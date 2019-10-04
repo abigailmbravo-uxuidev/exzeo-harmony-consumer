@@ -43,7 +43,6 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
   async function submitAdditionalInterest(additionalInterest, aiFormInstance) {
     const data = update(
       additionalInterest,
-      initialValues,
       modal.selected, // isEdit
       aiFormInstance
     );
@@ -54,7 +53,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
   }
 
   function deleteAdditionalInterest(ai) {
-    const data = remove(ai, initialValues, initialValues.additionalInterests);
+    const data = remove(ai);
 
     customHandlers.handleSubmit(data);
   }
