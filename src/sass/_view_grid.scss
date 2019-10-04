@@ -8,6 +8,57 @@
   padding: ($padding / 4) $padding 0 ($padding * 1.5);
   width: 100%;
 
+  #modal-anchor {
+    .modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba($white, 0.95);
+      z-index: 200;
+
+      .card {
+        width: 50vw;
+        height: 70vh;
+
+        .card-header {
+          h4 {
+            font-size: $fontSizeHeader;
+            font-family: $serif;
+            text-align: center;
+          }
+        }
+
+        form {
+          overflow: hidden;
+
+          .card-block {
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: $padding;
+          }
+
+          .card-footer {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .btn-group {
+              padding: $padding ($padding * 2) $padding $padding;
+              .btn {
+                margin-bottom: 0;
+                margin-left: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   > div {
     flex-grow: 1;
     flex-shrink: 1;
