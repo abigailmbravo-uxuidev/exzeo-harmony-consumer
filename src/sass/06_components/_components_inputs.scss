@@ -138,9 +138,10 @@
 
       .__react_component_tooltip {
         white-space: pre-line;
+
         &.type-error {
           padding: 1rem;
-          max-width: 20rem;
+          max-width: 24rem;
           border-radius: $borderRadius;
           background-color: $white;
           box-shadow: 0 8px 12px rgba($navy, 0.15);
@@ -175,30 +176,6 @@
           &.place-right {
             &:after {
               border-right-color: $white;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  + .form-group {
-    z-index: 8;
-
-    + .form-group {
-      z-index: 7;
-
-      + .form-group {
-        z-index: 6;
-
-        + .form-group {
-          z-index: 5;
-
-          + .form-group {
-            z-index: 4;
-
-            + .form-group {
-              z-index: 3;
             }
           }
         }
@@ -245,9 +222,12 @@
   //range slider styling
 
   &.slider {
-    label {
-      z-index: 5;
+    z-index: 2;
 
+    + .form-group.slider {
+      z-index: 1;
+    }
+    label {
       @include forPhoneOnly {
         position: relative;
         align-items: flex-start;
@@ -258,6 +238,7 @@
     }
     .range-wrapper {
       position: relative;
+      z-index: -1;
 
       .range-value {
         position: absolute;

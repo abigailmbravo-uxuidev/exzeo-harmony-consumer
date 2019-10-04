@@ -78,7 +78,7 @@
               "secondaryField": {
                 "name": "coverageLimits.personalProperty.value",
                 "label": "Personal Property",
-                "hint": "Bacon ipsum dolor amet spare ribs prosciutto pig, pork loin turkey kielbasa beef cow drumstick ham tri-tip corned beef. Cupim tri-tip chicken tenderloin, ham hock cow spare ribs swine. Drumstick shank jerky rump jowl."
+                "hint": "This is your personal belongings, or items located inside the home.  This could include your furniture, clothing, bedding, dishes, etc.  If you choose to have replacement cost coverage on Personal Property, you will be required to carry Personal Property limits at a minimum of 25% of your Building limit."
               },
               "subscribe": true
             }
@@ -94,7 +94,7 @@
           "data": {
             "component": "switch",
             "label": "I want Personal Property Replacement Cost",
-            "hint": "Meatball t-bone ball tip shank cupim beef doner swine. Pork belly cow beef ribs sirloin ham, spare ribs capicola drumstick jowl corned beef landjaeger meatloaf."
+            "hint": "Replacement Cost Coverage replaces your damaged possessions at today's prices without deducting for depreciation.  If you choose not to select this coverage, your loss for contents will be paid out at Actual Cash Value."
           },
           "formData": {
             "path": "coverageOptions.personalPropertyReplacementCost.answer",
@@ -114,7 +114,7 @@
             "component": "radio",
             "label": "Deductible",
             "size": "12",
-            "hint": "Bacon ipsum dolor amet picanha frankfurter flank drumstick pastrami short loin pork chop corned beef. Short loin meatball drumstick turducken bresaola porchetta turkey ball tip chuck bacon frankfurter. Ribeye sirloin short ribs pork chop swine salami strip steak leberkas landjaeger cow cupim tail.",
+            "hint": "This is the amount of the loss that you take responsibility for.  Coverage A (Building) and Coverage B (Personal Property) have separate deductibles.  For example if your home has covered damages of $6000 for the building (Coverage A), and $1000 for personal property (Coverage B) and you choose a $2000 deductible.  You will be responsible for the first $2,000 worth of damages on the building, and the policy will pay the remaining $4000.  In this example, the policy would not pay out for the damages to the contents as they are under the deductible.",
             "dataSource": [
               {
                 "answer": 500,
