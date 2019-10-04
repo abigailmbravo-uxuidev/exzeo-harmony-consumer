@@ -45,7 +45,7 @@ const AdditionalInterests = ({
   formInstance,
   customHandlers
 }) => {
-  const [edit, setEdit] = useState(INITIAL_STATE);
+  const [modal, setModal] = useState(INITIAL_STATE);
 
   const groupedAI = getGroupedAdditionalInterests(
     initialValues.additionalInterests
@@ -56,11 +56,13 @@ const AdditionalInterests = ({
     const data = updateAdditionalInterests(
       additionalInterest,
       initialValues,
-      edit.selected, // isEdit
+      modal.selected, // isEdit
       aiFormInstance
     );
 
     await customHandlers.handleSubmit(data);
+
+    setModal(INITIAL_STATE);
   }
 
   return (
@@ -85,26 +87,26 @@ const AdditionalInterests = ({
 
             {values.mortgagee1 === true &&
               (!groupedAI[AI_TYPES.mortgagee][0] ||
-                (edit.show && edit.relatedField === 'mortgagee1')) && (
+                (modal.show && modal.relatedField === 'mortgagee1')) && (
                 <ModalPortal>
                   <AdditionalInterestModal
                     label={`Add ${AI_TYPES.mortgagee}`}
                     type={AI_TYPES.mortgagee}
                     options={options}
                     mortgageeOrderOptions={getMortgageeOrderOptions(
-                      null,
+                      modal.selected,
                       options,
                       groupedAI
                     )}
                     initialValues={initializeAdditionalInterestForm(
                       AI_TYPES.mortgagee,
-                      edit.selected,
+                      modal.selected,
                       options,
                       groupedAI
                     )}
                     handleCancel={() =>
-                      edit.show
-                        ? setEdit(INITIAL_STATE)
+                      modal.show
+                        ? setModal(INITIAL_STATE)
                         : form.change('mortgagee1', false)
                     }
                     handleFormSubmit={submitAdditionalInterest}
@@ -118,7 +120,7 @@ const AdditionalInterests = ({
                   ai={groupedAI[AI_TYPES.mortgagee][0]}
                   handleDelete={x => x}
                   handleEdit={() =>
-                    setEdit({
+                    setModal({
                       type: AI_TYPES.mortgagee,
                       selected: groupedAI[AI_TYPES.mortgagee][0],
                       show: true,
