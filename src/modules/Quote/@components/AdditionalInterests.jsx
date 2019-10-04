@@ -82,14 +82,15 @@ const AdditionalInterests = ({ config, initialValues }) => {
               </ModalPortal>
             )}
 
-            {values.mortgagee1 === true &&
-              !!groupedAI[AI_TYPES.mortgagee][0] && (
+            {values.mortgagee1 === true && !!groupedAI[AI_TYPES.mortgagee][0] && (
+              <ul className="mortgagee1List">
                 <AdditionalInterestCard
                   ai={groupedAI[AI_TYPES.mortgagee][0]}
                   handleDelete={x => x}
                   handleEdit={x => x}
                 />
-              )}
+              </ul>
+            )}
 
             {values.mortgagee1 === true && (
               <Field name="mortgagee2" validate={validation.isRequired}>

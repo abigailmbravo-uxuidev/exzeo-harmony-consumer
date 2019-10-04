@@ -198,6 +198,27 @@
         }
       }
     }
+
+    li {
+      list-style: none;
+      .card {
+        display: flex;
+
+        > div {
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding: ($padding / 2) $padding ($padding / 2) $padding;
+
+          &.card-icon {
+            display: none;
+
+            h4 {
+              margin-bottom: 0.5rem;
+            }
+          }
+        }
+      }
+    }
   }
 
   //customize quote styling
