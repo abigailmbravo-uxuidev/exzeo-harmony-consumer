@@ -4,9 +4,9 @@ import {
   getMortgageeOrderOptions,
   initializeAdditionalInterestForm,
   useAdditionalInterests,
-  AI_TYPES,
   AdditionalInterestModal,
-  AdditionalInterestCard
+  AdditionalInterestCard,
+  AI_TYPES
 } from '@exzeo/harmony-core';
 
 function setInitialValues(groupedAI) {
@@ -30,12 +30,7 @@ const INITIAL_STATE = {
   relatedField: ''
 };
 
-const AdditionalInterests = ({
-  config,
-  initialValues,
-  formInstance,
-  customHandlers
-}) => {
+const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
   const [modal, setModal] = useState(INITIAL_STATE);
   const {
     groupedAdditionalInterests,
