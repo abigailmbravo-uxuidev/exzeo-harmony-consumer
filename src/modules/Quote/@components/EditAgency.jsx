@@ -56,6 +56,7 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
     <>
       <Switch
         label="I want to change my agency"
+        hint="This is the Insurance Agency that will help to service your policy.  If you have an agency you would prefer to work with, you can select them here.  Otherwise TypTap can act as your agency for you."
         dataTest="edit-agency"
         styleName="switch agencySelect"
         input={{
