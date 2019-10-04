@@ -53,6 +53,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   styleName="additionalInterest radio"
                   dataTest="mortgagee1"
                   label="Do you have a mortgage for this property?"
+                  hint="This is the primary lienholder on your property, and has priority for payment over all other leins."
                   segmented
                 />
               )}
@@ -100,6 +101,7 @@ const AdditionalInterests = ({ config, initialValues }) => {
                     styleName="additionalInterest radio"
                     dataTest="mortgagee2"
                     label="Do you have a second mortgage for this property?"
+                    hint="A secondary lienholder on your property while a primary is still in effect. In the event of default, this mortgage only receives money after the primary is paid off."
                     segmented
                   />
                 )}
@@ -114,7 +116,8 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="additionalInsured1"
-                  label="Are there any additional insureds on the property (other than the mortgage company or secondary homeowner)?"
+                  label="Are there any additional insureds on the property?"
+                  hint="An additional insured is someone who has a financial interest in the home, but does not reside in the home. For example: a relative that co-owns the home with you, but does not reside in the home, could be listed as an additional insured."
                   segmented
                 />
               )}
@@ -128,7 +131,8 @@ const AdditionalInterests = ({ config, initialValues }) => {
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
                   dataTest="additionalInterest1"
-                  label="Are there any additional interests (someone interested in your home being insured that isn't an owner - such as a homeowners association)?"
+                  label="Are there any additional interests on the property?"
+                  hint="This is for additional interest"
                   segmented
                 />
               )}

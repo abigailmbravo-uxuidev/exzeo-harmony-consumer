@@ -22,15 +22,15 @@ h1 {
 }
 
 h2 {
+  display: flex;
   font-size: $fontSizeHeader--small;
   font-family: $serif;
-  display: flex;
 
   label {
-    font-size: $fontSizeHeader--small;
-    font-weight: normal;
-    width: auto;
     padding: 0 ($padding / 2) 0 0;
+    width: auto;
+    font-weight: normal;
+    font-size: $fontSizeHeader--small;
   }
 }
 
@@ -50,9 +50,9 @@ h5 {
 p {
   max-width: 100vw;
   font-size: $fontSizeBody;
-  line-height: 1.3;
-
+  line-height: 1.4;
   //mobile styling
+
   @include forPhoneOnly {
     margin-bottom: 1rem;
   }
@@ -64,10 +64,10 @@ label {
 }
 
 ul {
-  padding-left: $padding;
   margin-bottom: 1rem;
+  padding-left: $padding;
   li {
-    font-size: $fontSizeBody;
     margin-bottom: 0.25rem;
+    font-size: $fontSizeBody;
   }
 }

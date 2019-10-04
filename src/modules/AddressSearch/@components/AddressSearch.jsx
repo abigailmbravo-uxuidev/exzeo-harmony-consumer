@@ -52,7 +52,12 @@ const AddressSearch = ({ location, match }) => {
               >
                 <FontAwesomeIcon icon="search" size="sm" />
               </Button>
-              <p>Enter the street address only (e.g., 123 Main Street)</p>
+              <p>
+                Type the street address here the click the "Search Addresses"
+                button. We will show you a list of addresses. If you cannot find
+                your address, try typing less of your address, i.e. for “1234
+                Main Street North”, try just typing “1234 Main”.
+              </p>
             </div>
 
             <section className="results">
