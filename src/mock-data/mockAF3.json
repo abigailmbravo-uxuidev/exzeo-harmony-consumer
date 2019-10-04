@@ -73,7 +73,7 @@
                 "label": "Building Limit",
                 "min": "coverageLimits.building.minAmount",
                 "max": "coverageLimits.building.maxAmount",
-                "hint": "Bacon ipsum dolor amet filet mignon fatback chuck turducken, turkey jowl swine bacon spare ribs brisket beef. Spare ribs alcatra picanha pastrami pancetta boudin brisket frankfurter meatloaf."
+                "hint": "This is the dollar amount of coverage for the structure of your home. This Flood policy quote includes replacement cost coverage, so this amount should represent the total cost to rebuild your home to its current state in the event of a loss. If you have a Declarations Page from your current flood policy it may be listed as Coverage A. \n \n (Based on basic information of your home, we provide you a guide for a recommended value. You can move this number up or down based on more detailed information. For example, if you have an upgraded kitchen and bathroom, you may want to increase this number to ensure that you have adequate coverage in the event of a loss.)"
               },
               "secondaryField": {
                 "name": "coverageLimits.personalProperty.value",
