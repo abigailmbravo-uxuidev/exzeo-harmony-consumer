@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Form,
   Field,
@@ -12,6 +12,7 @@ import {
   getMortgageeOrderOptions,
   initializeAdditionalInterestForm,
   useFetchAdditionalInterestEnums,
+  updateAdditionalInterests,
   AI_TYPES,
   AdditionalInterestModal,
   AdditionalInterestCard
@@ -31,13 +32,36 @@ const BOOL_OPTIONS = [
   { answer: false, label: 'NO' }
 ];
 
-const AdditionalInterests = ({ config, initialValues }) => {
+const INITIAL_STATE = {
+  show: false,
+  type: '',
+  selected: null,
+  relatedField: ''
+};
+
+const AdditionalInterests = ({
+  config,
+  initialValues,
+  formInstance,
+  customHandlers
+}) => {
+  const [edit, setEdit] = useState(INITIAL_STATE);
+
   const groupedAI = getGroupedAdditionalInterests(
     initialValues.additionalInterests
   );
   const { options, loaded } = useFetchAdditionalInterestEnums();
 
-  // const [answers, setAnswers] = useState(setInitialState(initialValues));
+  async function submitAdditionalInterest(additionalInterest, aiFormInstance) {
+    const data = updateAdditionalInterests(
+      additionalInterest,
+      initialValues,
+      edit.selected, // isEdit
+      aiFormInstance
+    );
+
+    await customHandlers.handleSubmit(data);
+  }
 
   return (
     <div className={config.className}>
@@ -59,35 +83,48 @@ const AdditionalInterests = ({ config, initialValues }) => {
               )}
             </Field>
 
-            {values.mortgagee1 === true && !groupedAI[AI_TYPES.mortgagee][0] && (
-              <ModalPortal>
-                <AdditionalInterestModal
-                  label={`Add ${AI_TYPES.mortgagee}`}
-                  type={AI_TYPES.mortgagee}
-                  options={options}
-                  mortgageeOrderOptions={getMortgageeOrderOptions(
-                    null,
-                    options,
-                    groupedAI
-                  )}
-                  initialValues={initializeAdditionalInterestForm(
-                    AI_TYPES.mortgagee,
-                    {},
-                    options,
-                    groupedAI
-                  )}
-                  handleCancel={() => form.change('mortgagee1', false)}
-                  handleFormSubmit={x => x}
-                />
-              </ModalPortal>
-            )}
+            {values.mortgagee1 === true &&
+              (!groupedAI[AI_TYPES.mortgagee][0] ||
+                (edit.show && edit.relatedField === 'mortgagee1')) && (
+                <ModalPortal>
+                  <AdditionalInterestModal
+                    label={`Add ${AI_TYPES.mortgagee}`}
+                    type={AI_TYPES.mortgagee}
+                    options={options}
+                    mortgageeOrderOptions={getMortgageeOrderOptions(
+                      null,
+                      options,
+                      groupedAI
+                    )}
+                    initialValues={initializeAdditionalInterestForm(
+                      AI_TYPES.mortgagee,
+                      edit.selected,
+                      options,
+                      groupedAI
+                    )}
+                    handleCancel={() =>
+                      edit.show
+                        ? setEdit(INITIAL_STATE)
+                        : form.change('mortgagee1', false)
+                    }
+                    handleFormSubmit={submitAdditionalInterest}
+                  />
+                </ModalPortal>
+              )}
 
             {values.mortgagee1 === true && !!groupedAI[AI_TYPES.mortgagee][0] && (
               <ul className="mortgagee1List">
                 <AdditionalInterestCard
                   ai={groupedAI[AI_TYPES.mortgagee][0]}
                   handleDelete={x => x}
-                  handleEdit={x => x}
+                  handleEdit={() =>
+                    setEdit({
+                      type: AI_TYPES.mortgagee,
+                      selected: groupedAI[AI_TYPES.mortgagee][0],
+                      show: true,
+                      relatedField: 'mortgagee1'
+                    })
+                  }
                 />
               </ul>
             )}

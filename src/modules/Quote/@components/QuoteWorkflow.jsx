@@ -70,6 +70,10 @@ const QuoteWorkflow = ({ history, location, match }) => {
     return <SectionLoader />;
   }
 
+  const customHandlers = {
+    handleSubmit: updateQuote
+  };
+
   return (
     <>
       {quoteLoading && <SectionLoader />}
@@ -83,7 +87,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
         template={template}
         transformConfig={transformConfig}
         options={EMPTY_OBJ}
-        customHandlers={EMPTY_OBJ}
+        customHandlers={customHandlers}
         renderFooter={
           <WorkflowFooter recalc={recalc} workflowPage={workflowPage} />
         }
