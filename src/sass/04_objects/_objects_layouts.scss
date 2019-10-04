@@ -104,6 +104,7 @@ body {
 
         @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
         > ul {
+          overflow: visible;
           margin-top: 0;
 
           li {
@@ -126,8 +127,6 @@ body {
                   flex-direction: row-reverse;
 
                   &.active {
-                    border-width: 100%;
-
                     h3 {
                       position: relative;
                       display: flex;

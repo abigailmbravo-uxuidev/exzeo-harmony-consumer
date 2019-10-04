@@ -95,14 +95,6 @@
     padding: ($padding / 2) ($padding / 2) 0;
     line-height: 1.2;
 
-    @include forPhoneOnly {
-      position: relative;
-      align-items: flex-start;
-      flex-direction: column;
-      padding-right: 0;
-      width: 100%;
-    }
-
     > span {
       position: relative;
       display: flex;
@@ -226,134 +218,162 @@
 
   //range slider styling
 
-  .range-wrapper {
-    position: relative;
+  &.slider {
+    label {
+      z-index: 5;
 
-    @include forPhoneOnly {
-      margin-top: -2.5rem;
+      @include forPhoneOnly {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-right: 0;
+        width: 100%;
+      }
     }
-    .range-value {
-      position: absolute;
-      top: 0;
-      width: 100%;
+    .range-wrapper {
+      position: relative;
 
-      input {
+      .range-value {
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        @include forPhoneOnly {
+          top: -2.5rem;
+        }
+
+        input {
+          width: 100%;
+          border-bottom-width: 0;
+          background-color: transparent;
+          text-align: center;
+          font-weight: $bold;
+          font-size: $fontSizeSubheader--small;
+          font-family: $serif;
+        }
+      }
+      .range-control-wrapper {
+        position: relative;
+        margin-top: 2.5rem;
+        height: 3.5rem;
+
+        @include forPhoneOnly {
+          margin-top: 0;
+        }
+
+        .range-limit {
+          position: absolute;
+          &:first-of-type {
+            top: 2.5rem;
+            left: 0.5rem;
+          }
+          &:last-of-type {
+            top: 2.5rem;
+            right: 0.5rem;
+          }
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+      input[type='range'] {
+        margin: 4.5px 0;
+        padding-top: $padding;
         width: 100%;
         border-bottom-width: 0;
         background-color: transparent;
-        text-align: center;
-        font-weight: $bold;
-        font-size: $fontSizeSubheader--small;
-        font-family: $serif;
-      }
-    }
-    .range-control-wrapper {
-      position: relative;
-      height: 3.5rem;
-      .range-limit {
-        position: absolute;
-        &:first-of-type {
-          top: 2.5rem;
-          left: 0.5rem;
-        }
-        &:last-of-type {
-          top: 2.5rem;
-          right: 0.5rem;
-        }
-      }
-    }
-    input[type='range'] {
-      margin: 4.5px 0;
-      padding-top: $padding;
-      width: 100%;
-      border-bottom-width: 0;
-      background-color: transparent;
 
-      -webkit-appearance: none;
-    }
-    input[type='range']:focus {
-      outline: none;
-    }
-    input[type='range']::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 11px;
-      border: 0px solid #010101;
-      border-radius: 25px;
-      background: #1d404e;
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-      cursor: pointer;
-    }
-    input[type='range']::-webkit-slider-thumb {
-      margin-top: -4.5px;
-      width: 20px;
-      height: 20px;
-      border: 0px solid rgba(255, 255, 255, 0);
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
-        0px 0px 1px rgba(36, 79, 97, 0.5);
-      cursor: pointer;
+        -webkit-appearance: none;
+      }
+      input[type='range']:focus {
+        outline: none;
+      }
+      input[type='range']::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 11px;
+        border: 0px solid #010101;
+        border-radius: 25px;
+        background: #1d404e;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0),
+          0px 0px 1px rgba(13, 13, 13, 0);
+        cursor: pointer;
+      }
+      input[type='range']::-webkit-slider-thumb {
+        margin-top: -4.5px;
+        width: 20px;
+        height: 20px;
+        border: 0px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
+          0px 0px 1px rgba(36, 79, 97, 0.5);
+        cursor: pointer;
 
-      -webkit-appearance: none;
-    }
-    input[type='range']:focus::-webkit-slider-runnable-track {
-      background: #000000;
-    }
-    input[type='range']::-moz-range-track {
-      width: 100%;
-      height: 11px;
-      border: 0px solid #010101;
-      border-radius: 25px;
-      background: #1d404e;
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-      cursor: pointer;
-    }
-    input[type='range']::-moz-range-thumb {
-      width: 20px;
-      height: 20px;
-      border: 0px solid rgba(255, 255, 255, 0);
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
-        0px 0px 1px rgba(36, 79, 97, 0.5);
-      cursor: pointer;
-    }
-    input[type='range']::-ms-track {
-      width: 100%;
-      height: 11px;
-      border-color: transparent;
-      background: transparent;
-      color: transparent;
-      cursor: pointer;
-    }
-    input[type='range']::-ms-fill-lower {
-      border: 0px solid #010101;
-      border-radius: 50px;
-      background: #ffffff;
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-    }
-    input[type='range']::-ms-fill-upper {
-      border: 0px solid #010101;
-      border-radius: 50px;
-      background: #1d404e;
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-    }
-    input[type='range']::-ms-thumb {
-      width: 20px;
-      height: 20px;
-      height: 11px;
-      border: 0px solid rgba(255, 255, 255, 0);
-      border-radius: 20px;
-      background: #ffffff;
-      box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
-        0px 0px 1px rgba(36, 79, 97, 0.5);
-      cursor: pointer;
-    }
-    input[type='range']:focus::-ms-fill-lower {
-      background: #1d404e;
-    }
-    input[type='range']:focus::-ms-fill-upper {
-      background: #000000;
+        -webkit-appearance: none;
+      }
+      input[type='range']:focus::-webkit-slider-runnable-track {
+        background: #000000;
+      }
+      input[type='range']::-moz-range-track {
+        width: 100%;
+        height: 11px;
+        border: 0px solid #010101;
+        border-radius: 25px;
+        background: #1d404e;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0),
+          0px 0px 1px rgba(13, 13, 13, 0);
+        cursor: pointer;
+      }
+      input[type='range']::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border: 0px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
+          0px 0px 1px rgba(36, 79, 97, 0.5);
+        cursor: pointer;
+      }
+      input[type='range']::-ms-track {
+        width: 100%;
+        height: 11px;
+        border-color: transparent;
+        background: transparent;
+        color: transparent;
+        cursor: pointer;
+      }
+      input[type='range']::-ms-fill-lower {
+        border: 0px solid #010101;
+        border-radius: 50px;
+        background: #ffffff;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0),
+          0px 0px 1px rgba(13, 13, 13, 0);
+      }
+      input[type='range']::-ms-fill-upper {
+        border: 0px solid #010101;
+        border-radius: 50px;
+        background: #1d404e;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0),
+          0px 0px 1px rgba(13, 13, 13, 0);
+      }
+      input[type='range']::-ms-thumb {
+        width: 20px;
+        height: 20px;
+        height: 11px;
+        border: 0px solid rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 1px 1px 7px rgba(29, 64, 78, 0.5),
+          0px 0px 1px rgba(36, 79, 97, 0.5);
+        cursor: pointer;
+      }
+      input[type='range']:focus::-ms-fill-lower {
+        background: #1d404e;
+      }
+      input[type='range']:focus::-ms-fill-upper {
+        background: #000000;
+      }
     }
   }
 
@@ -446,8 +466,11 @@
   &.segmented {
     @include forPhoneOnly {
       label {
-        //margin-bottom: 1rem;
-        //font-size: $fontSizeSubheader--small;
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-right: 0;
+        width: 100%;
       }
       .segmented-answer-wrapper {
         flex-direction: column;
@@ -488,6 +511,14 @@
       margin-bottom: 0;
       font-size: $fontSizeSubheader;
       font-family: $serif;
+
+      @include forPhoneOnly {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-right: 0;
+        width: 100%;
+      }
 
       span {
         flex-grow: 1;
@@ -599,6 +630,19 @@
       &.react-select__control--is-focused {
         border-color: $blue;
         box-shadow: 0 0 0 1px $blue;
+      }
+    }
+  }
+}
+
+//type ahead in well directly following a switch - implies switch will controll well
+.switch {
+  + .well {
+    .form-group {
+      &.type-ahead {
+        label {
+          display: none;
+        }
       }
     }
   }
