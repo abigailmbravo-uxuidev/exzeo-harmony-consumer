@@ -24,6 +24,8 @@
       .card {
         width: 50vw;
         height: 70vh;
+        box-shadow: none;
+        background-color: transparent;
 
         .card-header {
           h4 {
@@ -39,18 +41,76 @@
           .card-block {
             overflow-x: hidden;
             overflow-y: auto;
-            padding: $padding;
+            padding: $padding $padding * 1.5 $padding;
+            @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
+            background-color: $white;
+            border-top-left-radius: $borderRadius;
+            border-top-right-radius: $borderRadius;
+
+            .flex-form {
+              display: flex;
+              flex-direction: row;
+
+              .form-group {
+                margin-right: 1rem;
+
+                &:last-of-type {
+                  margin-right: 0;
+                }
+              }
+            }
+
+            .form-group {
+              .css-1pcexqc-container {
+                padding-top: $padding * 2;
+              }
+
+              &.order {
+                &.select {
+                  border-bottom: 1px solid $navy;
+                  background-color: $extraLightGrey;
+                  label {
+                    position: relative;
+                    margin-bottom: 0;
+                  }
+
+                  select {
+                    height: 1rem;
+                    border-width: 0;
+                    color: $navy;
+                    font-size: $fontSizeBody;
+                  }
+                }
+              }
+            }
           }
 
           .card-footer {
-            display: flex;
-            flex-direction: row-reverse;
-
             .btn-group {
-              padding: $padding ($padding * 2) $padding $padding;
+              display: flex;
+              flex-grow: 1;
+              flex-shrink: 1;
               .btn {
                 margin-bottom: 0;
-                margin-left: 1rem;
+                margin-left: 0;
+                display: flex;
+                flex-grow: 1;
+                flex-shrink: 1;
+                justify-content: center;
+
+                &.btn-primary {
+                  border-top-left-radius: 0;
+                  border-bottom-left-radius: 0;
+                  border-top-right-radius: 0;
+                  border-bottom-right-radius: $borderRadius;
+                }
+
+                &.btn-secondary {
+                  border-top-left-radius: 0;
+                  border-bottom-left-radius: $borderRadius;
+                  border-top-right-radius: 0;
+                  border-bottom-right-radius: 0;
+                }
               }
             }
           }
