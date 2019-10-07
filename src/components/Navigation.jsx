@@ -118,9 +118,9 @@ const Navigation = ({ location, match }) => {
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
                   {locationOrder <= ROUTES.underwriting.order ? (
-                    <p>text BEFORE</p>
+                    <p></p>
                   ) : (
-                    <p>text AFTER </p>
+                    <p></p>
                   )}
                 </NavLink>
               </li>
@@ -142,11 +142,7 @@ const Navigation = ({ location, match }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.customize.order ? (
-                    <p>text BEFORE</p>
-                  ) : (
-                    <p>text AFTER </p>
-                  )}
+                  {locationOrder <= ROUTES.customize.order ? <p></p> : <p></p>}
                 </NavLink>
               </li>
 
@@ -167,11 +163,7 @@ const Navigation = ({ location, match }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.save.order ? (
-                    <p>text BEFORE</p>
-                  ) : (
-                    <p>text AFTER </p>
-                  )}
+                  {locationOrder <= ROUTES.save.order ? <p></p> : <p></p>}
                 </NavLink>
               </li>
 
@@ -192,11 +184,7 @@ const Navigation = ({ location, match }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.share.order ? (
-                    <p>text BEFORE</p>
-                  ) : (
-                    <p>text AFTER </p>
-                  )}
+                  {locationOrder <= ROUTES.share.order ? <p></p> : <p></p>}
                 </NavLink>
               </li>
             </ul>
@@ -234,9 +222,9 @@ const Navigation = ({ location, match }) => {
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
                   {locationOrder <= ROUTES.additionalInfo.order ? (
-                    <p>text BEFORE</p>
+                    <p></p>
                   ) : (
-                    <p>text AFTER </p>
+                    <p></p>
                   )}
                 </NavLink>
               </li>
@@ -259,9 +247,9 @@ const Navigation = ({ location, match }) => {
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
                   {locationOrder <= ROUTES.policyholder.order ? (
-                    <p>text BEFORE</p>
+                    <p></p>
                   ) : (
-                    <p>text AFTER </p>
+                    <p></p>
                   )}
                 </NavLink>
               </li>
@@ -283,11 +271,7 @@ const Navigation = ({ location, match }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.billing.order ? (
-                    <p>text BEFORE</p>
-                  ) : (
-                    <p>text AFTER </p>
-                  )}
+                  {locationOrder <= ROUTES.billing.order ? <p></p> : <p></p>}
                 </NavLink>
               </li>
 
@@ -308,11 +292,7 @@ const Navigation = ({ location, match }) => {
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.summary.order ? (
-                    <p>text BEFORE</p>
-                  ) : (
-                    <p>text AFTER </p>
-                  )}
+                  {locationOrder <= ROUTES.summary.order ? <p></p> : <p></p>}
                 </NavLink>
               </li>
 
@@ -329,15 +309,11 @@ const Navigation = ({ location, match }) => {
                     complete: locationOrder > ROUTES.complete.order
                   })}
                 >
-                  <h3>You did it!!!</h3>
+                  <h3>You did it!</h3>
                   <span>
                     <FontAwesomeIcon icon="check-circle" />
                   </span>
-                  {locationOrder <= ROUTES.complete.order ? (
-                    <p>text BEFORE</p>
-                  ) : (
-                    <p>text AFTER </p>
-                  )}
+                  {/*{locationOrder <= ROUTES.complete.order ? <p></p> : <p></p>}*/}
                 </NavLink>
               </li>
             </ul>
