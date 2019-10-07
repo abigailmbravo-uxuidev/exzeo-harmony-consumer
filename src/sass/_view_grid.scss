@@ -374,6 +374,10 @@
               width: 20px;
               height: 20px;
               background-color: red;
+              position: fixed;
+              right: 286px;
+              top: 320px;
+              border-radius: 50%;
             }
 
             &.edit {
@@ -383,6 +387,10 @@
               width: 20px;
               height: 20px;
               background-color: $blue;
+              position: fixed;
+              right: 254px;
+              top: 320px;
+              border-radius: 50%;
             }
           }
 
