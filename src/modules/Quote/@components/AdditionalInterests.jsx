@@ -70,17 +70,13 @@ const AdditionalInterests = ({
     customHandlers.handleSubmit(data);
   }
 
-  function handleContinue() {
-    formInstance.submit();
-  }
-
   return (
     <div className={config.className}>
       <Form
         onSubmit={x => x}
         initialValues={setInitialValues(groupedAdditionalInterests)}
       >
-        {({ handleSubmit, values, invalid, form }) => (
+        {({ values, invalid, form }) => (
           <React.Fragment>
             <Field name="mortgagee1" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -386,7 +382,7 @@ const AdditionalInterests = ({
             <div className="form-footer">
               <Link
                 className={Button.constants.classNames.primary}
-                to="policyholder"
+                to={invalid ? '#' : 'policyholder'}
                 disabled={invalid}
               >
                 Continue
