@@ -34,6 +34,10 @@
         animation: slide-top 0.65s ease-in-out both;
         position: relative;
 
+        @include forTabletPortraitOnly {
+          width: 70vw;
+        }
+
         @include forPhoneOnly {
           width: 100%;
           height: 100%;
