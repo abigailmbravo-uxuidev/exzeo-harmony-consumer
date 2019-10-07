@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Field, ModalPortal, Radio, validation } from '@exzeo/core-ui';
+import {
+  Form,
+  Field,
+  OnChangeListener,
+  ModalPortal,
+  Radio,
+  validation
+} from '@exzeo/core-ui';
 import {
   useAdditionalInterests,
   AdditionalInterestModal,
@@ -79,6 +86,19 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
               )}
             </Field>
 
+            <OnChangeListener name="mortgagee1">
+              {value => {
+                if (
+                  !value &&
+                  groupedAdditionalInterests[AI_TYPES.mortgagee][0]
+                ) {
+                  deleteAdditionalInterest(
+                    groupedAdditionalInterests[AI_TYPES.mortgagee][0]
+                  );
+                }
+              }}
+            </OnChangeListener>
+
             {values.mortgagee1 === true &&
               (!groupedAdditionalInterests[AI_TYPES.mortgagee][0] ||
                 (modal.show && modal.relatedField === 'mortgagee1')) && (
@@ -123,20 +143,35 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
               )}
 
             {values.mortgagee1 === true && (
-              <Field name="mortgagee2" validate={validation.isRequired}>
-                {({ input, meta }) => (
-                  <Radio
-                    input={input}
-                    meta={meta}
-                    answers={BOOL_OPTIONS}
-                    styleName="additionalInterest radio"
-                    dataTest="mortgagee2"
-                    label="Do you have a second mortgage for this property?"
-                    hint="A secondary lienholder on your property while a primary is still in effect. In the event of default, this mortgage only receives money after the primary is paid off."
-                    segmented
-                  />
-                )}
-              </Field>
+              <>
+                <Field name="mortgagee2" validate={validation.isRequired}>
+                  {({ input, meta }) => (
+                    <Radio
+                      input={input}
+                      meta={meta}
+                      answers={BOOL_OPTIONS}
+                      styleName="additionalInterest radio"
+                      dataTest="mortgagee2"
+                      label="Do you have a second mortgage for this property?"
+                      hint="A secondary lienholder on your property while a primary is still in effect. In the event of default, this mortgage only receives money after the primary is paid off."
+                      segmented
+                    />
+                  )}
+                </Field>
+
+                <OnChangeListener name="mortgagee2">
+                  {value => {
+                    if (
+                      !value &&
+                      groupedAdditionalInterests[AI_TYPES.mortgagee][1]
+                    ) {
+                      deleteAdditionalInterest(
+                        groupedAdditionalInterests[AI_TYPES.mortgagee][1]
+                      );
+                    }
+                  }}
+                </OnChangeListener>
+              </>
             )}
 
             {values.mortgagee2 === true &&
@@ -196,6 +231,19 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                 />
               )}
             </Field>
+
+            <OnChangeListener name="additionalInsured">
+              {value => {
+                if (
+                  !value &&
+                  groupedAdditionalInterests[AI_TYPES.additionalInsured][0]
+                ) {
+                  deleteAdditionalInterest(
+                    groupedAdditionalInterests[AI_TYPES.additionalInsured][0]
+                  );
+                }
+              }}
+            </OnChangeListener>
 
             {values.additionalInsured === true &&
               (!groupedAdditionalInterests[AI_TYPES.additionalInsured][0] ||
@@ -260,6 +308,19 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                 />
               )}
             </Field>
+
+            <OnChangeListener name="additionalInterest">
+              {value => {
+                if (
+                  !value &&
+                  groupedAdditionalInterests[AI_TYPES.additionalInterest][0]
+                ) {
+                  deleteAdditionalInterest(
+                    groupedAdditionalInterests[AI_TYPES.additionalInterest][0]
+                  );
+                }
+              }}
+            </OnChangeListener>
 
             {values.additionalInterest === true &&
               (!groupedAdditionalInterests[AI_TYPES.additionalInterest][0] ||
