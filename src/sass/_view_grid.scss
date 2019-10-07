@@ -311,7 +311,10 @@
       }
       //open helpful info on this page since additional interests is very complex
       label {
+        align-items: flex-start;
+        flex-direction: column;
         span {
+          max-width: 36rem;
           i {
             display: none;
           }
@@ -321,7 +324,6 @@
             left: 0 !important;
             display: flex;
             visibility: visible;
-            margin: 0.5rem 0 0;
             padding: 0;
             max-width: 100%;
             width: 100%;
@@ -330,6 +332,18 @@
             font-weight: $normal;
             font-family: $sans;
             opacity: 1;
+
+            @include forPhoneOnly {
+              margin: 0.5rem 0 0;
+            }
+
+            &:after {
+              display: none;
+            }
+
+            &.place-right {
+              margin-left: 0;
+            }
           }
         }
       }
