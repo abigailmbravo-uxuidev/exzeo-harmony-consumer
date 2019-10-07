@@ -10,28 +10,28 @@
 
   #modal-anchor {
     .modal {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: fixed;
       top: 0;
-      bottom: 0;
       right: 0;
+      bottom: 0;
       left: 0;
-      background-color: rgba($white, 0.95);
       z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($white, 0.95);
 
       .card {
         width: 50vw;
         height: 70vh;
-        box-shadow: none;
         background-color: transparent;
+        box-shadow: none;
 
         .card-header {
           h4 {
+            text-align: center;
             font-size: $fontSizeHeader;
             font-family: $serif;
-            text-align: center;
           }
         }
 
@@ -42,10 +42,11 @@
             overflow-x: hidden;
             overflow-y: auto;
             padding: $padding $padding * 1.5 $padding;
-            @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
-            background-color: $white;
             border-top-left-radius: $borderRadius;
             border-top-right-radius: $borderRadius;
+            background-color: $white;
+
+            @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
 
             .flex-form {
               display: flex;
@@ -91,25 +92,25 @@
               flex-grow: 1;
               flex-shrink: 1;
               .btn {
-                margin-bottom: 0;
-                margin-left: 0;
                 display: flex;
                 flex-grow: 1;
                 flex-shrink: 1;
                 justify-content: center;
+                margin-bottom: 0;
+                margin-left: 0;
 
                 &.btn-primary {
                   border-top-left-radius: 0;
-                  border-bottom-left-radius: 0;
                   border-top-right-radius: 0;
                   border-bottom-right-radius: $borderRadius;
+                  border-bottom-left-radius: 0;
                 }
 
                 &.btn-secondary {
                   border-top-left-radius: 0;
-                  border-bottom-left-radius: $borderRadius;
                   border-top-right-radius: 0;
                   border-bottom-right-radius: 0;
+                  border-bottom-left-radius: $borderRadius;
                 }
               }
             }
@@ -308,6 +309,30 @@
           }
         }
       }
+      //open helpful info on this page since additional interests is very complex
+      label {
+        span {
+          i {
+            display: none;
+          }
+          .__react_component_tooltip {
+            position: relative;
+            top: 0 !important;
+            left: 0 !important;
+            display: flex;
+            visibility: visible;
+            margin: 0.5rem 0 0;
+            padding: 0;
+            max-width: 100%;
+            width: 100%;
+            background-color: transparent;
+            color: $navy;
+            font-weight: $normal;
+            font-family: $sans;
+            opacity: 1;
+          }
+        }
+      }
     }
 
     ul {
@@ -323,20 +348,20 @@
           a {
             &.remove {
               display: block;
-              height: 20px;
-              width: 20px;
-              background-color: red;
-              margin-left: 1rem;
               margin-bottom: 1rem;
+              margin-left: 1rem;
+              width: 20px;
+              height: 20px;
+              background-color: red;
             }
 
             &.edit {
               display: block;
-              height: 20px;
-              width: 20px;
-              background-color: $blue;
-              margin-left: 1rem;
               margin-bottom: 1rem;
+              margin-left: 1rem;
+              width: 20px;
+              height: 20px;
+              background-color: $blue;
             }
           }
 
@@ -346,13 +371,13 @@
             padding: ($padding / 2) $padding;
 
             h4 {
-              margin-bottom: 0.25rem;
               margin-top: 0.25rem;
+              margin-bottom: 0.25rem;
               font-family: $serif;
 
               @include forPhoneOnly {
-                font-size: $fontSizeBase;
                 margin-top: 0.5rem;
+                font-size: $fontSizeBase;
               }
             }
 
