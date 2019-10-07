@@ -33,8 +33,7 @@ const Summary = ({ formInstance }) => {
 
       <hr />
 
-      <strong>To continue, you will need the following information:</strong>
-      <br />
+      <h5>To continue, you will need the following information:</h5>
       <ul>
         <li>Mortgage information</li>
         <li>Name and Email address of additional owners</li>

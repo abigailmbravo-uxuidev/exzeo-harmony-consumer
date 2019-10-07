@@ -478,8 +478,6 @@
       &.agencySelect {
         label {
           padding-left: 0;
-          font-weight: $normal;
-          font-size: $fontSizeBase;
         }
       }
       label {
@@ -499,7 +497,7 @@
         label {
           margin-bottom: 1rem;
           padding-left: 0;
-          font-size: $fontSizeSubheader;
+          font-size: $fontSizeSubheader--small;
           font-family: $serif;
         }
       }

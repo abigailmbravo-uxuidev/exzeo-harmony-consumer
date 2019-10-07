@@ -234,6 +234,7 @@
       z-index: 1;
     }
     label {
+      font-size: $fontSizeSubheader--small;
       @include forPhoneOnly {
         position: relative;
         align-items: flex-start;
@@ -401,7 +402,7 @@
       position: relative; //js added
       z-index: 20;
       margin-bottom: 1.5rem;
-      font-size: $fontSizeSubheader;
+      font-size: $fontSizeSubheader--small;
       font-family: $serif;
     }
 
@@ -522,7 +523,7 @@
       flex-shrink: 1;
       justify-content: space-between;
       margin-bottom: 0;
-      font-size: $fontSizeSubheader;
+      font-size: $fontSizeSubheader--small;
       font-family: $serif;
 
       @include forPhoneOnly {
