@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Field, ModalPortal, Radio, validation } from '@exzeo/core-ui';
 import {
-  getMortgageeOrderOptions,
-  initializeAdditionalInterestForm,
   useAdditionalInterests,
   AdditionalInterestModal,
   AdditionalInterestCard,
@@ -89,23 +87,14 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                     label={`Add ${AI_TYPES.mortgagee}`}
                     type={AI_TYPES.mortgagee}
                     options={options}
-                    mortgageeOrderOptions={getMortgageeOrderOptions(
-                      modal.selected,
-                      options,
-                      groupedAdditionalInterests
-                    )}
-                    initialValues={initializeAdditionalInterestForm(
-                      AI_TYPES.mortgagee,
-                      modal.selected,
-                      options,
-                      groupedAdditionalInterests
-                    )}
+                    additionalInterest={modal.selected}
+                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    handleFormSubmit={submitAdditionalInterest}
                     handleCancel={() =>
                       modal.show
                         ? setModal(INITIAL_STATE)
                         : form.change('mortgagee1', false)
                     }
-                    handleFormSubmit={submitAdditionalInterest}
                   />
                 </ModalPortal>
               )}
@@ -158,17 +147,8 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                     label={`Add ${AI_TYPES.mortgagee}`}
                     type={AI_TYPES.mortgagee}
                     options={options}
-                    mortgageeOrderOptions={getMortgageeOrderOptions(
-                      modal.selected,
-                      options,
-                      groupedAdditionalInterests
-                    )}
-                    initialValues={initializeAdditionalInterestForm(
-                      AI_TYPES.mortgagee,
-                      modal.selected,
-                      options,
-                      groupedAdditionalInterests
-                    )}
+                    additionalInterest={modal.selected}
+                    groupedAdditionalInterests={groupedAdditionalInterests}
                     handleCancel={() =>
                       modal.show
                         ? setModal(INITIAL_STATE)
@@ -209,13 +189,62 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                   meta={meta}
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
-                  dataTest="additionalInsured1"
+                  dataTest="additionalInsured"
                   label="Are there any additional insureds on the property?"
                   hint="An additional insured is someone who has a financial interest in the home, but does not reside in the home. For example: a relative that co-owns the home with you, but does not reside in the home, could be listed as an additional insured."
                   segmented
                 />
               )}
             </Field>
+
+            {values.additionalInsured === true &&
+              (!groupedAdditionalInterests[AI_TYPES.additionalInsured][0] ||
+                (modal.show && modal.relatedField === 'additionalInsured')) && (
+                <ModalPortal>
+                  <AdditionalInterestModal
+                    label={`Add ${AI_TYPES.additionalInsured}`}
+                    type={AI_TYPES.additionalInsured}
+                    options={options}
+                    additionalInterest={modal.selected}
+                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    handleCancel={() =>
+                      modal.show
+                        ? setModal(INITIAL_STATE)
+                        : form.change('additionalInsured', false)
+                    }
+                    handleFormSubmit={submitAdditionalInterest}
+                  />
+                </ModalPortal>
+              )}
+
+            {values.additionalInsured === true &&
+              !!groupedAdditionalInterests[AI_TYPES.additionalInsured][0] && (
+                <ul className="mortgagee1List">
+                  <AdditionalInterestCard
+                    ai={
+                      groupedAdditionalInterests[AI_TYPES.additionalInsured][0]
+                    }
+                    handleDelete={() =>
+                      deleteAdditionalInterest(
+                        groupedAdditionalInterests[
+                          AI_TYPES.additionalInsured
+                        ][0]
+                      )
+                    }
+                    handleEdit={() =>
+                      setModal({
+                        type: AI_TYPES.additionalInsured,
+                        selected:
+                          groupedAdditionalInterests[
+                            AI_TYPES.additionalInsured
+                          ][0],
+                        show: true,
+                        relatedField: 'additionalInsured'
+                      })
+                    }
+                  />
+                </ul>
+              )}
 
             <Field name="additionalInterest" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -224,13 +253,63 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                   meta={meta}
                   answers={BOOL_OPTIONS}
                   styleName="additionalInterest radio"
-                  dataTest="additionalInterest1"
+                  dataTest="additionalInterest"
                   label="Are there any additional interests on the property?"
                   hint="This is for additional interest"
                   segmented
                 />
               )}
             </Field>
+
+            {values.additionalInterest === true &&
+              (!groupedAdditionalInterests[AI_TYPES.additionalInterest][0] ||
+                (modal.show &&
+                  modal.relatedField === 'additionalInterest')) && (
+                <ModalPortal>
+                  <AdditionalInterestModal
+                    label={`Add ${AI_TYPES.additionalInterest}`}
+                    type={AI_TYPES.additionalInterest}
+                    options={options}
+                    additionalInterest={modal.selected}
+                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    handleCancel={() =>
+                      modal.show
+                        ? setModal(INITIAL_STATE)
+                        : form.change('additionalInterest', false)
+                    }
+                    handleFormSubmit={submitAdditionalInterest}
+                  />
+                </ModalPortal>
+              )}
+
+            {values.additionalInterest === true &&
+              !!groupedAdditionalInterests[AI_TYPES.additionalInterest][0] && (
+                <ul className="mortgagee1List">
+                  <AdditionalInterestCard
+                    ai={
+                      groupedAdditionalInterests[AI_TYPES.additionalInterest][0]
+                    }
+                    handleDelete={() =>
+                      deleteAdditionalInterest(
+                        groupedAdditionalInterests[
+                          AI_TYPES.additionalInterest
+                        ][0]
+                      )
+                    }
+                    handleEdit={() =>
+                      setModal({
+                        type: AI_TYPES.additionalInterest,
+                        selected:
+                          groupedAdditionalInterests[
+                            AI_TYPES.additionalInterest
+                          ][0],
+                        show: true,
+                        relatedField: 'additionalInterest'
+                      })
+                    }
+                  />
+                </ul>
+              )}
           </>
         )}
       </Form>
