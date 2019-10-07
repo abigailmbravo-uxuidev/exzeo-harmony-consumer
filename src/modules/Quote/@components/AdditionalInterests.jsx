@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Form,
   Field,
   OnChangeListener,
   ModalPortal,
   Radio,
-  validation
+  validation,
+  Button
 } from '@exzeo/core-ui';
 import {
   useAdditionalInterests,
@@ -68,13 +70,17 @@ const AdditionalInterests = ({
     customHandlers.handleSubmit(data);
   }
 
+  function handleContinue() {
+    formInstance.submit();
+  }
+
   return (
     <div className={config.className}>
       <Form
         onSubmit={x => x}
         initialValues={setInitialValues(groupedAdditionalInterests)}
       >
-        {({ handleSubmit, values, form }) => (
+        {({ handleSubmit, values, invalid, form }) => (
           <React.Fragment>
             <Field name="mortgagee1" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -376,6 +382,16 @@ const AdditionalInterests = ({
                   />
                 </ul>
               )}
+
+            <div className="form-footer">
+              <Link
+                className={Button.constants.classNames.primary}
+                to="policyholder"
+                disabled={invalid}
+              >
+                Continue
+              </Link>
+            </div>
           </React.Fragment>
         )}
       </Form>
