@@ -39,7 +39,7 @@ const AddressSearch = ({ location, match }) => {
                     label="Property Address"
                     styleName="property-search"
                     dataTest="address"
-                    placeholder="Search for Property Address"
+                    placeholder="Type your street address & press search"
                   />
                 )}
               </Field>
@@ -53,10 +53,8 @@ const AddressSearch = ({ location, match }) => {
                 <FontAwesomeIcon icon="search" size="sm" />
               </Button>
               <p>
-                Type the street address here the click the "Search Address"
-                button. We will show you a list of addresses. If you cannot find
-                your address, try typing less of your address, i.e. for “1234
-                Main Street North”, try just typing “1234 Main”.
+                If you cannot find your address, try typing a little less, i.e.
+                for “1234 Main Street North”, just try “1234 Main”.
               </p>
             </div>
 
