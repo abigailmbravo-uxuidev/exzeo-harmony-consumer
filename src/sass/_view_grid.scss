@@ -861,11 +861,6 @@
     @include forPhoneOnly {
       margin-top: 1rem;
       width: 100vw;
-
-      //sticky header
-      position: sticky;
-      top: 48px;
-      z-index: 10;
     }
 
     h2 {
