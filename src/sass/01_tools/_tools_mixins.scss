@@ -25,6 +25,17 @@
   }
 }
 
+@mixin forTabletPortraitOnly {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+@include forTabletPortraitOnly {
+  .hideForTabletPortraitOnly {
+    display: none !important;
+  }
+}
+
 @mixin forMinWidth {
   @media (max-width: 45rem) {
     @content;

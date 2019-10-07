@@ -35,6 +35,9 @@ body {
       padding: 0 0 0 (calc((100vw - 102rem) / 2));
       width: calc(((100vw - 102rem) / 2) + 13rem);
 
+      @include forTabletPortraitOnly {
+        margin-left: 0;
+      }
       @include forPhoneOnly {
         margin-left: 0;
       }
