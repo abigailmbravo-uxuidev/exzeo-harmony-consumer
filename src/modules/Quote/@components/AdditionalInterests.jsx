@@ -35,7 +35,12 @@ const INITIAL_STATE = {
   relatedField: ''
 };
 
-const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
+const AdditionalInterests = ({
+  config,
+  initialValues,
+  customHandlers,
+  formInstance
+}) => {
   const [modal, setModal] = useState(INITIAL_STATE);
   const {
     groupedAdditionalInterests,
@@ -70,7 +75,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
         initialValues={setInitialValues(groupedAdditionalInterests)}
       >
         {({ handleSubmit, values, form }) => (
-          <>
+          <React.Fragment>
             <Field name="mortgagee1" validate={validation.isRequired}>
               {({ input, meta }) => (
                 <Radio
@@ -143,7 +148,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
               )}
 
             {values.mortgagee1 === true && (
-              <>
+              <React.Fragment>
                 <Field name="mortgagee2" validate={validation.isRequired}>
                   {({ input, meta }) => (
                     <Radio
@@ -171,7 +176,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                     }
                   }}
                 </OnChangeListener>
-              </>
+              </React.Fragment>
             )}
 
             {values.mortgagee2 === true &&
@@ -371,7 +376,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                   />
                 </ul>
               )}
-          </>
+          </React.Fragment>
         )}
       </Form>
     </div>

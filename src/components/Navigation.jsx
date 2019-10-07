@@ -14,7 +14,7 @@ const Navigation = ({ location, match }) => {
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
   return (
-    <>
+    <React.Fragment>
       <button className="navOpener" onClick={() => setNavOpen(state => !state)}>
         <FontAwesomeIcon icon="chevron-right" size="sm" />
       </button>
@@ -38,14 +38,14 @@ const Navigation = ({ location, match }) => {
       >
         <div className="propertyAddressWrapper">
           {quote.quoteNumber ? (
-            <>
+            <React.Fragment>
               <p>
                 <strong>{quote.property.physicalAddress.address1}</strong>
               </p>
               <p>{format.toCityStateZip(quote.property.physicalAddress)}</p>
               <p>{`Year built: ${quote.property.yearBuilt}`}</p>
               <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
-            </>
+            </React.Fragment>
           ) : (
             <p />
           )}
@@ -321,7 +321,7 @@ const Navigation = ({ location, match }) => {
           {/********** APPLICATION **********/}
         </ul>
       </nav>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -18,7 +18,7 @@ const AddressSearch = ({ location, match }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
 
   return (
-    <>
+    <React.Fragment>
       <div className="title">Search Address</div>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
@@ -87,7 +87,7 @@ const AddressSearch = ({ location, match }) => {
           </form>
         )}
       </Form>
-    </>
+    </React.Fragment>
   );
 };
 

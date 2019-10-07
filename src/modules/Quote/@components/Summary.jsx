@@ -6,7 +6,7 @@ const Summary = ({ formInstance }) => {
   const [shareQuote, setShareQuote] = useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <Switch
         label="I want to share & email my quote"
         dataTest="share-quote"
@@ -41,7 +41,7 @@ const Summary = ({ formInstance }) => {
           Name and address of any other additional insured to add to your policy
         </li>
       </ul>
-    </>
+    </React.Fragment>
   );
 };
 

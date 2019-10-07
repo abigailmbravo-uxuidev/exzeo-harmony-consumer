@@ -11,9 +11,9 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
   return (
     <FormSpy subscription={{ submitting: true }}>
       {({ submitting, form }) => (
-        <>
+        <React.Fragment>
           {workflowPage === ROUTES.share.workflowPage ? (
-            <>
+            <React.Fragment>
               <Link
                 key="secondary"
                 to="/thankYou"
@@ -27,7 +27,7 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
               >
                 Continue to Purchase
               </Link>
-            </>
+            </React.Fragment>
           ) : (
             <Button
               type="button"
@@ -48,7 +48,7 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
                 : 'Continue'}
             </Button>
           )}
-        </>
+        </React.Fragment>
       )}
     </FormSpy>
   );

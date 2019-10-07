@@ -90,7 +90,7 @@ const QuoteSearch = () => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <div className="title">Retrieve Quote</div>
       <Form
         onSubmit={handleSearchSubmit}
@@ -309,7 +309,7 @@ const QuoteSearch = () => {
           </form>
         )}
       </Form>
-    </>
+    </React.Fragment>
   );
 };
 

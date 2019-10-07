@@ -75,7 +75,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
   };
 
   return (
-    <>
+    <React.Fragment>
       {quoteLoading && <SectionLoader />}
       <Gandalf
         formId="harmony-quote"
@@ -105,7 +105,7 @@ const QuoteWorkflow = ({ history, location, match }) => {
           </FormSpy>
         }
       />
-    </>
+    </React.Fragment>
   );
 };
 

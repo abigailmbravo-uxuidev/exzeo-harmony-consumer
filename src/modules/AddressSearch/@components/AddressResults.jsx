@@ -19,7 +19,7 @@ const AddressResults = ({ results, companyCode, product }) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       {' '}
       {loading && <SectionLoader />}
       {results.map(property => (
@@ -39,7 +39,7 @@ const AddressResults = ({ results, companyCode, product }) => {
         <a href={CONTACT_PHONE.href}>call us</a>&nbsp;and one of our
         representative will be glad to help you.
       </p>
-    </>
+    </React.Fragment>
   );
 };
 
