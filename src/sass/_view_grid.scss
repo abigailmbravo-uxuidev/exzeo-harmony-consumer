@@ -20,12 +20,14 @@
       align-items: center;
       justify-content: center;
       background-color: rgba($white, 0.95);
+      animation: modal-fade 0.35s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
       .card {
         width: 50vw;
         height: 70vh;
         background-color: transparent;
         box-shadow: none;
+        animation: slide-top 0.65s ease-in-out both;
 
         .card-header {
           h4 {
@@ -62,8 +64,13 @@
             }
 
             .form-group {
-              .css-1pcexqc-container {
-                padding-top: $padding * 2;
+              &.type-ahead {
+                overflow: visible;
+                z-index: 100;
+
+                .react-select__menu-list {
+                  max-height: 35vh;
+                }
               }
 
               &.order {
@@ -1033,5 +1040,29 @@ $colors: $blue, $red, $green, $navy, gold;
       top: 110%;
       left: unquote($l + random(15) + '%');
     }
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation slide-top
+ * ----------------------------------------
+ */
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
