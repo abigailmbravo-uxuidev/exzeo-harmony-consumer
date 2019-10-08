@@ -338,6 +338,11 @@
             }
             label {
               font-size: $fontSizeSubheader--small;
+              padding-right: $padding * 6;
+
+              @include forPhoneOnly {
+                padding-right: 0;
+              }
             }
             .segmented-answer-wrapper {
               position: absolute;
