@@ -6,13 +6,13 @@ const InfoBar = ({ initialValues, config }) => {
   const { totalPremium } = initialValues.rating || {};
   return (
     <div className={classNames('infoBar', { className: config.className })}>
-      <h2 tabIndex="0">
+      <h2>
         Premium:&nbsp;
         <strong>
           {totalPremium ? format.toCurrency(totalPremium) : `$ --`}
         </strong>
       </h2>
-      <label tabIndex="0">
+      <label>
         Quote Number: <strong>{`#${initialValues.quoteNumber}`}</strong>
       </label>
     </div>
