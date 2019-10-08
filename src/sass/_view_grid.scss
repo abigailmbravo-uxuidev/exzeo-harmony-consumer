@@ -331,6 +331,7 @@
       &.additionalInterest {
         &.radio {
           &.segmented {
+            flex-direction: row;
             margin-bottom: 0;
 
             .group-label {
@@ -338,22 +339,20 @@
             }
             label {
               font-size: $fontSizeSubheader--small;
-              padding-right: $padding * 6;
+              flex-grow: 1;
+              flex-shrink: 1;
 
               @include forPhoneOnly {
                 padding-right: 0;
               }
             }
             .segmented-answer-wrapper {
-              position: absolute;
-              top: 8px;
-              right: 0px;
-              z-index: 100;
-              width: 18%;
+              width: 6rem;
               border-radius: $borderRadius;
+              align-self: flex-start;
+              margin-top: 0.5rem;
 
               @include forPhoneOnly {
-                position: relative;
                 margin-bottom: 1.5rem;
                 width: 100%;
               }
