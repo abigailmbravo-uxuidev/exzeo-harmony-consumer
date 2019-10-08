@@ -5,7 +5,7 @@ const QuoteSearchFooter = () => {
   return (
     <footer className="navFooter">
       <hr />
-      <label for="startOverRetrieve">
+      <label htmlFor="startOverRetrieve">
         Need to start over? Or retrieve a quote?
       </label>
       <div id="startOverRetrieve">

@@ -399,6 +399,16 @@
           },
           "formData": {},
           "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
         }
       ]
     },

@@ -11,7 +11,8 @@ import {
   faTrophy,
   faExclamationTriangle,
   faTimes,
-  faCircle
+  faCircle,
+  faCat
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -26,5 +27,6 @@ library.add(
   faTrophy,
   faExclamationTriangle,
   faTimes,
-  faCircle
+  faCircle,
+  faCat
 );
