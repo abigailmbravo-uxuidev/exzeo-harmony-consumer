@@ -345,12 +345,12 @@
               right: 0px;
               z-index: 100;
               width: 18%;
+              border-radius: $borderRadius;
 
               @include forPhoneOnly {
                 position: relative;
                 margin-bottom: 1.5rem;
                 width: 100%;
-                border-radius: $borderRadius;
               }
 
               label {
