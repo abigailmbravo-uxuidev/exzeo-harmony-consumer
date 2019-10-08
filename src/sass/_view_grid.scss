@@ -334,6 +334,10 @@
             flex-direction: row;
             margin-bottom: 0;
 
+            @include forPhoneOnly {
+              flex-direction: column;
+            }
+
             .group-label {
               margin-bottom: 0.5rem;
             }
