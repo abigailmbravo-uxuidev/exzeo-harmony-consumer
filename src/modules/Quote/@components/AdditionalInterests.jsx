@@ -26,8 +26,8 @@ function setInitialValues(groupedAI) {
 }
 
 const BOOL_OPTIONS = [
-  { answer: true, label: 'YES' },
-  { answer: false, label: 'NO' }
+  { answer: true, label: 'Yes' },
+  { answer: false, label: 'No' }
 ];
 
 const INITIAL_STATE = {

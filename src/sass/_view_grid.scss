@@ -330,15 +330,26 @@
       &.additionalInterest {
         &.radio {
           &.segmented {
-            margin-bottom: 1rem;
+            margin-bottom: 0;
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
             label {
               font-size: $fontSizeSubheader--small;
             }
             .segmented-answer-wrapper {
-              width: 35%;
+              width: 18%;
+              position: absolute;
+              top: 8px;
+              right: 0px;
+              z-index: 100;
 
               @include forPhoneOnly {
                 width: 100%;
+                position: relative;
+                margin-bottom: 1.5rem;
+                border-radius: $borderRadius;
               }
 
               label {
@@ -354,7 +365,7 @@
         align-items: flex-start;
         flex-direction: column;
         span {
-          max-width: 36rem;
+          max-width: 30rem;
           i {
             display: none;
           }
@@ -390,10 +401,12 @@
     }
 
     ul {
-      margin: 0;
+      margin: 0 0 1.5rem 0;
       padding: 0;
+
       li {
         list-style: none;
+
         .card {
           position: relative;
           display: flex;
@@ -437,6 +450,7 @@
               margin-top: 0.25rem;
               margin-bottom: 0.25rem;
               font-family: $serif;
+              font-size: $fontSizeBase;
 
               @include forPhoneOnly {
                 margin-top: 0.5rem;

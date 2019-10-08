@@ -234,7 +234,6 @@
       z-index: 1;
     }
     label {
-      font-size: $fontSizeSubheader--small;
       @include forPhoneOnly {
         position: relative;
         align-items: flex-start;
