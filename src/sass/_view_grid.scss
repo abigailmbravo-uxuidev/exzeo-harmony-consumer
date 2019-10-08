@@ -301,7 +301,6 @@
       }
 
       .congratsIcon {
-        z-index: 15;
         z-index: 1;
         align-items: center;
         flex-grow: 0;
@@ -339,16 +338,16 @@
               font-size: $fontSizeSubheader--small;
             }
             .segmented-answer-wrapper {
-              width: 18%;
               position: absolute;
               top: 8px;
               right: 0px;
               z-index: 100;
+              width: 18%;
 
               @include forPhoneOnly {
-                width: 100%;
                 position: relative;
                 margin-bottom: 1.5rem;
+                width: 100%;
                 border-radius: $borderRadius;
               }
 
@@ -449,8 +448,8 @@
             h4 {
               margin-top: 0.25rem;
               margin-bottom: 0.25rem;
-              font-family: $serif;
               font-size: $fontSizeBase;
+              font-family: $serif;
 
               @include forPhoneOnly {
                 margin-top: 0.5rem;
@@ -472,6 +471,10 @@
           }
         }
       }
+    }
+
+    .form-footer {
+      margin-top: 1rem;
     }
   }
 
