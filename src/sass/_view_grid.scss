@@ -327,12 +327,24 @@
   //policyholder info styling
 
   .policyHolderInfo {
+    .card {
+      flex-direction: row;
+
+      a {
+        padding: $padding;
+
+        svg {
+          align-content: center;
+        }
+      }
+    }
     .form-group {
       &.policyHolder {
         &.radio {
           &.segmented {
             flex-direction: row;
-            margin-bottom: 0;
+            overflow: visible;
+            margin-bottom: 1rem;
 
             @include forPhoneOnly {
               flex-direction: column;
