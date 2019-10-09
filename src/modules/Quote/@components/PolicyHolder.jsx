@@ -45,12 +45,19 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
     customHandlers.handleSubmit(data);
   }
 
-  async function deletePolicyHolder(index) {}
+  function deleteSecondaryPolicyHolder() {
+    const data = {
+      ...initialValues,
+      policyHolders: [initialValues.policyHolders[0]]
+    };
+
+    customHandlers.handleSubmit(data);
+  }
 
   return (
     <div className={config.className}>
       <Form onSubmit={x => x} initialValues={setInitialValues(initialValues)}>
-        {({ values }) => (
+        {({ values, form }) => (
           <React.Fragment>
             <h4>Policyholder 1</h4>
             <PolicyholderCard
@@ -66,6 +73,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
               <ModalPortal>
                 <PolicyHolderModal
                   handleFormSubmit={handlePolicyHolderSubmit}
+                  handleCancel={() => setModal(INITIAL_STATE)}
                   initialValues={initialValues.policyHolders[0]}
                   order={0}
                 />
@@ -82,7 +90,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
                       <a onClick={() => setModal({ show: true, ph: 1 })}>
                         <FontAwesomeIcon icon="cat" />
                       </a>
-                      <a onClick={() => deletePolicyHolder(1)}>
+                      <a onClick={deleteSecondaryPolicyHolder}>
                         <FontAwesomeIcon icon="dog" />
                       </a>
                     </React.Fragment>
@@ -91,17 +99,23 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
               </React.Fragment>
             )}
 
-            {values.policyHolder2 && !initialValues.policyHolders[1] && (
-              <ModalPortal>
-                <PolicyHolderModal
-                  fieldPrefix="ph"
-                  handleFormSubmit={handlePolicyHolderSubmit}
-                  handleCancel={() => setModal(INITIAL_STATE)}
-                  initialValues={initialValues.policyHolders[1]}
-                  order={1}
-                />
-              </ModalPortal>
-            )}
+            {values.policyHolder2 &&
+              (!initialValues.policyHolders[1] ||
+                (modal.show && modal.ph === 1)) && (
+                <ModalPortal>
+                  <PolicyHolderModal
+                    initialValues={initialValues.policyHolders[1]}
+                    fieldPrefix="ph"
+                    order={1}
+                    handleFormSubmit={handlePolicyHolderSubmit}
+                    handleCancel={() =>
+                      modal.show
+                        ? setModal(INITIAL_STATE)
+                        : form.change('policyHolder2', false)
+                    }
+                  />
+                </ModalPortal>
+              )}
 
             <Field name="policyHolder2" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -121,7 +135,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
             <OnChangeListener name="policyHolder2">
               {value => {
                 if (!value && initialValues.policyHolders[1]) {
-                  deletePolicyHolder(1);
+                  deleteSecondaryPolicyHolder();
                 }
               }}
             </OnChangeListener>
