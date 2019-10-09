@@ -1,5 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function formatPhoneNumber(phoneNumberString) {
   const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -10,7 +9,7 @@ function formatPhoneNumber(phoneNumberString) {
   return '';
 }
 
-const PolicyholderCard = ({ policyHolder, handleEdit }) => {
+const PolicyholderCard = ({ policyHolder, icons }) => {
   return (
     <div className="card" data-test="agency">
       <div className="cardContent">
@@ -23,9 +22,8 @@ const PolicyholderCard = ({ policyHolder, handleEdit }) => {
           {`${formatPhoneNumber(policyHolder.primaryPhoneNumber)}`}
         </p>
       </div>
-      <a onClick={handleEdit}>
-        <FontAwesomeIcon icon="cat" />
-      </a>
+
+      {icons}
     </div>
   );
 };
