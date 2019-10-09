@@ -16,6 +16,8 @@ import {
   AI_TYPES
 } from '@exzeo/harmony-core';
 
+import { BOOL_OPTIONS } from '../../../constants/input';
+
 function setInitialValues(groupedAI) {
   return {
     mortgagee1: groupedAI[AI_TYPES.mortgagee].length > 0,
@@ -25,11 +27,6 @@ function setInitialValues(groupedAI) {
   };
 }
 
-const BOOL_OPTIONS = [
-  { answer: true, label: 'Yes' },
-  { answer: false, label: 'No' }
-];
-
 const INITIAL_STATE = {
   show: false,
   type: '',
@@ -37,6 +34,7 @@ const INITIAL_STATE = {
   relatedField: ''
 };
 
+// TODO modify this component to accept a config from the CSP template to determine questions, order, and other behavior
 const AdditionalInterests = ({
   config,
   initialValues,

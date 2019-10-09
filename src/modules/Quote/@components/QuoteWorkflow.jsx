@@ -13,6 +13,7 @@ import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
 import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
+import PolicyHolder from './PolicyHolder';
 import ThankYou from './WorkflowComplete';
 
 const EMPTY_OBJ = {};
@@ -23,6 +24,7 @@ const CUSTOM_COMPONENTS = {
   $CONSUMER_SUMMARY: Summary,
   $AGENCY_SELECT: EditAgency,
   $ADDITIONAL_INTERESTS: AdditionalInterests,
+  $POLICYHOLDER: PolicyHolder,
   $THANK_YOU: ThankYou
 };
 

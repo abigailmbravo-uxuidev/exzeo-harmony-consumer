@@ -401,11 +401,12 @@
           "children": []
         },
         {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "id": "cf137a47-1d75-46eb-9509-e8d9dc929dea",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
-            "component": "$INFO"
+            "component": "$POLICYHOLDER",
+            "className": "policyHolderInfo"
           },
           "formData": {},
           "children": []
