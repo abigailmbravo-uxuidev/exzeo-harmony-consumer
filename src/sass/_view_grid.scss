@@ -327,8 +327,18 @@
   //policyholder info styling
 
   .policyHolderInfo {
+    h4 {
+      padding-top: ($padding / 2);
+      margin-bottom: 0.5rem;
+    }
     .card {
       flex-direction: row;
+
+      .cardContent {
+        h4 {
+          padding-top: 0;
+        }
+      }
 
       a {
         padding: $padding;
