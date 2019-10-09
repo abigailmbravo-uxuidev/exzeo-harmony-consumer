@@ -55,7 +55,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
   }
 
   return (
-    <div className={config.className}>
+    <section className={config.className}>
       <Form onSubmit={x => x} initialValues={setInitialValues(initialValues)}>
         {({ values, form }) => (
           <React.Fragment>
@@ -142,7 +142,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           </React.Fragment>
         )}
       </Form>
-    </div>
+    </section>
   );
 };
 

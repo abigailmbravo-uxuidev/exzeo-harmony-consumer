@@ -15,13 +15,15 @@ import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
 import PolicyHolder from './PolicyHolder';
 import ThankYou from './WorkflowComplete';
+import Address from './Address';
 
 const EMPTY_OBJ = {};
 
 const CUSTOM_COMPONENTS = {
   $INFO: InfoBar,
   $SUBTITLE: Subtitle,
-  $CONSUMER_SUMMARY: Summary,
+  $SUMMARY: Summary,
+  $ADDRESS: Address,
   $AGENCY_SELECT: EditAgency,
   $ADDITIONAL_INTERESTS: AdditionalInterests,
   $POLICYHOLDER: PolicyHolder,

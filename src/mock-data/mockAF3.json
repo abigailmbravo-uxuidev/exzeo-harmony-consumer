@@ -328,7 +328,7 @@
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
-            "component": "$CONSUMER_SUMMARY",
+            "component": "$SUMMARY",
             "extendedProperties": {}
           },
           "formData": {},
@@ -407,6 +407,16 @@
           "data": {
             "component": "$POLICYHOLDER",
             "className": "policyHolderInfo"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "49217199-0645-430f-b3be-a0f02b008e9c",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$ADDRESS"
           },
           "formData": {},
           "children": []
