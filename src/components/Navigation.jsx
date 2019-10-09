@@ -209,7 +209,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.additionalInfo.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/underwriting`
+                      : `/quote/${match.params.quoteNumber}/additionalInfo`
                   }
                   activeClassName="active"
                   className={classNames({
@@ -234,7 +234,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.policyholder.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/underwriting`
+                      : `/quote/${match.params.quoteNumber}/policyholder`
                   }
                   activeClassName="active"
                   className={classNames({
@@ -259,7 +259,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.billing.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/underwriting`
+                      : `/quote/${match.params.quoteNumber}/billing`
                   }
                   activeClassName="active"
                   className={classNames({
@@ -280,7 +280,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.summary.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/underwriting`
+                      : `/quote/${match.params.quoteNumber}/summary`
                   }
                   activeClassName="active"
                   className={classNames({
@@ -301,7 +301,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.complete.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/underwriting`
+                      : `/quote/${match.params.quoteNumber}/complete`
                   }
                   activeClassName="active"
                   className={classNames({
