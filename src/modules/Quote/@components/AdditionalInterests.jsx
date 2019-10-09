@@ -12,9 +12,10 @@ import {
 import {
   useAdditionalInterests,
   AdditionalInterestModal,
-  AdditionalInterestCard,
+  V2AdditionalInterestCard,
   AI_TYPES
 } from '@exzeo/harmony-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { BOOL_OPTIONS } from '../../../constants/input';
 
@@ -43,7 +44,7 @@ const AdditionalInterests = ({
 }) => {
   const [modal, setModal] = useState(INITIAL_STATE);
   const {
-    groupedAdditionalInterests,
+    groupedAdditionalInterests: groupedAIs,
     update,
     remove,
     options
@@ -70,10 +71,7 @@ const AdditionalInterests = ({
 
   return (
     <div className={config.className}>
-      <Form
-        onSubmit={x => x}
-        initialValues={setInitialValues(groupedAdditionalInterests)}
-      >
+      <Form onSubmit={x => x} initialValues={setInitialValues(groupedAIs)}>
         {({ values, invalid, form }) => (
           <React.Fragment>
             <Field name="mortgagee1" validate={validation.isRequired}>
@@ -93,19 +91,14 @@ const AdditionalInterests = ({
 
             <OnChangeListener name="mortgagee1">
               {value => {
-                if (
-                  !value &&
-                  groupedAdditionalInterests[AI_TYPES.mortgagee][0]
-                ) {
-                  deleteAdditionalInterest(
-                    groupedAdditionalInterests[AI_TYPES.mortgagee][0]
-                  );
+                if (!value && groupedAIs[AI_TYPES.mortgagee][0]) {
+                  deleteAdditionalInterest(groupedAIs[AI_TYPES.mortgagee][0]);
                 }
               }}
             </OnChangeListener>
 
             {values.mortgagee1 === true &&
-              (!groupedAdditionalInterests[AI_TYPES.mortgagee][0] ||
+              (!groupedAIs[AI_TYPES.mortgagee][0] ||
                 (modal.show && modal.relatedField === 'mortgagee1')) && (
                 <ModalPortal>
                   <AdditionalInterestModal
@@ -113,7 +106,7 @@ const AdditionalInterests = ({
                     type={AI_TYPES.mortgagee}
                     options={options}
                     additionalInterest={modal.selected}
-                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    groupedAdditionalInterests={groupedAIs}
                     handleFormSubmit={submitAdditionalInterest}
                     handleCancel={() =>
                       modal.show
@@ -124,28 +117,40 @@ const AdditionalInterests = ({
                 </ModalPortal>
               )}
 
-            {values.mortgagee1 === true &&
-              !!groupedAdditionalInterests[AI_TYPES.mortgagee][0] && (
-                <ul className="mortgagee1List">
-                  <AdditionalInterestCard
-                    ai={groupedAdditionalInterests[AI_TYPES.mortgagee][0]}
-                    handleDelete={() =>
-                      deleteAdditionalInterest(
-                        groupedAdditionalInterests[AI_TYPES.mortgagee][0]
-                      )
-                    }
-                    handleEdit={() =>
-                      setModal({
-                        type: AI_TYPES.mortgagee,
-                        selected:
-                          groupedAdditionalInterests[AI_TYPES.mortgagee][0],
-                        show: true,
-                        relatedField: 'mortgagee1'
-                      })
-                    }
-                  />
-                </ul>
-              )}
+            {values.mortgagee1 === true && !!groupedAIs[AI_TYPES.mortgagee][0] && (
+              <ul className="listItem">
+                <V2AdditionalInterestCard
+                  ai={groupedAIs[AI_TYPES.mortgagee][0]}
+                  deleteIcon={
+                    <a
+                      className="remove"
+                      onClick={() =>
+                        deleteAdditionalInterest(
+                          groupedAIs[AI_TYPES.mortgagee][0]
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon icon="dog" />
+                    </a>
+                  }
+                  editIcon={
+                    <a
+                      className="edit"
+                      onClick={() =>
+                        setModal({
+                          type: AI_TYPES.mortgagee,
+                          selected: groupedAIs[AI_TYPES.mortgagee][0],
+                          show: true,
+                          relatedField: 'mortgagee1'
+                        })
+                      }
+                    >
+                      <FontAwesomeIcon icon="cat" />
+                    </a>
+                  }
+                />
+              </ul>
+            )}
 
             {values.mortgagee1 === true && (
               <React.Fragment>
@@ -166,12 +171,9 @@ const AdditionalInterests = ({
 
                 <OnChangeListener name="mortgagee2">
                   {value => {
-                    if (
-                      !value &&
-                      groupedAdditionalInterests[AI_TYPES.mortgagee][1]
-                    ) {
+                    if (!value && groupedAIs[AI_TYPES.mortgagee][1]) {
                       deleteAdditionalInterest(
-                        groupedAdditionalInterests[AI_TYPES.mortgagee][1]
+                        groupedAIs[AI_TYPES.mortgagee][1]
                       );
                     }
                   }}
@@ -180,7 +182,7 @@ const AdditionalInterests = ({
             )}
 
             {values.mortgagee2 === true &&
-              (!groupedAdditionalInterests[AI_TYPES.mortgagee][1] ||
+              (!groupedAIs[AI_TYPES.mortgagee][1] ||
                 (modal.show && modal.relatedField === 'mortgagee2')) && (
                 <ModalPortal>
                   <AdditionalInterestModal
@@ -188,7 +190,7 @@ const AdditionalInterests = ({
                     type={AI_TYPES.mortgagee}
                     options={options}
                     additionalInterest={modal.selected}
-                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    groupedAdditionalInterests={groupedAIs}
                     handleCancel={() =>
                       modal.show
                         ? setModal(INITIAL_STATE)
@@ -199,28 +201,40 @@ const AdditionalInterests = ({
                 </ModalPortal>
               )}
 
-            {values.mortgagee2 === true &&
-              !!groupedAdditionalInterests[AI_TYPES.mortgagee][1] && (
-                <ul className="mortgagee1List">
-                  <AdditionalInterestCard
-                    ai={groupedAdditionalInterests[AI_TYPES.mortgagee][1]}
-                    handleDelete={() =>
-                      deleteAdditionalInterest(
-                        groupedAdditionalInterests[AI_TYPES.mortgagee][1]
-                      )
-                    }
-                    handleEdit={() =>
-                      setModal({
-                        type: AI_TYPES.mortgagee,
-                        selected:
-                          groupedAdditionalInterests[AI_TYPES.mortgagee][1],
-                        show: true,
-                        relatedField: 'mortgagee2'
-                      })
-                    }
-                  />
-                </ul>
-              )}
+            {values.mortgagee2 === true && !!groupedAIs[AI_TYPES.mortgagee][1] && (
+              <ul className="listItem">
+                <V2AdditionalInterestCard
+                  ai={groupedAIs[AI_TYPES.mortgagee][1]}
+                  deleteIcon={
+                    <a
+                      className="remove"
+                      onClick={() =>
+                        deleteAdditionalInterest(
+                          groupedAIs[AI_TYPES.mortgagee][1]
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon icon="dog" />
+                    </a>
+                  }
+                  editIcon={
+                    <a
+                      className="edit"
+                      onClick={() =>
+                        setModal({
+                          type: AI_TYPES.mortgagee,
+                          selected: groupedAIs[AI_TYPES.mortgagee][1],
+                          show: true,
+                          relatedField: 'mortgagee2'
+                        })
+                      }
+                    >
+                      <FontAwesomeIcon icon="cat" />
+                    </a>
+                  }
+                />
+              </ul>
+            )}
 
             <Field name="additionalInsured" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -239,19 +253,16 @@ const AdditionalInterests = ({
 
             <OnChangeListener name="additionalInsured">
               {value => {
-                if (
-                  !value &&
-                  groupedAdditionalInterests[AI_TYPES.additionalInsured][0]
-                ) {
+                if (!value && groupedAIs[AI_TYPES.additionalInsured][0]) {
                   deleteAdditionalInterest(
-                    groupedAdditionalInterests[AI_TYPES.additionalInsured][0]
+                    groupedAIs[AI_TYPES.additionalInsured][0]
                   );
                 }
               }}
             </OnChangeListener>
 
             {values.additionalInsured === true &&
-              (!groupedAdditionalInterests[AI_TYPES.additionalInsured][0] ||
+              (!groupedAIs[AI_TYPES.additionalInsured][0] ||
                 (modal.show && modal.relatedField === 'additionalInsured')) && (
                 <ModalPortal>
                   <AdditionalInterestModal
@@ -259,7 +270,7 @@ const AdditionalInterests = ({
                     type={AI_TYPES.additionalInsured}
                     options={options}
                     additionalInterest={modal.selected}
-                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    groupedAdditionalInterests={groupedAIs}
                     handleCancel={() =>
                       modal.show
                         ? setModal(INITIAL_STATE)
@@ -271,29 +282,36 @@ const AdditionalInterests = ({
               )}
 
             {values.additionalInsured === true &&
-              !!groupedAdditionalInterests[AI_TYPES.additionalInsured][0] && (
-                <ul className="mortgagee1List">
-                  <AdditionalInterestCard
-                    ai={
-                      groupedAdditionalInterests[AI_TYPES.additionalInsured][0]
+              !!groupedAIs[AI_TYPES.additionalInsured][0] && (
+                <ul className="listItem">
+                  <V2AdditionalInterestCard
+                    ai={groupedAIs[AI_TYPES.additionalInsured][0]}
+                    deleteIcon={
+                      <a
+                        className="remove"
+                        onClick={() =>
+                          deleteAdditionalInterest(
+                            groupedAIs[AI_TYPES.additionalInsured][0]
+                          )
+                        }
+                      >
+                        <FontAwesomeIcon icon="dog" />
+                      </a>
                     }
-                    handleDelete={() =>
-                      deleteAdditionalInterest(
-                        groupedAdditionalInterests[
-                          AI_TYPES.additionalInsured
-                        ][0]
-                      )
-                    }
-                    handleEdit={() =>
-                      setModal({
-                        type: AI_TYPES.additionalInsured,
-                        selected:
-                          groupedAdditionalInterests[
-                            AI_TYPES.additionalInsured
-                          ][0],
-                        show: true,
-                        relatedField: 'additionalInsured'
-                      })
+                    editIcon={
+                      <a
+                        className="edit"
+                        onClick={() =>
+                          setModal({
+                            type: AI_TYPES.additionalInsured,
+                            selected: groupedAIs[AI_TYPES.additionalInsured][0],
+                            show: true,
+                            relatedField: 'additionalInsured'
+                          })
+                        }
+                      >
+                        <FontAwesomeIcon icon="cat" />
+                      </a>
                     }
                   />
                 </ul>
@@ -316,19 +334,16 @@ const AdditionalInterests = ({
 
             <OnChangeListener name="additionalInterest">
               {value => {
-                if (
-                  !value &&
-                  groupedAdditionalInterests[AI_TYPES.additionalInterest][0]
-                ) {
+                if (!value && groupedAIs[AI_TYPES.additionalInterest][0]) {
                   deleteAdditionalInterest(
-                    groupedAdditionalInterests[AI_TYPES.additionalInterest][0]
+                    groupedAIs[AI_TYPES.additionalInterest][0]
                   );
                 }
               }}
             </OnChangeListener>
 
             {values.additionalInterest === true &&
-              (!groupedAdditionalInterests[AI_TYPES.additionalInterest][0] ||
+              (!groupedAIs[AI_TYPES.additionalInterest][0] ||
                 (modal.show &&
                   modal.relatedField === 'additionalInterest')) && (
                 <ModalPortal>
@@ -337,7 +352,7 @@ const AdditionalInterests = ({
                     type={AI_TYPES.additionalInterest}
                     options={options}
                     additionalInterest={modal.selected}
-                    groupedAdditionalInterests={groupedAdditionalInterests}
+                    groupedAdditionalInterests={groupedAIs}
                     handleCancel={() =>
                       modal.show
                         ? setModal(INITIAL_STATE)
@@ -349,29 +364,37 @@ const AdditionalInterests = ({
               )}
 
             {values.additionalInterest === true &&
-              !!groupedAdditionalInterests[AI_TYPES.additionalInterest][0] && (
-                <ul className="mortgagee1List">
-                  <AdditionalInterestCard
-                    ai={
-                      groupedAdditionalInterests[AI_TYPES.additionalInterest][0]
+              !!groupedAIs[AI_TYPES.additionalInterest][0] && (
+                <ul className="listItem">
+                  <V2AdditionalInterestCard
+                    ai={groupedAIs[AI_TYPES.additionalInterest][0]}
+                    deleteIcon={
+                      <a
+                        className="remove"
+                        onClick={() =>
+                          deleteAdditionalInterest(
+                            groupedAIs[AI_TYPES.additionalInterest][0]
+                          )
+                        }
+                      >
+                        <FontAwesomeIcon icon="dog" />
+                      </a>
                     }
-                    handleDelete={() =>
-                      deleteAdditionalInterest(
-                        groupedAdditionalInterests[
-                          AI_TYPES.additionalInterest
-                        ][0]
-                      )
-                    }
-                    handleEdit={() =>
-                      setModal({
-                        type: AI_TYPES.additionalInterest,
-                        selected:
-                          groupedAdditionalInterests[
-                            AI_TYPES.additionalInterest
-                          ][0],
-                        show: true,
-                        relatedField: 'additionalInterest'
-                      })
+                    editIcon={
+                      <a
+                        className="edit"
+                        onClick={() =>
+                          setModal({
+                            type: AI_TYPES.additionalInterest,
+                            selected:
+                              groupedAIs[AI_TYPES.additionalInterest][0],
+                            show: true,
+                            relatedField: 'additionalInterest'
+                          })
+                        }
+                      >
+                        <FontAwesomeIcon icon="cat" />
+                      </a>
                     }
                   />
                 </ul>
