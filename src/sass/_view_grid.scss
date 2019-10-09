@@ -324,6 +324,56 @@
     }
   }
 
+  //policyholder info styling
+
+  .policyHolderInfo {
+    .form-group {
+      &.policyHolder {
+        &.radio {
+          &.segmented {
+            flex-direction: row;
+            margin-bottom: 0;
+
+            @include forPhoneOnly {
+              flex-direction: column;
+            }
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+            label {
+              font-size: $fontSizeSubheader--small;
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              @include forPhoneOnly {
+                padding-right: 0;
+              }
+            }
+
+            .segmented-answer-wrapper {
+              flex-grow: 1;
+              flex-shrink: 1;
+              align-self: flex-start;
+              border-radius: $borderRadius;
+              margin-top: 0.5rem;
+              width: 6rem;
+
+              @include forPhoneOnly {
+                margin-bottom: 1.5rem;
+                width: 100%;
+              }
+              label {
+                padding: $padding/2;
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   //additional info styling
 
   .additionalInfo {
