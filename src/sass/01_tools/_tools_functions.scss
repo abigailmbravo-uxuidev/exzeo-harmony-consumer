@@ -17,3 +17,29 @@
     transform: translateX(-265px);
   }
 }
+
+@keyframes scale-easeOutBounce {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  70% {
+    transform: scale(1.1);
+  }
+
+  92% {
+    transform: scale(0.75);
+  }
+
+  96% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
