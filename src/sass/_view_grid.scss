@@ -341,7 +341,7 @@
       }
 
       a {
-        padding: $padding;
+        padding: ($padding/2) $padding 0 ($padding/2);
 
         svg {
           align-content: center;

@@ -64,7 +64,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
               policyHolder={initialValues.policyHolders[0]}
               icons={
                 <a onClick={() => setModal({ show: true, ph: 0 })}>
-                  <FontAwesomeIcon icon="cat" />
+                  <FontAwesomeIcon icon="times" />
                 </a>
               }
             />
@@ -88,10 +88,10 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
                   icons={
                     <React.Fragment>
                       <a onClick={() => setModal({ show: true, ph: 1 })}>
-                        <FontAwesomeIcon icon="cat" />
+                        <FontAwesomeIcon icon="edit" />
                       </a>
                       <a onClick={deleteSecondaryPolicyHolder}>
-                        <FontAwesomeIcon icon="dog" />
+                        <FontAwesomeIcon icon="times" />
                       </a>
                     </React.Fragment>
                   }
