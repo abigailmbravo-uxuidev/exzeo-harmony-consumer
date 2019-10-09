@@ -86,7 +86,6 @@ nav[role='navigation'] {
       flex-wrap: wrap;
       text-align: right;
       margin-bottom: 0;
-
       > a {
         width: 100%;
         color: $navy;
@@ -111,7 +110,13 @@ nav[role='navigation'] {
       &.disabled {
         cursor: default;
         ul {
-          display: none;
+          //display: none;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+
+          //nav animation
+          transition: all 0.5s ease-in;
         }
 
         .application {
@@ -140,7 +145,22 @@ nav[role='navigation'] {
         }
 
         ul {
-          display: none;
+          //this is for the nav animation
+
+          //display: none;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+
+          //nav animation
+          transition: all 0.5s ease-in;
+        }
+
+        ~ li {
+          ul {
+            transition: all 0.75s ease-in;
+            transition-delay: 0.5s;
+          }
         }
       }
 
@@ -208,8 +228,16 @@ nav[role='navigation'] {
         padding: 0;
         width: 100%;
         list-style: none;
+        height: auto;
+        max-height: 100vh;
+        opacity: 1;
+
+        //nav animation
+        transition: all 0.5s ease-in;
+
         li {
           margin-bottom: 0;
+
           a {
             padding-bottom: 0;
             cursor: pointer;
