@@ -194,6 +194,8 @@ nav[role='navigation'] {
         font-size: 0.5rem;
         line-height: 1rem;
 
+        transition: background-color 0.5s ease-in;
+
         svg {
           width: 1rem;
           height: 1rem;
@@ -209,6 +211,8 @@ nav[role='navigation'] {
         width: calc(100% - 2rem);
         text-align: right;
         cursor: pointer;
+
+        transition: color 0.5s ease-in;
       }
 
       p {
