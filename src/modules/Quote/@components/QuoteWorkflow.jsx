@@ -1,5 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Gandalf, getConfigForJsonTransform } from '@exzeo/harmony-core';
+import {
+  Gandalf,
+  getConfigForJsonTransform,
+  TriggerRecalc
+} from '@exzeo/harmony-core';
 import { SectionLoader, FormSpy } from '@exzeo/core-ui';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
@@ -8,7 +12,6 @@ import Subtitle from 'components/Subtitle';
 
 import { useWorkflowTemplate } from '../hooks';
 import { useQuote } from '../QuoteContext';
-import TriggerRecalc from './TriggerRecalc';
 import WorkflowFooter from './WorkflowFooter';
 import Summary from './Summary';
 import EditAgency from './EditAgency';
