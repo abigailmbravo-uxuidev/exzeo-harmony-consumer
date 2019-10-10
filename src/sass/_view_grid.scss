@@ -725,6 +725,10 @@
           justify-content: center;
           margin-left: 0;
 
+          &.fade-in {
+            min-height: auto;
+          }
+
           .card-header {
             position: relative;
             align-items: center;
