@@ -123,18 +123,6 @@ const AdditionalInterests = ({
                   ai={groupedAIs[AI_TYPES.mortgagee][0]}
                   deleteIcon={
                     <a
-                      className="remove"
-                      onClick={() =>
-                        deleteAdditionalInterest(
-                          groupedAIs[AI_TYPES.mortgagee][0]
-                        )
-                      }
-                    >
-                      <FontAwesomeIcon icon="dog" />
-                    </a>
-                  }
-                  editIcon={
-                    <a
                       className="edit"
                       onClick={() =>
                         setModal({
@@ -145,7 +133,19 @@ const AdditionalInterests = ({
                         })
                       }
                     >
-                      <FontAwesomeIcon icon="cat" />
+                      <FontAwesomeIcon icon="edit" />
+                    </a>
+                  }
+                  editIcon={
+                    <a
+                      className="remove"
+                      onClick={() =>
+                        deleteAdditionalInterest(
+                          groupedAIs[AI_TYPES.mortgagee][0]
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon icon="times" />
                     </a>
                   }
                 />
@@ -207,18 +207,6 @@ const AdditionalInterests = ({
                   ai={groupedAIs[AI_TYPES.mortgagee][1]}
                   deleteIcon={
                     <a
-                      className="remove"
-                      onClick={() =>
-                        deleteAdditionalInterest(
-                          groupedAIs[AI_TYPES.mortgagee][1]
-                        )
-                      }
-                    >
-                      <FontAwesomeIcon icon="dog" />
-                    </a>
-                  }
-                  editIcon={
-                    <a
                       className="edit"
                       onClick={() =>
                         setModal({
@@ -229,7 +217,19 @@ const AdditionalInterests = ({
                         })
                       }
                     >
-                      <FontAwesomeIcon icon="cat" />
+                      <FontAwesomeIcon icon="edit" />
+                    </a>
+                  }
+                  editIcon={
+                    <a
+                      className="remove"
+                      onClick={() =>
+                        deleteAdditionalInterest(
+                          groupedAIs[AI_TYPES.mortgagee][1]
+                        )
+                      }
+                    >
+                      <FontAwesomeIcon icon="times" />
                     </a>
                   }
                 />
@@ -288,18 +288,6 @@ const AdditionalInterests = ({
                     ai={groupedAIs[AI_TYPES.additionalInsured][0]}
                     deleteIcon={
                       <a
-                        className="remove"
-                        onClick={() =>
-                          deleteAdditionalInterest(
-                            groupedAIs[AI_TYPES.additionalInsured][0]
-                          )
-                        }
-                      >
-                        <FontAwesomeIcon icon="dog" />
-                      </a>
-                    }
-                    editIcon={
-                      <a
                         className="edit"
                         onClick={() =>
                           setModal({
@@ -310,7 +298,19 @@ const AdditionalInterests = ({
                           })
                         }
                       >
-                        <FontAwesomeIcon icon="cat" />
+                        <FontAwesomeIcon icon="edit" />
+                      </a>
+                    }
+                    editIcon={
+                      <a
+                        className="remove"
+                        onClick={() =>
+                          deleteAdditionalInterest(
+                            groupedAIs[AI_TYPES.additionalInsured][0]
+                          )
+                        }
+                      >
+                        <FontAwesomeIcon icon="times" />
                       </a>
                     }
                   />
@@ -370,18 +370,6 @@ const AdditionalInterests = ({
                     ai={groupedAIs[AI_TYPES.additionalInterest][0]}
                     deleteIcon={
                       <a
-                        className="remove"
-                        onClick={() =>
-                          deleteAdditionalInterest(
-                            groupedAIs[AI_TYPES.additionalInterest][0]
-                          )
-                        }
-                      >
-                        <FontAwesomeIcon icon="dog" />
-                      </a>
-                    }
-                    editIcon={
-                      <a
                         className="edit"
                         onClick={() =>
                           setModal({
@@ -393,7 +381,19 @@ const AdditionalInterests = ({
                           })
                         }
                       >
-                        <FontAwesomeIcon icon="cat" />
+                        <FontAwesomeIcon icon="edit" />
+                      </a>
+                    }
+                    editIcon={
+                      <a
+                        className="remove"
+                        onClick={() =>
+                          deleteAdditionalInterest(
+                            groupedAIs[AI_TYPES.additionalInterest][0]
+                          )
+                        }
+                      >
+                        <FontAwesomeIcon icon="times" />
                       </a>
                     }
                   />

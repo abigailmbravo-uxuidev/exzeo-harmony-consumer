@@ -335,8 +335,12 @@
       flex-direction: row;
 
       .cardContent {
+        @include forPhoneOnly {
+          padding-right: 0.75rem;
+        }
         h4 {
           padding-top: 0;
+          margin-bottom: 0;
         }
       }
 
@@ -480,6 +484,27 @@
   //additional info styling
 
   .additionalInfo {
+    .card {
+      flex-direction: row;
+
+      .cardContent {
+        @include forPhoneOnly {
+          padding-right: 0.75rem;
+        }
+        h4 {
+          padding-top: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      a {
+        padding: ($padding/2) $padding 0 ($padding/2);
+
+        svg {
+          align-content: center;
+        }
+      }
+    }
     .form-group {
       &.additionalInterest {
         &.radio {
@@ -576,30 +601,17 @@
           flex-shrink: 1;
 
           a {
+            flex-direction: row;
             &.remove {
-              position: absolute;
-              top: 8px;
-              right: 36px;
-              display: block;
-              margin-bottom: 1rem;
-              margin-left: 1rem;
-              width: 20px;
-              height: 20px;
-              border-radius: 50%;
-              background-color: red;
+              font-size: 1rem;
+
+              @include forPhoneOnly {
+                padding-right: 0;
+              }
             }
 
             &.edit {
-              position: absolute;
-              top: 8px;
-              right: 8px;
-              display: block;
-              margin-bottom: 1rem;
-              margin-left: 1rem;
-              width: 20px;
-              height: 20px;
-              border-radius: 50%;
-              background-color: $blue;
+              font-size: 1rem;
             }
           }
 
