@@ -64,7 +64,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
               policyHolder={initialValues.policyHolders[0]}
               icons={
                 <a onClick={() => setModal({ show: true, ph: 0 })}>
-                  <FontAwesomeIcon icon="times" />
+                  <FontAwesomeIcon icon="edit" />
                 </a>
               }
             />
@@ -125,7 +125,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
                   answers={BOOL_OPTIONS}
                   styleName="policyHolder radio"
                   dataTest="policyHolder2"
-                  label="Did you get your boo to buy this house with you?"
+                  label="Is there an additional owner's name to add (e.g. spouse on deed and/or living home?"
                   hint=""
                   segmented
                 />
