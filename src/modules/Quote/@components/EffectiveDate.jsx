@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Field, validation, DatePicker } from '@exzeo/core-ui';
 import { useZipCodeSettings } from '@exzeo/harmony-core';
 
@@ -11,7 +11,7 @@ import { useZipCodeSettings } from '@exzeo/harmony-core';
 
 const EffectiveDate = ({ initialValues }) => {
   const { companyCode, state, product, property } = initialValues;
-  const { settings = {}, loaded } = useZipCodeSettings(
+  const { settings = {} } = useZipCodeSettings(
     companyCode,
     state,
     product,
