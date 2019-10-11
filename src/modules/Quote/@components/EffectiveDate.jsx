@@ -27,7 +27,7 @@ const EffectiveDate = ({ initialValues }) => {
   // );
 
   return (
-    <section>
+    <section className="datePicker">
       <Field name="effectiveDate" validate={validation.isRequired}>
         {({ input, meta }) => (
           <DatePicker
