@@ -420,6 +420,16 @@
           },
           "formData": {},
           "children": []
+        },
+        {
+          "id": "da0a2e9b-90b5-4cc6-b593-a1b343a4c2af",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "date"
+          },
+          "formData": {},
+          "children": []
         }
       ]
     },

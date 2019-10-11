@@ -19,6 +19,7 @@ import AdditionalInterests from './AdditionalInterests';
 import PolicyHolder from './PolicyHolder';
 import ThankYou from './WorkflowComplete';
 import Address from './Address';
+import EffectiveDatePicker from './EffectiveDate';
 
 const EMPTY_OBJ = {};
 
@@ -30,7 +31,8 @@ const CUSTOM_COMPONENTS = {
   $AGENCY_SELECT: EditAgency,
   $ADDITIONAL_INTERESTS: AdditionalInterests,
   $POLICYHOLDER: PolicyHolder,
-  $THANK_YOU: ThankYou
+  $THANK_YOU: ThankYou,
+  date: EffectiveDatePicker
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {
