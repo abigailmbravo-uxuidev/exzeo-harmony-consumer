@@ -503,6 +503,11 @@
                 flex-direction: row;
                 position: relative;
 
+                .react-datepicker__week {
+                  display: flex;
+                  flex-direction: column-reverse;
+                }
+
                 .react-datepicker__triangle {
                   position: absolute;
                 }
