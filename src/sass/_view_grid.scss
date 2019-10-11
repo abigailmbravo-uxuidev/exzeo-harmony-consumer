@@ -489,12 +489,48 @@
         &.datePicker {
           .react-datepicker-popper {
             top: 300px !important;
+            display: flex;
+            width: 100%;
             div {
-              border-radius: $borderRadius;
               width: 100%;
               .react-datepicker {
+                background-color: $white;
+                border-radius: $borderRadius;
+                @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
+                margin-top: 0.5rem;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                position: relative;
+
+                .react-datepicker__triangle {
+                  position: absolute;
+                }
+
+                button {
+                  position: absolute;
+                  box-shadow: none;
+                  font-weight: $normal;
+                  font-family: $sans;
+                  font-size: $fontSizeBase;
+
+                  &.react-datepicker__navigation {
+                    &.react-datepicker__navigation--previous {
+                      left: 0;
+                    }
+
+                    &.react-datepicker__navigation--next {
+                      right: 0;
+                    }
+                  }
+                }
+
                 .react-datepicker__month-container {
                   .react-datepicker__header {
+                    background-color: $blue;
+                    padding-top: $padding/2;
+                    padding-bottom: $padding/2;
+                    border-radius: $borderRadius $borderRadius 0 0;
                     .react-datepicker__day-names {
                       flex-direction: row;
                       display: flex;
@@ -502,20 +538,20 @@
                       flex-shrink: 1;
                       text-align: center;
                       margin-top: 0.5rem;
-                      font-family: $serif;
-                      font-weight: $bold;
+                      color: $white;
                     }
 
                     .react-datepicker__current-month {
                       text-align: center;
                       font-family: $serif;
                       font-weight: $bold;
-                      font-size: $fontSizeSubheader;
-                      color: $blue;
+                      font-size: $fontSizeHeader--small;
+                      color: $white;
                     }
                   }
 
                   .react-datepicker__month {
+                    margin-top: 0.5rem;
                     display: flex;
                     flex-direction: row;
                     flex-grow: 1;
@@ -530,8 +566,12 @@
           .react-datepicker-wrapper {
             display: flex;
             height: 30rem;
-            background-color: $white;
             .react-datepicker__input-container {
+              input {
+                margin-top: 1.5rem;
+                padding-top: ($padding / 2);
+                border-radius: $borderRadius $borderRadius 0 0;
+              }
             }
           }
         }
