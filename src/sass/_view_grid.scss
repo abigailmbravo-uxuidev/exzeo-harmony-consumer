@@ -1345,6 +1345,14 @@ $colors: $blue, $red, $green, $navy, gold;
         font-size: $fontSizeBase;
         font-family: $sans;
 
+        &.react-datepicker__navigation--previous {
+          border-right-color: white;
+        }
+
+        &.react-datepicker__navigation--next {
+          border-left-color: white;
+        }
+
         &.react-datepicker__navigation {
           &.react-datepicker__navigation--previous {
             left: 0;

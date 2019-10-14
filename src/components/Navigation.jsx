@@ -43,8 +43,8 @@ const Navigation = ({ location, match }) => {
                 <strong>{quote.property.physicalAddress.address1}</strong>
               </p>
               <p>{format.toCityStateZip(quote.property.physicalAddress)}</p>
+              <p>{`FEMA Flood Zone: "${quote.property.floodZone}"`}</p>
               <p>{`Year built: ${quote.property.yearBuilt}`}</p>
-              <p>{`Flood Zone: "${quote.property.floodZone}"`}</p>
             </React.Fragment>
           ) : (
             <p />
