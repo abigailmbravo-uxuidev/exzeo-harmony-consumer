@@ -13,6 +13,10 @@ const Navigation = ({ location, match }) => {
   const [navOpen, setNavOpen] = useState(false);
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
 
+  const isRouteActive = linkOrder => () => {
+    return linkOrder === locationOrder;
+  };
+
   return (
     <React.Fragment>
       <button className="navOpener" onClick={() => setNavOpen(state => !state)}>
@@ -107,7 +111,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/underwriting`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.underwriting.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.underwriting.order,
                     complete: locationOrder > ROUTES.underwriting.order
@@ -127,12 +131,13 @@ const Navigation = ({ location, match }) => {
 
               <li key={ROUTES.customize.label}>
                 <NavLink
+                  exact
                   to={
                     locationOrder < ROUTES.customize.order
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/customize`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.customize.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.customize.order,
                     complete: locationOrder > ROUTES.customize.order
@@ -153,7 +158,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/save`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.save.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.save.order,
                     complete: locationOrder > ROUTES.save.order
@@ -174,7 +179,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/share`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.share.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.share.order,
                     complete: locationOrder > ROUTES.share.order
@@ -211,7 +216,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/additionalInfo`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.additionalInfo.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.additionalInfo.order,
                     complete: locationOrder > ROUTES.additionalInfo.order
@@ -231,12 +236,13 @@ const Navigation = ({ location, match }) => {
 
               <li key={ROUTES.policyholder.label}>
                 <NavLink
+                  exact
                   to={
                     locationOrder < ROUTES.policyholder.order
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/policyholder`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.policyholder.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.policyholder.order,
                     complete: locationOrder > ROUTES.policyholder.order
@@ -261,7 +267,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/billing`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.billing.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.billing.order,
                     complete: locationOrder > ROUTES.billing.order
@@ -282,7 +288,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/summary`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.summary.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.summary.order,
                     complete: locationOrder > ROUTES.summary.order
@@ -303,7 +309,7 @@ const Navigation = ({ location, match }) => {
                       ? '#'
                       : `/quote/${match.params.quoteNumber}/complete`
                   }
-                  activeClassName="active"
+                  isActive={isRouteActive(ROUTES.complete.order)}
                   className={classNames({
                     disabled: locationOrder < ROUTES.complete.order,
                     complete: locationOrder > ROUTES.complete.order
