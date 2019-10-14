@@ -1327,8 +1327,6 @@ $colors: $blue, $red, $green, $navy, gold;
       background-color: $white;
       border: none;
 
-      @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
-
       .react-datepicker__week {
         display: flex;
         flex-direction: column-reverse;
