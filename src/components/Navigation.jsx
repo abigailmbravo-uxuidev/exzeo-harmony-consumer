@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink, Link } from 'react-router-dom';
-/* animation will be applied here. classes will be: navSlideOut & navSlideIn */
+import { format } from '@exzeo/core-ui';
 
 import { ROUTES } from 'constants/navigation';
 import { useQuote } from 'modules/Quote';
-import { format } from '@exzeo/core-ui';
 
 const Navigation = ({ location, match }) => {
   const { quote } = useQuote();
