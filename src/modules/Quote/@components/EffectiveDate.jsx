@@ -38,6 +38,8 @@ const EffectiveDate = ({ initialValues }) => {
             styleName="effectiveDate datePicker"
             minDate={minDate}
             maxDate={maxDate}
+            inline
+            monthsShown={2}
           />
         )}
       </Field>

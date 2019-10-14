@@ -478,111 +478,6 @@
       }
     }
   }
-
-  //date picker styling
-
-  .datePicker {
-    .form-group {
-      &.effectiveDate {
-        &.datePicker {
-          .react-datepicker-popper {
-            top: 300px !important;
-            display: flex;
-            width: 100%;
-            div {
-              width: 100%;
-              .react-datepicker {
-                position: relative;
-                display: flex;
-                flex-direction: row;
-                margin-top: 0.5rem;
-                width: 100%;
-                border-radius: $borderRadius;
-                background-color: $white;
-
-                @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
-
-                .react-datepicker__week {
-                  display: flex;
-                  flex-direction: column-reverse;
-                }
-
-                .react-datepicker__triangle {
-                  position: absolute;
-                }
-
-                button {
-                  position: absolute;
-                  box-shadow: none;
-                  font-weight: $normal;
-                  font-size: $fontSizeBase;
-                  font-family: $sans;
-
-                  &.react-datepicker__navigation {
-                    &.react-datepicker__navigation--previous {
-                      left: 0;
-                    }
-
-                    &.react-datepicker__navigation--next {
-                      right: 0;
-                    }
-                  }
-                }
-
-                .react-datepicker__month-container {
-                  .react-datepicker__header {
-                    padding-top: $padding/2;
-                    padding-bottom: $padding/2;
-                    border-radius: $borderRadius $borderRadius 0 0;
-                    background-color: $blue;
-                    .react-datepicker__day-names {
-                      display: flex;
-                      flex-direction: row;
-                      flex-grow: 1;
-                      flex-shrink: 1;
-                      margin-top: 0.5rem;
-                      color: $white;
-                      text-align: center;
-                    }
-
-                    .react-datepicker__current-month {
-                      color: $white;
-                      text-align: center;
-                      font-weight: $bold;
-                      font-size: $fontSizeHeader--small;
-                      font-family: $serif;
-                    }
-                  }
-
-                  .react-datepicker__month {
-                    display: flex;
-                    flex-direction: row;
-                    flex-grow: 1;
-                    flex-shrink: 1;
-                    margin-top: 0.5rem;
-                    text-align: center;
-                  }
-                }
-              }
-            }
-          }
-
-          .react-datepicker-wrapper {
-            display: flex;
-            height: 30rem;
-            .react-datepicker__input-container {
-              input {
-                margin-top: 1.5rem;
-                padding-top: ($padding / 2);
-                border-radius: $borderRadius $borderRadius 0 0;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   //additional info styling
 
   .additionalInfo {
@@ -1405,5 +1300,110 @@ $colors: $blue, $red, $green, $navy, gold;
   }
   100% {
     opacity: 1;
+  }
+}
+
+//date picker styling
+
+.datePicker {
+  .form-group {
+    &.datePicker {
+      label {
+        position: relative;
+      }
+      .react-datepicker-popper {
+        top: 300px !important;
+        display: flex;
+        width: 100%;
+        div {
+          width: 100%;
+          .react-datepicker {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            margin-top: 0.5rem;
+            width: 100%;
+            border-radius: $borderRadius;
+            background-color: $white;
+
+            @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
+
+            .react-datepicker__week {
+              display: flex;
+              flex-direction: column-reverse;
+            }
+
+            .react-datepicker__triangle {
+              position: absolute;
+            }
+
+            button {
+              position: absolute;
+              box-shadow: none;
+              font-weight: $normal;
+              font-size: $fontSizeBase;
+              font-family: $sans;
+
+              &.react-datepicker__navigation {
+                &.react-datepicker__navigation--previous {
+                  left: 0;
+                }
+
+                &.react-datepicker__navigation--next {
+                  right: 0;
+                }
+              }
+            }
+
+            .react-datepicker__month-container {
+              .react-datepicker__header {
+                padding-top: $padding/2;
+                padding-bottom: $padding/2;
+                border-radius: $borderRadius $borderRadius 0 0;
+                background-color: $blue;
+                .react-datepicker__day-names {
+                  display: flex;
+                  flex-direction: row;
+                  flex-grow: 1;
+                  flex-shrink: 1;
+                  margin-top: 0.5rem;
+                  color: $white;
+                  text-align: center;
+                }
+
+                .react-datepicker__current-month {
+                  color: $white;
+                  text-align: center;
+                  font-weight: $bold;
+                  font-size: $fontSizeHeader--small;
+                  font-family: $serif;
+                }
+              }
+
+              .react-datepicker__month {
+                display: flex;
+                flex-direction: row;
+                flex-grow: 1;
+                flex-shrink: 1;
+                margin-top: 0.5rem;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+
+      .react-datepicker-wrapper {
+        display: flex;
+        height: 30rem;
+        .react-datepicker__input-container {
+          input {
+            margin-top: 1.5rem;
+            padding-top: ($padding / 2);
+            border-radius: $borderRadius $borderRadius 0 0;
+          }
+        }
+      }
+    }
   }
 }
