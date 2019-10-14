@@ -1307,53 +1307,25 @@ $colors: $blue, $red, $green, $navy, gold;
 
 .datePicker {
   .form-group {
+    border-radius: $borderRadius;
     &.datePicker {
       label {
         position: relative;
       }
-
-      .react-datepicker {
-        display: flex;
-        position: relative;
-
-        > button {
-          position: absolute;
-        }
-
-        .react-datepicker__month-container {
-          flex-grow: 1;
-          flex-shrink: 1;
-        }
-      }
-
-      .react-datepicker-wrapper {
-        display: flex;
-        .react-datepicker__input-container {
-          input {
-            margin-top: 1.5rem;
-            padding-top: ($padding / 2);
-            border-radius: $borderRadius $borderRadius 0 0;
-          }
-        }
-      }
     }
   }
-}
 
-.react-datepicker-popper {
-  top: 300px !important;
-  display: flex;
-  width: 100%;
+  //date picker styling specific
   div {
     width: 100%;
     .react-datepicker {
       position: relative;
       display: flex;
-      flex-direction: row;
       margin-top: 0.5rem;
       width: 100%;
       border-radius: $borderRadius;
       background-color: $white;
+      border: none;
 
       @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
 
@@ -1392,12 +1364,15 @@ $colors: $blue, $red, $green, $navy, gold;
           background-color: $blue;
           .react-datepicker__day-names {
             display: flex;
-            flex-direction: row;
             flex-grow: 1;
             flex-shrink: 1;
             margin-top: 0.5rem;
-            color: $white;
             text-align: center;
+
+            .react-datepicker__day-name {
+              color: $white;
+              font-weight: $bold;
+            }
           }
 
           .react-datepicker__current-month {
@@ -1411,11 +1386,16 @@ $colors: $blue, $red, $green, $navy, gold;
 
         .react-datepicker__month {
           display: flex;
-          flex-direction: row;
           flex-grow: 1;
           flex-shrink: 1;
           margin-top: 0.5rem;
           text-align: center;
+
+          .react-datepicker__week {
+            .react-datepicker__day--selected {
+              background-color: $blue;
+            }
+          }
         }
       }
     }
