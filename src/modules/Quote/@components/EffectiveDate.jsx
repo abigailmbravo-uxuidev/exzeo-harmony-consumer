@@ -1,13 +1,6 @@
 import React from 'react';
-import { Field, validation, DatePicker } from '@exzeo/core-ui';
+import { Field, validation, DatePicker, date } from '@exzeo/core-ui';
 import { useZipCodeSettings } from '@exzeo/harmony-core';
-
-// function calculateEffectiveDateRange(zipCodeSettings) {
-//   return {
-//     minDate: new Date(zipCodeSettings.minEffectiveDate),
-//     maxDate: new Date(zipCodeSettings.maxEffectiveDate)
-//   };
-// }
 
 const EffectiveDate = ({ initialValues }) => {
   const { companyCode, state, product, property } = initialValues;
@@ -18,13 +11,14 @@ const EffectiveDate = ({ initialValues }) => {
     property.physicalAddress.zip
   );
 
-  const minDate = new Date(settings.minEffectiveDate);
-  const maxDate = new Date(settings.maxEffectiveDate);
-
-  // const { minDate, maxDate } = useMemo(
-  //   () => calculateEffectiveDateRange(settings),
-  //   [settings.minEffectiveDate, settings.maxEffectiveDate]
-  // );
+  const minDate = new Date(
+    // override default formatting
+    date.formatDate(settings.minEffectiveDate, undefined)
+  );
+  const maxDate = new Date(
+    // override default formatting
+    date.formatDate(settings.maxEffectiveDate, undefined)
+  );
 
   return (
     <section className="datePicker">
