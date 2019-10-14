@@ -20,17 +20,19 @@ import PolicyHolder from './PolicyHolder';
 import ThankYou from './WorkflowComplete';
 import Address from './Address';
 import EffectiveDatePicker from './EffectiveDate';
+import Billing from './Billing';
 
 const EMPTY_OBJ = {};
 
 const CUSTOM_COMPONENTS = {
-  $INFO: InfoBar,
-  $SUBTITLE: Subtitle,
-  $SUMMARY: Summary,
+  $ADDITIONAL_INTERESTS: AdditionalInterests,
   $ADDRESS: Address,
   $AGENCY_SELECT: EditAgency,
-  $ADDITIONAL_INTERESTS: AdditionalInterests,
+  $BILLING: Billing,
+  $INFO: InfoBar,
   $POLICYHOLDER: PolicyHolder,
+  $SUBTITLE: Subtitle,
+  $SUMMARY: Summary,
   $THANK_YOU: ThankYou,
   date: EffectiveDatePicker
 };
