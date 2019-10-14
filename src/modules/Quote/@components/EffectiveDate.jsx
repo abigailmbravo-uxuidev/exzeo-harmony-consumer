@@ -18,7 +18,7 @@ const EffectiveDate = ({ initialValues }) => {
     property.physicalAddress.zip
   );
 
-  const minDate = new Date(settings.minEffectiveDat);
+  const minDate = new Date(settings.minEffectiveDate);
   const maxDate = new Date(settings.maxEffectiveDate);
 
   // const { minDate, maxDate } = useMemo(
@@ -38,8 +38,8 @@ const EffectiveDate = ({ initialValues }) => {
             styleName="effectiveDate datePicker"
             minDate={minDate}
             maxDate={maxDate}
-            inline
             monthsShown={2}
+            inline
           />
         )}
       </Field>
