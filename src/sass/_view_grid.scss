@@ -183,7 +183,6 @@
       }
 
       label {
-        z-index: 20;
         z-index: 1;
         padding-top: $padding;
         color: $navy;
@@ -224,7 +223,6 @@
       }
 
       .thankYouIcon {
-        z-index: 15;
         z-index: 1;
         align-items: center;
         flex-grow: 0;
@@ -328,8 +326,8 @@
 
   .policyHolderInfo {
     h4 {
-      padding-top: ($padding / 2);
       margin-bottom: 0.5rem;
+      padding-top: ($padding / 2);
     }
     .card {
       flex-direction: row;
@@ -339,8 +337,8 @@
           padding-right: 0.75rem;
         }
         h4 {
-          padding-top: 0;
           margin-bottom: 0;
+          padding-top: 0;
         }
       }
 
@@ -356,8 +354,8 @@
       &.policyHolder {
         &.radio {
           &.segmented {
-            flex-direction: row;
             overflow: visible;
+            flex-direction: row;
             margin-bottom: 1rem;
 
             @include forPhoneOnly {
@@ -368,9 +366,9 @@
               margin-bottom: 0.5rem;
             }
             label {
-              font-size: $fontSizeSubheader--small;
               flex-grow: 1;
               flex-shrink: 1;
+              font-size: $fontSizeSubheader--small;
 
               @include forPhoneOnly {
                 padding-right: 0;
@@ -378,12 +376,12 @@
             }
 
             .segmented-answer-wrapper {
+              align-self: flex-start;
               flex-grow: 1;
               flex-shrink: 1;
-              align-self: flex-start;
-              border-radius: $borderRadius;
               margin-top: 0.5rem;
               width: 6rem;
+              border-radius: $borderRadius;
 
               @include forPhoneOnly {
                 margin-bottom: 1.5rem;
@@ -404,8 +402,8 @@
 
   .addressSection {
     h4 {
-      padding-top: ($padding / 2);
       margin-bottom: 0.5rem;
+      padding-top: ($padding / 2);
     }
 
     .card {
@@ -430,8 +428,8 @@
       &.mailingSameAsProperty {
         &.radio {
           &.segmented {
-            flex-direction: row;
             overflow: visible;
+            flex-direction: row;
             margin-bottom: 1rem;
 
             @include forPhoneOnly {
@@ -443,9 +441,9 @@
             }
 
             label {
-              font-size: $fontSizeSubheader--small;
               flex-grow: 1;
               flex-shrink: 1;
+              font-size: $fontSizeSubheader--small;
 
               @include forPhoneOnly {
                 padding-right: 0;
@@ -453,12 +451,12 @@
             }
 
             .segmented-answer-wrapper {
+              align-self: flex-start;
               flex-grow: 1;
               flex-shrink: 1;
-              align-self: flex-start;
-              border-radius: $borderRadius;
               margin-top: 0.5rem;
               width: 6rem;
+              border-radius: $borderRadius;
 
               @include forPhoneOnly {
                 margin-bottom: 1.5rem;
@@ -494,14 +492,15 @@
             div {
               width: 100%;
               .react-datepicker {
-                background-color: $white;
-                border-radius: $borderRadius;
-                @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
-                margin-top: 0.5rem;
-                width: 100%;
+                position: relative;
                 display: flex;
                 flex-direction: row;
-                position: relative;
+                margin-top: 0.5rem;
+                width: 100%;
+                border-radius: $borderRadius;
+                background-color: $white;
+
+                @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
 
                 .react-datepicker__week {
                   display: flex;
@@ -516,8 +515,8 @@
                   position: absolute;
                   box-shadow: none;
                   font-weight: $normal;
-                  font-family: $sans;
                   font-size: $fontSizeBase;
+                  font-family: $sans;
 
                   &.react-datepicker__navigation {
                     &.react-datepicker__navigation--previous {
@@ -532,35 +531,35 @@
 
                 .react-datepicker__month-container {
                   .react-datepicker__header {
-                    background-color: $blue;
                     padding-top: $padding/2;
                     padding-bottom: $padding/2;
                     border-radius: $borderRadius $borderRadius 0 0;
+                    background-color: $blue;
                     .react-datepicker__day-names {
-                      flex-direction: row;
                       display: flex;
+                      flex-direction: row;
                       flex-grow: 1;
                       flex-shrink: 1;
-                      text-align: center;
                       margin-top: 0.5rem;
                       color: $white;
+                      text-align: center;
                     }
 
                     .react-datepicker__current-month {
+                      color: $white;
                       text-align: center;
-                      font-family: $serif;
                       font-weight: $bold;
                       font-size: $fontSizeHeader--small;
-                      color: $white;
+                      font-family: $serif;
                     }
                   }
 
                   .react-datepicker__month {
-                    margin-top: 0.5rem;
                     display: flex;
                     flex-direction: row;
                     flex-grow: 1;
                     flex-shrink: 1;
+                    margin-top: 0.5rem;
                     text-align: center;
                   }
                 }
@@ -595,8 +594,8 @@
           padding-right: 0.75rem;
         }
         h4 {
-          padding-top: 0;
           margin-bottom: 0;
+          padding-top: 0;
         }
       }
 
@@ -623,19 +622,19 @@
               margin-bottom: 0.5rem;
             }
             label {
-              font-size: $fontSizeSubheader--small;
               flex-grow: 1;
               flex-shrink: 1;
+              font-size: $fontSizeSubheader--small;
 
               @include forPhoneOnly {
                 padding-right: 0;
               }
             }
             .segmented-answer-wrapper {
-              width: 6rem;
-              border-radius: $borderRadius;
               align-self: flex-start;
               margin-top: 0.5rem;
+              width: 6rem;
+              border-radius: $borderRadius;
 
               @include forPhoneOnly {
                 margin-bottom: 1.5rem;
@@ -1292,7 +1291,7 @@
 
 @include forPhoneOnly {
   .view-grid {
-    padding: ($padding * 4) 0 0 0;
+    padding: 0;
 
     .title {
       padding-top: $padding/4;

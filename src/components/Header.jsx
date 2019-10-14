@@ -20,7 +20,7 @@ const Header = () => {
             title="call us"
             href={`${CONTACT_PHONE.href}`}
           >
-            &nbsp;{CONTACT_PHONE.display}&nbsp;
+            {CONTACT_PHONE.display}
             <FontAwesomeIcon icon="phone-alt" />
           </a>
         </div>

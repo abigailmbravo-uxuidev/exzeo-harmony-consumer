@@ -3,15 +3,14 @@ div[role='region'] {
   display: flex;
   flex-grow: 1;
   flex-shrink: 1;
-
-  @include forPhoneOnly {
-    height: 100%;
-    margin-top: 1rem;
-  }
   //background color & img styling
   background-color: $backgroundColor;
   background-image: url('../../img/consumer_BG.jpg');
   background-position-x: calc(((100vw - 102rem) / 2) + 67rem);
   background-position-y: 1.5rem;
   background-repeat: no-repeat;
+
+  @include forPhoneOnly {
+    height: 100%;
+  }
 }

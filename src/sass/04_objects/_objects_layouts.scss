@@ -54,6 +54,7 @@ body {
       //mobile styling
 
       @include forPhoneOnly {
+        margin-top: 4rem;
         padding: $padding 2rem;
       }
 
