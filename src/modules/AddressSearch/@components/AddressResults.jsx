@@ -14,14 +14,16 @@ const AddressResults = ({ results, companyCode, product }) => {
     await createQuote(address, companyCode, product);
   }
 
+  if (loading) {
+    return <SectionLoader />;
+  }
+
   if (quote.quoteNumber) {
     return <Redirect to={`/quote/${quote.quoteNumber}/underwriting`} />;
   }
 
   return (
     <React.Fragment>
-      {' '}
-      {loading && <SectionLoader />}
       {results.map(property => (
         <AddressCard
           key={property.id}
