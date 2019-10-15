@@ -1312,6 +1312,39 @@ $colors: $blue, $red, $green, $navy, gold;
         label {
           position: relative;
         }
+
+        div {
+          .react-datepicker {
+            border: none;
+            .react-datepicker__month-container {
+              .react-datepicker__header {
+                background-color: $blue;
+
+                .react-datepicker__current-month {
+                  color: white;
+                  font-family: $serif;
+                  font-size: $fontSizeSubheader--small;
+                }
+
+                .react-datepicker__day-names {
+                  .react-datepicker__day-name {
+                    color: $white;
+                  }
+                }
+              }
+
+              .react-datepicker__month {
+                .react-datepicker__week {
+                  .react-datepicker__day {
+                    &.react-datepicker__day--selected {
+                      background-color: $blue;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
