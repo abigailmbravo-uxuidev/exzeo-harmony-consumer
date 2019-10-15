@@ -1330,7 +1330,7 @@ $colors: $blue, $red, $green, $navy, gold;
               ~ .react-datepicker__month-container {
                 .react-datepicker__header {
                   border-top-left-radius: 0;
-                  border-top-right-radius: 0.3rem;
+                  border-top-right-radius: $borderRadius;
                 }
               }
               .react-datepicker__header {
