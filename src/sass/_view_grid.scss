@@ -1327,6 +1327,9 @@ $colors: $blue, $red, $green, $navy, gold;
       background-color: $white;
       border: none;
 
+      @include forPhoneOnly {
+        flex-direction: column;
+      }
       .react-datepicker__week {
         display: flex;
         flex-direction: column-reverse;
@@ -1366,8 +1369,12 @@ $colors: $blue, $red, $green, $navy, gold;
         .react-datepicker__header {
           padding-top: $padding/2;
           padding-bottom: $padding/2;
-          border-radius: $borderRadius $borderRadius 0 0;
           background-color: $blue;
+          border-radius: 0;
+
+          @include forPhoneOnly {
+            border-radius: 0.375rem;
+          }
           .react-datepicker__day-names {
             display: flex;
             flex-grow: 1;
