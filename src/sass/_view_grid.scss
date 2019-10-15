@@ -1316,8 +1316,6 @@ $colors: $blue, $red, $green, $navy, gold;
         div {
           .react-datepicker {
             border: none;
-
-            @include shadow(6px, 3px, 6px, rgba($navy, 0.16));
             .react-datepicker__navigation {
               box-shadow: none;
               &.react-datepicker__navigation--next {
@@ -1329,8 +1327,15 @@ $colors: $blue, $red, $green, $navy, gold;
             }
 
             .react-datepicker__month-container {
+              ~ .react-datepicker__month-container {
+                .react-datepicker__header {
+                  border-top-left-radius: 0;
+                  border-top-right-radius: 0.3rem;
+                }
+              }
               .react-datepicker__header {
                 background-color: $blue;
+                border-top-right-radius: 0;
 
                 .react-datepicker__current-month {
                   color: white;
