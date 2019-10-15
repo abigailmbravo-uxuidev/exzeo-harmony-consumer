@@ -1,6 +1,10 @@
 import React from 'react';
 import { SectionLoader } from '@exzeo/core-ui';
-import { useFetchBillingConfiguration } from '@exzeo/harmony-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  useFetchBillingConfiguration,
+  getBillingConfiguration
+} from '@exzeo/harmony-core';
 
 const Billing = ({ initialValues }) => {
   const { billingConfig, loaded } = useFetchBillingConfiguration(initialValues);
@@ -15,6 +19,7 @@ const Billing = ({ initialValues }) => {
         <div key={option.answer} className="card" data-test="billToCard">
           <div className="cardContent">
             <h4>{option.label.split(' ').filter((s, i) => i !== 0)}</h4>
+            <FontAwesomeIcon icon="angle-right" />
           </div>
         </div>
       ))}
