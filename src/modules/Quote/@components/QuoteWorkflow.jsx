@@ -13,6 +13,7 @@ import Subtitle from 'components/Subtitle';
 import { useWorkflowTemplate } from '../hooks';
 import { useQuote } from '../QuoteContext';
 import WorkflowFooter from './WorkflowFooter';
+import Share from './Share';
 import Summary from './Summary';
 import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
@@ -32,6 +33,7 @@ const CUSTOM_COMPONENTS = {
   $INFO: InfoBar,
   $POLICYHOLDER: PolicyHolder,
   $SUBTITLE: Subtitle,
+  $SHARE: Share,
   $SUMMARY: Summary,
   $THANK_YOU: ThankYou,
   date: EffectiveDatePicker

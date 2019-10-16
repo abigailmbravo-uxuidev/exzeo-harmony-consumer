@@ -328,7 +328,7 @@
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
-            "component": "$SUMMARY",
+            "component": "$SHARE",
             "extendedProperties": {}
           },
           "formData": {},
@@ -478,17 +478,30 @@
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "This is where we will summarize the stuff you just did"
+            "text": "Summary"
           },
           "formData": {},
           "children": []
         },
         {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "id": "c9394022-edd8-4ae0-901f-f99a903c3999",
+          "type": "$SUBTITLE",
+          "dependencies": [],
+          "data": {
+            "className": "subtitle",
+            "strong": "",
+            "text": "To ensure the accuracy of your documents, please review the information below and confirm. That everything is correct. Click the ‘confirm’ button to validate each section. If you spot a problem, click the corresponding ‘edit’ button."
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-3092b4574a99",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
-            "component": "$INFO"
+            "component": "$SUMMARY",
+            "extendedProperties": {}
           },
           "formData": {},
           "children": []
