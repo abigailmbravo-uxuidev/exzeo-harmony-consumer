@@ -905,7 +905,7 @@
           height: 125px;
           border-radius: 50%;
           background-color: $white;
-          box-shadow: 0 8px 12px darken($navy, 15%);
+          box-shadow: 0 8px 12px rgba($navy, 0.15);
           font-size: 50px;
 
           svg {
@@ -1307,6 +1307,7 @@ $colors: $blue, $red, $green, $navy, gold;
 
 .datePicker {
   .form-group {
+    overflow: visible;
     &.effectiveDate {
       &.datePicker {
         label {
@@ -1320,6 +1321,7 @@ $colors: $blue, $red, $green, $navy, gold;
           .react-datepicker {
             border: none;
             width: 31rem;
+            box-shadow: 0 8px 12px rgba($navy, 0.15);
 
             @include forDatePicker {
               width: 100%;
