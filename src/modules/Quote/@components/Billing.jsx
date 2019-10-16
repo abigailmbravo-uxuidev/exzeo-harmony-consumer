@@ -12,7 +12,7 @@ const Billing = ({ initialValues }) => {
   }
 
   return (
-    <section>
+    <section className="billing">
       <ul>
         {billingConfig.billingOptions.map(option => (
           <li key={option.answer}>

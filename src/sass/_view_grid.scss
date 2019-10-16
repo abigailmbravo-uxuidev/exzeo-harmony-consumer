@@ -1023,6 +1023,49 @@
     flex-grow: 1;
     flex-shrink: 1;
 
+    &.billing {
+      ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+          .card {
+            display: flex;
+            padding: $padding/4;
+          }
+          div {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            .card {
+              margin-right: $padding;
+
+              &:last-of-type {
+                margin-right: 0;
+              }
+
+              dl {
+                dt {
+                  text-align: center;
+                  font-family: $serif;
+                  font-size: $fontSizeSubheader;
+                  font-weight: $bold;
+                  padding: ($padding/4) 0 ($padding/2) 0;
+                }
+                dd {
+                  font-family: $sans;
+                  font-size: $fontSizeBase;
+                  font-weight: $normal;
+                  padding: 0 ($padding/2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     &.results {
       display: flex;
       flex-direction: column;

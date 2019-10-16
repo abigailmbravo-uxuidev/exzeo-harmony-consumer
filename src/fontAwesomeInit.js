@@ -2,6 +2,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faPhoneAlt,
   faChevronRight,
+  faChevronDown,
   faSearch,
   faEdit,
   faPaperPlane,
@@ -21,6 +22,7 @@ import {
 library.add(
   faPhoneAlt,
   faChevronRight,
+  faChevronDown,
   faSearch,
   faEdit,
   faPaperPlane,
