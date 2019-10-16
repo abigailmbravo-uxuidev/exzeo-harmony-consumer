@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { AddressFormFields, AddressFieldWatchers } from '@exzeo/harmony-core';
 import { BOOL_OPTIONS } from '../../../constants/input';
 
-const Address = ({ initialValues, config }) => {
+const Address = ({ initialValues }) => {
   const initialValue =
     initialValues.property.physicalAddress.address1 ===
       initialValues.policyHolderMailingAddress.address1 &&
@@ -44,6 +44,7 @@ const Address = ({ initialValues, config }) => {
         fieldPrefix="policyHolderMailingAddress"
         matchPrefix="property.physicalAddress"
         values={initialValues}
+        invert
       />
     </section>
   );
