@@ -135,6 +135,4 @@ function formatQuoteForUser(quoteData) {
   //   );
   //   return quoteData;
   // }
-
-  return quoteData;
 }

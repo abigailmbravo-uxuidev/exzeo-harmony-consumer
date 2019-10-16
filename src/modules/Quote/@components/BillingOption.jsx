@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { PayPlanTable, getBillToConfiguration } from '@exzeo/harmony-core';
+import { getBillToConfiguration } from '@exzeo/harmony-core';
+
+import PayPlanOptions from './PayPlanOptions';
 
 const BillingOption = ({ option, config }) => {
   const billingConfig = getBillToConfiguration(config, option.answer);
@@ -14,11 +16,10 @@ const BillingOption = ({ option, config }) => {
         </div>
       </div>
 
-      <PayPlanTable
+      <PayPlanOptions
         availablePlans={billingConfig.availablePlans}
         paymentPlans={config.paymentPlans}
       />
-      {/*<pre>{JSON.stringify(billingConfig, 0, 2)}</pre>*/}
     </React.Fragment>
   );
 };
