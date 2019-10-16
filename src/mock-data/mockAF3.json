@@ -555,18 +555,6 @@
                           "path": "effectiveDate"
                         }
                       ]
-                    },
-                    {
-                      "label": "Agent",
-                      "items": [
-                        {
-                          "format": "",
-                          "optionKey": "agents",
-                          "compareField": "answer",
-                          "valuePath": "agentCode",
-                          "selectField": "label"
-                        }
-                      ]
                     }
                   ]
                 }
@@ -575,6 +563,17 @@
               "children": []
             }
           ]
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-3102b4574a99",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$AGENCY_DETAILS",
+            "extendedProperties": {}
+          },
+          "formData": {},
+          "children": []
         }
       ]
     },
