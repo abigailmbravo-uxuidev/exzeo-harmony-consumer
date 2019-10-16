@@ -1324,7 +1324,14 @@ $colors: $blue, $red, $green, $navy, gold;
             box-shadow: 0 8px 12px rgba($navy, 0.15);
 
             @include forDatePicker {
-              width: 100%;
+              width: 16rem;
+            }
+
+            @include forPhoneOnly {
+              display: block;
+              margin: 0 auto;
+              float: none;
+              height: 15rem;
             }
             .react-datepicker__navigation {
               box-shadow: none;
