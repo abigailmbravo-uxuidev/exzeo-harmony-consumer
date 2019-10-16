@@ -210,7 +210,7 @@ const ThankYou = () => {
       <p>
         Thank you for choosing TypTap to provide a Flood Quote for your
         property. We can't wait for you to come back and finish the quote. If
-        you need our help, call us, email us, send a carry pigeon, whatever!
+        you need our help, call us, email us, send a carrier pigeon, whatever!
         We're here and love to talk all things insurance!
       </p>
       <a href="https://typtap.com/" target="_self" rel="noopener noreferrer">

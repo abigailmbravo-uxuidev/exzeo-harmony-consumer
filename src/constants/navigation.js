@@ -42,7 +42,7 @@ export const ROUTES = {
     path: 'additionalInfo',
     order: 6,
     workflowPage: 4,
-    label: 'Additional Info'
+    label: 'Additional Insured'
   },
   policyholder: {
     path: 'policyholder',

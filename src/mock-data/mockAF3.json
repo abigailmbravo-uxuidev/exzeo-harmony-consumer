@@ -345,7 +345,7 @@
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Additional Information"
+            "text": "Additional Insured"
           },
           "formData": {},
           "children": []
@@ -442,7 +442,7 @@
           "type": "$TITLE",
           "dependencies": [],
           "data": {
-            "text": "Biller Information"
+            "text": "Billing Information"
           },
           "formData": {},
           "children": []

@@ -56,6 +56,21 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
 
   return (
     <section className={config.className}>
+      <Field name="policyHolder2" validate={validation.isRequired}>
+        {({ input, meta }) => (
+          <Radio
+            input={input}
+            meta={meta}
+            answers={BOOL_OPTIONS}
+            styleName="policyHolder radio"
+            dataTest="policyHolder2"
+            label="Is there an additional owner's name to add (e.g. spouse on deed and/or living home?"
+            hint=""
+            segmented
+          />
+        )}
+      </Field>
+
       <Form onSubmit={x => x} initialValues={setInitialValues(initialValues)}>
         {({ values, form }) => (
           <React.Fragment>
@@ -116,21 +131,6 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
                   />
                 </ModalPortal>
               )}
-
-            <Field name="policyHolder2" validate={validation.isRequired}>
-              {({ input, meta }) => (
-                <Radio
-                  input={input}
-                  meta={meta}
-                  answers={BOOL_OPTIONS}
-                  styleName="policyHolder radio"
-                  dataTest="policyHolder2"
-                  label="Is there an additional owner's name to add (e.g. spouse on deed and/or living home?"
-                  hint=""
-                  segmented
-                />
-              )}
-            </Field>
 
             <OnChangeListener name="policyHolder2">
               {value => {
