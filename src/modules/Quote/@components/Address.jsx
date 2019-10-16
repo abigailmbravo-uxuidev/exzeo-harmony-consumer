@@ -34,7 +34,9 @@ const Address = ({ initialValues }) => {
               hide: !values.sameAsPropertyAddress
             })}
           >
-            <AddressFormFields fieldPrefix="policyHolderMailingAddress" />
+            {values.sameAsPropertyAddress && (
+              <AddressFormFields fieldPrefix="policyHolderMailingAddress" />
+            )}
           </div>
         )}
       </FormSpy>

@@ -35,11 +35,7 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
               className={Button.constants.classNames.primary}
               onKeyPress={e => e.charCode === 13 && form.submit(e)}
               onClick={form.submit}
-              disabled={
-                submitting ||
-                //  TODO temporary disabled so we don't pass this page
-                workflowPage === ROUTES.additionalInfo.workflowPage
-              }
+              disabled={submitting}
             >
               {workflowPage === ROUTES.customize.workflowPage && recalc
                 ? 'Recalculate'
