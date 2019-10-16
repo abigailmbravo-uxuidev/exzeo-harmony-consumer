@@ -14,7 +14,7 @@ import { useWorkflowTemplate } from '../hooks';
 import { useQuote } from '../QuoteContext';
 import WorkflowFooter from './WorkflowFooter';
 import Share from './Share';
-import Summary from './Summary';
+import PropertyDetails from './PropertyDetails';
 import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
 import PolicyHolder from './PolicyHolder';
@@ -34,7 +34,7 @@ const CUSTOM_COMPONENTS = {
   $POLICYHOLDER: PolicyHolder,
   $SUBTITLE: Subtitle,
   $SHARE: Share,
-  $SUMMARY: Summary,
+  $PROPERTY_DETAILS: PropertyDetails,
   $THANK_YOU: ThankYou,
   date: EffectiveDatePicker
 };

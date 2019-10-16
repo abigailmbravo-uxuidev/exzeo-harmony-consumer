@@ -37,7 +37,7 @@ export const SummaryGroup = ({
           }}
           styleName="switch"
           customClass={classNames(switchClass)}
-          label="Verified"
+          label={switchValue ? 'Confirmed' : 'Confirm'}
           dataTest={switchName}
         />
       )}

@@ -500,11 +500,81 @@
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
-            "component": "$SUMMARY",
+            "component": "$PROPERTY_DETAILS",
             "extendedProperties": {}
           },
           "formData": {},
-          "children": []
+          "children": [
+            {
+              "id": "a55cd6c7-bfdb-48f2-b021-3092b4574a98",
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [],
+              "data": {
+                "extendedProperties": {
+                  "details": [
+                    {
+                      "label": "Quote Number",
+                      "items": [
+                        {
+                          "format": "",
+                          "path": "quoteNumber"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Property Address",
+                      "items": [
+                        {
+                          "format": "",
+                          "path": "property.physicalAddress.address1"
+                        },
+                        {
+                          "format": "",
+                          "path": "property.physicalAddress.address2"
+                        },
+                        {
+                          "format": "cityStateZip",
+                          "path": "property.physicalAddress"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Year Built",
+                      "items": [
+                        {
+                          "format": "",
+                          "path": "property.yearBuilt"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Effective Date",
+                      "items": [
+                        {
+                          "format": "date",
+                          "path": "effectiveDate"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Agent",
+                      "items": [
+                        {
+                          "format": "",
+                          "optionKey": "agents",
+                          "compareField": "answer",
+                          "valuePath": "agentCode",
+                          "selectField": "label"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            }
+          ]
         }
       ]
     },
