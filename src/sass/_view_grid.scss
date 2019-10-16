@@ -1318,6 +1318,7 @@ $colors: $blue, $red, $green, $navy, gold;
             border: none;
             .react-datepicker__navigation {
               box-shadow: none;
+              border-radius: 0;
               &.react-datepicker__navigation--next {
                 border-left-color: $white;
               }
@@ -1353,8 +1354,45 @@ $colors: $blue, $red, $green, $navy, gold;
               .react-datepicker__month {
                 .react-datepicker__week {
                   .react-datepicker__day {
+                    color: $navy;
+                    border: 1px solid transparent;
+
+                    &:hover {
+                      border: 1px solid $blue;
+                    }
+
+                    &.react-datepicker__day--disabled {
+                      color: rgba($navy, 0.3);
+
+                      &:hover {
+                        border-color: transparent;
+                      }
+                    }
+
                     &.react-datepicker__day--selected {
                       background-color: $blue;
+                      color: $white;
+                    }
+
+                    &.react-datepicker__day--today {
+                      background-color: $extraLightGrey;
+                      border-radius: 0.3rem;
+                      color: rgba($navy, 0.5);
+
+                      &:hover {
+                        background-color: $extraLightGrey;
+                        border-radius: 0.3rem;
+                        color: rgba($navy, 0.5);
+                      }
+                    }
+
+                    &.react-datepicker__day--outside-month {
+                      color: $white;
+
+                      &.react-datepicker__day--selected {
+                        background-color: $white;
+                        color: $white;
+                      }
                     }
                   }
                 }
