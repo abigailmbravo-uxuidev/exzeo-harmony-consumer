@@ -5,9 +5,15 @@ import { AddressFormFields, AddressFieldWatchers } from '@exzeo/harmony-core';
 import { BOOL_OPTIONS } from '../../../constants/input';
 
 const Address = ({ initialValues }) => {
+  const initialValue =
+    initialValues.property.physicalAddress.address1 ===
+      initialValues.policyHolderMailingAddress.address1 &&
+    initialValues.property.physicalAddress.address2 ===
+      initialValues.policyHolderMailingAddress.address2;
+
   return (
     <section className="addressSection">
-      <Field name="sameAsPropertyAddress">
+      <Field name="sameAsPropertyAddress" initialValue={initialValue}>
         {({ input, meta }) => (
           <Radio
             input={input}
