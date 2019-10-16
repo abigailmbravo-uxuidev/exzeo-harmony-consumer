@@ -1,19 +1,25 @@
 import React from 'react';
-import { SectionLoader } from '@exzeo/core-ui';
-import { useFetchBillingConfiguration } from '@exzeo/harmony-core';
+import { SectionLoader, validation } from '@exzeo/core-ui';
+import {
+  useFetchBillingConfiguration,
+  getBillToConfiguration,
+  BillingFieldWatchers
+} from '@exzeo/harmony-core';
+import { useField } from '@exzeo/core-ui';
 
 import BillingOption from './BillingOption';
+import classNames from 'classnames';
+import PayPlanOptions from './PayPlanOptions';
 
 const Billing = ({ initialValues, formInstance }) => {
   const { billingConfig, loaded } = useFetchBillingConfiguration(initialValues);
+  const billToIdField = useField('billToId', {
+    validate: validation.isRequired
+  });
 
-  function setBillToInfo(billToId, billToType, payPlan) {
-    formInstance.batch(() => {
-      formInstance.change('billToId', billToId);
-      formInstance.change('billToType', billToType);
-      formInstance.change('payPlan', payPlan);
-    });
-  }
+  const payPlanField = useField('billPlan', {
+    validate: validation.isRequired
+  });
 
   if (!loaded) {
     return <SectionLoader />;
@@ -22,12 +28,37 @@ const Billing = ({ initialValues, formInstance }) => {
   return (
     <section className="billing">
       <ul>
-        {billingConfig.billingOptions.map(option => (
-          <li key={option.answer}>
-            <BillingOption option={option} config={billingConfig} />
-          </li>
-        ))}
+        {billingConfig.billingOptions.map(option => {
+          const billingToConfig = getBillToConfiguration(
+            billingConfig,
+            option.answer
+          );
+          const isSelected = option.answer === billToIdField.input.value;
+
+          return (
+            <li key={option.answer}>
+              <BillingOption
+                option={option}
+                handleClick={billToIdField.input.onChange}
+                isSelected={isSelected}
+              />
+
+              <div className={classNames({ 'fade-in': isSelected })}>
+                {isSelected && (
+                  <PayPlanOptions
+                    availablePlans={billingToConfig.availablePlans}
+                    paymentPlans={billingConfig.paymentPlans}
+                    handleClick={payPlanField.input.onChange}
+                    selectedPlan={payPlanField.input.value}
+                  />
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
+
+      <BillingFieldWatchers billingConfig={billingConfig} />
     </section>
   );
 };
