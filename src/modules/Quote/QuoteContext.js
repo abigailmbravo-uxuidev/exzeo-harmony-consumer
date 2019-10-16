@@ -118,7 +118,11 @@ function formatQuoteForSubmit(data, options) {
 
 // Edit quote for Form
 function formatQuoteForUser(quoteData) {
-  quoteData.effectiveDate = new Date(quoteData.effectiveDate);
+  return {
+    ...quoteData,
+    effectiveDate: new Date(quoteData.effectiveDate),
+    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {}
+  };
 
   // if (quoteData.policyHolders[1] && quoteData.policyHolders[1].firstName) {
   //   quoteData.additionalPolicyholder = true;
