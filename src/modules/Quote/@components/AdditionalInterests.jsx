@@ -21,10 +21,10 @@ import { BOOL_OPTIONS } from '../../../constants/input';
 
 function setInitialValues(groupedAI) {
   return {
-    mortgagee1: groupedAI[AI_TYPES.mortgagee].length > 0,
-    mortgagee2: groupedAI[AI_TYPES.mortgagee].length === 2,
-    additionalInsured: groupedAI[AI_TYPES.additionalInsured].length > 0,
-    additionalInterest: groupedAI[AI_TYPES.additionalInterest].length > 0
+    mortgagee1: groupedAI[AI_TYPES.mortgagee].length > 0 || '',
+    mortgagee2: groupedAI[AI_TYPES.mortgagee].length === 2 || '',
+    additionalInsured: groupedAI[AI_TYPES.additionalInsured].length > 0 || '',
+    additionalInterest: groupedAI[AI_TYPES.additionalInterest].length > 0 || ''
   };
 }
 

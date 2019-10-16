@@ -5,21 +5,15 @@ import { AddressFormFields, AddressFieldWatchers } from '@exzeo/harmony-core';
 import { BOOL_OPTIONS } from '../../../constants/input';
 
 const Address = ({ initialValues }) => {
-  const initialValue =
-    initialValues.property.physicalAddress.address1 ===
-      initialValues.policyHolderMailingAddress.address1 &&
-    initialValues.property.physicalAddress.address2 ===
-      initialValues.policyHolderMailingAddress.address2;
-
   return (
     <section className="addressSection">
-      <Field name="sameAsPropertyAddress" initialValue={initialValue}>
+      <Field name="sameAsPropertyAddress">
         {({ input, meta }) => (
           <Radio
             input={input}
             meta={meta}
             answers={BOOL_OPTIONS}
-            label="Is your mailing address different from the property address?"
+            label="Is your mailing address the same as the property address?"
             styleName="mailingSameAsProperty radio"
             dataTest="mailingSameAsProperty"
             segmented
@@ -31,12 +25,10 @@ const Address = ({ initialValues }) => {
         {({ values }) => (
           <div
             className={classNames('well', {
-              hide: !values.sameAsPropertyAddress
+              hide: values.sameAsPropertyAddress
             })}
           >
-            {values.sameAsPropertyAddress && (
-              <AddressFormFields fieldPrefix="policyHolderMailingAddress" />
-            )}
+            <AddressFormFields fieldPrefix="policyHolderMailingAddress" />
           </div>
         )}
       </FormSpy>
@@ -46,7 +38,6 @@ const Address = ({ initialValues }) => {
         fieldPrefix="policyHolderMailingAddress"
         matchPrefix="property.physicalAddress"
         values={initialValues}
-        invert
       />
     </section>
   );
