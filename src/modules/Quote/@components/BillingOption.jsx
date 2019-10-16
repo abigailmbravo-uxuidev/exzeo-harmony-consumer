@@ -9,7 +9,7 @@ const BillingOption = ({ option, config }) => {
 
   return (
     <React.Fragment>
-      <div className="card" data-test="billToCard">
+      <div className="card billToId" data-test="billToCard">
         <div className="cardContent">
           <h4>{option.label.split(' ').filter((s, i) => i !== 0)}</h4>
           <FontAwesomeIcon icon="chevron-down" />
