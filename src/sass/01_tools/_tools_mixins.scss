@@ -42,6 +42,12 @@
   }
 }
 
+@mixin forDatePicker {
+  @media (max-width: 55rem) {
+    @content;
+  }
+}
+
 //hover mixin
 
 //transition mixin
