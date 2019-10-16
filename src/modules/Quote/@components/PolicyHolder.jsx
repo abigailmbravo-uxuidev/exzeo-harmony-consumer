@@ -18,6 +18,12 @@ const INITIAL_STATE = {
   show: false
 };
 
+function setInitialValues(quote) {
+  return {
+    policyHolder2: quote.policyHolders.length > 1
+  };
+}
+
 const PolicyHolder = ({ initialValues, config, customHandlers }) => {
   const [modal, setModal] = useState(INITIAL_STATE);
 
@@ -50,7 +56,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
 
   return (
     <section className={config.className}>
-      <Form onSubmit={x => x}>
+      <Form onSubmit={x => x} initialValues={setInitialValues(initialValues)}>
         {({ values, form }) => (
           <React.Fragment>
             <h4>Policyholder 1</h4>
