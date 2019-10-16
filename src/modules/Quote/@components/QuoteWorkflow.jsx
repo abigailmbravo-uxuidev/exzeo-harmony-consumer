@@ -23,6 +23,7 @@ import Address from './Address';
 import EffectiveDatePicker from './EffectiveDate';
 import Billing from './Billing';
 import AgencyDetails from './AgencyDetails';
+import QuoteDetails from './QuoteDetails';
 
 const EMPTY_OBJ = {};
 
@@ -38,7 +39,8 @@ const CUSTOM_COMPONENTS = {
   $THANK_YOU: ThankYou,
   date: EffectiveDatePicker,
   $PROPERTY_DETAILS: PropertyDetails,
-  $AGENCY_DETAILS: AgencyDetails
+  $AGENCY_DETAILS: AgencyDetails,
+  $QUOTE_DETAILS: QuoteDetails
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {

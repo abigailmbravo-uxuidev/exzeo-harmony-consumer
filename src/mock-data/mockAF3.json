@@ -574,6 +574,86 @@
           },
           "formData": {},
           "children": []
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-3112b4574222",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$QUOTE_DETAILS",
+            "extendedProperties": {}
+          },
+          "formData": {},
+          "children": [
+            {
+              "id": "a55cd6c7-bfdb-48f2-b021-4152b4574546",
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [],
+              "data": {
+                "extendedProperties": {
+                  "className": "row-items",
+                  "details": [
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "rating.totalPremium"
+                        }
+                      ],
+                      "label": "Yearly Premium"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "coverageLimits.building.amount"
+                        }
+                      ],
+                      "label": "Building Limit"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "deductibles.buildingDeductible.amount"
+                        }
+                      ],
+                      "label": "Building Deductible"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "coverageLimits.personalProperty.amount"
+                        }
+                      ],
+                      "label": "Personal Property"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "deductibles.personalPropertyDeductible.amount"
+                        }
+                      ],
+                      "label": "Personal Property Deductible"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "bool",
+                          "path": "coverageOptions.personalPropertyReplacementCost.answer"
+                        }
+                      ],
+                      "label": "Personal Property Replacement Cost"
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            }
+          ]
         }
       ]
     },
