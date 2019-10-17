@@ -13,7 +13,7 @@ const InfoBar = ({ initialValues, config }) => {
         </strong>
       </h2>
       <label>
-        Quote Number: <strong>{`#${initialValues.quoteNumber}`}</strong>
+        Quote Number:&nbsp;<strong>{initialValues.quoteNumber}</strong>
       </label>
     </div>
   );
