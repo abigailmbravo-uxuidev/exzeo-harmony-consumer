@@ -15,8 +15,10 @@ import {
   faCircle,
   faAngleRight,
   faAngleDown,
-  faCat,
-  faDog
+  faEnvelope,
+
+  // TODO delete when finished
+  faBiohazard
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -35,6 +37,8 @@ library.add(
   faCircle,
   faAngleRight,
   faAngleDown,
-  faCat,
-  faDog
+  faEnvelope,
+
+  // TODO delete when finished
+  faBiohazard
 );

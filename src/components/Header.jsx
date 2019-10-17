@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { CONTACT_PHONE } from '../constants/contactInformation';
 
 import logo from '../img/TypTap.svg';
+import ContactPhoneAnchor from './ContactPhoneAnchor';
 
 const Header = () => {
   return (
@@ -14,15 +12,7 @@ const Header = () => {
           <img src={logo} alt="TypTap Insurance" />
         </Link>
         <div role="contentinfo">
-          <a
-            className="contactPhone"
-            id="phone"
-            title="call us"
-            href={`${CONTACT_PHONE.href}`}
-          >
-            {CONTACT_PHONE.display}
-            <FontAwesomeIcon icon="phone-alt" />
-          </a>
+          <ContactPhoneAnchor />
         </div>
       </div>
     </header>
