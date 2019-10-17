@@ -11,10 +11,12 @@ const BillingOption = ({ option, handleClick, isSelected }) => {
       >
         <div className="cardContent">
           <h4>{option.label}</h4>
+        </div>
+        <footer>
           <FontAwesomeIcon
             icon={isSelected ? 'chevron-down' : 'chevron-right'}
           />
-        </div>
+        </footer>
       </div>
     </React.Fragment>
   );

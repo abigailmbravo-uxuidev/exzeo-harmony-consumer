@@ -1032,6 +1032,11 @@
           .card {
             display: flex;
             padding: $padding/4;
+            flex-direction: row;
+
+            footer {
+              width: auto;
+            }
           }
           div {
             display: flex;
@@ -1050,6 +1055,7 @@
               }
 
               &.payPlan {
+                flex-direction: column;
                 h5 {
                   text-align: center;
                   padding: ($padding/2) 0 0 0;
