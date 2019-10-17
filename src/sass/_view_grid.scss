@@ -1043,12 +1043,18 @@
               margin-right: $padding;
 
               &.payPlan {
+                label {
+                  top: 124px;
+                  position: absolute;
+                  background-color: $blue;
+                  color: $white;
+                }
                 &.selected {
                   background-color: $blue;
                   color: $white;
 
                   label {
-                    color: $white;
+                    background-color: transparent;
                   }
                 }
               }
