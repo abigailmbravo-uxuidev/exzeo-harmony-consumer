@@ -24,6 +24,7 @@ import EffectiveDatePicker from './EffectiveDate';
 import Billing from './Billing';
 import AgencyDetails from './AgencyDetails';
 import QuoteDetails from './QuoteDetails';
+import PolicyholderDetails from './PolicyholderDetails';
 
 const EMPTY_OBJ = {};
 
@@ -40,7 +41,8 @@ const CUSTOM_COMPONENTS = {
   date: EffectiveDatePicker,
   $PROPERTY_DETAILS: PropertyDetails,
   $AGENCY_DETAILS: AgencyDetails,
-  $QUOTE_DETAILS: QuoteDetails
+  $QUOTE_DETAILS: QuoteDetails,
+  $POLICYHOLDER_DETAILS: PolicyholderDetails
 };
 
 const QuoteWorkflow = ({ history, location, match }) => {

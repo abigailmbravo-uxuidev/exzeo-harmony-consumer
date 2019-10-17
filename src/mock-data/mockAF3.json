@@ -654,6 +654,96 @@
               "children": []
             }
           ]
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-5112b4574333",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$POLICYHOLDER_DETAILS",
+            "extendedProperties": { "subscribe": true }
+          },
+          "formData": {},
+          "children": [
+            {
+              "id": 6766545,
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [],
+              "data": {
+                "extendedProperties": {
+                  "className": "row-items",
+                  "details": [
+                    {
+                      "label": "Primary Policyholder",
+                      "items": [
+                        {
+                          "format": "name",
+                          "path": "policyHolders[0]"
+                        },
+                        {
+                          "format": "phone",
+                          "path": "policyHolders[0].primaryPhoneNumber"
+                        },
+                        {
+                          "format": "",
+                          "path": "policyHolders[0].emailAddress"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            },
+            {
+              "id": "c9394022-edd8-4ae0-901f-f99a903c3999",
+              "type": "$SUBTITLE",
+              "dependencies": [],
+              "data": {
+                "className": "subtitle",
+                "strong": "",
+                "text": "Please make sure your email is valid. We will send an email with the application to electronically sign. Once your policy is created, we will use this email address to send your new Flood Insurance Policy."
+              },
+              "formData": {},
+              "children": []
+            },
+            {
+              "id": 6766545444555663,
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [
+                {
+                  "policyHolders[1]": true
+                }
+              ],
+              "data": {
+                "extendedProperties": {
+                  "className": "row-items",
+                  "details": [
+                    {
+                      "label": "Primary Policyholder",
+                      "items": [
+                        {
+                          "format": "name",
+                          "path": "policyHolders[1]"
+                        },
+                        {
+                          "format": "phone",
+                          "path": "policyHolders[1].primaryPhoneNumber"
+                        },
+                        {
+                          "format": "",
+                          "path": "policyHolders[1].emailAddress"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            }
+          ]
         }
       ]
     },
