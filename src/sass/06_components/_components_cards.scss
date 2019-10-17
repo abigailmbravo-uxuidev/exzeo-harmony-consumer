@@ -13,6 +13,12 @@
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
 
+  .btn,
+  button,
+  a {
+    cursor: pointer;
+  }
+
   &.selected {
     footer {
       .btn,
@@ -52,13 +58,13 @@
     padding: ($padding / 2) $padding ($padding / 2) $padding;
 
     h4 {
-      margin-bottom: 0.25rem;
       margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
       font-family: $serif;
 
       @include forPhoneOnly {
-        font-size: $fontSizeBase;
         margin-top: 0.5rem;
+        font-size: $fontSizeBase;
       }
     }
     p {
