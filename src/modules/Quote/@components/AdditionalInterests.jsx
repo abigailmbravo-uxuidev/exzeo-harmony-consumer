@@ -83,7 +83,7 @@ const AdditionalInterests = ({
                   styleName="additionalInterest radio"
                   dataTest="mortgagee1"
                   label="Do you have a mortgage for this property?"
-                  hint="This is the primary lienholder on your property, and has priority for payment over all other leins."
+                  hint="This is the primary lienholder on your property, and has priority for payment over all other liens."
                   segmented
                 />
               )}
