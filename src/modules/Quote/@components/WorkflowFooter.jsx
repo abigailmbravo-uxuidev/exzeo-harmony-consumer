@@ -2,10 +2,19 @@ import React from 'react';
 import { Button, FormSpy } from '@exzeo/core-ui';
 import { ROUTES } from 'constants/navigation';
 import { Link } from 'react-router-dom';
+import SummaryFooter from './SummaryFooter';
 
 const WorkflowFooter = ({ recalc, workflowPage }) => {
   if (workflowPage === ROUTES.additionalInfo.workflowPage) {
     return null;
+  }
+
+  if (workflowPage === ROUTES.summary.workflowPage) {
+    return (
+      <FormSpy subscription={{ submitting: true }}>
+        {({ submitting, form }) => <SummaryFooter />}
+      </FormSpy>
+    );
   }
 
   return (

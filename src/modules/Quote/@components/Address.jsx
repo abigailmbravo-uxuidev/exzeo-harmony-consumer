@@ -4,16 +4,12 @@ import classNames from 'classnames';
 import { AddressFormFields, AddressFieldWatchers } from '@exzeo/harmony-core';
 import { BOOL_OPTIONS } from '../../../constants/input';
 
-const Address = ({ initialValues }) => {
-  const initialValue =
-    initialValues.property.physicalAddress.address1 ===
-      initialValues.policyHolderMailingAddress.address1 &&
-    initialValues.property.physicalAddress.address2 ===
-      initialValues.policyHolderMailingAddress.address2;
+const FieldWatchers = React.memo(AddressFieldWatchers);
 
+const Address = ({ initialValues }) => {
   return (
     <section className="addressSection">
-      <Field name="sameAsPropertyAddress" initialValue={initialValue}>
+      <Field name="sameAsPropertyAddress">
         {({ input, meta }) => (
           <Radio
             input={input}
@@ -39,7 +35,7 @@ const Address = ({ initialValues }) => {
         )}
       </FormSpy>
 
-      <AddressFieldWatchers
+      <FieldWatchers
         watchField="sameAsPropertyAddress"
         fieldPrefix="policyHolderMailingAddress"
         matchPrefix="property.physicalAddress"

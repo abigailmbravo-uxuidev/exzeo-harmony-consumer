@@ -76,6 +76,21 @@ export function useQuote() {
     }
   };
 
+  const sendApplication = async (quoteNumber, options = {}) => {
+    try {
+      setLoading(true);
+      const quote = await quoteData.verifyQuote({ quoteNumber }, options);
+      if (quote.quoteState !== 'Application Ready') {
+        throw new Error('Quote is not in Apllcation Ready state');
+      }
+      await quoteData.sendApplication(quoteNumber, 'docusign');
+    } catch (error) {
+      throw Error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const setQuoteForUser = quote => {
     const formattedQuote = formatQuoteForUser(quote);
     setQuote(formattedQuote);
@@ -88,7 +103,8 @@ export function useQuote() {
     createQuote,
     retrieveQuote,
     setQuoteForUser,
-    updateQuote
+    updateQuote,
+    sendApplication
   };
 }
 
@@ -121,7 +137,12 @@ function formatQuoteForUser(quoteData) {
   return {
     ...quoteData,
     effectiveDate: new Date(quoteData.effectiveDate),
-    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {}
+    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {},
+    sameAsPropertyAddress:
+      quoteData.property.physicalAddress.address1 ===
+        quoteData.policyHolderMailingAddress.address1 &&
+      quoteData.property.physicalAddress.city ===
+        quoteData.policyHolderMailingAddress.city
   };
 
   // if (quoteData.policyHolders[1] && quoteData.policyHolders[1].firstName) {
