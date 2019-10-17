@@ -4,8 +4,6 @@ import classNames from 'classnames';
 import { AddressFormFields, AddressFieldWatchers } from '@exzeo/harmony-core';
 import { BOOL_OPTIONS } from '../../../constants/input';
 
-const FieldWatchers = React.memo(AddressFieldWatchers);
-
 const Address = ({ initialValues }) => {
   return (
     <section className="addressSection">
@@ -35,7 +33,7 @@ const Address = ({ initialValues }) => {
         )}
       </FormSpy>
 
-      <FieldWatchers
+      <AddressFieldWatchers
         watchField="sameAsPropertyAddress"
         fieldPrefix="policyHolderMailingAddress"
         matchPrefix="property.physicalAddress"
