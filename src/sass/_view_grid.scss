@@ -1044,10 +1044,14 @@
 
               &.payPlan {
                 label {
-                  top: 124px;
+                  top: 122px;
                   position: absolute;
                   background-color: $blue;
                   color: $white;
+                  padding: ($padding/4) 0;
+                  overflow: visible;
+                  width: 106%;
+                  left: -5px;
                 }
                 &.selected {
                   background-color: $blue;
