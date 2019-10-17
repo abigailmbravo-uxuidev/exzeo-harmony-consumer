@@ -80,13 +80,29 @@ const Navigation = ({ location, match }) => {
           </li>
           {/********** SEARCH ADDRESS **********/}
 
+          {/********** SEARCH ADDRESS LINK **********/}
+          <li
+            key={ROUTES.searchAddress.label}
+            className={classNames('complete', {
+              hide: location.pathname !== '/thankYou'
+            })}
+          >
+            <Link to="/">
+              <h3>{ROUTES.searchAddress.label}</h3>
+              <span />
+              <p />
+            </Link>
+          </li>
+          {/********** SEARCH ADDRESS LINK **********/}
+
           {/********** QUOTE **********/}
           <li
             key="quote"
             className={classNames({
               disabled:
                 location.pathname === '/searchAddress' ||
-                location.pathname === '/retrieveQuote',
+                location.pathname === '/retrieveQuote' ||
+                location.pathname === '/thankYou',
               complete: locationOrder >= ROUTES.additionalInfo.order
             })}
           >

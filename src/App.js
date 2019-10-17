@@ -38,7 +38,8 @@ const App = () => {
                 path={[
                   '/searchAddress',
                   '/retrieveQuote',
-                  '/quote/:quoteNumber/:step'
+                  '/quote/:quoteNumber/:step',
+                  '/thankYou'
                 ]}
                 render={routeProps => <Navigation {...routeProps} />}
               />

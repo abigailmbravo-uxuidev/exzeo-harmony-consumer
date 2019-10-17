@@ -156,10 +156,17 @@ const ThankYou = () => {
         <div class="confetti-0"></div>
       </div>
       <section className="thankYouCircle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 946.74 357.43">
-          <g>
-            <path d="M0,0C81,160.6,247.41,270.75,439.55,270.75S798.11,160.6,879.11,0Z" />
-          </g>
+        <svg
+          id="Layer_1"
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 879.10003 270.79999"
+        >
+          <title>circ</title>
+          <path
+            d="M33.8,0c81,160.6,247.4,270.8,439.5,270.8S831.9,160.6,912.9,0Z"
+            transform="translate(-33.8)"
+          />
         </svg>
       </section>
       <section className="thankYouIcon">
@@ -206,7 +213,7 @@ const ThankYou = () => {
           </g>
         </svg>
       </section>
-      <label className="thankYouTitle">Quote Saved!</label>
+      <label className="thankYouTitle">Quote {} Saved!</label>
       <p>
         Thank you for choosing TypTap to provide a Flood Quote for your
         property. We can't wait for you to come back and finish the quote. If
