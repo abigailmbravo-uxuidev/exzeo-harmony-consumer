@@ -6,6 +6,7 @@
   @include forPhoneOnly {
     position: fixed;
     top: 4.5rem;
+    z-index: 11;
     display: flex;
     justify-content: center;
     margin-bottom: 0;
@@ -16,7 +17,6 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     color: $white;
-    z-index: 11;
     svg {
       align-self: center;
     }
@@ -78,27 +78,28 @@ nav[role='navigation'] {
     margin: 0;
     padding: 1rem 0rem 2rem 0;
     list-style: none;
+
     > li {
       display: flex;
       align-items: center;
       flex-grow: 1;
       flex-shrink: 1;
       flex-wrap: wrap;
-      text-align: right;
       margin-bottom: 0;
+      text-align: right;
       > a {
+        padding: 0;
         width: 100%;
         color: $navy;
         cursor: default;
-        padding: 0;
 
         @include forPhoneOnly {
           flex-direction: row-reverse;
         }
 
         p {
-          margin-bottom: 0.75rem;
           margin-top: 0.75rem;
+          margin-bottom: 0.75rem;
         }
       }
 
@@ -110,11 +111,10 @@ nav[role='navigation'] {
       &.disabled {
         cursor: default;
         ul {
+          overflow: hidden;
           //display: none;
           max-height: 0;
-          overflow: hidden;
           opacity: 0;
-
           //nav animation
           transition: all 0.5s ease-in;
         }
@@ -124,9 +124,11 @@ nav[role='navigation'] {
         }
         h3 {
           color: $lightGrey;
+          cursor: default;
         }
         span {
           background-color: $lightGrey;
+          cursor: default;
         }
       }
       //complete styling - styles first level li and children
@@ -145,13 +147,11 @@ nav[role='navigation'] {
         }
 
         ul {
+          overflow: hidden;
           //this is for the nav animation
-
           //display: none;
           max-height: 0;
-          overflow: hidden;
           opacity: 0;
-
           //nav animation
           transition: all 0.5s ease-in;
         }
@@ -193,7 +193,6 @@ nav[role='navigation'] {
         font-weight: bold;
         font-size: 0.5rem;
         line-height: 1rem;
-
         transition: background-color 0.5s ease-in;
 
         svg {
@@ -211,31 +210,29 @@ nav[role='navigation'] {
         width: calc(100% - 2rem);
         text-align: right;
         cursor: pointer;
-
         transition: color 0.5s ease-in;
       }
 
       p {
         flex-grow: 0;
         flex-shrink: 0;
+        margin-top: 0.75rem;
         margin-right: 7px;
+        margin-bottom: 0.75rem;
         min-height: 12px;
         width: calc(100% - 7px);
         border-right: 2px $navy solid;
         text-align: right;
         line-height: 1.2;
-        margin-bottom: 0.75rem;
-        margin-top: 0.75rem;
       }
 
       ul {
         padding: 0;
-        width: 100%;
-        list-style: none;
-        height: auto;
         max-height: 100vh;
+        width: 100%;
+        height: auto;
+        list-style: none;
         opacity: 1;
-
         //nav animation
         transition: all 0.5s ease-in;
 
@@ -267,9 +264,9 @@ nav[role='navigation'] {
               height: 0.375rem;
               background-color: $navy;
               svg {
+                color: $navy;
                 //display: none;
                 opacity: 0;
-                color: $navy;
               }
             }
             p {
