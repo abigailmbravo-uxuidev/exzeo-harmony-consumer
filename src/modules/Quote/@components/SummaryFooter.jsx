@@ -2,12 +2,32 @@ import React from 'react';
 import { Button } from '@exzeo/core-ui';
 import { useQuote } from '../QuoteContext';
 
-const SummaryFooter = () => {
+const SummaryFooter = ({
+  formValues: {
+    confirmProperty,
+    confirmAgency,
+    confirmQuote,
+    confirmPolicyHolder,
+    confirmAdditionalInterest
+  },
+  submitting
+}) => {
   const { sendApplication, quote } = useQuote();
 
   const handleSendApplication = async () => {
     await sendApplication(quote.quoteNumber, {});
   };
+
+  const confirmFields = {
+    confirmProperty,
+    confirmAgency,
+    confirmQuote,
+    confirmPolicyHolder,
+    confirmAdditionalInterest
+  };
+  console.log(confirmFields);
+  const isButtonDisabled =
+    Object.values(confirmFields).some(k => !k) || submitting;
 
   return (
     <Button
@@ -16,7 +36,7 @@ const SummaryFooter = () => {
       className={Button.constants.classNames.primary}
       onKeyPress={e => e.charCode === 13 && handleSendApplication()}
       onClick={handleSendApplication}
-      disabled={false}
+      disabled={isButtonDisabled}
     >
       Continue
     </Button>

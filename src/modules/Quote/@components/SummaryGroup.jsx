@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Switch, noop } from '@exzeo/core-ui';
+import { Switch, Field, validation } from '@exzeo/core-ui';
 
 export const SummaryGroup = ({
   children,
@@ -9,7 +9,6 @@ export const SummaryGroup = ({
   switchClass,
   switchName,
   switchValue,
-  switchOnChange,
   handleEditClick,
   icon
 }) => {
@@ -27,19 +26,18 @@ export const SummaryGroup = ({
       </h3>
       {children}
       {switchName && (
-        <Switch
-          input={{
-            name: switchName,
-            value: switchValue,
-            onChange: switchOnChange,
-            onFocus: noop,
-            onBlur: noop
-          }}
-          styleName="switch"
-          customClass={classNames(switchClass)}
-          label={switchValue ? 'Confirmed' : 'Confirm'}
-          dataTest={switchName}
-        />
+        <Field name={switchName} validate={validation.isRequired}>
+          {({ input, meta }) => (
+            <Switch
+              input={input}
+              meta={meta}
+              styleName="switch"
+              customClass={classNames(switchClass)}
+              label={switchValue ? 'Confirmed' : 'Confirm'}
+              dataTest={switchName}
+            />
+          )}
+        </Field>
       )}
     </div>
   );

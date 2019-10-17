@@ -11,8 +11,10 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
 
   if (workflowPage === ROUTES.summary.workflowPage) {
     return (
-      <FormSpy subscription={{ submitting: true }}>
-        {({ submitting, form }) => <SummaryFooter />}
+      <FormSpy subscription={{ submitting: true, values: true }}>
+        {({ submitting, values }) => (
+          <SummaryFooter submitting={submitting} formValues={values} />
+        )}
       </FormSpy>
     );
   }

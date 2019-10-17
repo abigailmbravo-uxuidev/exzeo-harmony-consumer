@@ -3,7 +3,7 @@ import SummaryGroup from './SummaryGroup';
 import { noop } from '@exzeo/core-ui/src';
 
 const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
-  const [confirmAdditionalInterests, setConfirmAdditionalInterests] = useState(
+  const [confirmAdditionalInterest, setConfirmAdditionalInterest] = useState(
     false
   );
 
@@ -12,9 +12,9 @@ const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
       <SummaryGroup
         header="Additional Insured Details"
         detailClass="ai-details"
-        switchName="confirmAdditionalInterests"
-        switchValue={confirmAdditionalInterests}
-        switchOnChange={value => setConfirmAdditionalInterests(value)}
+        switchName="confirmAdditionalInterest"
+        switchValue={confirmAdditionalInterest}
+        switchOnChange={value => setConfirmAdditionalInterest(value)}
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}
