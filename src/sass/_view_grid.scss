@@ -1041,11 +1041,23 @@
             .card {
               margin-right: $padding;
 
+              &.payPlan {
+                &.selected {
+                  background-color: $blue;
+                  color: $white;
+
+                  label {
+                    color: $white;
+                  }
+                }
+              }
+
               &:last-of-type {
                 margin-right: 0;
               }
 
               dl {
+                position: relative;
                 dt {
                   text-align: center;
                   font-family: $serif;
@@ -1058,6 +1070,13 @@
                   font-size: $fontSizeBase;
                   font-weight: $normal;
                   padding: 0 ($padding/2);
+                }
+                label {
+                  color: $blue;
+                  font-size: $fontSizeSubheader--small;
+                  font-family: $serif;
+                  text-align: center;
+                  padding: 0;
                 }
               }
             }
