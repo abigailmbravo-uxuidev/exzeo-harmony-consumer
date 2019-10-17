@@ -10,7 +10,7 @@ const BillingOption = ({ option, handleClick, isSelected }) => {
         onClick={() => handleClick(option.answer)}
       >
         <div className="cardContent">
-          <h4>{option.label.split(' ').filter((s, i) => i !== 0)}</h4>
+          <h4>{option.label}</h4>
           <FontAwesomeIcon
             icon={isSelected ? 'chevron-down' : 'chevron-right'}
           />

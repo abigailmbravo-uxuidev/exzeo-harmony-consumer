@@ -27,6 +27,7 @@ const Billing = ({ initialValues, formInstance }) => {
 
   return (
     <section className="billing">
+      <h4>Who should we bill for your Policy?</h4>
       <ul>
         {billingConfig.billingOptions.map(option => {
           const billingToConfig = getBillToConfiguration(

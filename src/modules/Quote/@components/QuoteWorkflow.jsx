@@ -60,16 +60,14 @@ const QuoteWorkflow = ({ history, location, match }) => {
 
   // TODO really only necessary for development (auto-refreshing)
   useEffect(() => {
-    (async function() {
-      if (!quote.quoteNumber) await retrieveQuote(match.params.quoteNumber);
-    })();
+    if (!quote.quoteNumber) retrieveQuote(match.params.quoteNumber);
 
     // unset the quote if we leave QuoteWorkflow
     return () => setQuote({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function handleGandalfSubmit(data, options) {
+  async function handleGandalfSubmit(data) {
     try {
       await updateQuote(data, { workflowPage });
 
