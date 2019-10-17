@@ -15,7 +15,7 @@
           "children": []
         },
         {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "id": "6c1b8558-360e-4e2b-9d96-3092b45748xxx",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
@@ -381,7 +381,7 @@
       "step": {},
       "components": [
         {
-          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49vvvd0a",
           "type": "$TITLE",
           "dependencies": [],
           "data": {
@@ -391,7 +391,7 @@
           "children": []
         },
         {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "id": "6c1b8558-360e-4e2b-9d96-3092b4574yyy",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
@@ -474,7 +474,7 @@
       "step": {},
       "components": [
         {
-          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad4234367879bd0a",
           "type": "$TITLE",
           "dependencies": [],
           "data": {
@@ -666,7 +666,7 @@
           "formData": {},
           "children": [
             {
-              "id": 6766545,
+              "id": 4353454354354366,
               "type": "$ENTITY_DETAILS",
               "dependencies": [],
               "data": {
@@ -697,7 +697,7 @@
               "children": []
             },
             {
-              "id": "c9394022-edd8-4ae0-901f-f99a903c3999",
+              "id": "c9394022-edd8-4ae0-901f-f94459a903c3999",
               "type": "$SUBTITLE",
               "dependencies": [],
               "data": {
@@ -744,6 +744,17 @@
               "children": []
             }
           ]
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-5112b4575778",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$ADDITIONAL_INTERESTS_DETAILS",
+            "extendedProperties": { "subscribe": true }
+          },
+          "formData": {},
+          "children": []
         }
       ]
     },
@@ -752,7 +763,7 @@
       "step": {},
       "components": [
         {
-          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "id": "1e704fbb-eb1c-4f9d-8875-f43a332ad49bd0a",
           "type": "$TITLE",
           "dependencies": [],
           "data": {
@@ -762,7 +773,7 @@
           "children": []
         },
         {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483vv",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
@@ -778,7 +789,7 @@
       "step": {},
       "components": [
         {
-          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad468689bd0a",
           "type": "$CUSTOM",
           "dependencies": [],
           "data": {
