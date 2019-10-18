@@ -22,8 +22,7 @@ const PolicyholderCard = ({ policyHolder, icons }) => {
           {`${formatPhoneNumber(policyHolder.primaryPhoneNumber)}`}
         </p>
       </div>
-
-      {icons}
+      <footer className="cardFooter">{icons}</footer>
     </div>
   );
 };

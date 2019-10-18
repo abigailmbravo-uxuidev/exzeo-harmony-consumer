@@ -342,12 +342,18 @@
       }
 
       a {
-        padding: ($padding/2) $padding ($padding/2) ($padding/2);
-        height: 2rem;
+        //padding: ($padding/2) $padding ($padding/2) ($padding/2);
+        margin-left: 1rem;
+        //height: 2rem;
 
         svg {
           align-content: center;
         }
+      }
+
+      .cardFooter {
+        margin: 0;
+        padding: $padding;
       }
     }
     .form-group {
