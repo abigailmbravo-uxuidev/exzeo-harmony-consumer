@@ -49,7 +49,7 @@ const CUSTOM_COMPONENTS = {
   $ADDITIONAL_INTERESTS_DETAILS: AdditionalInterestsDetails
 };
 
-function underwritingExceptions(workflowPage, underwritingExceptions) {
+function underwritingExceptions(workflowPage, underwritingExceptions = []) {
   const hasException =
     (workflowPage === ROUTES.share.workflowPage &&
       underwritingExceptions.some(

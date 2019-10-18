@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@exzeo/core-ui';
 
 import ContactFooter from './ContactFooter';
@@ -13,12 +14,13 @@ const UnderwritingReview = () => {
         representatives.
       </p>
       <ContactFooter>
-        <Button
+        <Link
+          to="customize"
           className={Button.constants.classNames.primary}
           data-test="edit-quote"
-          label="Edit Quote"
-          onClick={x => x}
-        />
+        >
+          Edit Quote
+        </Link>
       </ContactFooter>
     </div>
   );
