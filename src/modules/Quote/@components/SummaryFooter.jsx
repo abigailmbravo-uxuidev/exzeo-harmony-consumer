@@ -9,7 +9,7 @@ const SummaryFooter = ({
     confirmQuote,
     confirmPolicyHolder,
     confirmAdditionalInterest
-  },
+  } = {},
   submitting
 }) => {
   const { sendApplication, quote } = useQuote();
@@ -25,7 +25,6 @@ const SummaryFooter = ({
     confirmPolicyHolder,
     confirmAdditionalInterest
   };
-  console.log(confirmFields);
   const isButtonDisabled =
     Object.values(confirmFields).some(k => !k) || submitting;
 
