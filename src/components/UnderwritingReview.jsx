@@ -13,31 +13,31 @@ const UnderwritingReview = () => {
           <h1>Quote Under Review</h1>
           <div className="infoBar">
             <h2>
-              <label>Annual Premium:</label>
-              $275
+              Annual Premium:&nbsp;<strong>$275</strong>
             </h2>
-            <span>
-              <label>Quote Number:</label>
-              #77742
-            </span>
+            <label>
+              Quote Number:&nbsp; <strong>#77742</strong>
+            </label>
           </div>
           <div className="subtitle">
             <strong>Thank you for quoting with Typtap!</strong>
+            <p>
+              You have completed the requirements to obtain your Flood Quote. To
+              continue to purchase your policy, please contact one of our
+              representatives.
+            </p>
           </div>
-          <p>
-            You have completed the requirements to obtain your Flood Quote. To
-            continue to purchase your policy, please contact one of our
-            representatives.
-          </p>
-          <ContactFooter>
-            <Link
-              to="customize"
-              className={Button.constants.classNames.primary}
-              data-test="edit-quote"
-            >
-              Edit Quote
-            </Link>
-          </ContactFooter>
+          <div className="needsUpdating">
+            <ContactFooter>
+              <Link
+                to="customize"
+                className={Button.constants.classNames.primary}
+                data-test="edit-quote"
+              >
+                Edit Quote
+              </Link>
+            </ContactFooter>
+          </div>
         </div>
       </main>
     </div>
