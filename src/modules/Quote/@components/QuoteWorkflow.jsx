@@ -63,7 +63,7 @@ function underwritingExceptions(workflowPage, underwritingExceptions = []) {
     (workflowPage === ROUTES.underwriting.workflowPage ||
       workflowPage === ROUTES.customize.workflowPage ||
       workflowPage === ROUTES.save.workflowPage) &&
-    underwritingExceptions.filter(ex => ex.action === EXCEPTION_TYPES.fatal);
+    underwritingExceptions.some(ex => ex.action === EXCEPTION_TYPES.fatal);
 
   return {
     hasException,
