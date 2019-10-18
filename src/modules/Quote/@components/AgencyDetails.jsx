@@ -32,6 +32,7 @@ const AgencyDetails = ({ initialValues }) => {
         header="Agency Details"
         detailClass="agency-details"
         name="confirmAgency"
+        link="save"
         handleEditClick={noop}
       >
         <dl className="agent">

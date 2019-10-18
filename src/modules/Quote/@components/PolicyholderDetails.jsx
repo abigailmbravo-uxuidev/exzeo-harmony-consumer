@@ -1,6 +1,7 @@
 import React from 'react';
 import SummaryGroup from './SummaryGroup';
 import { noop } from '@exzeo/core-ui/src';
+import { Link } from 'react-router-dom';
 
 const PolicyholderDetails = ({ initialValues, renderChildren }) => {
   return (
@@ -9,6 +10,7 @@ const PolicyholderDetails = ({ initialValues, renderChildren }) => {
         header="Policyholder Details"
         detailClass="policyholder-details"
         name="confirmPolicyHolder"
+        link="policyholder"
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}
@@ -17,7 +19,7 @@ const PolicyholderDetails = ({ initialValues, renderChildren }) => {
             <div>
               <dt>No second policyholder on policy. </dt>
               <dd>
-                <a href="#">Add one now?</a>
+                <Link to="policyholder">Add on now?</Link>
               </dd>
             </div>
           </dl>

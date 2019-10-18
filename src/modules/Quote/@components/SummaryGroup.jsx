@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useField, validation } from '@exzeo/core-ui';
+import { Link } from 'react-router-dom';
 
 export const SummaryGroup = ({
   children,
   header,
   detailClass,
   name,
-  handleEditClick,
+  link,
   icon
 }) => {
   const confirmField = useField(name, {
@@ -20,13 +21,9 @@ export const SummaryGroup = ({
       onClick={() => confirmField.input.onChange(!confirmField.input.value)}
     >
       <h5>{header}</h5>
-      <span
-        data-test={detailClass}
-        className="edit-btn"
-        onClick={handleEditClick}
-      >
-        <i className={classNames(icon)} /> Edit
-      </span>
+      <Link to={link} className={classNames('link', detailClass)}>
+        Edit
+      </Link>
       {children}
       <label>{confirmField.input.value ? 'Selected' : 'Select'}</label>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import SummaryGroup from './SummaryGroup';
 import { noop } from '@exzeo/core-ui/src';
+import { Link } from 'react-router-dom';
 
 const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
   return (
@@ -9,6 +10,7 @@ const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
         header="Additional Insured Details"
         detailClass="ai-details"
         name="confirmAdditionalInterest"
+        link="additionalInfo"
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}
@@ -18,7 +20,7 @@ const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
             <div>
               <dt>No mortgages added.</dt>
               <dd>
-                <a href="#">Add one now?</a>
+                <Link to="additionalInfo">Add on now?</Link>
               </dd>
             </div>
           </dl>
@@ -30,7 +32,7 @@ const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
             <div>
               <dt>No additional insured added.</dt>
               <dd>
-                <a href="#">Add one now?</a>
+                <Link to="additionalInfo">Add on now?</Link>
               </dd>
             </div>
           </dl>

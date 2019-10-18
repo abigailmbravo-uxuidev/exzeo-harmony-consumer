@@ -9,6 +9,7 @@ const PropertyDetails = ({ renderChildren }) => {
         header="Property Details"
         detailClass="property-details"
         name="confirmProperty"
+        link="policyholder"
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}

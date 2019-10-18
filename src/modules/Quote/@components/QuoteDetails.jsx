@@ -9,6 +9,7 @@ const QuoteDetails = ({ renderChildren }) => {
         header="Quote Details"
         detailClass="quote-details"
         name="confirmQuote"
+        link="customize"
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}
