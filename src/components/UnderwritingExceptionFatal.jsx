@@ -1,6 +1,7 @@
 import React from 'react';
-import UnderwritingFooter from './UnderwritingFooter';
-import TypTapLink from 'components/TypTapLink';
+
+import ContactFooter from './ContactFooter';
+import TypTapLink from './TypTapLink';
 
 const UnderwritingExceptionFatal = () => {
   return (
@@ -11,9 +12,9 @@ const UnderwritingExceptionFatal = () => {
         automated Flood Quote for your property at this time. Please contact one
         of our representatives so they may further assist you.
       </p>
-      <UnderwritingFooter>
+      <ContactFooter>
         <TypTapLink />
-      </UnderwritingFooter>
+      </ContactFooter>
     </div>
   );
 };

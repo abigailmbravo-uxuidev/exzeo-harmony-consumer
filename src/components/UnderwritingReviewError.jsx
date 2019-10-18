@@ -1,6 +1,7 @@
 import React from 'react';
-import UnderwritingFooter from './UnderwritingFooter';
 import { Button } from '@exzeo/core-ui';
+
+import ContactFooter from './ContactFooter';
 
 const UnderwritingReviewError = () => {
   return (
@@ -11,14 +12,14 @@ const UnderwritingReviewError = () => {
         continue to purchase your policy, please contact one of our
         representatives.
       </p>
-      <UnderwritingFooter>
+      <ContactFooter>
         <Button
           className={Button.constants.classNames.primary}
           data-test="edit-quote"
           label="Edit Quote"
           onClick={x => x}
         />
-      </UnderwritingFooter>
+      </ContactFooter>
     </div>
   );
 };

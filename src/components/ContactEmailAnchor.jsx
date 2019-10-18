@@ -1,6 +1,7 @@
 import React from 'react';
-import { CONTACT_EMAIL } from '../constants/contactInformation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { CONTACT_EMAIL } from 'constants/contactInformation';
 
 const ContactEmailAnchor = () => {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
-import { CONTACT_PHONE } from '../constants/contactInformation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { CONTACT_PHONE } from 'constants/contactInformation';
 
 const ContactPhoneAnchor = () => (
   <a
