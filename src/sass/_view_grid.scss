@@ -1062,6 +1062,10 @@
 
               &.payPlan {
                 flex-direction: column;
+                flex-grow: 0;
+                flex-shrink: 1;
+                width: 33.33%;
+                min-height: 14rem;
                 h5 {
                   text-align: center;
                   padding: ($padding/2) 0 0 0;
