@@ -1035,10 +1035,55 @@
         padding-left: 0;
 
         li {
+          .fade-in {
+            @include forPhoneOnly {
+              flex-direction: column;
+
+              .card {
+                &.payPlan {
+                  height: auto;
+                  width: auto;
+                  display: flex;
+                  justify-content: center;
+                  margin-right: 0;
+                  dl {
+                    text-align: center;
+                    display: flex;
+
+                    div {
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: center;
+                      flex-grow: 0;
+                      flex-shrink: 0;
+                      padding: ($padding / 2) 0;
+
+                      dd {
+                        font-size: $fontSizeBase;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
           .card {
             display: flex;
             padding: $padding/4;
             flex-direction: row;
+
+            @include forPhoneOnly {
+              padding: 0 $padding;
+
+              .cardContent {
+                padding: $padding 0;
+              }
+
+              footer {
+                margin-bottom: 0;
+              }
+            }
 
             footer {
               width: auto;
