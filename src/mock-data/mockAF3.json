@@ -721,7 +721,7 @@
                   "className": "row-items",
                   "details": [
                     {
-                      "label": "Primary Policyholder",
+                      "label": "Secondary Policyholder",
                       "items": [
                         {
                           "format": "name",
