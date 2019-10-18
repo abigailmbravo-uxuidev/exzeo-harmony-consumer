@@ -140,7 +140,11 @@ const QuoteWorkflow = ({ history, match }) => {
         options={EMPTY_OBJ}
         customHandlers={customHandlers}
         renderFooter={
-          <WorkflowFooter recalc={recalc} workflowPage={workflowPage} />
+          <WorkflowFooter
+            history={history}
+            recalc={recalc}
+            workflowPage={workflowPage}
+          />
         }
         formListeners={
           <FormSpy subscription={{ dirty: true }}>

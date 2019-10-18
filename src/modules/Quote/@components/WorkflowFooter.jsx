@@ -4,7 +4,7 @@ import { ROUTES } from 'constants/navigation';
 import { Link } from 'react-router-dom';
 import SummaryFooter from './SummaryFooter';
 
-const WorkflowFooter = ({ recalc, workflowPage }) => {
+const WorkflowFooter = ({ recalc, workflowPage, history }) => {
   if (workflowPage === ROUTES.additionalInfo.workflowPage) {
     return null;
   }
@@ -13,7 +13,11 @@ const WorkflowFooter = ({ recalc, workflowPage }) => {
     return (
       <FormSpy subscription={{ submitting: true, values: true }}>
         {({ submitting, values }) => (
-          <SummaryFooter submitting={submitting} formValues={values} />
+          <SummaryFooter
+            history={history}
+            submitting={submitting}
+            formValues={values}
+          />
         )}
       </FormSpy>
     );
