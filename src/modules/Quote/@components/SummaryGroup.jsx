@@ -13,8 +13,8 @@ export const SummaryGroup = ({
   icon
 }) => {
   return (
-    <div className={classNames('detail-group', detailClass)}>
-      <h3 className="section-group-header">
+    <div className={classNames('detailGroup card', detailClass)}>
+      <h4 className="cardHeader">
         {header}
         <span
           data-test={detailClass}
@@ -23,8 +23,11 @@ export const SummaryGroup = ({
         >
           <i className={classNames(icon)} />
         </span>
-      </h3>
-      {children}
+      </h4>
+      <div className="cardContent">{children}</div>
+      <footer className="cardFooter">
+        <label>Confirmed : Confirm</label>
+        {/* 
       {switchName && (
         <Field name={switchName} validate={validation.isRequired}>
           {({ input, meta }) => (
@@ -33,12 +36,13 @@ export const SummaryGroup = ({
               meta={meta}
               styleName="switch"
               customClass={classNames(switchClass)}
-              label={switchValue ? 'Confirmed' : 'Confirm'}
+              label={switchValue ? "Confirmed" : "Confirm"}
               dataTest={switchName}
             />
           )}
         </Field>
-      )}
+      )}*/}
+      </footer>
     </div>
   );
 };
