@@ -11,7 +11,7 @@ const PayPlanOptions = ({
 }) => {
   const paymentPlan = getFormattedPaymentPlans(availablePlans, paymentPlans);
   return (
-    <div>
+    <>
       {paymentPlan && paymentPlan.amount && (
         <div
           className={classNames('card', 'payPlan', {
@@ -163,7 +163,7 @@ const PayPlanOptions = ({
             </label>
           </div>
         )}
-    </div>
+    </>
   );
 };
 
