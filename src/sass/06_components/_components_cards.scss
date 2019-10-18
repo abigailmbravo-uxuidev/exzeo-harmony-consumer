@@ -41,7 +41,7 @@
       color: $white;
     }
   }
-  header {
+  > header {
     padding: $padding $padding 0 $padding;
     height: auto;
     text-align: center;
@@ -76,7 +76,7 @@
     }
   }
 
-  footer {
+  > footer {
     display: flex;
     align-items: center;
     flex-grow: 0;

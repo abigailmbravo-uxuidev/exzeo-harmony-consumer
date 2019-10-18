@@ -1124,16 +1124,31 @@
                 flex-shrink: 1;
                 width: 33.33%;
                 min-height: 14rem;
-                h5 {
-                  text-align: center;
-                  padding: ($padding/2) 0 0 0;
+
+                @include forPhoneOnly {
+                  min-height: auto;
+                  margin: 0 1rem 1rem 1rem;
                 }
-                label {
-                  background-color: $blue;
-                  color: $white;
-                  padding: ($padding/2) 0;
-                  font-family: $serif;
-                  text-align: center;
+
+                .card-header {
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  h3 {
+                    text-align: center;
+                    margin-bottom: 0;
+                    padding: ($padding/2) 0 0 0;
+                  }
+                }
+                .card-footer {
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  label {
+                    background-color: $blue;
+                    color: $white;
+                    padding: ($padding/2) 0;
+                    font-family: $serif;
+                    text-align: center;
+                  }
                 }
                 &.selected {
                   background-color: $blue;
@@ -1149,49 +1164,45 @@
                 margin-right: 0;
               }
 
-              dl {
-                position: relative;
-                display: flex;
-                flex-grow: 1;
-                flex-shrink: 1;
-                flex-direction: column;
-                margin-bottom: 0;
-
-                div {
-                  border-bottom: 1px dashed $navy;
+              .cardContent {
+                dl {
+                  position: relative;
+                  display: flex;
+                  flex-grow: 1;
+                  flex-shrink: 1;
                   flex-direction: column;
-                  padding-top: ($padding / 2);
+                  margin-bottom: 0;
 
-                  &:last-of-type {
-                    border-bottom: 0;
-                    padding-bottom: ($padding/4);
-                  }
+                  div {
+                    border-bottom: 1px dashed $navy;
+                    flex-direction: column;
+                    padding-top: ($padding / 2);
+                    padding-bottom: ($padding / 4);
 
-                  &.semiCard {
-                    flex-grow: 0;
-                    flex-shrink: 0;
+                    &:last-of-type {
+                      border-bottom: 0;
+                      padding-bottom: ($padding/4);
+                    }
+
+                    &.semiCard {
+                      flex-grow: 0;
+                      flex-shrink: 0;
+                    }
                   }
-                }
-                dt {
-                  text-align: center;
-                  font-family: $serif;
-                  font-size: $fontSizeSubheader;
-                  font-weight: $bold;
-                  padding: ($padding/4) 0 ($padding/2) 0;
-                }
-                dd {
-                  font-family: $sans;
-                  font-size: $fontSizeBody;
-                  font-weight: $normal;
-                  padding: 0 ($padding/2);
-                  margin-bottom: 0.25rem;
-                }
-                label {
-                  color: $blue;
-                  font-size: $fontSizeSubheader--small;
-                  font-family: $serif;
-                  text-align: center;
-                  padding: 0;
+                  dd {
+                    font-family: $sans;
+                    font-size: $fontSizeBase;
+                    font-weight: $normal;
+                    padding: 0;
+                    margin-bottom: 0.25rem;
+                  }
+                  label {
+                    color: $blue;
+                    font-size: $fontSizeSubheader--small;
+                    font-family: $serif;
+                    text-align: center;
+                    padding: 0;
+                  }
                 }
               }
             }
