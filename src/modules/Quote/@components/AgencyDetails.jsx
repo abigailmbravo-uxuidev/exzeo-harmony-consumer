@@ -4,7 +4,6 @@ import { noop, SectionLoader } from '@exzeo/core-ui/src';
 import { searchAgencies } from '@exzeo/harmony-core';
 
 const AgencyDetails = ({ initialValues }) => {
-  const [confirmAgency, setConfirmAgency] = useState(false);
   const [selectedAgency, setSelectedAgency] = useState({});
   const [loaded, setLoaded] = useState(false);
 
@@ -32,9 +31,7 @@ const AgencyDetails = ({ initialValues }) => {
       <SummaryGroup
         header="Agency Details"
         detailClass="agency-details"
-        switchName="confirmAgency"
-        switchValue={confirmAgency}
-        switchOnChange={value => setConfirmAgency(value)}
+        name="confirmAgency"
         handleEditClick={noop}
       >
         <dl className="agent">

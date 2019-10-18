@@ -3,18 +3,12 @@ import SummaryGroup from './SummaryGroup';
 import { noop } from '@exzeo/core-ui/src';
 
 const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
-  const [confirmAdditionalInterest, setConfirmAdditionalInterest] = useState(
-    false
-  );
-
   return (
     <React.Fragment>
       <SummaryGroup
         header="Additional Insured Details"
         detailClass="ai-details"
-        switchName="confirmAdditionalInterest"
-        switchValue={confirmAdditionalInterest}
-        switchOnChange={value => setConfirmAdditionalInterest(value)}
+        name="confirmAdditionalInterest"
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}

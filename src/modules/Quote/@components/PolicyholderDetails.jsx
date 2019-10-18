@@ -3,16 +3,12 @@ import SummaryGroup from './SummaryGroup';
 import { noop } from '@exzeo/core-ui/src';
 
 const PolicyholderDetails = ({ initialValues, renderChildren }) => {
-  const [confirmPolicyHolder, setConfirmPolicyHolder] = useState(false);
-
   return (
     <React.Fragment>
       <SummaryGroup
         header="Policyholder Details"
         detailClass="policyholder-details"
-        switchName="confirmPolicyHolder"
-        switchValue={confirmPolicyHolder}
-        switchOnChange={value => setConfirmPolicyHolder(value)}
+        name="confirmPolicyHolder"
         handleEditClick={noop}
       >
         {renderChildren && renderChildren()}

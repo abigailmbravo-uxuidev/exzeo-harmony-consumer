@@ -25,6 +25,7 @@ const SummaryFooter = ({
     confirmPolicyHolder,
     confirmAdditionalInterest
   };
+
   const isButtonDisabled =
     Object.values(confirmFields).some(k => !k) || submitting;
 
