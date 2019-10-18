@@ -5,7 +5,7 @@ import TypTapLink from './TypTapLink';
 
 const UnderwritingFatal = () => {
   return (
-    <div>
+    <div className="card">
       <h1>We're So Sorry!</h1>
       <p>
         Property does not qualify. We apologize, we are unable to provide an

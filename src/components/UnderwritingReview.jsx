@@ -6,7 +6,7 @@ import ContactFooter from './ContactFooter';
 
 const UnderwritingReview = () => {
   return (
-    <div>
+    <div className="card">
       <h1>Thank you for quoting with Typtap!</h1>
       <p>
         You have completed the requirements to obtain your Flood Quote. To
