@@ -10,7 +10,17 @@ const UnderwritingReview = () => {
       <nav role="navigation" className="navWrapper navSlideIn"></nav>
       <main role="main">
         <div className="UWReview">
-          <h1>Thank you for quoting with Typtap!</h1>
+          <div className="infoBar">
+            <h2>
+              <label>Annual Premium:</label>
+              $275
+            </h2>
+            <span>
+              <label>Quote Number:</label>
+              #77742
+            </span>
+          </div>
+          <h4>Thank you for quoting with Typtap!</h4>
           <p>
             You have completed the requirements to obtain your Flood Quote. To
             continue to purchase your policy, please contact one of our

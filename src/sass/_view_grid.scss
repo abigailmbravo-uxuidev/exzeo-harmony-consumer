@@ -322,7 +322,6 @@
   }
 
   //policyholder info styling
-
   .policyHolderInfo {
     h4 {
       margin-bottom: 0.5rem;
@@ -405,7 +404,6 @@
   }
 
   //address section
-
   .addressSection {
     h4 {
       margin-bottom: 0.5rem;
@@ -485,7 +483,6 @@
     }
   }
   //additional info styling
-
   .additionalInfo {
     .card {
       flex-direction: row;
@@ -951,6 +948,7 @@
 
   footer {
     padding: $padding;
+    z-index: 99;
 
     @include forPhoneOnly {
       margin-bottom: 1rem;
@@ -1286,6 +1284,33 @@
 
       button {
         margin-left: 1rem;
+      }
+    }
+  }
+
+  //underwriting errors styling {
+  .underwritingExceptions {
+    .UWFatal {
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        flex-shrink: 1;
+        justify-content: center;
+
+        a {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          &.contactEmail {
+            color: $navy;
+          }
+        }
       }
     }
   }

@@ -12,7 +12,7 @@ const TypTapLink = () => (
     rel="noopener noreferrer"
   >
     {TYP_TAP_URL.display}
-    <FontAwesomeIcon icon="biohazard" />
+    <FontAwesomeIcon icon="clone" />
   </a>
 );
 
