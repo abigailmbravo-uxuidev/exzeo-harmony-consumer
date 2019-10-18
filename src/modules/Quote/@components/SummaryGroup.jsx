@@ -17,15 +17,21 @@ export const SummaryGroup = ({
 
   return (
     <div
-      className={classNames('card', detailClass)}
+      className={classNames('card', 'summaryCard', {
+        selected: confirmField === confirmField.input.value
+      })}
       onClick={() => confirmField.input.onChange(!confirmField.input.value)}
     >
-      <h5>{header}</h5>
-      <Link to={link} className={classNames('link', detailClass)}>
-        Edit
-      </Link>
-      {children}
-      <label>{confirmField.input.value ? 'Selected' : 'Select'}</label>
+      <dv className="card-header">
+        <h3>{header}</h3>
+        <Link to={link} className={classNames('link', detailClass)}>
+          Edit
+        </Link>
+      </dv>
+      <div className="cardContent">{children}</div>
+      <div className="card-footer">
+        <label>{confirmField.input.value ? 'Confirmed' : 'Confirm'}</label>
+      </div>
     </div>
   );
 };

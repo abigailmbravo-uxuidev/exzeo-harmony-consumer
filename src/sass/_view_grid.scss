@@ -1027,6 +1027,7 @@
     flex-grow: 1;
     flex-shrink: 1;
 
+    //biling specific styling
     &.billing {
       ul {
         list-style: none;
@@ -1195,6 +1196,12 @@
                     font-weight: $normal;
                     padding: 0;
                     margin-bottom: 0.25rem;
+
+                    @include forPhoneOnly {
+                      + dd {
+                        margin-left: 0.25rem;
+                      }
+                    }
                   }
                   label {
                     color: $blue;
