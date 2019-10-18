@@ -3,7 +3,7 @@ import { Button } from '@exzeo/core-ui';
 
 import ContactFooter from './ContactFooter';
 
-const UnderwritingReviewError = () => {
+const UnderwritingReview = () => {
   return (
     <div>
       <h1>Thank you for quoting with Typtap!</h1>
@@ -24,4 +24,4 @@ const UnderwritingReviewError = () => {
   );
 };
 
-export default UnderwritingReviewError;
+export default UnderwritingReview;

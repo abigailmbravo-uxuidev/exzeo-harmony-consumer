@@ -3,7 +3,7 @@ import React from 'react';
 import ContactFooter from './ContactFooter';
 import TypTapLink from './TypTapLink';
 
-const UnderwritingExceptionFatal = () => {
+const UnderwritingFatal = () => {
   return (
     <div>
       <h1>We're So Sorry!</h1>
@@ -19,4 +19,4 @@ const UnderwritingExceptionFatal = () => {
   );
 };
 
-export default UnderwritingExceptionFatal;
+export default UnderwritingFatal;
