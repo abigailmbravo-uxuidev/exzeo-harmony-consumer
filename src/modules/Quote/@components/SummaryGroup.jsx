@@ -16,12 +16,12 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
       })}
       onClick={() => confirmField.input.onChange(!confirmField.input.value)}
     >
-      <dv className="card-header">
+      <div className="card-header">
         <h3>{header}</h3>
         <Link to={link} className={classNames('link', detailClass)}>
           <FontAwesomeIcon icon="edit" />
         </Link>
-      </dv>
+      </div>
       <div className="cardContent">{children}</div>
       <div className="card-footer">
         <label>{confirmField.input.value ? 'Confirmed' : 'Confirm'}</label>
