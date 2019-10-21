@@ -56,7 +56,7 @@ const Navigation = ({ location, match }) => {
         <ul className="mainNavigation">
           {/********** RETRIEVE QUOTE **********/}
           <li
-            key={ROUTES.retrieveQuote.label}
+            key={ROUTES.retrieveQuote.key}
             className={classNames({
               hide: location.pathname !== ROUTES.retrieveQuote.path
             })}
@@ -69,31 +69,27 @@ const Navigation = ({ location, match }) => {
 
           {/********** SEARCH ADDRESS **********/}
           <li
-            key={ROUTES.searchAddress.label}
+            key={ROUTES.searchAddress.key}
             className={classNames({
-              hide: location.pathname !== ROUTES.searchAddress.path
+              hide: location.pathname !== ROUTES.searchAddress.path,
+              complete: location.pathname === '/thankyou'
             })}
           >
-            <h3>{ROUTES.searchAddress.label}</h3>
-            <span />
-            <p />
+            {location.pathname === '/thankyou' ? (
+              <Link to="/">
+                <h3>{ROUTES.searchAddress.label}</h3>
+                <span />
+                <p />
+              </Link>
+            ) : (
+              <React.Fragment>
+                <h3>{ROUTES.searchAddress.label}</h3>
+                <span />
+                <p />
+              </React.Fragment>
+            )}
           </li>
           {/********** SEARCH ADDRESS **********/}
-
-          {/********** SEARCH ADDRESS LINK **********/}
-          <li
-            key={ROUTES.searchAddress.label}
-            className={classNames('complete', {
-              hide: location.pathname !== '/thankYou'
-            })}
-          >
-            <Link to="/">
-              <h3>{ROUTES.searchAddress.label}</h3>
-              <span />
-              <p />
-            </Link>
-          </li>
-          {/********** SEARCH ADDRESS LINK **********/}
 
           {/********** QUOTE **********/}
           <li
@@ -119,7 +115,7 @@ const Navigation = ({ location, match }) => {
             </Link>
 
             <ul>
-              <li key={ROUTES.underwriting.label}>
+              <li key={ROUTES.underwriting.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.underwriting.order
@@ -144,7 +140,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.customize.label}>
+              <li key={ROUTES.customize.key}>
                 <NavLink
                   exact
                   to={
@@ -166,7 +162,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.save.label}>
+              <li key={ROUTES.save.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.save.order
@@ -187,7 +183,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.share.label}>
+              <li key={ROUTES.share.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.share.order
@@ -224,7 +220,7 @@ const Navigation = ({ location, match }) => {
             <p className="application" />
 
             <ul>
-              <li key={ROUTES.additionalInfo.label}>
+              <li key={ROUTES.additionalInfo.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.additionalInfo.order
@@ -249,7 +245,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.policyholder.label}>
+              <li key={ROUTES.policyholder.key}>
                 <NavLink
                   exact
                   to={
@@ -275,7 +271,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.billing.label}>
+              <li key={ROUTES.billing.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.billing.order
@@ -296,7 +292,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.summary.label}>
+              <li key={ROUTES.summary.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.summary.order
@@ -317,7 +313,7 @@ const Navigation = ({ location, match }) => {
                 </NavLink>
               </li>
 
-              <li key={ROUTES.complete.label}>
+              <li key={ROUTES.complete.key}>
                 <NavLink
                   to={
                     locationOrder < ROUTES.complete.order
