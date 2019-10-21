@@ -23,7 +23,7 @@ const Share = ({ formInstance }) => {
       {shareQuote && (
         <section className="well">
           <ShareModal
-            summaryType="agency"
+            summaryType="consumer"
             parentFormInstance={formInstance}
             closeModal={() => setShareQuote(false)}
             allowCancel={false}

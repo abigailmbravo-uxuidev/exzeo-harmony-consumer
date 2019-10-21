@@ -39,7 +39,7 @@ const PolicyholderDetails = ({ initialValues, renderChildren, config }) => {
           </div>
         </dl>
         {config.extendedProperties.subtitle && (
-          <div class="subtitle">
+          <div className="subtitle">
             <p>{config.extendedProperties.subtitle}</p>
           </div>
         )}
