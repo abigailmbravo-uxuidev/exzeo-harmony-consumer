@@ -216,7 +216,9 @@ const ThankYou = ({ location }) => {
       <label className="thankYouTitle">Quote Saved!</label>
       {/* JOE and ABBY - this is how you can get the quote number (need the safety check in there too) - you can put this wherever you want */}
       {location.state && (
-        <p style={{ color: 'red' }}>{location.state.quoteNumber}</p>
+        <h4 className="quoteNumber">
+          Quote Number:&nbsp;{location.state.quoteNumber}
+        </h4>
       )}
 
       <p>
