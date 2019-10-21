@@ -4,21 +4,14 @@ import { useField, validation } from '@exzeo/core-ui';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const SummaryGroup = ({
-  children,
-  header,
-  detailClass,
-  name,
-  link,
-  icon
-}) => {
+export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
   const confirmField = useField(name, {
     validate: validation.isRequired
   });
 
   return (
     <div
-      className={classNames('card', 'summaryCard', {
+      className={classNames('card', 'summaryCard', header, {
         selected: confirmField.input.value
       })}
       onClick={() => confirmField.input.onChange(!confirmField.input.value)}

@@ -123,14 +123,24 @@
       }
     }
     .cardContent {
+      display: flex;
+      overflow: hidden;
+      flex-wrap: wrap;
       padding-top: 1.5rem;
-      dt {
-        margin-bottom: 0.25rem;
-        font-weight: $bold;
-        font-family: $serif;
+
+      @include forPhoneOnly {
+        flex-direction: column;
       }
-      dd {
-        margin-bottom: 0.25rem;
+      dl {
+        margin-right: 1.5rem;
+        dt {
+          margin-bottom: 0.25rem;
+          font-weight: $bold;
+          font-family: $serif;
+        }
+        dd {
+          margin-bottom: 0.25rem;
+        }
       }
     }
     .card-footer {
