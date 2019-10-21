@@ -103,6 +103,12 @@
           color: $white;
         }
       }
+
+      .cardContent {
+        a {
+          color: $white;
+        }
+      }
     }
     .card-header {
       display: flex;
@@ -161,6 +167,12 @@
       color: $white;
 
       .card-header {
+        a {
+          color: $white;
+        }
+      }
+
+      .cardContent {
         a {
           color: $white;
         }
