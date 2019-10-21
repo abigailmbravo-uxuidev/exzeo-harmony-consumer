@@ -3,7 +3,7 @@ import SummaryGroup from './SummaryGroup';
 import { noop } from '@exzeo/core-ui/src';
 import { Link } from 'react-router-dom';
 
-const PolicyholderDetails = ({ initialValues, renderChildren }) => {
+const PolicyholderDetails = ({ initialValues, renderChildren, config }) => {
   return (
     <React.Fragment>
       <SummaryGroup
@@ -13,6 +13,7 @@ const PolicyholderDetails = ({ initialValues, renderChildren }) => {
         link="policyholder"
         handleEditClick={noop}
       >
+        {renderChildren && renderChildren()}
         {initialValues.policyHolders.length < 2 && (
           <dl className="secondary-policyholder">
             <div>
@@ -37,7 +38,11 @@ const PolicyholderDetails = ({ initialValues, renderChildren }) => {
             </dd>
           </div>
         </dl>
-        {renderChildren && renderChildren()}
+        {config.extendedProperties.subtitle && (
+          <div class="subtitle">
+            <p>{config.extendedProperties.subtitle}</p>
+          </div>
+        )}
       </SummaryGroup>
     </React.Fragment>
   );

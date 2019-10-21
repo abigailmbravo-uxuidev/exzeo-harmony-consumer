@@ -661,7 +661,10 @@
           "dependencies": [],
           "data": {
             "component": "$POLICYHOLDER_DETAILS",
-            "extendedProperties": { "subscribe": true }
+            "extendedProperties": {
+              "subscribe": true,
+              "subtitle": "Please make sure your email is valid. We will send an email with the application to electronically sign. Once your policy is created, we will use this email address to send your new Flood Insurance Policy."
+            }
           },
           "formData": {},
           "children": [
@@ -727,18 +730,6 @@
                     }
                   ]
                 }
-              },
-              "formData": {},
-              "children": []
-            },
-            {
-              "id": "c9394022-edd8-4ae0-901f-f94459a903c3999",
-              "type": "$SUBTITLE",
-              "dependencies": [],
-              "data": {
-                "className": "subtitle",
-                "strong": "",
-                "text": "Please make sure your email is valid. We will send an email with the application to electronically sign. Once your policy is created, we will use this email address to send your new Flood Insurance Policy."
               },
               "formData": {},
               "children": []
