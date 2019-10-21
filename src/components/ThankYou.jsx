@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ThankYou = () => {
+const ThankYou = ({ location }) => {
   return (
     <div className="card thankYouCard">
       <div className="confettiWrapper">
@@ -214,6 +214,11 @@ const ThankYou = () => {
         </svg>
       </section>
       <label className="thankYouTitle">Quote Saved!</label>
+      {/* JOE and ABBY - this is how you can get the quote number (need the safety check in there too) - you can put this wherever you want */}
+      {location.state && (
+        <p style={{ color: 'red' }}>{location.state.quoteNumber}</p>
+      )}
+
       <p>
         Thank you for choosing TypTap to provide a Flood Quote for your
         property. We can't wait for you to come back and finish the quote. If

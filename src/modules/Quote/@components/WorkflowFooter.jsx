@@ -27,7 +27,10 @@ const WorkflowFooter = ({ recalc, workflowPage, history }) => {
             <React.Fragment>
               <Link
                 key="secondary"
-                to="/thankYou"
+                to={{
+                  pathname: '/thankYou',
+                  state: { quoteNumber: values.quoteNumber }
+                }}
                 className={Button.constants.classNames.secondary}
               >
                 Save & Continue Later
