@@ -947,8 +947,8 @@
   }
 
   footer {
-    padding: $padding;
     z-index: 99;
+    padding: $padding;
 
     @include forPhoneOnly {
       margin-bottom: 1rem;
@@ -1030,8 +1030,8 @@
     //biling specific styling
     &.billing {
       ul {
-        list-style: none;
         padding-left: 0;
+        list-style: none;
 
         li {
           .fade-in {
@@ -1040,36 +1040,40 @@
 
               .card {
                 &.payPlan {
-                  min-height: auto;
-                  width: auto;
                   display: flex;
                   justify-content: center;
-                  margin-right: 0;
                   margin: 0 1rem 1rem 1rem;
+                  margin-right: 0;
+                  min-height: auto;
+                  width: auto;
+
+                  .card-header {
+                    z-index: 2;
+                  }
 
                   .container {
-                    width: 100%;
                     position: absolute;
                     top: 35%;
+                    width: 100%;
                     text-align: center;
                   }
 
                   a,
                   a:hover {
-                    text-decoration: none;
                     color: #ddd;
+                    text-decoration: none;
                   }
 
                   dl {
-                    text-align: center;
                     display: flex;
+                    text-align: center;
 
                     div {
                       display: flex;
                       flex-direction: row;
-                      justify-content: center;
                       flex-grow: 0;
                       flex-shrink: 0;
+                      justify-content: center;
                       padding: ($padding / 2) 0;
 
                       dd {
@@ -1084,8 +1088,8 @@
 
           .card {
             display: flex;
-            padding: $padding/4;
             flex-direction: row;
+            padding: $padding/4;
 
             @include forPhoneOnly {
               padding: 0 $padding;
@@ -1114,41 +1118,41 @@
 
               @include transition(all 0.1s ease-in-out);
               &:hover {
-                cursor: pointer;
                 background-color: $blue;
                 color: $white;
+                cursor: pointer;
               }
 
               &.payPlan {
                 flex-direction: column;
                 flex-grow: 0;
                 flex-shrink: 1;
-                width: 33.33%;
                 min-height: 14rem;
+                width: 33.33%;
 
                 @include forPhoneOnly {
-                  min-height: auto;
                   margin: 0 1rem 1rem 1rem;
+                  min-height: auto;
                 }
 
                 .card-header {
                   flex-grow: 0;
                   flex-shrink: 0;
                   h3 {
-                    text-align: center;
                     margin-bottom: 0;
                     padding: ($padding/2) 0 0 0;
+                    text-align: center;
                   }
                 }
                 .card-footer {
                   flex-grow: 0;
                   flex-shrink: 0;
                   label {
+                    padding: ($padding/2) 0;
                     background-color: $blue;
                     color: $white;
-                    padding: ($padding/2) 0;
-                    font-family: $serif;
                     text-align: center;
+                    font-family: $serif;
                   }
                 }
                 &.selected {
@@ -1169,20 +1173,20 @@
                 dl {
                   position: relative;
                   display: flex;
+                  flex-direction: column;
                   flex-grow: 1;
                   flex-shrink: 1;
-                  flex-direction: column;
                   margin-bottom: 0;
 
                   div {
-                    border-bottom: 1px dashed $navy;
                     flex-direction: column;
                     padding-top: ($padding / 2);
                     padding-bottom: ($padding / 4);
+                    border-bottom: 1px dashed $navy;
 
                     &:last-of-type {
-                      border-bottom: 0;
                       padding-bottom: ($padding/4);
+                      border-bottom: 0;
                     }
 
                     &.semiCard {
@@ -1191,11 +1195,11 @@
                     }
                   }
                   dd {
-                    font-family: $sans;
-                    font-size: $fontSizeBase;
-                    font-weight: $normal;
-                    padding: 0;
                     margin-bottom: 0.25rem;
+                    padding: 0;
+                    font-weight: $normal;
+                    font-size: $fontSizeBase;
+                    font-family: $sans;
 
                     @include forPhoneOnly {
                       + dd {
@@ -1204,11 +1208,11 @@
                     }
                   }
                   label {
+                    padding: 0;
                     color: $blue;
+                    text-align: center;
                     font-size: $fontSizeSubheader--small;
                     font-family: $serif;
-                    text-align: center;
-                    padding: 0;
                   }
                 }
               }
@@ -1329,10 +1333,10 @@
           flex-shrink: 1;
           margin-bottom: 1rem;
           a {
+            align-self: center;
             flex-grow: 1;
             flex-shrink: 1;
             margin-bottom: 0;
-            align-self: center;
             &.contactEmail {
               color: $navy;
             }
@@ -1572,31 +1576,30 @@ $colors: $blue, $red, $green, $navy, gold;
       &.datePicker {
         label {
           position: relative;
-          font-size: $fontSizeSubheader--small;
           padding-left: 0;
+          font-size: $fontSizeSubheader--small;
           font-family: $serif;
         }
 
         div {
           .react-datepicker {
-            border: none;
             width: 31rem;
+            border: none;
             box-shadow: 0 8px 12px rgba($navy, 0.15);
 
             @include forDatePicker {
               width: 16rem;
             }
-
             @include forPhoneOnly {
               display: block;
-              margin: 0 auto;
               float: none;
+              margin: 0 auto;
               height: 15rem;
             }
             .react-datepicker__navigation {
-              box-shadow: none;
-              border-radius: 0;
               margin-bottom: 0;
+              border-radius: 0;
+              box-shadow: none;
               &:hover {
                 background-color: transparent;
               }
@@ -1616,15 +1619,16 @@ $colors: $blue, $red, $green, $navy, gold;
               }
               .react-datepicker__header {
                 border-bottom-width: 0;
-                background-color: $blue;
                 border-top-right-radius: 0;
+                background-color: $blue;
+
                 @include forDatePicker {
                   border-top-right-radius: $borderRadius;
                 }
                 .react-datepicker__current-month {
                   color: white;
-                  font-family: $serif;
                   font-size: $fontSizeSubheader--small;
+                  font-family: $serif;
                 }
                 .react-datepicker__day-names {
                   .react-datepicker__day-name {
@@ -1665,13 +1669,13 @@ $colors: $blue, $red, $green, $navy, gold;
                     }
 
                     &.react-datepicker__day--today {
-                      background-color: $extraLightGrey;
                       border-radius: 0.3rem;
+                      background-color: $extraLightGrey;
                       color: rgba($navy, 0.5);
 
                       &:hover {
-                        background-color: $extraLightGrey;
                         border-radius: 0.3rem;
+                        background-color: $extraLightGrey;
                         color: rgba($navy, 0.5);
                       }
                     }

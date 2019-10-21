@@ -97,6 +97,12 @@
       background-color: $blue;
       color: $white;
       cursor: pointer;
+
+      .card-header {
+        a {
+          color: $white;
+        }
+      }
     }
     .card-header {
       display: flex;
@@ -143,6 +149,12 @@
     &.selected {
       background-color: $blue;
       color: $white;
+
+      .card-header {
+        a {
+          color: $white;
+        }
+      }
 
       label {
         background-color: transparent;

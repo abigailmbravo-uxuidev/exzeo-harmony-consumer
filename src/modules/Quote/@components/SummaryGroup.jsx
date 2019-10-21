@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { useField, validation } from '@exzeo/core-ui';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const SummaryGroup = ({
   children,
@@ -18,14 +19,14 @@ export const SummaryGroup = ({
   return (
     <div
       className={classNames('card', 'summaryCard', {
-        selected: confirmField === confirmField.input.value
+        selected: confirmField.input.value
       })}
       onClick={() => confirmField.input.onChange(!confirmField.input.value)}
     >
       <dv className="card-header">
         <h3>{header}</h3>
         <Link to={link} className={classNames('link', detailClass)}>
-          Edit
+          <FontAwesomeIcon icon="edit" />
         </Link>
       </dv>
       <div className="cardContent">{children}</div>
