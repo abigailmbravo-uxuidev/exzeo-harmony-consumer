@@ -48,7 +48,12 @@ Cypress.Commands.add('fillFields', (fields = [], data) =>
   cy.wrap(fields).each(field =>
     cy.findDataTag(`${field.name}`).then($el =>
       // Sometimes the dom structure nests inputs
-      $el.find('input').length ?
-        cy.wrap($el).find('input').type(data ? data[field.name] : field.data) :
-        cy.wrap($el).type(data ? data[field.name] : field.data)
-    )));
+      $el.find('input').length
+        ? cy
+            .wrap($el)
+            .find('input')
+            .type(data ? data[field.name] : field.data)
+        : cy.wrap($el).type(data ? data[field.name] : field.data)
+    )
+  )
+);
