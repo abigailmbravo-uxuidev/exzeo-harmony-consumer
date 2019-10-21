@@ -92,9 +92,18 @@
   }
 
   &.summaryCard {
-    @include transition(all 0.1s ease-in-out);
+    background-image: linear-gradient(
+      $white 0%,
+      $white 33%,
+      $blue 66%,
+      $blue 100%
+    );
+    background-position: 0 0%;
+    background-size: auto 300%;
+
+    @include transition(all 0.2s ease-in-out);
     &:hover {
-      background-color: $blue;
+      background-position: 0 100%;
       color: $white;
       cursor: pointer;
 
@@ -163,7 +172,7 @@
       }
     }
     &.selected {
-      background-color: $blue;
+      background-position: 0 100%;
       color: $white;
 
       .card-header {

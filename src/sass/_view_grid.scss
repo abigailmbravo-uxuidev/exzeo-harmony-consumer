@@ -132,6 +132,7 @@
                 justify-content: center;
                 margin-bottom: 0;
                 margin-left: 0;
+                text-transform: capitalize;
 
                 &.btn-primary {
                   border-top-left-radius: 0;
@@ -1034,22 +1035,65 @@
         list-style: none;
 
         li {
-          .fade-in {
-            @include forPhoneOnly {
-              flex-direction: column;
+          .card {
+            display: flex;
+            flex-direction: row;
+            padding: $padding/4;
 
-              .card {
-                &.payPlan {
+            @include forPhoneOnly {
+              padding: 0 $padding;
+
+              .cardContent {
+                //padding: $padding 0;
+              }
+
+              footer {
+                margin-bottom: 0;
+              }
+            }
+
+            footer {
+              width: auto;
+            }
+          }
+          div {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            &.fade-in {
+              @include forPhoneOnly {
+                flex-direction: column;
+              }
+            }
+
+            .card {
+              margin-right: 1rem;
+              padding: 0;
+
+              @include transition(all 0.2s ease-in-out);
+
+              &.payPlan {
+                flex-direction: column;
+                flex-grow: 0;
+                flex-shrink: 1;
+                min-height: 14rem;
+                width: 33.33%;
+                background-image: linear-gradient(
+                  $white 0%,
+                  $white 33%,
+                  $blue 66%,
+                  $blue 100%
+                );
+                background-position: 0 0%;
+                background-size: auto 300%;
+
+                @include forPhoneOnly {
                   display: flex;
                   justify-content: center;
                   margin: 0 1rem 1rem 1rem;
                   margin-right: 0;
                   min-height: auto;
                   width: auto;
-
-                  .card-header {
-                    z-index: 2;
-                  }
 
                   .container {
                     position: absolute;
@@ -1082,60 +1126,9 @@
                     }
                   }
                 }
-              }
-            }
-          }
-
-          .card {
-            display: flex;
-            flex-direction: row;
-            padding: $padding/4;
-
-            @include forPhoneOnly {
-              padding: 0 $padding;
-
-              .cardContent {
-                padding: $padding 0;
-              }
-
-              footer {
-                margin-bottom: 0;
-              }
-            }
-
-            footer {
-              width: auto;
-            }
-          }
-          div {
-            display: flex;
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            .card {
-              margin-right: 1rem;
-              padding: 0;
-
-              @include transition(all 0.1s ease-in-out);
-              &:hover {
-                background-color: $blue;
-                color: $white;
-                cursor: pointer;
-              }
-
-              &.payPlan {
-                flex-direction: column;
-                flex-grow: 0;
-                flex-shrink: 1;
-                min-height: 14rem;
-                width: 33.33%;
-
-                @include forPhoneOnly {
-                  margin: 0 1rem 1rem 1rem;
-                  min-height: auto;
-                }
 
                 .card-header {
+                  z-index: 2;
                   flex-grow: 0;
                   flex-shrink: 0;
                   h3 {
@@ -1155,13 +1148,14 @@
                     font-family: $serif;
                   }
                 }
-                &.selected {
-                  background-color: $blue;
+                &:hover {
+                  background-position: 0 100%;
                   color: $white;
-
-                  label {
-                    background-color: transparent;
-                  }
+                  cursor: pointer;
+                }
+                &.selected {
+                  background-position: 0 100%;
+                  color: $white;
                 }
               }
 
