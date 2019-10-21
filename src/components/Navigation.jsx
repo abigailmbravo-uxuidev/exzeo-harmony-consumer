@@ -76,7 +76,7 @@ const Navigation = ({ location, match }) => {
             })}
           >
             {location.pathname === '/thankyou' ? (
-              <Link to="/">
+              <Link to={ROUTES.searchAddress.path}>
                 <h3>{ROUTES.searchAddress.label}</h3>
                 <span />
                 <p />
