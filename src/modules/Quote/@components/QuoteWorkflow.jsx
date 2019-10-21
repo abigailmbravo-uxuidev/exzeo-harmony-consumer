@@ -26,8 +26,7 @@ import AgencyDetails from './AgencyDetails';
 import QuoteDetails from './QuoteDetails';
 import PolicyholderDetails from './PolicyholderDetails';
 import AdditionalInterestsDetails from './AdditionalInterestsDetails';
-import UnderwritingExceptions from './UnderwritingExceptions';
-import { EXCEPTION_TYPES } from 'constants/underwriting';
+import UnderwritingExceptionHandler from './UnderwritingExceptions';
 
 const EMPTY_OBJ = {};
 
@@ -48,28 +47,6 @@ const CUSTOM_COMPONENTS = {
   $POLICYHOLDER_DETAILS: PolicyholderDetails,
   $ADDITIONAL_INTERESTS_DETAILS: AdditionalInterestsDetails
 };
-
-function underwritingExceptions(workflowPage, underwritingExceptions = []) {
-  const hasException =
-    (workflowPage === ROUTES.share.workflowPage &&
-      underwritingExceptions.some(
-        ex => ex.action === EXCEPTION_TYPES.review
-      )) ||
-    (workflowPage === ROUTES.summary.workflowPage &&
-      underwritingExceptions.some(ex => ex.action !== EXCEPTION_TYPES.info));
-
-  const hasError =
-    !hasException &&
-    (workflowPage === ROUTES.underwriting.workflowPage ||
-      workflowPage === ROUTES.customize.workflowPage ||
-      workflowPage === ROUTES.save.workflowPage) &&
-    underwritingExceptions.some(ex => ex.action === EXCEPTION_TYPES.fatal);
-
-  return {
-    hasException,
-    hasError
-  };
-}
 
 const QuoteWorkflow = ({ history, match }) => {
   const [recalc, setRecalc] = useState(false);
@@ -94,11 +71,6 @@ const QuoteWorkflow = ({ history, match }) => {
     return () => setQuote({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const { hasError, hasException } = useMemo(
-    () => underwritingExceptions(workflowPage, quote.underwritingExceptions),
-    [workflowPage, quote.underwritingExceptions]
-  );
 
   const customHandlers = {
     handleSubmit: updateQuote
@@ -126,7 +98,10 @@ const QuoteWorkflow = ({ history, match }) => {
     <React.Fragment>
       {quoteLoading && <SectionLoader />}
 
-      <UnderwritingExceptions hasError={hasError} hasException={hasException} />
+      <UnderwritingExceptionHandler
+        workflowPage={workflowPage}
+        underwritingExceptions={quote.underwritingExceptions}
+      />
 
       <Gandalf
         formId="harmony-quote"
