@@ -20,7 +20,7 @@ const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
             <div>
               <dt>No mortgages added.</dt>
               <dd>
-                <Link to="additionalInfo">Add on now?</Link>
+                <Link to="additionalInfo">Add mortgagee now?</Link>
               </dd>
             </div>
           </dl>
@@ -32,7 +32,7 @@ const AdditionalInterestsDetails = ({ initialValues, renderChildren }) => {
             <div>
               <dt>No additional insured added.</dt>
               <dd>
-                <Link to="additionalInfo">Add on now?</Link>
+                <Link to="additionalInfo">Add additional insured now?</Link>
               </dd>
             </div>
           </dl>

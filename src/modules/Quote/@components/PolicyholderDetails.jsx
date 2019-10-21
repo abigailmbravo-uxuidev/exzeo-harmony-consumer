@@ -13,13 +13,12 @@ const PolicyholderDetails = ({ initialValues, renderChildren }) => {
         link="policyholder"
         handleEditClick={noop}
       >
-        {renderChildren && renderChildren()}
         {initialValues.policyHolders.length < 2 && (
           <dl className="secondary-policyholder">
             <div>
               <dt>No second policyholder on policy. </dt>
               <dd>
-                <Link to="policyholder">Add on now?</Link>
+                <Link to="policyholder">Add second policyholder now?</Link>
               </dd>
             </div>
           </dl>
@@ -38,6 +37,7 @@ const PolicyholderDetails = ({ initialValues, renderChildren }) => {
             </dd>
           </div>
         </dl>
+        {renderChildren && renderChildren()}
       </SummaryGroup>
     </React.Fragment>
   );

@@ -697,18 +697,6 @@
               "children": []
             },
             {
-              "id": "c9394022-edd8-4ae0-901f-f94459a903c3999",
-              "type": "$SUBTITLE",
-              "dependencies": [],
-              "data": {
-                "className": "subtitle",
-                "strong": "",
-                "text": "Please make sure your email is valid. We will send an email with the application to electronically sign. Once your policy is created, we will use this email address to send your new Flood Insurance Policy."
-              },
-              "formData": {},
-              "children": []
-            },
-            {
               "id": 6766545444555663,
               "type": "$ENTITY_DETAILS",
               "dependencies": [
@@ -739,6 +727,18 @@
                     }
                   ]
                 }
+              },
+              "formData": {},
+              "children": []
+            },
+            {
+              "id": "c9394022-edd8-4ae0-901f-f94459a903c3999",
+              "type": "$SUBTITLE",
+              "dependencies": [],
+              "data": {
+                "className": "subtitle",
+                "strong": "",
+                "text": "Please make sure your email is valid. We will send an email with the application to electronically sign. Once your policy is created, we will use this email address to send your new Flood Insurance Policy."
               },
               "formData": {},
               "children": []
