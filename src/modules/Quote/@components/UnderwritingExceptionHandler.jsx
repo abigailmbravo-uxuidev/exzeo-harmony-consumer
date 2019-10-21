@@ -27,7 +27,7 @@ function hasUnderwritingExceptions(workflowPage, underwritingExceptions) {
   };
 }
 
-const UnderwritingExceptions = ({
+const UnderwritingExceptionHandler = ({
   workflowPage,
   underwritingExceptions = []
 }) => {
@@ -49,4 +49,4 @@ const UnderwritingExceptions = ({
   );
 };
 
-export default UnderwritingExceptions;
+export default UnderwritingExceptionHandler;

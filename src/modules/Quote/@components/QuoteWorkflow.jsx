@@ -26,7 +26,7 @@ import AgencyDetails from './AgencyDetails';
 import QuoteDetails from './QuoteDetails';
 import PolicyholderDetails from './PolicyholderDetails';
 import AdditionalInterestsDetails from './AdditionalInterestsDetails';
-import UnderwritingExceptionHandler from './UnderwritingExceptions';
+import UnderwritingExceptionHandler from './UnderwritingExceptionHandler';
 
 const EMPTY_OBJ = {};
 
