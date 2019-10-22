@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Error from 'components/Error';
+
 class RouteErrorBoundary extends Component {
   state = {
     hasError: false
@@ -15,7 +17,7 @@ class RouteErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return <Error />;
     }
 
     return this.props.children;
