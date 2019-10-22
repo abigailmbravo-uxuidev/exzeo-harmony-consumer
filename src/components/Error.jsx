@@ -5,7 +5,7 @@ import TypTapLink from './TypTapLink';
 
 const Error = () => {
   return (
-    <div>
+    <div className="appError">
       <h1>Uh Oh!</h1>
       <p>
         We are experiencing technical difficulties. Please try again later, or
