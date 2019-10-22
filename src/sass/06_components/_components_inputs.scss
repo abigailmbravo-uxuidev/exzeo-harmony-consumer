@@ -608,6 +608,8 @@
 
     .react-select__menu {
       .react-select__menu-list {
+        z-index: 10;
+        max-height: 12rem;
         .react-select__option {
           &:hover {
             background-color: rgba($blue, 0.25);
