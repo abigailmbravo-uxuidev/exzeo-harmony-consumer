@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, SectionLoader } from '@exzeo/core-ui';
 import { useQuote } from '../QuoteContext';
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
@@ -11,14 +11,16 @@ const SummaryFooter = ({
     confirmPolicyHolder,
     confirmAdditionalInterest
   } = {},
-  submitting,
   history
 }) => {
+  const [submitting, setSubmitting] = useState(false);
   const { sendApplication, quote } = useQuote();
 
   const handleSendApplication = async () => {
+    setSubmitting(true);
     await sendApplication(quote.quoteNumber, {});
     history.push(WORKFLOW_ROUTING[ROUTES.summary.path]);
+    setSubmitting(false);
   };
 
   const confirmFields = {
@@ -29,8 +31,7 @@ const SummaryFooter = ({
     confirmAdditionalInterest
   };
 
-  const isButtonDisabled =
-    Object.values(confirmFields).some(k => !k) || submitting;
+  const isButtonDisabled = Object.values(confirmFields).some(k => !k);
 
   if (submitting) {
     return <SectionLoader />;
