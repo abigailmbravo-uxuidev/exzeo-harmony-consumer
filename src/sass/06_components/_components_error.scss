@@ -8,3 +8,71 @@
     z-index: 99;
   }
 }
+
+.view-grid {
+  //underwriting errors styling {
+  .underwritingExceptions {
+    //underwriting review error
+    .UWReview {
+      padding: 0;
+      h2 {
+      }
+      .subtitle {
+        flex-direction: column;
+        justify-content: flex-start;
+        strong {
+          display: block;
+          margin-bottom: 0.25rem;
+          font-family: $serif;
+        }
+      }
+
+      .needsUpdating {
+        div {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          margin-bottom: 1rem;
+          a {
+            align-self: center;
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-bottom: 0;
+            &.contactEmail {
+              color: $navy;
+            }
+
+            &.btn {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    //underwriting fatal error
+    .UWFatal {
+      h1 {
+        margin-bottom: 0.5rem;
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        flex-shrink: 1;
+        justify-content: center;
+
+        a {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          &.contactEmail {
+            color: $navy;
+          }
+        }
+      }
+    }
+  }
+}
