@@ -50,6 +50,7 @@ const CUSTOM_COMPONENTS = {
 
 const QuoteWorkflow = ({ history, match }) => {
   const [recalc, setRecalc] = useState(false);
+  const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
     loading: quoteLoading,
     quote,
@@ -57,7 +58,6 @@ const QuoteWorkflow = ({ history, match }) => {
     retrieveQuote,
     updateQuote
   } = useQuote();
-  const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const { template } = useWorkflowTemplate(quote);
   const transformConfig = useMemo(() => getConfigForJsonTransform(template), [
     template
@@ -98,10 +98,7 @@ const QuoteWorkflow = ({ history, match }) => {
     <React.Fragment>
       {quoteLoading && <SectionLoader />}
 
-      <UnderwritingExceptionHandler
-        workflowPage={workflowPage}
-        underwritingExceptions={quote.underwritingExceptions}
-      />
+      <UnderwritingExceptionHandler workflowPage={workflowPage} quote={quote} />
 
       <Gandalf
         formId="harmony-quote"

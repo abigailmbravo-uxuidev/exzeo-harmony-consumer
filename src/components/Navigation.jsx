@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink, Link } from 'react-router-dom';
@@ -6,11 +6,20 @@ import { format } from '@exzeo/core-ui';
 
 import { ROUTES } from 'constants/navigation';
 import { useQuote } from 'modules/Quote';
+import { hasUnderwritingExceptions } from 'utilities/underwritingExceptions';
 
 const Navigation = ({ location, match }) => {
   const { quote } = useQuote();
   const [navOpen, setNavOpen] = useState(false);
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
+  const workflowPage = match.params.step
+    ? ROUTES[match.params.step].workflowPage
+    : -1;
+
+  const { hasError, hasException } = useMemo(
+    () => hasUnderwritingExceptions(workflowPage, quote.underwritingExceptions),
+    [workflowPage, quote.underwritingExceptions]
+  );
 
   const isRouteActive = linkOrder => () => {
     return linkOrder === locationOrder;
@@ -18,7 +27,12 @@ const Navigation = ({ location, match }) => {
 
   return (
     <React.Fragment>
-      <button className="navOpener" onClick={() => setNavOpen(state => !state)}>
+      <button
+        className={classNames('navOpener', {
+          hasUnderwritingExceptions: hasError || hasException
+        })}
+        onClick={() => setNavOpen(state => !state)}
+      >
         <FontAwesomeIcon icon="chevron-right" size="sm" />
       </button>
 
@@ -36,7 +50,8 @@ const Navigation = ({ location, match }) => {
         role="navigation"
         className={classNames('navWrapper', {
           navSlideOut: navOpen,
-          navSlideIn: !navOpen
+          navSlideIn: !navOpen,
+          hasUnderwritingExceptions: hasError || hasException
         })}
       >
         <div className="propertyAddressWrapper">

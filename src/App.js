@@ -71,11 +71,6 @@ const App = () => {
                   render={routeProps => <ThankYou {...routeProps} />}
                 />
 
-                <Route
-                  exact
-                  path="/test"
-                  render={routeProps => <Test {...routeProps} />}
-                />
                 <Footer />
                 <AppFooter />
               </div>
