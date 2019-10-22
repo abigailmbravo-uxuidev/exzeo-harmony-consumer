@@ -16,7 +16,7 @@ const UnderwritingReview = () => {
               Annual Premium:&nbsp;<strong>$275</strong>
             </h2>
             <label>
-              Quote Number:&nbsp; <strong>#77742</strong>
+              Quote Number:&nbsp;<strong>#77742</strong>
             </label>
           </div>
           <div className="subtitle">

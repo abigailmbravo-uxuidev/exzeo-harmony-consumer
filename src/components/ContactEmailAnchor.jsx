@@ -11,7 +11,7 @@ const ContactEmailAnchor = () => {
       title="call us"
       href={`${CONTACT_EMAIL.href}`}
     >
-      {CONTACT_EMAIL.display}
+      {CONTACT_EMAIL.display}&nbsp;
       <FontAwesomeIcon icon="envelope" />
     </a>
   );
