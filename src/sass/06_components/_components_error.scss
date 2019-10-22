@@ -15,8 +15,6 @@
     //underwriting review error
     .UWReview {
       padding: 0;
-      h2 {
-      }
       .subtitle {
         flex-direction: column;
         justify-content: flex-start;
@@ -52,10 +50,7 @@
 
     //underwriting fatal error
     .UWFatal {
-      h1 {
-        margin-bottom: 0.5rem;
-      }
-
+      padding: 0;
       div {
         display: flex;
         flex-direction: row;
