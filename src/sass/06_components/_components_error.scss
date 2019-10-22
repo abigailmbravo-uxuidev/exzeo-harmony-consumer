@@ -48,6 +48,16 @@
   padding-left: calc((100vw - 102rem) / 2);
   padding-top: ($padding * 1.5);
 
+  @include forPhoneOnly {
+    margin: 0;
+    padding: $padding * 5 $padding;
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: $fontSizeBase;
+    }
+  }
+
   .title {
     font-size: $fontSizeHeader;
     font-weight: $bold;
@@ -63,11 +73,22 @@
     flex-shrink: 1;
     margin-bottom: 1rem;
     justify-content: space-between;
+    font-family: $serif;
+
+    @include forPhoneOnly {
+      flex-direction: column;
+      padding: ($padding / 4) 0;
+      justify-content: flex-start;
+    }
     a {
       align-self: center;
       flex-grow: 0;
       flex-shrink: 0;
       margin-bottom: 0;
+
+      @include forPhoneOnly {
+        padding-top: ($padding / 4);
+      }
       &.contactEmail {
         color: $navy;
       }

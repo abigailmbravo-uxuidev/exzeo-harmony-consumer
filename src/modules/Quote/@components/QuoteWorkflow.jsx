@@ -98,7 +98,10 @@ const QuoteWorkflow = ({ history, match }) => {
     <React.Fragment>
       {quoteLoading && <SectionLoader />}
 
-      <UnderwritingExceptionHandler workflowPage={workflowPage} quote={quote} />
+      <UnderwritingExceptionHandler
+        workflowPage={workflowPage}
+        quotes={quote}
+      />
 
       <Gandalf
         formId="harmony-quote"
