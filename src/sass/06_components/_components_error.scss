@@ -1,17 +1,9 @@
-.underwritingExceptions {
-  div[role='region'] {
-    position: fixed;
-    top: 4rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
-  }
-}
-
 .view-grid {
   //underwriting errors styling {
   .underwritingExceptions {
+    ~ div {
+      display: none;
+    }
     //underwriting review error
     .UWReview {
       padding: 0;
