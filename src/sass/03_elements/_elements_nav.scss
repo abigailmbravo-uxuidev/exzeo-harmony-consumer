@@ -325,6 +325,15 @@ nav[role='navigation'] {
       }
     }
   }
+
+  &.hasUnderwritingExceptions {
+    .propertyAddressWrapper {
+      display: none;
+    }
+    > ul {
+      display: none;
+    }
+  }
 }
 
 @include forPhoneOnly {
