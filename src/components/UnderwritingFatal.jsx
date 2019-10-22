@@ -6,7 +6,7 @@ import TypTapLink from './TypTapLink';
 const UnderwritingFatal = () => {
   return (
     <div role="region">
-      <nav role="navigation" className="navWrapper navSlideIn"></nav>
+      <nav role="navigation" className="navWrapper navSlideIn" />
       <main role="main">
         <div className="view-grid">
           <div className="UWFatal">

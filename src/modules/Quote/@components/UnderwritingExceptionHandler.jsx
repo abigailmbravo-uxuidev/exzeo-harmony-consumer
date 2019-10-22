@@ -27,13 +27,10 @@ function hasUnderwritingExceptions(workflowPage, underwritingExceptions) {
   };
 }
 
-const UnderwritingExceptionHandler = ({
-  workflowPage,
-  underwritingExceptions = []
-}) => {
+const UnderwritingExceptionHandler = ({ workflowPage, quote }) => {
   const { hasError, hasException } = useMemo(
-    () => hasUnderwritingExceptions(workflowPage, underwritingExceptions),
-    [workflowPage, underwritingExceptions]
+    () => hasUnderwritingExceptions(workflowPage, quote.underwritingExceptions),
+    [workflowPage, quote.underwritingExceptions]
   );
 
   if (!(hasException || hasError)) {
@@ -42,7 +39,7 @@ const UnderwritingExceptionHandler = ({
 
   return (
     <div className="underwritingExceptions">
-      {hasException && <UnderwritingReview />}
+      {hasException && <UnderwritingReview quote={quote} />}
 
       {hasError && <UnderwritingFatal />}
     </div>
