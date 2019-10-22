@@ -326,12 +326,32 @@ nav[role='navigation'] {
     }
   }
 
-  &.hasUnderwritingExceptions {
+  &.hasUnderwritingError {
     .propertyAddressWrapper {
       display: none;
     }
     > ul {
       display: none;
+    }
+  }
+
+  &.hasUnderwritingException {
+    opacity: 0.4;
+    > ul {
+      a {
+        &.active {
+          h3 {
+            color: $lightGrey;
+          }
+          span {
+            background-color: $lightGrey;
+          }
+          p {
+            border-color: $lightGrey;
+            color: $lightGrey;
+          }
+        }
+      }
     }
   }
 }

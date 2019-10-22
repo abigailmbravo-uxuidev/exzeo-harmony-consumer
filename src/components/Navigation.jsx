@@ -29,7 +29,8 @@ const Navigation = ({ location, match }) => {
     <React.Fragment>
       <button
         className={classNames('navOpener', {
-          hasUnderwritingExceptions: hasError || hasException
+          hasUnderwritingError: hasError,
+          hasUnderwritingException: hasException
         })}
         onClick={() => setNavOpen(state => !state)}
       >
@@ -51,7 +52,8 @@ const Navigation = ({ location, match }) => {
         className={classNames('navWrapper', {
           navSlideOut: navOpen,
           navSlideIn: !navOpen,
-          hasUnderwritingExceptions: hasError || hasException
+          hasUnderwritingError: hasError,
+          hasUnderwritingException: hasException
         })}
       >
         <div className="propertyAddressWrapper">
