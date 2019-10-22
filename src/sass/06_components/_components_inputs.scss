@@ -611,6 +611,7 @@
         z-index: 10;
         max-height: 12rem;
         .react-select__option {
+          cursor: pointer;
           &:hover {
             background-color: rgba($blue, 0.25);
           }
