@@ -20,7 +20,7 @@ const UnderwritingReview = ({ quote }) => {
           representatives.
         </p>
       </div>
-      <div className="needsUpdating">
+      <div className="contactFooter">
         <ContactFooter>
           <Link
             to="customize"

@@ -6,14 +6,16 @@ import TypTapLink from './TypTapLink';
 const Error = () => {
   return (
     <div className="appError">
-      <h1>Uh Oh!</h1>
+      <div className="title">Uh Oh!</div>
       <p>
         We are experiencing technical difficulties. Please try again later, or
         contact one of our representatives so they may further assist you.
       </p>
-      <UnderwritingFooter>
-        <TypTapLink />
-      </UnderwritingFooter>
+      <div className="contactFooter">
+        <UnderwritingFooter>
+          <TypTapLink />
+        </UnderwritingFooter>
+      </div>
     </div>
   );
 };
