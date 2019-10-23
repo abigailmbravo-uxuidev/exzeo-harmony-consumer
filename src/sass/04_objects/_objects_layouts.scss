@@ -98,6 +98,13 @@ body {
   //region layout for phone
   div[role='region'] {
     @include forPhoneOnly {
+      button {
+        &.navOpener {
+          &.hasUnderwritingError {
+            display: none;
+          }
+        }
+      }
       nav[role='navigation'] {
         position: fixed;
         top: 0;
