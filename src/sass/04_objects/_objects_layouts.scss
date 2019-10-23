@@ -162,6 +162,7 @@ body {
                     }
                     span {
                       display: none;
+                      z-index: 10;
                     }
                     p {
                       border-left: 2px $blue solid;
@@ -171,6 +172,34 @@ body {
                   &.disabled {
                     p {
                       border-left: 2px $lightGrey solid;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.hasUnderwritingException {
+          > ul {
+            li {
+              ul {
+                li {
+                  a {
+                    &.active {
+                      h3 {
+                        background-color: $white;
+                        color: $lightGrey;
+                        padding-left: 2rem;
+                      }
+                      span {
+                        display: flex;
+                        z-index: 10;
+                      }
+
+                      p {
+                        border-left: 2px $lightGrey solid;
+                      }
                     }
                   }
                 }

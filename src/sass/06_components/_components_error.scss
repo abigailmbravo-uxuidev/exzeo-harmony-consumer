@@ -77,6 +77,10 @@
 
       &.btn {
         text-align: center;
+
+        @include forPhoneOnly {
+          margin-top: 1rem;
+        }
       }
     }
   }

@@ -337,6 +337,10 @@ nav[role='navigation'] {
 
   &.hasUnderwritingException {
     opacity: 0.4;
+
+    @include forPhoneOnly {
+      opacity: 1;
+    }
     > ul {
       a {
         &.active {
