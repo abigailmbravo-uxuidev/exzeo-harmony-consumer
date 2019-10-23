@@ -17,8 +17,6 @@ import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
 import Footer from 'components/Footer';
 
-import Test from 'components/Test';
-
 const App = () => {
   return (
     <Router>

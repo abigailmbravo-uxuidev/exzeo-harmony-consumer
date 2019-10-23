@@ -146,6 +146,19 @@
             "metaData": {}
           },
           "children": []
+        },
+        {
+          "id": "4caa415e-c0ca-471f-a5b9-9d844f7fcced",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$COVERAGE_WATCHER_AF3",
+            "extendedProperties": {
+              "subscribe": true
+            }
+          },
+          "formData": {},
+          "children": []
         }
       ]
     },

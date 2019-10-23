@@ -2,7 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import {
   Gandalf,
   getConfigForJsonTransform,
-  TriggerRecalc
+  TriggerRecalc,
+  PersonalPropertyCoverageWatcher
 } from '@exzeo/harmony-core';
 import { SectionLoader, FormSpy } from '@exzeo/core-ui';
 
@@ -45,7 +46,8 @@ const CUSTOM_COMPONENTS = {
   $AGENCY_DETAILS: AgencyDetails,
   $QUOTE_DETAILS: QuoteDetails,
   $POLICYHOLDER_DETAILS: PolicyholderDetails,
-  $ADDITIONAL_INTERESTS_DETAILS: AdditionalInterestsDetails
+  $ADDITIONAL_INTERESTS_DETAILS: AdditionalInterestsDetails,
+  $COVERAGE_WATCHER_AF3: PersonalPropertyCoverageWatcher
 };
 
 const QuoteWorkflow = ({ history, match }) => {
