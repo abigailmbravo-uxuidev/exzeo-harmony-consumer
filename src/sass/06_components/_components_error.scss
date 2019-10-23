@@ -21,23 +21,6 @@
     //underwriting fatal error
     .UWFatal {
       padding: 0;
-      div {
-        display: flex;
-        flex-direction: row;
-        flex-grow: 1;
-        flex-shrink: 1;
-        justify-content: center;
-
-        a {
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-
-          &.contactEmail {
-            color: $navy;
-          }
-        }
-      }
     }
   }
 }
@@ -67,7 +50,7 @@
 
 //contact footer
 .contactFooter {
-  div {
+  > div {
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
@@ -78,7 +61,6 @@
     @include forPhoneOnly {
       flex-direction: column;
       padding: ($padding / 4) 0;
-      justify-content: flex-start;
     }
     a {
       align-self: center;

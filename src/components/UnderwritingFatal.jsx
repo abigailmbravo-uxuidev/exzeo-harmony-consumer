@@ -12,9 +12,11 @@ const UnderwritingFatal = () => {
         automated Flood Quote for your property at this time. Please contact one
         of our representatives so they may further assist you.
       </p>
-      <ContactFooter>
-        <TypTapLink />
-      </ContactFooter>
+      <div className="contactFooter">
+        <ContactFooter>
+          <TypTapLink />
+        </ContactFooter>
+      </div>
     </div>
   );
 };
