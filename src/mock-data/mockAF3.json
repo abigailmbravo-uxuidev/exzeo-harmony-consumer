@@ -179,8 +179,8 @@
           "dependencies": [],
           "data": {
             "className": "subtitle",
-            "strong": "To save & retrieve your quote later, please enter your name and email below",
-            "text": "Your information will be saved for 30 days. Please give more detail regarding emailing and sharing your quote with yourself."
+            "strong": "To save your quote, please enter your information below",
+            "text": "Your information will be saved for 30 days. This information also makes it easier to retrieve your quote if you want to continue this quote at a later time."
           },
           "formData": {},
           "children": []
