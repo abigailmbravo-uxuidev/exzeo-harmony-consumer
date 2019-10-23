@@ -79,7 +79,8 @@
         text-align: center;
 
         @include forPhoneOnly {
-          margin-top: 1rem;
+          margin-top: 2rem;
+          width: 100%;
         }
       }
     }
