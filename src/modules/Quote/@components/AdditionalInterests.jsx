@@ -326,7 +326,7 @@ const AdditionalInterests = ({
                   styleName="additionalInterest radio"
                   dataTest="additionalInterest"
                   label="Are there any additional interests on the property?"
-                  hint="This is for additional interest"
+                  hint="An additional interest has a vested interest in the property, but has no actual ownership of the property. They will be notified in the event the policy is cancelled, but will not be listed on payment in the event of a claim.  This is rare on a Flood Insurance Policy."
                   segmented
                 />
               )}
