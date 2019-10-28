@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@exzeo/core-ui": "0.0.0-cb7dff3",
-    "@exzeo/react-scripts": "0.0.0-6e232575",
+    "@exzeo/react-scripts": "2.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
