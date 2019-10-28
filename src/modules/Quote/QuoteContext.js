@@ -116,20 +116,20 @@ export function QuoteContextProvider(props) {
 
 // Edit form data for quote-manager
 function formatQuoteForSubmit(data, options) {
-  const quote = _cloneDeep(data);
+  // const quote = _cloneDeep(data);
 
-  quote.effectiveDate = formatToUTC(
-    formatDate(data.effectiveDate, FORMATS.SECONDARY),
-    data.property.timezone
-  );
+  // quote.effectiveDate = formatToUTC(
+  //   formatDate(data.effectiveDate, FORMATS.SECONDARY),
+  //   data.property.timezone
+  // );
 
-  if (options.workflowPage === ROUTES.save.workflowPage) {
-    quote.policyHolders[0].electronicDelivery = false;
-    quote.policyHolders[0].order = 0;
-    quote.policyHolders[0].entityType = 'Person';
-  }
+  // if (options.workflowPage === ROUTES.save.workflowPage) {
+  //   quote.policyHolders[0].electronicDelivery = false;
+  //   quote.policyHolders[0].order = 0;
+  //   quote.policyHolders[0].entityType = 'Person';
+  // }
 
-  return quote;
+  return data;
 }
 
 // Edit quote for Form
