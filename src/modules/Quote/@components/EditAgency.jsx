@@ -60,7 +60,7 @@ const AgencySelect = ({ initialValues, formInstance, formValues }) => {
         dataTest="edit-agency"
         styleName="switch agencySelect"
         input={{
-          name: '',
+          name: 'edit-agency',
           value: editAgency,
           onChange: () => toggleEditAgency(),
           onFocus: noop,
