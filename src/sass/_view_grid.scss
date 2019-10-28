@@ -1082,14 +1082,20 @@
                 flex-shrink: 1;
                 min-height: 14rem;
                 width: 33.33%;
-                background-image: linear-gradient(
-                  $white 0%,
-                  $white 33%,
-                  $blue 66%,
-                  $blue 100%
-                );
-                background-position: 0 0%;
-                background-size: auto 300%;
+
+                &.selected {
+                  .cardContent {
+                    color: $navy;
+                    background-color: $white;
+                  }
+
+                  .card-footer {
+                    label {
+                      background-color: $navy;
+                      color: $white;
+                    }
+                  }
+                }
 
                 @include forPhoneOnly {
                   display: flex;
@@ -1144,22 +1150,31 @@
                 .card-footer {
                   flex-grow: 0;
                   flex-shrink: 0;
+                  @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
+                  transition: box-shadow 0.2s ease-in-out;
+
+                  &:hover {
+                    @include shadow(0px, 0px, 10px, rgba($blue, 1));
+                  }
+
                   label {
                     padding: ($padding/2) 0;
-                    background-color: $blue;
-                    color: $white;
+                    background-color: $white;
+                    color: $navy;
                     text-align: center;
                     font-family: $serif;
+
+                    &:hover {
+                      cursor: pointer;
+                      background-color: mix($blue, $navy, 80%);
+                      color: $white;
+                    }
                   }
                 }
                 &:hover {
-                  background-position: 0 100%;
-                  color: $white;
                   cursor: pointer;
                 }
                 &.selected {
-                  background-position: 0 100%;
-                  color: $white;
                 }
               }
 
