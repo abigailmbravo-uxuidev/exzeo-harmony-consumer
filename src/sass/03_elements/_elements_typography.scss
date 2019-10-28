@@ -61,6 +61,11 @@ p {
   }
 }
 
+.subtitle {
+  font-family: $serif;
+  font-size: $fontSizeSubheader--small;
+}
+
 label {
   font-weight: bold;
   font-size: $fontSizeLabel;
