@@ -61,9 +61,12 @@ nav[role='navigation'] {
     flex-grow: 0;
     flex-shrink: 0;
     padding-top: 2rem;
+
     p {
       margin: 0;
       text-align: right;
+      font-size: $fontSizeLabel;
+      font-family: $serif;
 
       @include forPhoneOnly {
         text-align: left;
@@ -329,6 +332,8 @@ nav[role='navigation'] {
   &.hasUnderwritingError {
     .propertyAddressWrapper {
       display: none;
+      font-size: $fontSizeLabel;
+      font-family: $serif;
     }
     > ul {
       display: none;
