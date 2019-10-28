@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-// import { retrieveQuote } from '@exzeo/harmony-core';
+// import { retrieveQuote } from '@exzeo/core-ui/src/@Harmony';
 //
 // import { VALID_QUOTE_STATES } from './@components/QuoteSearch';
 //

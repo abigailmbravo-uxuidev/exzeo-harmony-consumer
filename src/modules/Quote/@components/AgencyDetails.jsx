@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SummaryGroup from './SummaryGroup';
 import { noop, SectionLoader } from '@exzeo/core-ui/src';
-import { searchAgencies } from '@exzeo/harmony-core';
+import { searchAgencies } from '@exzeo/core-ui/src/@Harmony';
 
 const AgencyDetails = ({ initialValues }) => {
   const [selectedAgency, setSelectedAgency] = useState({});

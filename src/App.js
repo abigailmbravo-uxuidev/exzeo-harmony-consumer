@@ -5,7 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import { AppFooter } from '@exzeo/harmony-core';
+import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
 
 import { ROUTES } from 'constants/navigation';
 import QuoteSearch from 'modules/QuoteSearch';

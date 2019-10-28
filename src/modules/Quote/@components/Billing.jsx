@@ -4,7 +4,7 @@ import {
   useFetchBillingConfiguration,
   getBillToConfiguration,
   BillingFieldWatchers
-} from '@exzeo/harmony-core';
+} from '@exzeo/core-ui/src/@Harmony';
 import { useField } from '@exzeo/core-ui';
 
 import BillingOption from './BillingOption';

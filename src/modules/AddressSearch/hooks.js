@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { searchData } from '@exzeo/harmony-core';
+import { searchData } from '@exzeo/core-ui/src/@Harmony';
 
 const initialState = {
   hasSearched: false,

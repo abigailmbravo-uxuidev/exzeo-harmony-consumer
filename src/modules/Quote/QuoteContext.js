@@ -1,6 +1,6 @@
 import React from 'react';
 import _cloneDeep from 'lodash.clonedeep';
-import { quoteData } from '@exzeo/harmony-core';
+import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 import {
   formatToUTC,
   formatDate,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { noop, Switch } from '@exzeo/core-ui';
-import { ShareModal } from '@exzeo/harmony-core';
+import { ShareModal } from '@exzeo/core-ui/src/@Harmony';
 
 const Share = ({ formInstance }) => {
   const [shareQuote, setShareQuote] = useState(false);

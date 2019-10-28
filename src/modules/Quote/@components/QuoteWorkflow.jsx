@@ -4,7 +4,7 @@ import {
   getConfigForJsonTransform,
   TriggerRecalc,
   PersonalPropertyCoverageWatcher
-} from '@exzeo/harmony-core';
+} from '@exzeo/core-ui/src/@Harmony';
 import { SectionLoader, FormSpy } from '@exzeo/core-ui';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';

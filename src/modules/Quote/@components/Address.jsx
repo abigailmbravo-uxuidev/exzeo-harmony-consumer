@@ -1,7 +1,10 @@
 import React from 'react';
 import { Field, FormSpy, Radio } from '@exzeo/core-ui';
 import classNames from 'classnames';
-import { AddressFormFields, AddressFieldWatchers } from '@exzeo/harmony-core';
+import {
+  AddressFormFields,
+  AddressFieldWatchers
+} from '@exzeo/core-ui/src/@Harmony';
 import { BOOL_OPTIONS } from '../../../constants/input';
 
 const Address = ({ initialValues }) => {

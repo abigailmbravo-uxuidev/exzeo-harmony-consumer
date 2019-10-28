@@ -14,7 +14,7 @@ import {
   AdditionalInterestModal,
   V2AdditionalInterestCard,
   AI_TYPES
-} from '@exzeo/harmony-core';
+} from '@exzeo/core-ui/src/@Harmony';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { BOOL_OPTIONS } from '../../../constants/input';

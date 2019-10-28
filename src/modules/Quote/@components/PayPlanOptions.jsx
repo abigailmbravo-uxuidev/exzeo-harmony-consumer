@@ -1,7 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import { format, date } from '@exzeo/core-ui';
-import { getFormattedPaymentPlans, PAY_PLANS } from '@exzeo/harmony-core';
+import {
+  getFormattedPaymentPlans,
+  PAY_PLANS
+} from '@exzeo/core-ui/src/@Harmony';
 
 const PayPlanOptions = ({
   availablePlans,

@@ -7,7 +7,7 @@ import {
   Radio,
   validation
 } from '@exzeo/core-ui';
-import { PolicyHolderModal } from '@exzeo/harmony-core';
+import { PolicyHolderModal } from '@exzeo/core-ui/src/@Harmony';
 
 import { BOOL_OPTIONS } from 'constants/input';
 

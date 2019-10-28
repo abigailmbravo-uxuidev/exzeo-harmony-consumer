@@ -12,7 +12,7 @@ import {
   AgencyCard,
   searchAgencies,
   AgencyTypeAhead
-} from '@exzeo/harmony-core';
+} from '@exzeo/core-ui/src/@Harmony';
 
 const AgencySelect = ({ initialValues, formInstance, formValues }) => {
   const [editAgency, setEditAgency] = useState(false);

@@ -12,7 +12,7 @@
     "cypress": "react-scripts cypress"
   },
   "dependencies": {
-    "@exzeo/core-ui": "0.0.0-cb7dff3",
+    "@exzeo/core-ui": "0.0.0-dd8bc2c",
     "@exzeo/react-scripts": "2.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
@@ -49,6 +49,14 @@
     "extends": [
       "react-app",
       "./.eslintrc"
+    ]
+  },
+  "jest": {
+    "testResultsProcessor": "jest-teamcity-reporter",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/setupTests.js"
     ]
   },
   "browserslist": {
