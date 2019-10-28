@@ -1,12 +1,5 @@
 import React from 'react';
-import _cloneDeep from 'lodash.clonedeep';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
-import {
-  formatToUTC,
-  formatDate,
-  FORMATS
-} from '@exzeo/core-ui/src/Utilities/date';
-import { ROUTES } from 'constants/navigation';
 
 const QuoteContext = React.createContext();
 
@@ -116,19 +109,7 @@ export function QuoteContextProvider(props) {
 
 // Edit form data for quote-manager
 function formatQuoteForSubmit(data, options) {
-  // const quote = _cloneDeep(data);
-
-  // quote.effectiveDate = formatToUTC(
-  //   formatDate(data.effectiveDate, FORMATS.SECONDARY),
-  //   data.property.timezone
-  // );
-
-  // if (options.workflowPage === ROUTES.save.workflowPage) {
-  //   quote.policyHolders[0].electronicDelivery = false;
-  //   quote.policyHolders[0].order = 0;
-  //   quote.policyHolders[0].entityType = 'Person';
-  // }
-
+  // TODO this may not be necessary now that we are formatting the form data for quote in core-ui data layer
   return data;
 }
 
