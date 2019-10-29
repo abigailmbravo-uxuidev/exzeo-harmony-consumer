@@ -29,7 +29,12 @@ const Billing = ({ initialValues }) => {
     <section className={classNames('billing', { error: billingError })}>
       <h4>Who should we bill for your Policy?</h4>
 
-      {billingError && <span>You did something way wrong!</span>}
+      {billingError && (
+        <span>
+          Please select a name below, where you would like us to send the bill
+          for the Flood insurance policy.
+        </span>
+      )}
 
       <ul>
         {billingConfig.billingOptions.map(option => {

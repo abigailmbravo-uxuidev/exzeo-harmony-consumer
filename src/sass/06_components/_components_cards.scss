@@ -319,3 +319,46 @@
     }
   }
 }
+
+.Additional.Insured.Details {
+  .cardContent {
+    h4 {
+      font-size: $fontSizeBase;
+      margin-bottom: 0.25rem;
+      margin-top: 0;
+    }
+    label {
+      padding-left: 0;
+      font-weight: $normal;
+      font-size: $fontSizeBase;
+      margin-bottom: 0.25rem;
+      font-family: $sans;
+    }
+
+    a {
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        .card {
+          box-shadow: none;
+
+          h4 {
+            font-weight: $normal;
+            font-size: $fontSizeBase;
+            font-family: $sans;
+          }
+
+          p {
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}

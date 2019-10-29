@@ -17,9 +17,9 @@ const PolicyholderDetails = ({ initialValues, renderChildren, config }) => {
         {initialValues.policyHolders.length < 2 && (
           <dl className="secondary-policyholder">
             <div>
-              <dt>No second policyholder on policy. </dt>
+              <dt>Secondary Policyholder</dt>
               <dd>
-                <Link to="policyholder">Add second policyholder now?</Link>
+                <Link to="policyholder">Add secondary policyholder now?</Link>
               </dd>
             </div>
           </dl>
