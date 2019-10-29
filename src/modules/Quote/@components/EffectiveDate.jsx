@@ -26,7 +26,6 @@ const EffectiveDate = ({ initialValues }) => {
             minDate={minDate}
             maxDate={maxDate}
             monthsShown={2}
-            inline
           />
         )}
       </Field>
