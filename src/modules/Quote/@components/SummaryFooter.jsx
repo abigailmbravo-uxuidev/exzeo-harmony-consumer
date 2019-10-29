@@ -99,9 +99,8 @@ const SummaryFooter = ({
 
               <p>
                 <strong>NOTE:</strong> All signatures must be completed within
-                10 days, or the application will expire.
-                <br />
-                Once you send, no changes can be made to this quote.
+                10 days, or the application will expire. Once you send, no
+                changes can be made to this quote.
               </p>
             </div>
 
