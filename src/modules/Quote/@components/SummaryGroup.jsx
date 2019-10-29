@@ -9,16 +9,17 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
     validate: validation.isRequired
   });
 
+  const confirmFieldError =
+    confirmField.meta.touched && confirmField.meta.error;
+
   return (
     <div
       className={classNames('card', 'summaryCard', header, {
         selected: confirmField.input.value,
-        error: confirmField.meta.touched && confirmField.meta.error
+        error: confirmFieldError
       })}
     >
-      {confirmField.meta.touched && confirmField.meta.error && (
-        <span>You did something wrong!!!</span>
-      )}
+      {confirmFieldError && <span>You did something wrong!!!</span>}
 
       {confirmField.input.value && (
         <div

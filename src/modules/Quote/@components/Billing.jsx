@@ -24,16 +24,13 @@ const Billing = ({ initialValues }) => {
     return <SectionLoader />;
   }
 
+  const billingError = billToIdField.meta.touched && billToIdField.meta.error;
   return (
-    <section
-      className={classNames('billing', {
-        error: billToIdField.meta.touched && billToIdField.meta.error
-      })}
-    >
+    <section className={classNames('billing', { error: billingError })}>
       <h4>Who should we bill for your Policy?</h4>
-      {billToIdField.meta.touched && billToIdField.meta.error && (
-        <span>You did something way wrong!</span>
-      )}
+
+      {billingError && <span>You did something way wrong!</span>}
+
       <ul>
         {billingConfig.billingOptions.map(option => {
           const billingToConfig = getBillToConfiguration(
