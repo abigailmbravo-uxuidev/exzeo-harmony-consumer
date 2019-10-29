@@ -19,18 +19,18 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
       link="additionalInfo"
       handleEditClick={noop}
     >
-      <h4>Mortgage</h4>
       {groupedAdditionalInterests[AI_TYPES.mortgagee].length ? (
         <ul className="listItem">
           {groupedAdditionalInterests[AI_TYPES.mortgagee].map(ai => (
             <>
-              <label>{`${AI_TYPES.mortgagee} ${ai.order + 1}`}</label>
+              <h5>{`${AI_TYPES.mortgagee} ${ai.order + 1}`}</h5>
               <V2AdditionalInterestCard key={ai._id} ai={ai} />
             </>
           ))}
         </ul>
       ) : (
         <>
+          <h4>Mortgage</h4>
           <label>No mortgages added.</label>
           <Link to="additionalInfo">Add mortgagee now?</Link>
         </>
