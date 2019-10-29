@@ -1147,7 +1147,6 @@
                   display: flex;
                   justify-content: center;
                   margin: 0 1rem 1rem 1rem;
-                  margin-right: 0;
                   min-height: auto;
                   width: auto;
 
@@ -1236,11 +1235,22 @@
                   cursor: pointer;
                 }
                 &.selected {
+                  label {
+                    background-color: $navy;
+                    &:hover {
+                      background-color: $navy;
+                      cursor: default;
+                    }
+                  }
                 }
               }
 
               &:last-of-type {
                 margin-right: 0;
+
+                @include forPhoneOnly {
+                  margin-right: 1rem;
+                }
               }
 
               .cardContent {
@@ -1288,6 +1298,30 @@
                     font-size: $fontSizeSubheader--small;
                     font-family: $serif;
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.error {
+        h4 {
+          margin-bottom: 0.25rem;
+        }
+        span {
+          color: $red;
+          margin-bottom: 1rem;
+          font-size: $fontSizeLabel;
+        }
+
+        ul {
+          li {
+            .card {
+              @include shadow(0, 3px, 6px, rgba($red, 0.16));
+              footer {
+                svg {
+                  color: $red;
                 }
               }
             }
