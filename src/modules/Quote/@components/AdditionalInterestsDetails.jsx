@@ -23,7 +23,10 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
       {groupedAdditionalInterests[AI_TYPES.mortgagee].length ? (
         <ul className="listItem">
           {groupedAdditionalInterests[AI_TYPES.mortgagee].map(ai => (
-            <V2AdditionalInterestCard key={ai._id} ai={ai} />
+            <>
+              <label>{`${AI_TYPES.mortgagee} ${ai.order + 1}`}</label>
+              <V2AdditionalInterestCard key={ai._id} ai={ai} />
+            </>
           ))}
         </ul>
       ) : (
