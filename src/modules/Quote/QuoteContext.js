@@ -74,7 +74,7 @@ export function useQuote() {
       setLoading(true);
       const quote = await quoteData.verifyQuote({ quoteNumber }, options);
       if (!quote || quote.quoteState !== 'Application Ready') {
-        throw new Error('Quote is not in Apllcation Ready state');
+        throw new Error('Quote is not in Application Ready state');
       }
       await quoteData.sendApplication(quoteNumber, 'docusign');
     } catch (error) {

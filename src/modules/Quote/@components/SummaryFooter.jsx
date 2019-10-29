@@ -8,39 +8,25 @@ import { Link } from 'react-router-dom';
 const companyName = 'TypTap';
 const productDescription = 'Flood';
 
-const SummaryFooter = ({
-  values,
-  values: {
-    confirmProperty,
-    confirmAgency,
-    confirmQuote,
-    confirmPolicyHolder,
-    confirmAdditionalInterest
-  } = {},
-  history
-}) => {
+const SummaryFooter = ({ formInstance, values, history }) => {
   const [showConfirm, setShowConfirm] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const { sendApplication, quote } = useQuote();
+  const { sendApplication, quote, loading } = useQuote();
+
+  const promptToConfirm = () => {
+    const { invalid } = formInstance.getState();
+    if (invalid) {
+      formInstance.submit();
+    } else {
+      setShowConfirm(true);
+    }
+  };
 
   const handleSendApplication = async () => {
-    setSubmitting(true);
     await sendApplication(quote.quoteNumber, {});
     history.push(WORKFLOW_ROUTING[ROUTES.summary.path]);
-    setSubmitting(false);
   };
 
-  const confirmFields = {
-    confirmProperty,
-    confirmAgency,
-    confirmQuote,
-    confirmPolicyHolder,
-    confirmAdditionalInterest
-  };
-
-  const isButtonDisabled = Object.values(confirmFields).some(k => !k);
-
-  if (submitting) {
+  if (loading) {
     return <SectionLoader />;
   }
 
@@ -50,9 +36,8 @@ const SummaryFooter = ({
         type="button"
         data-test="submit"
         className={Button.constants.classNames.primary}
-        onKeyPress={e => e.charCode === 13 && setShowConfirm(true)}
-        onClick={() => setShowConfirm(true)}
-        disabled={isButtonDisabled}
+        onKeyPress={e => e.charCode === 13 && promptToConfirm()}
+        onClick={() => promptToConfirm()}
       >
         Continue
       </Button>
