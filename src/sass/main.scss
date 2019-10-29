@@ -54,3 +54,17 @@
 @import '08_utilities/utilities_widths';
 
 @import 'view_grid';
+
+.Additional.Insured.Details {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      .card {
+        box-shadow: none;
+      }
+    }
+  }
+}

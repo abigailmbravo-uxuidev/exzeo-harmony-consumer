@@ -19,6 +19,7 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
       link="additionalInfo"
       handleEditClick={noop}
     >
+      <h4>Mortgage</h4>
       {groupedAdditionalInterests[AI_TYPES.mortgagee].length ? (
         <ul className="listItem">
           {groupedAdditionalInterests[AI_TYPES.mortgagee].map(ai => (
@@ -26,16 +27,12 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
           ))}
         </ul>
       ) : (
-        <dl className="ai">
-          <div>
-            <dt>No mortgages added.</dt>
-            <dd>
-              <Link to="additionalInfo">Add mortgagee now?</Link>
-            </dd>
-          </div>
-        </dl>
+        <>
+          <label>No mortgages added.</label>
+          <Link to="additionalInfo">Add mortgagee now?</Link>
+        </>
       )}
-
+      <h4>Additional Insured</h4>
       {groupedAdditionalInterests[AI_TYPES.additionalInsured].length ? (
         <ul className="listItem">
           {groupedAdditionalInterests[AI_TYPES.additionalInsured].map(ai => (
@@ -43,16 +40,12 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
           ))}
         </ul>
       ) : (
-        <dl className="ai">
-          <div>
-            <dt>No additional insured added.</dt>
-            <dd>
-              <Link to="additionalInfo">Add additional insured now?</Link>
-            </dd>
-          </div>
-        </dl>
+        <>
+          <label>No additional insured added.</label>
+          <Link to="additionalInfo">Add additional insured now?</Link>
+        </>
       )}
-
+      <h4>Additional Interest</h4>
       {groupedAdditionalInterests[AI_TYPES.additionalInterest].length ? (
         <ul className="listItem">
           {groupedAdditionalInterests[AI_TYPES.additionalInterest].map(ai => (
@@ -60,14 +53,10 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
           ))}
         </ul>
       ) : (
-        <dl className="ai">
-          <div>
-            <dt>No additional interest added.</dt>
-            <dd>
-              <Link to="additionalInfo">Add additional interest now?</Link>
-            </dd>
-          </div>
-        </dl>
+        <>
+          <label>No additional interest added.</label>
+          <Link to="additionalInfo">Add additional interest now?</Link>
+        </>
       )}
     </SummaryGroup>
   );
