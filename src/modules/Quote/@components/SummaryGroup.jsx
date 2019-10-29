@@ -14,8 +14,19 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
       className={classNames('card', 'summaryCard', header, {
         selected: confirmField.input.value
       })}
-      onClick={() => confirmField.input.onChange(!confirmField.input.value)}
     >
+      {confirmField.input.value && (
+        <div
+          className="confirmedIndicator"
+          onClick={() => confirmField.input.onChange(!confirmField.input.value)}
+        >
+          <div className="confirmedMessage">
+            <FontAwesomeIcon icon="times" />
+            <FontAwesomeIcon icon="check" />
+            <h5>Confirmed</h5>
+          </div>
+        </div>
+      )}
       <div className="card-header">
         <h3>{header}</h3>
         <Link to={link} className={classNames('link', detailClass)}>
@@ -23,7 +34,10 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
         </Link>
       </div>
       <div className="cardContent">{children}</div>
-      <div className="card-footer">
+      <div
+        className="card-footer"
+        onClick={() => confirmField.input.onChange(!confirmField.input.value)}
+      >
         <label>{confirmField.input.value ? 'Confirmed' : 'Confirm'}</label>
       </div>
     </div>

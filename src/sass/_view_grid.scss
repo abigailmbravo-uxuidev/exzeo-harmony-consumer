@@ -159,6 +159,68 @@
             }
           }
         }
+
+        .share {
+          overflow: hidden;
+
+          .card-block {
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: $padding $padding * 1.5 $padding;
+            border-top-left-radius: $borderRadius;
+            border-top-right-radius: $borderRadius;
+            background-color: $white;
+
+            @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
+
+            .form-group {
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          .card-footer {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            @include forPhoneOnly {
+            }
+
+            .btn {
+              display: flex;
+              flex-grow: 1;
+              flex-shrink: 1;
+              justify-content: center;
+              margin-bottom: 0;
+              margin-left: 0;
+              text-transform: capitalize;
+
+              &.btn-primary {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: $borderRadius;
+                border-bottom-left-radius: 0;
+
+                @include forPhoneOnly {
+                  border-bottom-right-radius: 0;
+                }
+              }
+
+              &.btn-secondary {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: $borderRadius;
+
+                @include forPhoneOnly {
+                  border-bottom-left-radius: 0;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
