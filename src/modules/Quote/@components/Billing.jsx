@@ -1,17 +1,16 @@
 import React from 'react';
-import { SectionLoader, validation } from '@exzeo/core-ui';
+import classNames from 'classnames';
+import { SectionLoader, validation, useField } from '@exzeo/core-ui';
 import {
   useFetchBillingConfiguration,
   getBillToConfiguration,
   BillingFieldWatchers
 } from '@exzeo/core-ui/src/@Harmony';
-import { useField } from '@exzeo/core-ui';
 
 import BillingOption from './BillingOption';
-import classNames from 'classnames';
 import PayPlanOptions from './PayPlanOptions';
 
-const Billing = ({ initialValues, formInstance }) => {
+const Billing = ({ initialValues }) => {
   const { billingConfig, loaded } = useFetchBillingConfiguration(initialValues);
   const billToIdField = useField('billToId', {
     validate: validation.isRequired
@@ -26,7 +25,11 @@ const Billing = ({ initialValues, formInstance }) => {
   }
 
   return (
-    <section className="billing">
+    <section
+      className={classNames('billing', {
+        error: billToIdField.meta.touched && billToIdField.meta.error
+      })}
+    >
       <h4>Who should we bill for your Policy?</h4>
       {billToIdField.meta.touched && billToIdField.meta.error && (
         <span>You did something way wrong!</span>
