@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SummaryGroup from './SummaryGroup';
 import { noop, SectionLoader } from '@exzeo/core-ui/src';
-import { searchAgencies } from '@exzeo/core-ui/src/@Harmony';
+import { useAgencyInfo } from '@exzeo/core-ui/src/@Harmony';
 
 const AgencyDetails = ({ initialValues }) => {
-  const [selectedAgency, setSelectedAgency] = useState({});
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    async function getAgency() {
-      setLoaded(false);
-      const result = await searchAgencies({
-        agencyCode: initialValues.agencyCode
-      });
-
-      setSelectedAgency(result[0]);
-      setLoaded(true);
-    }
-
-    getAgency();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialValues.agencyCode]);
+  const { loaded, agency } = useAgencyInfo(initialValues.agencyCode);
 
   if (!loaded) {
     return <SectionLoader />;
@@ -38,7 +22,7 @@ const AgencyDetails = ({ initialValues }) => {
         <dl className="agent">
           <div>
             <dt>Agency</dt>
-            <dd>{selectedAgency.displayName}</dd>
+            <dd>{agency.displayName}</dd>
           </div>
         </dl>
       </SummaryGroup>

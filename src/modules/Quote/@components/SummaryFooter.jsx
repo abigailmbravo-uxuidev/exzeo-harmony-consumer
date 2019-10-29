@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, ModalPortal, SectionLoader } from '@exzeo/core-ui';
+import { useAgentInfo } from '@exzeo/core-ui/src/@Harmony';
 import { useQuote } from '../QuoteContext';
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
 import { Link } from 'react-router-dom';
@@ -11,6 +12,7 @@ const productDescription = 'Flood';
 const SummaryFooter = ({ formInstance, values, history }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { sendApplication, quote, loading } = useQuote();
+  const { agent } = useAgentInfo(values.agentCode);
 
   const promptToConfirm = () => {
     const { invalid } = formInstance.getState();
@@ -73,8 +75,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
                 )}
               </ul>
               <p>
-                A copy will also be sent to you (TODO: fetch agency info to
-                place agency email here)
+                {`A copy will also be sent to your agent (${agent.emailAddress}).`}
               </p>
 
               <p>
