@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ModalPortal, format } from '@exzeo/core-ui';
-import { ShareModal } from '@exzeo/harmony-core';
+import { ShareModal } from '@exzeo/core-ui/src/@Harmony';
 import { useQuote } from 'modules/Quote';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
