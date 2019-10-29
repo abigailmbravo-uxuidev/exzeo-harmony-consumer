@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, ModalPortal, SectionLoader } from '@exzeo/core-ui';
 import { useQuote } from '../QuoteContext';
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
+import { Link } from 'react-router-dom';
 
 const companyName = 'TypTap';
 const productDescription = 'Flood';
 
 const SummaryFooter = ({
-  formValues,
-  formValues: {
+  values,
+  values: {
     confirmProperty,
     confirmAgency,
     confirmQuote,
@@ -80,10 +81,10 @@ const SummaryFooter = ({
                 Application, and e-mail it to:
               </p>
               <ul>
-                <li>{`${formValues.policyHolders[0].firstName} ${formValues.policyHolders[0].lastName} (${formValues.policyHolders[0].emailAddress})`}</li>
+                <li>{`${values.policyHolders[0].firstName} ${values.policyHolders[0].lastName} (${values.policyHolders[0].emailAddress})`}</li>
 
-                {formValues.policyHolders.length > 1 && (
-                  <li>{`${formValues.policyHolders[1].firstName} ${formValues.policyHolders[1].lastName} (${formValues.policyHolders[1].emailAddress})`}</li>
+                {values.policyHolders.length > 1 && (
+                  <li>{`${values.policyHolders[1].firstName} ${values.policyHolders[1].lastName} (${values.policyHolders[1].emailAddress})`}</li>
                 )}
               </ul>
               <p>
@@ -105,16 +106,15 @@ const SummaryFooter = ({
             </div>
 
             <div className="card-footer">
-              <Button
-                type="button"
-                data-test="cancel"
+              <Link
+                to={{
+                  pathname: '/thankYou',
+                  state: { quoteNumber: values.quoteNumber }
+                }}
                 className={Button.constants.classNames.secondary}
-                onKeyPress={e => e.charCode === 13 && setShowConfirm(false)}
-                onClick={() => setShowConfirm(false)}
               >
                 Save & Continue Later
-              </Button>
-
+              </Link>
               <Button
                 type="button"
                 data-test="submit"

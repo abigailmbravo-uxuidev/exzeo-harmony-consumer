@@ -17,7 +17,7 @@ const WorkflowFooter = ({ recalc, workflowPage, history }) => {
             <SummaryFooter
               history={history}
               submitting={submitting}
-              formValues={values}
+              values={values}
             />
           );
         }
