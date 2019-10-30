@@ -60,7 +60,9 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
         <dt>Additional Interest</dt>
         {groupedAdditionalInterests[AI_TYPES.additionalInterest].length ? (
           groupedAdditionalInterests[AI_TYPES.additionalInterest].map(ai => (
-            <V2AdditionalInterestCard key={ai._id} ai={ai} />
+            <dd key={ai._id}>
+              <V2AdditionalInterestCard ai={ai} />
+            </dd>
           ))
         ) : (
           <dd>
