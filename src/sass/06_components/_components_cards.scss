@@ -68,6 +68,7 @@
 
       @include forPhoneOnly {
         padding-top: $padding/4;
+        font-size: $fontSizeLabel;
       }
     }
   }
@@ -80,10 +81,9 @@
       flex-wrap: wrap;
 
       @include forPhoneOnly {
-        .cardContent {
-          flex-direction: column;
-        }
+        flex-direction: column;
       }
+
       h3 {
         flex-grow: 1;
         flex-shrink: 1;
@@ -100,6 +100,7 @@
         @include forPhoneOnly {
           align-self: flex-start;
           order: 3;
+          font-size: $fontSizeLabel;
         }
       }
       .propertyAddress {
@@ -109,6 +110,7 @@
 
         @include forPhoneOnly {
           margin-bottom: 0.5rem;
+          font-size: $fontSizeLabel;
         }
       }
     }

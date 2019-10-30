@@ -91,7 +91,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
               </p>
             </div>
 
-            <div className="card-footer">
+            <div className="card-footer applicationComplete">
               <Link
                 to={{
                   pathname: '/thankYou',
@@ -108,7 +108,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
                 onKeyPress={e => e.charCode === 13 && handleSendApplication()}
                 onClick={() => handleSendApplication()}
               >
-                Send Application for Signature
+                Send for Signature
               </Button>
             </div>
           </Modal>
