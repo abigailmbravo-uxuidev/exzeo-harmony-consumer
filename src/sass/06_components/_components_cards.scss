@@ -322,40 +322,41 @@
 
 .Additional.Insured.Details {
   .cardContent {
-    h4 {
-      font-size: $fontSizeBase;
-      margin-bottom: 0.25rem;
-      margin-top: 0;
-    }
-    label {
-      padding-left: 0;
-      font-weight: $normal;
-      font-size: $fontSizeBase;
-      margin-bottom: 0.25rem;
-      font-family: $sans;
-    }
+    flex-direction: column;
+    dl {
+      dt {
+        font-size: $fontSizeBase;
+        margin-bottom: 0.25rem;
+        margin-top: 0;
+      }
 
-    a {
-      margin-bottom: 1.5rem;
-    }
+      dd {
+        label {
+          padding-left: 0;
+          font-weight: $normal;
+          font-size: $fontSizeBase;
+          margin-bottom: 0.25rem;
+          font-family: $sans;
+        }
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+        a {
+          margin-bottom: 1.5rem;
+        }
 
-      li {
         .card {
           box-shadow: none;
 
-          h4 {
-            font-weight: $normal;
-            font-size: $fontSizeBase;
-            font-family: $sans;
-          }
+          div {
+            h4 {
+              font-weight: $normal;
+              font-size: $fontSizeBase;
+              font-family: $sans;
+              margin-top: 0;
+            }
 
-          p {
-            line-height: 1;
+            p {
+              line-height: 1;
+            }
           }
         }
       }
