@@ -19,7 +19,7 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
       link="additionalInfo"
       handleEditClick={noop}
     >
-      <dl className="">
+      <dl>
         {groupedAdditionalInterests[AI_TYPES.mortgagee].length ? (
           groupedAdditionalInterests[AI_TYPES.mortgagee].map(ai => (
             <React.Fragment key={ai._id}>
@@ -40,7 +40,7 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
         )}
       </dl>
 
-      <dl className="">
+      <dl>
         <dt>Additional Insured</dt>
         {groupedAdditionalInterests[AI_TYPES.additionalInsured].length ? (
           groupedAdditionalInterests[AI_TYPES.additionalInsured].map(ai => (
@@ -56,7 +56,7 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
         )}
       </dl>
 
-      <dl className="">
+      <dl>
         <dt>Additional Interest</dt>
         {groupedAdditionalInterests[AI_TYPES.additionalInterest].length ? (
           groupedAdditionalInterests[AI_TYPES.additionalInterest].map(ai => (
