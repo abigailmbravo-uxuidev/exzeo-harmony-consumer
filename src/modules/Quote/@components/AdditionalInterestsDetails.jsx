@@ -19,48 +19,56 @@ const AdditionalInterestsDetails = ({ initialValues }) => {
       link="additionalInfo"
       handleEditClick={noop}
     >
-      {groupedAdditionalInterests[AI_TYPES.mortgagee].length ? (
-        <ul className="listItem">
-          {groupedAdditionalInterests[AI_TYPES.mortgagee].map(ai => (
-            <>
-              <h5>{`${AI_TYPES.mortgagee} ${ai.order + 1}`}</h5>
-              <V2AdditionalInterestCard key={ai._id} ai={ai} />
-            </>
-          ))}
-        </ul>
-      ) : (
-        <>
-          <h4>Mortgage</h4>
-          <label>No mortgages added.</label>
-          <Link to="additionalInfo">Add mortgagee now?</Link>
-        </>
-      )}
-      <h4>Additional Insured</h4>
-      {groupedAdditionalInterests[AI_TYPES.additionalInsured].length ? (
-        <ul className="listItem">
-          {groupedAdditionalInterests[AI_TYPES.additionalInsured].map(ai => (
+      <dl className="">
+        {groupedAdditionalInterests[AI_TYPES.mortgagee].length ? (
+          groupedAdditionalInterests[AI_TYPES.mortgagee].map(ai => (
+            <React.Fragment key={ai._id}>
+              <dt>{`${AI_TYPES.mortgagee} ${ai.order + 1}`}</dt>
+              <dd>
+                <V2AdditionalInterestCard ai={ai} />
+              </dd>
+            </React.Fragment>
+          ))
+        ) : (
+          <React.Fragment>
+            <dt>Mortgagee</dt>
+            <dd>
+              <label>No mortgagees added.</label>
+              <Link to="additionalInfo">Add mortgagee now?</Link>
+            </dd>
+          </React.Fragment>
+        )}
+      </dl>
+
+      <dl className="">
+        <dt>Additional Insured</dt>
+        {groupedAdditionalInterests[AI_TYPES.additionalInsured].length ? (
+          groupedAdditionalInterests[AI_TYPES.additionalInsured].map(ai => (
+            <dd key={ai._id}>
+              <V2AdditionalInterestCard ai={ai} />
+            </dd>
+          ))
+        ) : (
+          <dd>
+            <label>No additional insured added.</label>
+            <Link to="additionalInfo">Add additional insured now?</Link>
+          </dd>
+        )}
+      </dl>
+
+      <dl className="">
+        <dt>Additional Interest</dt>
+        {groupedAdditionalInterests[AI_TYPES.additionalInterest].length ? (
+          groupedAdditionalInterests[AI_TYPES.additionalInterest].map(ai => (
             <V2AdditionalInterestCard key={ai._id} ai={ai} />
-          ))}
-        </ul>
-      ) : (
-        <>
-          <label>No additional insured added.</label>
-          <Link to="additionalInfo">Add additional insured now?</Link>
-        </>
-      )}
-      <h4>Additional Interest</h4>
-      {groupedAdditionalInterests[AI_TYPES.additionalInterest].length ? (
-        <ul className="listItem">
-          {groupedAdditionalInterests[AI_TYPES.additionalInterest].map(ai => (
-            <V2AdditionalInterestCard key={ai._id} ai={ai} />
-          ))}
-        </ul>
-      ) : (
-        <>
-          <label>No additional interest added.</label>
-          <Link to="additionalInfo">Add additional interest now?</Link>
-        </>
-      )}
+          ))
+        ) : (
+          <dd>
+            <label>No additional interest added.</label>
+            <Link to="additionalInfo">Add additional interest now?</Link>
+          </dd>
+        )}
+      </dl>
     </SummaryGroup>
   );
 };
