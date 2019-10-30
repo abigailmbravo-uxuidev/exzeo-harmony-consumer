@@ -30,8 +30,7 @@ add `.env.local` file
 REACT_APP_API_URL=https://api.harmony-ins.com
 
 # point cypress to a different environment
-#CYPRESS_BASE_URL=https://agency.harmony-ins.com
-#CYPRESS_USE_MOCK_AUTH0=true
+#CYPRESS_BASE_URL=https://[URL TO BE NAMED LATER]
 ```
 
 install dependencies
@@ -50,7 +49,6 @@ npm start
 
 All components must meet the following criteria
 
-- Follow formatting / linting rules ( `npm run lint` must exit with 0 code )
-- PropTypes must be declared - required and default
-- Covered by unit tests
+- Follow linting rules ( `npm run lint` must exit with 0 code )
+- Any test plan associated with work being done must be met with unit/cypress tests
 - A front end dev approval required for PR's
