@@ -119,36 +119,38 @@ const AdditionalInterests = ({
 
             {values.mortgagee1 === true && !!groupedAIs[AI_TYPES.mortgagee][0] && (
               <ul className="listItem">
-                <V2AdditionalInterestCard
-                  ai={groupedAIs[AI_TYPES.mortgagee][0]}
-                  deleteIcon={
-                    <a
-                      className="edit"
-                      onClick={() =>
-                        setModal({
-                          type: AI_TYPES.mortgagee,
-                          selected: groupedAIs[AI_TYPES.mortgagee][0],
-                          show: true,
-                          relatedField: 'mortgagee1'
-                        })
-                      }
-                    >
-                      <FontAwesomeIcon icon="edit" />
-                    </a>
-                  }
-                  editIcon={
-                    <a
-                      className="remove"
-                      onClick={() =>
-                        deleteAdditionalInterest(
-                          groupedAIs[AI_TYPES.mortgagee][0]
-                        )
-                      }
-                    >
-                      <FontAwesomeIcon icon="times" />
-                    </a>
-                  }
-                />
+                <li>
+                  <V2AdditionalInterestCard
+                    ai={groupedAIs[AI_TYPES.mortgagee][0]}
+                    deleteIcon={
+                      <a
+                        className="edit"
+                        onClick={() =>
+                          setModal({
+                            type: AI_TYPES.mortgagee,
+                            selected: groupedAIs[AI_TYPES.mortgagee][0],
+                            show: true,
+                            relatedField: 'mortgagee1'
+                          })
+                        }
+                      >
+                        <FontAwesomeIcon icon="edit" />
+                      </a>
+                    }
+                    editIcon={
+                      <a
+                        className="remove"
+                        onClick={() =>
+                          deleteAdditionalInterest(
+                            groupedAIs[AI_TYPES.mortgagee][0]
+                          )
+                        }
+                      >
+                        <FontAwesomeIcon icon="times" />
+                      </a>
+                    }
+                  />
+                </li>
               </ul>
             )}
 
@@ -203,36 +205,38 @@ const AdditionalInterests = ({
 
             {values.mortgagee2 === true && !!groupedAIs[AI_TYPES.mortgagee][1] && (
               <ul className="listItem">
-                <V2AdditionalInterestCard
-                  ai={groupedAIs[AI_TYPES.mortgagee][1]}
-                  deleteIcon={
-                    <a
-                      className="edit"
-                      onClick={() =>
-                        setModal({
-                          type: AI_TYPES.mortgagee,
-                          selected: groupedAIs[AI_TYPES.mortgagee][1],
-                          show: true,
-                          relatedField: 'mortgagee2'
-                        })
-                      }
-                    >
-                      <FontAwesomeIcon icon="edit" />
-                    </a>
-                  }
-                  editIcon={
-                    <a
-                      className="remove"
-                      onClick={() =>
-                        deleteAdditionalInterest(
-                          groupedAIs[AI_TYPES.mortgagee][1]
-                        )
-                      }
-                    >
-                      <FontAwesomeIcon icon="times" />
-                    </a>
-                  }
-                />
+                <li>
+                  <V2AdditionalInterestCard
+                    ai={groupedAIs[AI_TYPES.mortgagee][1]}
+                    deleteIcon={
+                      <a
+                        className="edit"
+                        onClick={() =>
+                          setModal({
+                            type: AI_TYPES.mortgagee,
+                            selected: groupedAIs[AI_TYPES.mortgagee][1],
+                            show: true,
+                            relatedField: 'mortgagee2'
+                          })
+                        }
+                      >
+                        <FontAwesomeIcon icon="edit" />
+                      </a>
+                    }
+                    editIcon={
+                      <a
+                        className="remove"
+                        onClick={() =>
+                          deleteAdditionalInterest(
+                            groupedAIs[AI_TYPES.mortgagee][1]
+                          )
+                        }
+                      >
+                        <FontAwesomeIcon icon="times" />
+                      </a>
+                    }
+                  />
+                </li>
               </ul>
             )}
 
@@ -284,36 +288,39 @@ const AdditionalInterests = ({
             {values.additionalInsured === true &&
               !!groupedAIs[AI_TYPES.additionalInsured][0] && (
                 <ul className="listItem">
-                  <V2AdditionalInterestCard
-                    ai={groupedAIs[AI_TYPES.additionalInsured][0]}
-                    deleteIcon={
-                      <a
-                        className="edit"
-                        onClick={() =>
-                          setModal({
-                            type: AI_TYPES.additionalInsured,
-                            selected: groupedAIs[AI_TYPES.additionalInsured][0],
-                            show: true,
-                            relatedField: 'additionalInsured'
-                          })
-                        }
-                      >
-                        <FontAwesomeIcon icon="edit" />
-                      </a>
-                    }
-                    editIcon={
-                      <a
-                        className="remove"
-                        onClick={() =>
-                          deleteAdditionalInterest(
-                            groupedAIs[AI_TYPES.additionalInsured][0]
-                          )
-                        }
-                      >
-                        <FontAwesomeIcon icon="times" />
-                      </a>
-                    }
-                  />
+                  <li>
+                    <V2AdditionalInterestCard
+                      ai={groupedAIs[AI_TYPES.additionalInsured][0]}
+                      deleteIcon={
+                        <a
+                          className="edit"
+                          onClick={() =>
+                            setModal({
+                              type: AI_TYPES.additionalInsured,
+                              selected:
+                                groupedAIs[AI_TYPES.additionalInsured][0],
+                              show: true,
+                              relatedField: 'additionalInsured'
+                            })
+                          }
+                        >
+                          <FontAwesomeIcon icon="edit" />
+                        </a>
+                      }
+                      editIcon={
+                        <a
+                          className="remove"
+                          onClick={() =>
+                            deleteAdditionalInterest(
+                              groupedAIs[AI_TYPES.additionalInsured][0]
+                            )
+                          }
+                        >
+                          <FontAwesomeIcon icon="times" />
+                        </a>
+                      }
+                    />
+                  </li>
                 </ul>
               )}
 
@@ -366,37 +373,39 @@ const AdditionalInterests = ({
             {values.additionalInterest === true &&
               !!groupedAIs[AI_TYPES.additionalInterest][0] && (
                 <ul className="listItem">
-                  <V2AdditionalInterestCard
-                    ai={groupedAIs[AI_TYPES.additionalInterest][0]}
-                    deleteIcon={
-                      <a
-                        className="edit"
-                        onClick={() =>
-                          setModal({
-                            type: AI_TYPES.additionalInterest,
-                            selected:
-                              groupedAIs[AI_TYPES.additionalInterest][0],
-                            show: true,
-                            relatedField: 'additionalInterest'
-                          })
-                        }
-                      >
-                        <FontAwesomeIcon icon="edit" />
-                      </a>
-                    }
-                    editIcon={
-                      <a
-                        className="remove"
-                        onClick={() =>
-                          deleteAdditionalInterest(
-                            groupedAIs[AI_TYPES.additionalInterest][0]
-                          )
-                        }
-                      >
-                        <FontAwesomeIcon icon="times" />
-                      </a>
-                    }
-                  />
+                  <li>
+                    <V2AdditionalInterestCard
+                      ai={groupedAIs[AI_TYPES.additionalInterest][0]}
+                      deleteIcon={
+                        <a
+                          className="edit"
+                          onClick={() =>
+                            setModal({
+                              type: AI_TYPES.additionalInterest,
+                              selected:
+                                groupedAIs[AI_TYPES.additionalInterest][0],
+                              show: true,
+                              relatedField: 'additionalInterest'
+                            })
+                          }
+                        >
+                          <FontAwesomeIcon icon="edit" />
+                        </a>
+                      }
+                      editIcon={
+                        <a
+                          className="remove"
+                          onClick={() =>
+                            deleteAdditionalInterest(
+                              groupedAIs[AI_TYPES.additionalInterest][0]
+                            )
+                          }
+                        >
+                          <FontAwesomeIcon icon="times" />
+                        </a>
+                      }
+                    />
+                  </li>
                 </ul>
               )}
 
