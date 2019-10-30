@@ -381,17 +381,16 @@
 
       .thankYouCircle {
         position: absolute;
-        top: -6rem;
-        right: calc(50% - 27rem);
+        top: -2.5rem;
+        right: calc(50% - 32rem);
         z-index: 0;
-        width: 54rem;
+        width: 64rem;
 
         @include forPhoneOnly {
           position: absolute;
-          top: -1rem;
-          right: -20rem;
-          left: -20rem;
-          width: 64rem;
+          top: -1.125rem;
+          right: calc(50% - 30rem);
+          width: 60rem;
         }
 
         svg {
