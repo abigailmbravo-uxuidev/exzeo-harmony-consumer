@@ -616,14 +616,12 @@
   .additionalInfo {
     .card {
       flex-direction: row;
+      p {
+        line-height: 1.4;
+        padding: ($padding / 4) 0;
 
-      .cardContent {
         @include forPhoneOnly {
-          padding-right: 0.75rem;
-        }
-        h4 {
-          margin-bottom: 0;
-          padding-top: 0;
+          line-height: 1;
         }
       }
 
@@ -748,7 +746,11 @@
           > div {
             flex-grow: 1;
             flex-shrink: 1;
-            padding: ($padding / 2) $padding;
+            padding: ($padding / 2) $padding 0 $padding;
+
+            @include forPhoneOnly {
+              padding-bottom: ($padding / 2);
+            }
 
             h4 {
               margin-top: 0.25rem;
