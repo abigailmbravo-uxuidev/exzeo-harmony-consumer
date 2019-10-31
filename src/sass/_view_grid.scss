@@ -62,6 +62,12 @@
           @include forPhoneOnly {
             flex-grow: 1;
             flex-shrink: 1;
+
+            ul {
+              li {
+                font-weight: $bold;
+              }
+            }
           }
 
           p {
