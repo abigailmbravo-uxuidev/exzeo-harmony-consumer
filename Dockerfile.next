@@ -1,0 +1,49 @@
+##### EXPERIMENTAL #####
+# Multistage build dockerfile to simplify build pipeline
+
+################################# DEPENDENCIES
+FROM node:10 as dependencies
+LABEL maintainer=Exzeo
+ARG NPM_TOKEN
+
+# use changes to package.json to bust cache when dependencies change:
+WORKDIR /app
+
+RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+COPY package.json package-lock.json /app/
+RUN npm ci
+COPY . /app
+
+# run unit tests
+RUN npm run test
+
+# cleanup
+RUN npm cache clean --force && \
+ rm -f .npmrc
+
+################################# CYPRESS
+FROM cypress/base:10 as cypress
+LABEL maintainer=Exzeo
+
+WORKDIR /app
+
+ADD cypress.json /app/
+ADD cypress/ /app/cypress
+
+CMD ["npm", "run", "cypress", "--", "--headless"]
+
+################################# BUILD
+FROM node:10 as build
+WORKDIR /app
+COPY --from=dependencies /app /app
+COPY .env /app/.env
+RUN npm run build
+
+################################# SERVER
+FROM exzeo/ran as server
+
+WORKDIR /app
+COPY --from=build /app/build /app/build
+
+ENTRYPOINT ["/go/bin/main", "--root=/app/build"]
+

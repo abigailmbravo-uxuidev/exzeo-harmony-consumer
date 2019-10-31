@@ -17,7 +17,12 @@
 .env.development.local
 .env.test.local
 .env.production.local
-
+.npmrc
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# webstorm does not support jsconfig.json, this is for webstorm users
+systemconfig.js
+
+

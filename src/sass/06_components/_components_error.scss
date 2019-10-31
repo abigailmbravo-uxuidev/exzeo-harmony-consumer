@@ -1,0 +1,87 @@
+.view-grid {
+  //underwriting errors styling {
+  .underwritingExceptions {
+    ~ div {
+      display: none;
+    }
+    //underwriting review error
+    .UWReview {
+      padding: 0;
+      .subtitle {
+        flex-direction: column;
+        justify-content: flex-start;
+        strong {
+          display: block;
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+
+    //underwriting fatal error
+    .UWFatal {
+      padding: 0;
+    }
+  }
+}
+
+.appError {
+  margin-left: 8.5em;
+  padding-right: calc(((100vw - 102rem) / 2) + 30rem);
+  padding-left: calc((100vw - 102rem) / 2);
+  padding-top: ($padding * 1.5);
+
+  @include forPhoneOnly {
+    margin: 0;
+    padding: $padding * 5 $padding;
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: $fontSizeBase;
+    }
+  }
+
+  .title {
+    font-size: $fontSizeHeader;
+    font-weight: $bold;
+    font-family: $serif;
+  }
+}
+
+//contact footer
+.contactFooter {
+  > div {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    font-family: $serif;
+
+    @include forPhoneOnly {
+      flex-direction: column;
+      padding: ($padding / 4) 0;
+    }
+    a {
+      align-self: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-bottom: 0;
+
+      @include forPhoneOnly {
+        padding-top: ($padding / 4);
+      }
+      &.contactEmail {
+        color: $navy;
+      }
+
+      &.btn {
+        text-align: center;
+
+        @include forPhoneOnly {
+          margin-top: 2rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

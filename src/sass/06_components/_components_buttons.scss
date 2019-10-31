@@ -1,0 +1,121 @@
+//button styling
+
+button,
+.btn,
+submit {
+  margin-bottom: 2rem;
+  padding: ($padding / 2.5) ($padding * 1.5);
+  border: 2px $blue solid;
+  border-radius: $borderRadius;
+  background-color: $blue;
+  color: $white;
+  font-weight: bold;
+  font-size: $fontSizeSubheader;
+  font-family: $serif;
+
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16));
+  @include transition(all 0.1s ease-in-out);
+
+  &:hover {
+    border-color: rgba($blue, 0);
+    background-color: mix($blue, $navy, 80%);
+    cursor: pointer;
+
+    @include shadow(0, 1px, 2px, rgba($navy, 0.5));
+  }
+
+  &.btn-secondary {
+    background-color: $white;
+    color: $blue;
+    &:hover {
+      border-color: rgba($blue, 0);
+      background-color: mix($blue, $navy, 80%);
+      color: $white;
+    }
+  }
+}
+
+//button container styling
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn,
+  button,
+  submit {
+    margin-left: 1rem;
+  }
+}
+
+//icon button styling
+
+.iconContainer {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: ($padding / 2) 0;
+  border-top: 1px rgba($lightGrey, 0.5) solid;
+  border-bottom: 1px rgba($lightGrey, 0.5) solid;
+
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0;
+    width: auto;
+    border-width: 0;
+    background-color: transparent;
+    color: $navy;
+    font-size: 2rem;
+
+    @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
+    justify-items: center;
+
+    &:hover {
+      color: $blue;
+    }
+
+    label {
+      width: auto;
+      text-align: center;
+      font-weight: normal;
+      font-size: $fontSizeSubheader--small;
+      font-family: $serif;
+      cursor: pointer;
+
+      @include forPhoneOnly {
+        font-size: $fontSizeBase;
+      }
+    }
+  }
+}
+
+//icon button with label
+.iconBtnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @include forPhoneOnly {
+    justify-content: center;
+  }
+
+  label {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 0.5rem 0 0;
+    padding: 0;
+    width: auto;
+    font-size: $fontSizeSubheader;
+    font-family: $serif;
+  }
+  .btn {
+    margin: 0;
+    padding: 0;
+    width: 3rem;
+    height: 3rem;
+    border-width: 0;
+    color: $navy;
+  }
+}

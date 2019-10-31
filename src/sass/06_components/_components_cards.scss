@@ -1,0 +1,365 @@
+//card styling
+
+.card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  border-radius: $borderRadius;
+  background-color: $white;
+
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16));
+  @include transition(all 0.1s ease-in-out);
+
+  .btn,
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  &.selected {
+    footer {
+      .btn,
+      button {
+        cursor: default;
+
+        @include shadow(0, 0, 0, rgba($white, 0));
+        &:hover {
+          background-color: $blue;
+        }
+      }
+    }
+
+    header {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+  > header {
+    padding: $padding $padding 0 $padding;
+    height: auto;
+    text-align: center;
+    font-family: $serif;
+
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .cardContent {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: ($padding / 2) $padding ($padding / 2) $padding;
+
+    h4 {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      font-family: $serif;
+
+      @include forPhoneOnly {
+        margin-top: 0.5rem;
+        font-size: $fontSizeBase;
+      }
+    }
+    p {
+      margin-bottom: 0;
+
+      @include forPhoneOnly {
+        padding-top: $padding/4;
+      }
+    }
+  }
+
+  &.shareDetails {
+    margin-bottom: 0.5rem;
+
+    .cardContent {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include forPhoneOnly {
+        .cardContent {
+          flex-direction: column;
+        }
+      }
+      h3 {
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin-bottom: 0.5rem;
+        width: auto;
+      }
+      strong {
+        align-self: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: auto;
+        font-family: $serif;
+
+        @include forPhoneOnly {
+          align-self: flex-start;
+          order: 3;
+        }
+      }
+      .propertyAddress {
+        margin-bottom: 0.25rem;
+        width: 100%;
+        font-size: $fontSizeBase;
+
+        @include forPhoneOnly {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    ~ p {
+      margin-bottom: 0.25rem;
+      font-size: $fontSizeLabel;
+    }
+  }
+
+  > footer {
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+
+    .btn,
+    button {
+      margin: 0;
+      width: 100%;
+      border-radius: 0 0 $borderRadius $borderRadius;
+    }
+  }
+
+  &.summaryCard {
+    position: relative;
+
+    @include transition(all 0.2s ease-in-out);
+
+    .confirmedIndicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($white, 0.7);
+
+      @include transition(all 0.2s ease-in-out);
+
+      &:hover {
+        .confirmedMessage {
+          cursor: pointer;
+          svg {
+            &.fa-times {
+              color: $white;
+            }
+          }
+        }
+      }
+
+      .confirmedMessage {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: $padding;
+        border-radius: $borderRadius;
+        background: $green;
+        color: $white;
+        height: 8rem;
+        width: 8rem;
+        @include shadow(0, 1px, 4px, rgba($navy, 0.5));
+        justify-items: center;
+
+        @include forPhoneOnly {
+          width: 100%;
+          height: 100%;
+          background-color: rgba($white, 0.5);
+        }
+
+        h5 {
+          font-size: $fontSizeLabel;
+          text-align: center;
+
+          @include forPhoneOnly {
+            color: $navy;
+            font-size: $fontSizeHeader--small;
+            padding-bottom: ($padding / 2);
+          }
+        }
+
+        svg {
+          @include transition(all 0.2s ease-in-out);
+          &.fa-times {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: rgba($white, 0.5);
+
+            @include forPhoneOnly {
+              color: $navy;
+              top: 0.5rem;
+              right: 1.125rem;
+              font-size: 1.5rem;
+            }
+          }
+
+          &.fa-check {
+            margin-bottom: 0.125rem;
+            font-size: 5rem;
+
+            @include forPhoneOnly {
+              color: $green;
+              font-size: 8rem;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      ~ .card-header {
+        filter: blur(2px);
+      }
+
+      ~ .cardContent {
+        filter: blur(2px);
+      }
+
+      ~ .card-footer {
+        filter: blur(2px);
+      }
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      @include transition(all 0.2s ease-in-out);
+      h3 {
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin-bottom: 0;
+        padding: $padding 0 0 $padding;
+
+        @include transition(all 0.2s ease-in-out);
+      }
+
+      a {
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin-right: 1rem;
+
+        @include transition(all 0.2s ease-in-out);
+      }
+    }
+    .cardContent {
+      display: flex;
+      overflow: hidden;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+
+      @include transition(all 0.2s ease-in-out);
+      @include forPhoneOnly {
+        flex-direction: column;
+      }
+      dl {
+        margin-right: 1.5rem;
+        dt {
+          margin-bottom: 0.25rem;
+          font-weight: $bold;
+          font-family: $serif;
+        }
+        dd {
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+    .card-footer {
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      @include transition(all 0.2s ease-in-out);
+
+      label {
+        margin-bottom: 0;
+        padding: ($padding/2) 0;
+        background-color: $blue;
+        color: $white;
+        text-align: center;
+        font-size: $fontSizeBase;
+        font-family: $serif;
+
+        @include transition(all 0.2s ease-in-out);
+
+        &:hover {
+          background-color: mix($blue, $navy, 80%);
+          cursor: pointer;
+
+          @include forPhoneOnly {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+    &.selected {
+      label {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.Additional.Insured.Details {
+  .cardContent {
+    flex-direction: column;
+    dl {
+      dt {
+        font-size: $fontSizeBase;
+        margin-bottom: 0.25rem;
+        margin-top: 0;
+      }
+
+      dd {
+        label {
+          padding-left: 0;
+          font-weight: $normal;
+          font-size: $fontSizeBase;
+          margin-bottom: 0.25rem;
+          font-family: $sans;
+        }
+
+        a {
+          margin-bottom: 1.5rem;
+        }
+
+        .card {
+          box-shadow: none;
+
+          div {
+            h4 {
+              font-weight: $normal;
+              font-size: $fontSizeBase;
+              font-family: $sans;
+              margin-top: 0;
+            }
+
+            p {
+              line-height: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

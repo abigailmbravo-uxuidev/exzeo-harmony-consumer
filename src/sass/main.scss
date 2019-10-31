@@ -1,1 +1,56 @@
 /*IMPORT ALL SCSS PARTIALS*/
+
+//00_settings_fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700&display=swap');
+
+//00_settings
+@import '00_settings/settings_colors';
+@import '00_settings/settings_fonts';
+@import '00_settings/settings_global';
+
+//01_tools
+@import '01_tools/tools_functions';
+@import '01_tools/tools_mixins';
+
+//02_generic
+@import '02_generic/generic_normalize';
+@import '02_generic/generic_boxSizing';
+@import '02_generic/generic_reset';
+@import '02_generic/generic_shared';
+
+//03_elements
+@import '03_elements/elements_header';
+@import '03_elements/elements_footer';
+@import '03_elements/_elements_typography';
+@import '03_elements/elements_main';
+@import '03_elements/elements_nav';
+@import '03_elements/elements_links';
+@import '03_elements/elements_other';
+@import '03_elements/element_region';
+
+//04_objects
+@import '04_objects/objects_layouts';
+@import '04_objects/objects_wrapper';
+
+//05_moduals
+@import '05_moduals/moduals_1';
+
+//06_components
+@import '06_components/components_inputs';
+@import '06_components/components_buttons';
+@import '06_components/components_cards';
+@import '06_components/components_pageTitle';
+@import '06_components/components_search';
+@import '06_components/components_well';
+@import '06_components/components_infoBar';
+@import '06_components/components_loader';
+@import '06_components/components_error';
+
+//07_theme
+@import '07_theme/theme_typtap';
+
+//08_utilities
+@import '08_utilities/utilities_links';
+@import '08_utilities/utilities_widths';
+
+@import 'view_grid';

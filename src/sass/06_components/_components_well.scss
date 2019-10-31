@@ -1,0 +1,22 @@
+//well styling
+
+.well {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-color: $white;
+  width: 100%;
+  height: auto;
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
+  border-radius: $borderRadius;
+  padding: $padding;
+  margin-bottom: 1rem;
+
+  .btn,
+  button,
+  submit {
+    margin: 0 -1rem -1rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

@@ -1,0 +1,57 @@
+//shadow mixin
+
+@mixin shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+// breakpoint mixin
+
+@mixin forPhoneOnly {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@include forPhoneOnly {
+  .hideForPhoneOnly {
+    display: none !important;
+  }
+}
+
+@mixin forTabletPortraitOnly {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+@include forTabletPortraitOnly {
+  .hideForTabletPortraitOnly {
+    display: none !important;
+  }
+}
+
+@mixin forMinWidth {
+  @media (max-width: 45rem) {
+    @content;
+  }
+}
+
+@mixin forDatePicker {
+  @media (max-width: 55rem) {
+    @content;
+  }
+}
+
+//hover mixin
+
+//transition mixin
+
+@mixin transition($transition...) {
+  transition: $transition;
+}

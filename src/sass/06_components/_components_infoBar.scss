@@ -1,0 +1,39 @@
+.infoBar {
+  display: flex;
+  background-color: $blue;
+  color: $white;
+  padding: ($padding * 1.5) ($padding * 1.5);
+  overflow: hidden;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-radius: $borderRadius;
+  align-items: center;
+
+  h2 {
+    width: auto;
+    margin-bottom: 0;
+  }
+  span {
+    font-weight: bold;
+    font-family: $serif;
+
+    label {
+      width: auto;
+      font-weight: normal;
+      padding-top: 0;
+    }
+  }
+}
+
+.infoBar {
+  @include forPhoneOnly {
+    flex-direction: column;
+    margin: 0 -2rem 1rem;
+    border-radius: 0;
+    padding: ($padding / 2);
+
+    h2 {
+      margin-bottom: 0.25rem;
+    }
+  }
+}

@@ -3,26 +3,36 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --coverage --watchAll=false",
     "test:watch": "react-scripts test",
-    "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js"
+    "lint": "./node_modules/.bin/eslint src --ext .jsx --ext .js",
+    "cypress": "react-scripts cypress"
   },
   "dependencies": {
-    "@exzeo/core-ui": "^0.8.8",
-    "@exzeo/react-scripts": "2.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "@exzeo/core-ui": "0.9.0",
+    "@exzeo/react-scripts": "2.3.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "classnames": "^2.2.6",
+    "core-js": "^3.2.1",
+    "react": "^16.11.0",
+    "react-app-polyfill": "^1.0.2",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.0.0",
-    "@testing-library/react": "^8.0.7",
-    "cypress": "^3.4.1",
-    "husky": "^3.0.2",
-    "lint-staged": "^9.2.1",
-    "prettier": "^1.18.2"
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^8.0.9",
+    "cypress": "3.5.0",
+    "husky": "^3.0.4",
+    "jest-teamcity-reporter": "^0.9.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "source-map-explorer": "^2.0.1"
   },
   "husky": {
     "hooks": {
@@ -36,19 +46,31 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "./.eslintrc"
+    ]
+  },
+  "jest": {
+    "testResultsProcessor": "jest-teamcity-reporter",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/setupTests.js"
+    ]
   },
   "browserslist": {
     "production": [
-      "ie 11",
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ]
   }
 }
