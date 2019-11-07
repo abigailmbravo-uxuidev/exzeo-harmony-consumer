@@ -1164,10 +1164,30 @@
         list-style: none;
 
         li {
+          .billingCheckBox {
+            align-items: center;
+
+            svg {
+              margin-bottom: 1rem;
+            }
+
+            .billToId {
+              .cardContent {
+                align-items: center;
+              }
+            }
+
+            footer {
+              svg {
+                margin-bottom: 0;
+              }
+            }
+          }
           .card {
             display: flex;
             flex-direction: row;
             padding: $padding/4;
+            margin-left: 1rem;
 
             @include forPhoneOnly {
               padding: 0 $padding;
@@ -1190,6 +1210,7 @@
             flex-grow: 1;
             flex-shrink: 1;
             &.fade-in {
+              margin-left: 1rem;
               @include forPhoneOnly {
                 flex-direction: column;
               }
