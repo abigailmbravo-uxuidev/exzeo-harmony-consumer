@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Field,
-  Form,
-  ModalPortal,
-  OnChangeListener,
-  Radio,
-  validation
-} from '@exzeo/core-ui';
+import { Button, ModalPortal } from '@exzeo/core-ui';
 import { PolicyHolderModal } from '@exzeo/core-ui/src/@Harmony';
-
-import { BOOL_OPTIONS } from 'constants/input';
 
 import PolicyholderCard from './PolicyholderCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,6 +33,15 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
     setModal(INITIAL_STATE);
   }
 
+  function deleteSecondaryPolicyHolder() {
+    const data = {
+      ...initialValues,
+      policyHolders: [initialValues.policyHolders[0]]
+    };
+
+    customHandlers.handleSubmit(data);
+  }
+
   return (
     <section className={config.className}>
       <h4>Policyholder(s)</h4>
@@ -51,9 +50,16 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           key={ph.order}
           policyHolder={ph}
           icons={
-            <a onClick={() => setModal({ show: true, ph: ph.order })}>
-              <FontAwesomeIcon icon="edit" />
-            </a>
+            <React.Fragment>
+              <a onClick={() => setModal({ show: true, ph: ph.order })}>
+                <FontAwesomeIcon icon="edit" />
+              </a>
+              {ph.order === 1 ? (
+                <a onClick={deleteSecondaryPolicyHolder}>
+                  <FontAwesomeIcon icon="times" />
+                </a>
+              ) : null}
+            </React.Fragment>
           }
         />
       ))}

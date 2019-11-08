@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, validation, DatePicker, date } from '@exzeo/core-ui';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const EffectiveDate = ({ initialValues }) => {
   const { zipCodeSettings } = initialValues;
