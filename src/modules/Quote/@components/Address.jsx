@@ -24,17 +24,17 @@ const Address = ({ initialValues }) => {
         />
       )}
       {!initialValues.policyHolderMailingAddress.address1 && (
-        <div className="card fakeDisplay">
-          <div className="cardContent">
-            <h4>1234 Main Street</h4>
-            <p>Anytown, XX 00000</p>
-          </div>
-          <div className="cardFooter">
-            <a onClick={() => setModal({ show: true })}>
+        <a onClick={() => setModal({ show: true })}>
+          <div className="card fakeDisplay">
+            <div className="cardContent">
+              <h4>1234 Main Street</h4>
+              <p>Anytown, XX 00000</p>
+            </div>
+            <div className="cardFooter">
               <FontAwesomeIcon icon="edit" />
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
       )}
       <div className="addBtnWrapper">
         <h3>Add Mailing Address</h3>

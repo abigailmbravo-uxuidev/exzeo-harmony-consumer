@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, validation, DatePicker, date } from '@exzeo/core-ui';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const EffectiveDate = ({ initialValues }) => {
   const { zipCodeSettings } = initialValues;
@@ -21,7 +22,7 @@ const EffectiveDate = ({ initialValues }) => {
             input={input}
             meta={meta}
             dataTest="effectiveDate"
-            label="Please select a date for your policy to become effective."
+            label="Please select an effective date:"
             styleName="effectiveDate datePicker"
             minDate={minDate}
             maxDate={maxDate}
