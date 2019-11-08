@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { sendQuoteSummary } from '@exzeo/core-ui/src/@Harmony';
 import Confetti from 'components/Confetti';
 import TypTapLink from 'components/TypTapLink';
 
 const ThankYou = ({ location }) => {
+  useEffect(() => {
+    function sendSummary(payload) {
+      sendQuoteSummary(payload);
+    }
+    if ((location.state || {}).sendQuoteSummary) {
+      const { sendQuoteSummary, ...payload } = location.state;
+      sendSummary(payload);
+    }
+  }, [location.state]);
+
   return (
     <div className="card thankYouCard">
       <Confetti />
@@ -65,7 +76,7 @@ const ThankYou = ({ location }) => {
         </svg>
       </section>
       <label className="thankYouTitle">Quote Saved!</label>
-      {location.state && (
+      {(location.state || {}).quoteNumber && (
         <h4 className="quoteNumber">
           Quote Number:&nbsp;{location.state.quoteNumber}
         </h4>
