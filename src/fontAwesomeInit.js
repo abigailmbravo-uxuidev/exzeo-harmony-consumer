@@ -17,7 +17,8 @@ import {
   faAngleRight,
   faAngleDown,
   faEnvelope,
-  faClone
+  faClone,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -38,5 +39,6 @@ library.add(
   faAngleRight,
   faAngleDown,
   faEnvelope,
-  faClone
+  faClone,
+  faPlus
 );

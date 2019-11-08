@@ -68,7 +68,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           className={Button.constants.classNames.icon}
           type="button"
         >
-          +
+          <FontAwesomeIcon icon="plus" />
         </Button>
       </div>
 

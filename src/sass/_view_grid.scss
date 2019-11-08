@@ -453,6 +453,7 @@
 
   //policyholder info styling
   .policyHolderInfo {
+    margin-bottom: 0.5rem;
     h4 {
       margin-bottom: 0.5rem;
       padding-top: ($padding / 2);
@@ -535,6 +536,7 @@
 
   //address section
   .addressSection {
+    margin-bottom: 0.5rem;
     h4 {
       margin-bottom: 0.5rem;
       padding-top: ($padding / 2);
@@ -543,17 +545,28 @@
     .card {
       flex-direction: row;
 
+      &.fakeDisplay {
+        color: rgba($navy, 0.5);
+      }
+
       .cardContent {
         h4 {
           padding-top: 0;
+          margin-bottom: 0;
         }
       }
 
-      a {
-        padding: ($padding/2) $padding 0 ($padding/2);
-
-        svg {
-          align-content: center;
+      .cardFooter {
+        padding: $padding;
+        display: flex;
+        flex-grow: 0;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        a {
+          margin-left: 1rem;
+          svg {
+          }
         }
       }
     }
