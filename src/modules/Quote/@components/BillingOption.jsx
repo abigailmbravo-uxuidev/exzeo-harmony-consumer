@@ -5,7 +5,9 @@ const BillingOption = ({ option, handleClick, isSelected }) => {
   return (
     <React.Fragment>
       <div className="billingCheckBox">
-        <FontAwesomeIcon icon={isSelected ? 'check-square' : 'square'} />
+        <span className="emptyCheckBox">
+          <FontAwesomeIcon icon={isSelected ? 'check' : ''} />
+        </span>
         <div
           className="card billToId"
           data-test="billToCard"
