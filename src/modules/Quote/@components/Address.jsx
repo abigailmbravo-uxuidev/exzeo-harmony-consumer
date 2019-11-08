@@ -77,7 +77,7 @@ const Address = ({ initialValues, formInstance }) => {
           className={'addMailingAddressModal'}
           header={<h4>Add Mailing Address</h4>}
         >
-          <div class="card-block">
+          <div className="card-block">
             <Field name="sameAsPropertyAddress">
               {({ input, meta }) => (
                 <Radio
