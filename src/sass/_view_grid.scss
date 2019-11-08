@@ -452,29 +452,6 @@
   //policyholder info styling
   .policyHolderInfo {
     margin-bottom: 0.5rem;
-
-    .addBtnWrapper {
-      &.disabled {
-        cursor: default;
-        color: rgba($lightGrey, 0.5);
-
-        button {
-          background-color: rgba($lightGrey, 0.5);
-          color: $extraLightGrey;
-          border-color: transparent;
-          cursor: default;
-          @include shadow(0, 3px, 6px, rgba($navy, 0.16));
-
-          &:hover {
-            cursor: default;
-            @include shadow(0, 3px, 6px, rgba($navy, 0.16));
-            background-color: rgba($lightGrey, 0.5);
-            color: $extraLightGrey;
-            border-color: transparent;
-          }
-        }
-      }
-    }
     h4 {
       margin-bottom: 0.5rem;
       padding-top: ($padding / 2);
@@ -1785,9 +1762,9 @@ $colors: $blue, $red, $green, $navy, gold;
           font-family: $serif;
 
           @include forPhoneOnly {
-            margin-bottom: 0.5rem;
-            padding-bottom: 0;
             width: 100%;
+            padding-bottom: 0;
+            margin-bottom: 0.5rem;
           }
         }
         .react-datepicker-wrapper {
@@ -1803,16 +1780,29 @@ $colors: $blue, $red, $green, $navy, gold;
               padding-right: 0;
               padding-bottom: $padding/2;
               padding-left: $padding/2;
-              max-width: 9rem;
               width: 100%;
               border: 1px $navy solid;
               border-radius: $borderRadius;
               background-color: $white;
-              background-image: url('../img/datePicker.svg');
-              background-position-x: right;
-              background-repeat: no-repeat;
               font-weight: $bold;
               font-family: $serif;
+            }
+
+            //calender icon on date picker
+            &:after {
+              position: absolute;
+              top: 0;
+              right: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding-left: 0;
+              width: 38px;
+              height: 38px;
+              border-radius: 0 $borderRadius $borderRadius 0;
+              background-color: $navy;
+              color: $white;
+              font-family: 'Font Awesome 5 Free';
             }
           }
         }
