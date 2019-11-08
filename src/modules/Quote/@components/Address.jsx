@@ -36,16 +36,18 @@ const Address = ({ initialValues }) => {
           </div>
         </div>
       )}
-      <h3>Add Mailing Address</h3>
-      <Button
-        data-test="add-address"
-        onClick={() => setModal({ show: true })}
-        disabled={initialValues.policyHolderMailingAddress.address1}
-        className={Button.constants.classNames.icon}
-        type="button"
-      >
-        +
-      </Button>
+      <div className="addBtnWrapper">
+        <h3>Add Mailing Address</h3>
+        <Button
+          data-test="add-address"
+          onClick={() => setModal({ show: true })}
+          disabled={initialValues.policyHolderMailingAddress.address1}
+          className={Button.constants.classNames.icon}
+          type="button"
+        >
+          +
+        </Button>
+      </div>
       {modal.show && (
         <Modal size={Modal.sizes.xlarge} className="" header="">
           <Field name="sameAsPropertyAddress">

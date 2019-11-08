@@ -57,18 +57,20 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           }
         />
       ))}
-      <h3>Add Policyholder</h3>
-      <Button
-        data-test="add-policyHolder"
-        onClick={() =>
-          setModal({ show: true, ph: initialValues.policyHolders.length })
-        }
-        disabled={initialValues.policyHolders.length > 1}
-        className={Button.constants.classNames.icon}
-        type="button"
-      >
-        +
-      </Button>
+      <div className="addBtnWrapper">
+        <h3>Add Policyholder</h3>
+        <Button
+          data-test="add-policyHolder"
+          onClick={() =>
+            setModal({ show: true, ph: initialValues.policyHolders.length })
+          }
+          disabled={initialValues.policyHolders.length > 1}
+          className={Button.constants.classNames.icon}
+          type="button"
+        >
+          +
+        </Button>
+      </div>
 
       {modal.show && (
         <ModalPortal>
