@@ -75,7 +75,7 @@ const Address = ({ initialValues, customHandlers }) => {
           data-test="add-address"
           onClick={() => setModal({ show: true })}
           className={Button.constants.classNames.icon}
-          disabled={initialValues.policyHolderMailingAddress.address1}
+          disabled={!!initialValues.policyHolderMailingAddress.address1}
           type="button"
         >
           <FontAwesomeIcon icon="plus" />
