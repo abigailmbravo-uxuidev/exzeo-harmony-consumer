@@ -1762,9 +1762,9 @@ $colors: $blue, $red, $green, $navy, gold;
           font-family: $serif;
 
           @include forPhoneOnly {
-            width: 100%;
-            padding-bottom: 0;
             margin-bottom: 0.5rem;
+            padding-bottom: 0;
+            width: 100%;
           }
         }
         .react-datepicker-wrapper {
@@ -1780,29 +1780,16 @@ $colors: $blue, $red, $green, $navy, gold;
               padding-right: 0;
               padding-bottom: $padding/2;
               padding-left: $padding/2;
-              width: 100%;
+              width: 9rem;
               border: 1px $navy solid;
               border-radius: $borderRadius;
               background-color: $white;
+              background-image: url('../img/datePicker.svg');
+              background-position-x: right;
+              background-position-y: center;
+              background-repeat: no-repeat;
               font-weight: $bold;
               font-family: $serif;
-            }
-
-            //calender icon on date picker
-            &:after {
-              position: absolute;
-              top: 0;
-              right: 0;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              padding-left: 0;
-              width: 38px;
-              height: 38px;
-              border-radius: 0 $borderRadius $borderRadius 0;
-              background-color: $navy;
-              color: $white;
-              font-family: 'Font Awesome 5 Free';
             }
           }
         }
