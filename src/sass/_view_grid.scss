@@ -1619,6 +1619,26 @@
     }
   }
 
+  //policyholder modal styling
+  .policyholderModal {
+    h4 {
+      position: relative;
+      margin-bottom: 4rem;
+
+      &:after {
+        position: absolute;
+        top: 3rem;
+        left: calc(50% - 20rem);
+        width: 40rem;
+        content: 'Policyholder 2 is for spouse or co-owner that resides in the home.';
+        text-align: center;
+        font-weight: $normal;
+        font-size: $fontSizeBody;
+        font-family: $sans;
+      }
+    }
+  }
+
   // responsize styles
   @supports (display: grid) {
     @include forPhoneOnly {

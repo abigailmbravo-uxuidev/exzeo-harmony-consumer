@@ -85,12 +85,14 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
 
       {modal.show && (
         <ModalPortal>
-          <PolicyHolderModal
-            handleFormSubmit={handlePolicyHolderSubmit}
-            handleCancel={() => setModal(INITIAL_STATE)}
-            initialValues={initialValues.policyHolders[modal.ph]}
-            order={modal.ph}
-          />
+          <div className="policyholderModal">
+            <PolicyHolderModal
+              handleFormSubmit={handlePolicyHolderSubmit}
+              handleCancel={() => setModal(INITIAL_STATE)}
+              initialValues={initialValues.policyHolders[modal.ph]}
+              order={modal.ph}
+            />
+          </div>
         </ModalPortal>
       )}
     </section>
