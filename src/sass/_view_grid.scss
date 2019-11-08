@@ -98,6 +98,43 @@
             }
           }
         }
+
+        .btn-group {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          .btn {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            justify-content: center;
+            margin-bottom: 0;
+            margin-left: 0;
+            text-transform: capitalize;
+
+            &.btn-primary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: $borderRadius;
+              border-bottom-left-radius: 0;
+
+              @include forPhoneOnly {
+                border-bottom-right-radius: 0;
+              }
+            }
+
+            &.btn-secondary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: $borderRadius;
+
+              @include forPhoneOnly {
+                border-bottom-left-radius: 0;
+              }
+            }
+          }
+        }
       }
 
       .card-header {
