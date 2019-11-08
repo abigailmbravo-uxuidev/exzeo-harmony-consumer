@@ -344,6 +344,7 @@
               flex-shrink: 0;
               margin-right: 0.5rem;
               width: 8.33%;
+
               @include forPhoneOnly {
                 flex-grow: 1;
                 flex-shrink: 1;
@@ -354,6 +355,7 @@
               flex-grow: 0;
               flex-shrink: 0;
               width: 16.66%;
+
               @include forPhoneOnly {
                 flex-grow: 1;
                 flex-shrink: 1;
@@ -1849,6 +1851,8 @@ $colors: $blue, $red, $green, $navy, gold;
               }
 
               .react-datepicker__triangle {
+                right: 4rem;
+                left: auto;
                 border-bottom-color: $blue;
               }
               .react-datepicker__navigation {

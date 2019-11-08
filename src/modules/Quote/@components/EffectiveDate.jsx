@@ -26,6 +26,7 @@ const EffectiveDate = ({ initialValues }) => {
             minDate={minDate}
             maxDate={maxDate}
             monthsShown={2}
+            popperPlacement="top-end"
           />
         )}
       </Field>
