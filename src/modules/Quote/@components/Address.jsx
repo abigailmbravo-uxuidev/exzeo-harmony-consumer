@@ -12,6 +12,7 @@ const Address = ({ initialValues }) => {
 
   return (
     <section className="addressSection">
+      <h4>Mailing Address</h4>
       {initialValues.policyHolderMailingAddress.address1 && (
         <AddressCard
           address={initialValues.policyHolderMailingAddress}
@@ -22,7 +23,19 @@ const Address = ({ initialValues }) => {
           }
         />
       )}
-
+      {!initialValues.policyHolderMailingAddress.address1 && (
+        <div className="card">
+          <div className="cardContent">
+            <h4>title</h4>
+            <p>descritpion</p>
+          </div>
+          <div className="cardFooter">
+            <a onClick={() => setModal({ show: true })}>
+              <FontAwesomeIcon icon="edit" />
+            </a>
+          </div>
+        </div>
+      )}
       <Button
         data-test="add-address"
         onClick={() => setModal({ show: true })}
@@ -32,7 +45,6 @@ const Address = ({ initialValues }) => {
       >
         +
       </Button>
-
       {modal.show && (
         <Modal size={Modal.sizes.xlarge} className="" header="">
           <Field name="sameAsPropertyAddress">
