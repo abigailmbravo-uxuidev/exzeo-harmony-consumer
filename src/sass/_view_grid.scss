@@ -541,13 +541,15 @@
   //address section
   .addressSection {
     margin-bottom: 0.5rem;
+
+    &.error {
+      span {
+        color: $red;
+      }
+    }
     h4 {
       margin-bottom: 0.5rem;
       padding-top: ($padding / 2);
-    }
-
-    span {
-      color: $red;
     }
 
     .card {
