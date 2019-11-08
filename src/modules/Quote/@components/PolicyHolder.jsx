@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, ModalPortal } from '@exzeo/core-ui';
 import { PolicyHolderModal } from '@exzeo/core-ui/src/@Harmony';
 
 import PolicyholderCard from './PolicyholderCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const INITIAL_STATE = {
   show: false,
@@ -63,7 +64,11 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           }
         />
       ))}
-      <div className="addBtnWrapper">
+      <div
+        className={classNames('addBtnWrapper', {
+          disabled: initialValues.policyHolders.length > 1
+        })}
+      >
         <h3>Add Policyholder</h3>
         <Button
           data-test="add-policyHolder"

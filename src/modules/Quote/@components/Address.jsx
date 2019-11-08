@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Field,
   Radio,
   Modal,
   Button,
   useField,
+  useFormState,
   validation
 } from '@exzeo/core-ui';
-import classNames from 'classnames';
 import { AddressWithAutoFill } from '@exzeo/core-ui/src/@Harmony';
 
 import { BOOL_OPTIONS } from '../../../constants/input';
 import AddressCard from './AddressCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Address = ({ initialValues, formInstance }) => {
   const [modal, setModal] = useState({ show: false });
+  const { values } = useFormState({ subscription: { values: true } });
   const phAddressField = useField('policyHolderMailingAddress.address1', {
     validate: validation.isRequired
   });
@@ -42,9 +44,9 @@ const Address = ({ initialValues, formInstance }) => {
         <span>{phAddressError /* or whatever you want here */}</span>
       )}
 
-      {initialValues.policyHolderMailingAddress.address1 && (
+      {values.policyHolderMailingAddress.address1 && (
         <AddressCard
-          address={initialValues.policyHolderMailingAddress}
+          address={values.policyHolderMailingAddress}
           icons={
             <a onClick={() => setModal({ show: true })}>
               <FontAwesomeIcon icon="edit" />
@@ -53,13 +55,17 @@ const Address = ({ initialValues, formInstance }) => {
         />
       )}
 
-      <div className="addBtnWrapper">
+      <div
+        className={classNames('addBtnWrapper', {
+          disabled: values.policyHolderMailingAddress.address1
+        })}
+      >
         <h3>Add Mailing Address</h3>
         <Button
           data-test="add-address"
           onClick={() => setModal({ show: true })}
-          disabled={initialValues.policyHolderMailingAddress.address1}
           className={Button.constants.classNames.icon}
+          disabled={values.policyHolderMailingAddress.address1}
           type="button"
         >
           <FontAwesomeIcon icon="plus" />
