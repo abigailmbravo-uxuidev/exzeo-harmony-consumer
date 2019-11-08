@@ -675,3 +675,9 @@ hr {
   height: 1px;
   background-color: $lightGrey;
 }
+
+//date picker
+.react-datepicker__input-container:after {
+  content: '\f16c';
+  font-family: 'Font Awesome 5 Brands';
+}
