@@ -320,6 +320,49 @@
           }
         }
       }
+
+      &.addMailingAddressModal {
+        .card-block {
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          .form-group {
+            &.view-col-9 {
+              flex-grow: 1;
+              flex-shrink: 1;
+              margin-right: 0.5rem;
+              width: auto;
+
+              @include forPhoneOnly {
+                flex-grow: 0;
+                flex-shrink: 0;
+                width: 100%;
+              }
+            }
+            &.view-col-1 {
+              flex-grow: 0;
+              flex-shrink: 0;
+              margin-right: 0.5rem;
+              width: 8.33%;
+              @include forPhoneOnly {
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: auto;
+              }
+            }
+            &.view-col-2 {
+              flex-grow: 0;
+              flex-shrink: 0;
+              width: 16.66%;
+              @include forPhoneOnly {
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: auto;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -655,52 +698,6 @@
               label {
                 padding: $padding/2;
                 font-size: $fontSizeBase;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .modal {
-      .card {
-        flex-direction: column;
-        .card-block {
-          position: relative;
-          display: flex;
-          flex-wrap: wrap;
-          .form-group {
-            &.view-col-9 {
-              flex-grow: 1;
-              flex-shrink: 1;
-              margin-right: 0.5rem;
-              width: auto;
-            }
-            &.view-col-1 {
-              flex-grow: 0;
-              flex-shrink: 0;
-              margin-right: 0.5rem;
-              width: 8.33%;
-            }
-            &.view-col-2 {
-              flex-grow: 0;
-              flex-shrink: 0;
-              width: 16.66%;
-            }
-          }
-        }
-        .card-footer {
-          display: flex;
-          .btn-group {
-            display: flex;
-            flex-grow: 1;
-            flex-shrink: 1;
-            button {
-              flex-grow: 1;
-              flex-shrink: 1;
-
-              &.btn-secondary {
-                border-radius: 0 0 0 $borderRadius;
               }
             }
           }
