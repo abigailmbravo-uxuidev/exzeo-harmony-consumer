@@ -3,11 +3,12 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Field,
+  Form,
   Radio,
   Modal,
+  ModalPortal,
   Button,
   useField,
-  useFormState,
   validation
 } from '@exzeo/core-ui';
 import { AddressWithAutoFill } from '@exzeo/core-ui/src/@Harmony';
@@ -15,25 +16,34 @@ import { AddressWithAutoFill } from '@exzeo/core-ui/src/@Harmony';
 import { BOOL_OPTIONS } from '../../../constants/input';
 import AddressCard from './AddressCard';
 
-const Address = ({ initialValues, formInstance }) => {
+function initializeAddressForm(quote) {
+  return {
+    sameAsPropertyAddress:
+      quote.property.physicalAddress.address1 ===
+      quote.policyHolderMailingAddress.address1,
+    policyHolderMailingAddress: quote.policyHolderMailingAddress
+  };
+}
+
+const Address = ({ initialValues, customHandlers }) => {
   const [modal, setModal] = useState({ show: false });
-  const { values } = useFormState({ subscription: { values: true } });
   const phAddressField = useField('policyHolderMailingAddress.address1', {
     validate: validation.isRequired
   });
 
-  function handleSubmit() {
-    const formState = formInstance.getState();
-    if (formState.invalid) {
-      // This will mark each field dirty, showing validation errors
-      formInstance.submit();
-    } else {
-      setModal({ show: false });
-    }
+  async function handleSubmit(formValues) {
+    const data = {
+      ...initialValues,
+      policyHolderMailingAddress: formValues.policyHolderMailingAddress
+    };
+
+    await customHandlers.handleSubmit(data);
+    setModal({ show: false });
   }
 
   const phAddressError =
     phAddressField.meta.touched && phAddressField.meta.error;
+
   return (
     <section
       className={classNames('addressSection', { error: phAddressError })}
@@ -44,9 +54,9 @@ const Address = ({ initialValues, formInstance }) => {
         <span>{phAddressError /* or whatever you want here */}</span>
       )}
 
-      {values.policyHolderMailingAddress.address1 && (
+      {initialValues.policyHolderMailingAddress.address1 && (
         <AddressCard
-          address={values.policyHolderMailingAddress}
+          address={initialValues.policyHolderMailingAddress}
           icons={
             <a onClick={() => setModal({ show: true })}>
               <FontAwesomeIcon icon="edit" />
@@ -57,7 +67,7 @@ const Address = ({ initialValues, formInstance }) => {
 
       <div
         className={classNames('addBtnWrapper', {
-          disabled: values.policyHolderMailingAddress.address1
+          disabled: initialValues.policyHolderMailingAddress.address1
         })}
       >
         <h3>Add Mailing Address</h3>
@@ -65,60 +75,73 @@ const Address = ({ initialValues, formInstance }) => {
           data-test="add-address"
           onClick={() => setModal({ show: true })}
           className={Button.constants.classNames.icon}
-          disabled={values.policyHolderMailingAddress.address1}
+          disabled={initialValues.policyHolderMailingAddress.address1}
           type="button"
         >
           <FontAwesomeIcon icon="plus" />
         </Button>
       </div>
+
       {modal.show && (
-        <Modal
-          size={Modal.sizes.xlarge}
-          className={'addMailingAddressModal'}
-          header={<h4>Add Mailing Address</h4>}
-        >
-          <div className="card-block">
-            <Field name="sameAsPropertyAddress">
-              {({ input, meta }) => (
-                <Radio
-                  input={input}
-                  meta={meta}
-                  answers={BOOL_OPTIONS}
-                  label="Is your mailing address the same as the property address?"
-                  styleName="mailingSameAsProperty radio"
-                  dataTest="mailingSameAsProperty"
-                  segmented
-                />
+        <ModalPortal>
+          <Modal
+            size={Modal.sizes.xlarge}
+            className="addMailingAddressModal"
+            header={<h4>Add Mailing Address</h4>}
+          >
+            <Form
+              onSubmit={handleSubmit}
+              initialValues={initializeAddressForm(initialValues)}
+            >
+              {({ handleSubmit }) => (
+                <React.Fragment>
+                  <div className="card-block">
+                    <Field name="sameAsPropertyAddress">
+                      {({ input, meta }) => (
+                        <Radio
+                          input={input}
+                          meta={meta}
+                          answers={BOOL_OPTIONS}
+                          label="Is your mailing address the same as the property address?"
+                          styleName="mailingSameAsProperty radio"
+                          dataTest="mailingSameAsProperty"
+                          segmented
+                        />
+                      )}
+                    </Field>
+
+                    <AddressWithAutoFill
+                      watchField="sameAsPropertyAddress"
+                      fieldPrefix="policyHolderMailingAddress"
+                      matchPrefix="property.physicalAddress"
+                      values={initialValues}
+                    />
+                  </div>
+
+                  <div className="card-footer">
+                    <div className="btn-group">
+                      <Button
+                        className={Button.constants.classNames.secondary}
+                        label="cancel"
+                        onClick={() => setModal({ show: false })}
+                        data-test="ai-modal-cancel"
+                      />
+
+                      <Button
+                        className={Button.constants.classNames.primary}
+                        label="save"
+                        onClick={handleSubmit}
+                        onKeyPress={e => e.charCode === 13 && handleSubmit(e)}
+                        type="button"
+                        data-test="ai-modal-submit"
+                      />
+                    </div>
+                  </div>
+                </React.Fragment>
               )}
-            </Field>
-
-            <AddressWithAutoFill
-              watchField="sameAsPropertyAddress"
-              fieldPrefix="policyHolderMailingAddress"
-              matchPrefix="property.physicalAddress"
-              values={initialValues}
-            />
-          </div>
-
-          <div className="card-footer">
-            <div className="btn-group">
-              <Button
-                className={Button.constants.classNames.secondary}
-                label="cancel"
-                onClick={() => setModal({ show: false })}
-                data-test="ai-modal-cancel"
-              />
-
-              <Button
-                className={Button.constants.classNames.primary}
-                label="save"
-                onClick={handleSubmit}
-                type="button"
-                data-test="ai-modal-submit"
-              />
-            </div>
-          </div>
-        </Modal>
+            </Form>
+          </Modal>
+        </ModalPortal>
       )}
     </section>
   );
