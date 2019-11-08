@@ -68,29 +68,31 @@ const Address = ({ initialValues, formInstance }) => {
       {modal.show && (
         <Modal
           size={Modal.sizes.xlarge}
-          className={'' /* please use or remove */}
-          header={'' /* please use or remove */}
+          className={'addMailingAddressModal'}
+          header={<h4>Add Mailing Address</h4>}
         >
-          <Field name="sameAsPropertyAddress">
-            {({ input, meta }) => (
-              <Radio
-                input={input}
-                meta={meta}
-                answers={BOOL_OPTIONS}
-                label="Is your mailing address the same as the property address?"
-                styleName="mailingSameAsProperty radio"
-                dataTest="mailingSameAsProperty"
-                segmented
-              />
-            )}
-          </Field>
+          <div class="card-block">
+            <Field name="sameAsPropertyAddress">
+              {({ input, meta }) => (
+                <Radio
+                  input={input}
+                  meta={meta}
+                  answers={BOOL_OPTIONS}
+                  label="Is your mailing address the same as the property address?"
+                  styleName="mailingSameAsProperty radio"
+                  dataTest="mailingSameAsProperty"
+                  segmented
+                />
+              )}
+            </Field>
 
-          <AddressWithAutoFill
-            watchField="sameAsPropertyAddress"
-            fieldPrefix="policyHolderMailingAddress"
-            matchPrefix="property.physicalAddress"
-            values={initialValues}
-          />
+            <AddressWithAutoFill
+              watchField="sameAsPropertyAddress"
+              fieldPrefix="policyHolderMailingAddress"
+              matchPrefix="property.physicalAddress"
+              values={initialValues}
+            />
+          </div>
 
           <div className="card-footer">
             <div className="btn-group">

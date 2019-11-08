@@ -549,11 +549,6 @@
     .card {
       flex-direction: row;
 
-      &.fakeDisplay {
-        color: rgba($navy, 0.6);
-        cursor: pointer;
-      }
-
       .cardContent {
         h4 {
           margin-bottom: 0;
@@ -626,27 +621,45 @@
 
     .modal {
       .card {
-        position: relative;
-        top: auto;
-        bottom: auto;
-        flex-wrap: wrap;
-        .form-group {
-          &.view-col-9 {
+        flex-direction: column;
+        .card-block {
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          .form-group {
+            &.view-col-9 {
+              flex-grow: 1;
+              flex-shrink: 1;
+              margin-right: 0.5rem;
+              width: auto;
+            }
+            &.view-col-1 {
+              flex-grow: 0;
+              flex-shrink: 0;
+              margin-right: 0.5rem;
+              width: 8.33%;
+            }
+            &.view-col-2 {
+              flex-grow: 0;
+              flex-shrink: 0;
+              width: 16.66%;
+            }
+          }
+        }
+        .card-footer {
+          display: flex;
+          .btn-group {
+            display: flex;
             flex-grow: 1;
             flex-shrink: 1;
-            margin-right: 0.5rem;
-            width: auto;
-          }
-          &.view-col-1 {
-            flex-grow: 0;
-            flex-shrink: 0;
-            margin-right: 0.5rem;
-            width: 8.33%;
-          }
-          &.view-col-2 {
-            flex-grow: 0;
-            flex-shrink: 0;
-            width: 16.66%;
+            button {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              &.btn-secondary {
+                border-radius: 0 0 0 $borderRadius;
+              }
+            }
           }
         }
       }
@@ -1169,8 +1182,8 @@
     flex-grow: 1;
     flex-shrink: 1;
     justify-content: flex-end;
-    width: 100%;
     margin-top: 1rem;
+    width: 100%;
 
     .btn-primary {
       margin-left: 1rem;
@@ -1734,15 +1747,15 @@ $colors: $blue, $red, $green, $navy, gold;
         label {
           position: relative;
           z-index: 1;
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
           margin-bottom: 0;
+          padding-bottom: ($padding * 0.25);
           padding-left: 0;
           width: auto;
           font-size: $fontSizeSubheader--small;
           font-family: $serif;
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-          padding-bottom: ($padding * 0.25);
 
           @include forPhoneOnly {
             width: 100%;
@@ -1752,6 +1765,7 @@ $colors: $blue, $red, $green, $navy, gold;
         }
         .react-datepicker-wrapper {
           display: flex;
+
           justify-self: flex-end;
           @include forPhoneOnly {
             width: 100%;
@@ -1759,32 +1773,32 @@ $colors: $blue, $red, $green, $navy, gold;
           .react-datepicker__input-container {
             input {
               padding-top: $padding/2;
+              padding-right: 0;
               padding-bottom: $padding/2;
               padding-left: $padding/2;
-              padding-right: 0;
               width: 100%;
-              background-color: $white;
-              font-family: $serif;
-              font-weight: $bold;
               border: 1px $navy solid;
               border-radius: $borderRadius;
+              background-color: $white;
+              font-weight: $bold;
+              font-family: $serif;
             }
 
             //calender icon on date picker
             &:after {
-              font-family: 'Font Awesome 5 Free';
               position: absolute;
-              right: 0;
               top: 0;
-              background-color: $navy;
-              color: $white;
-              height: 38px;
-              width: 38px;
+              right: 0;
               display: flex;
               align-items: center;
               justify-content: center;
-              border-radius: 0 $borderRadius $borderRadius 0;
               padding-left: 0;
+              width: 38px;
+              height: 38px;
+              border-radius: 0 $borderRadius $borderRadius 0;
+              background-color: $navy;
+              color: $white;
+              font-family: 'Font Awesome 5 Free';
             }
           }
         }
