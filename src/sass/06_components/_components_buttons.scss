@@ -161,4 +161,29 @@ submit {
       }
     }
   }
+
+  &.disabled {
+    cursor: default;
+    color: rgba($lightGrey, 0.5);
+
+    button {
+      background-color: rgba($lightGrey, 0.5);
+      color: $extraLightGrey;
+      border-color: transparent;
+      cursor: default;
+      @include shadow(0, 3px, 6px, rgba($navy, 0.16));
+
+      &:hover {
+        cursor: default;
+        @include shadow(0, 3px, 6px, rgba($navy, 0.16));
+        background-color: rgba($lightGrey, 0.5);
+        color: $extraLightGrey;
+        border-color: transparent;
+
+        svg {
+          color: $extraLightGrey;
+        }
+      }
+    }
+  }
 }
