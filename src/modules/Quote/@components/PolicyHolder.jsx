@@ -57,7 +57,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           }
         />
       ))}
-
+      <h3>Add Policyholder</h3>
       <Button
         data-test="add-policyHolder"
         onClick={() =>

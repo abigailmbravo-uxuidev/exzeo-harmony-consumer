@@ -36,6 +36,7 @@ const Address = ({ initialValues }) => {
           </div>
         </div>
       )}
+      <h3>Add Mailing Address</h3>
       <Button
         data-test="add-address"
         onClick={() => setModal({ show: true })}
