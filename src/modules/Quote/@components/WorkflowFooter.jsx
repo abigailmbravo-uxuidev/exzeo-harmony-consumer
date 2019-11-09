@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 import SummaryFooter from './SummaryFooter';
 
 const WorkflowFooter = ({ recalc, workflowPage, history }) => {
-  if (workflowPage === ROUTES.additionalInfo.workflowPage) {
+  if (
+    workflowPage === ROUTES.additionalInfo.workflowPage ||
+    workflowPage === ROUTES.complete.workflowPage
+  ) {
     return null;
   }
 

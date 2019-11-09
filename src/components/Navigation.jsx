@@ -52,7 +52,9 @@ const Navigation = ({ location, match }) => {
         className={classNames('navWrapper', {
           navSlideOut: navOpen,
           navSlideIn: !navOpen,
-          hasUnderwritingError: hasError,
+          // TODO can we make this "hide" or "disabled" since it now serves more uses than originally intended?
+          hasUnderwritingError:
+            hasError || locationOrder === ROUTES.complete.order,
           hasUnderwritingException: hasException
         })}
       >
