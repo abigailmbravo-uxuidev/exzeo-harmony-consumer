@@ -244,17 +244,18 @@ const QuoteSearch = () => {
                   )}
 
                   {searchState.result && searchState.invalidQuoteState && (
-                    <Modal
-                      header="Error Occurred"
-                      size={Modal.sizes.medium}
-                      className="error"
-                    >
-                      <div className="cardContent">
-                        We apologize but this Quote has a status of{' '}
-                        {searchState.result.quoteState} which is no longer
-                        retrievable. For questions or edits, please contact us.
-                        Provide phone and contact methods. Click Here to start a
-                        new quote.
+                    <Modal size={Modal.sizes.small} className="error">
+                      <div className="card-header">
+                        <h4>Error Occured</h4>
+                      </div>
+                      <div className="card-block">
+                        <p>
+                          We apologize but this Quote has a status of{' '}
+                          {searchState.result.quoteState} which is no longer
+                          retrievable. For questions or edits, please contact
+                          us. Provide phone and contact methods. Click Here to
+                          start a new quote.
+                        </p>
                       </div>
                       <div className="card-footer">
                         <Button
