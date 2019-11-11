@@ -52,6 +52,7 @@ const CUSTOM_COMPONENTS = {
 
 const QuoteWorkflow = ({ history, match }) => {
   const [recalc, setRecalc] = useState(false);
+  const [submissionError, setSubmissionError] = useState(false);
   const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
     loading: quoteLoading,
@@ -73,6 +74,12 @@ const QuoteWorkflow = ({ history, match }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (submissionError) {
+      throw new Error('submission error');
+    }
+  }, [submissionError]);
+
   const customHandlers = {
     handleSubmit: updateQuote
   };
@@ -87,7 +94,11 @@ const QuoteWorkflow = ({ history, match }) => {
 
       history.push(WORKFLOW_ROUTING[match.params.step]);
     } catch (error) {
-      throw Error(error);
+      if (error.status <= 400) {
+        setSubmissionError(true);
+        return;
+      }
+      throw error;
     }
   }
 
