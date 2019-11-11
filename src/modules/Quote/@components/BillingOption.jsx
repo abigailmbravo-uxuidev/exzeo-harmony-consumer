@@ -5,18 +5,22 @@ const BillingOption = ({ option, handleClick, isSelected }) => {
   return (
     <React.Fragment>
       <div
-        className="card billToId"
-        data-test="billToCard"
+        className="billingCheckBox"
         onClick={() => handleClick(option.answer)}
       >
-        <div className="cardContent">
-          <h4>{option.label}</h4>
+        <span className="emptyCheckBox">
+          <FontAwesomeIcon icon={isSelected ? 'check' : ''} />
+        </span>
+        <div className="card billToId" data-test="billToCard">
+          <div className="cardContent">
+            <h4>{option.label}</h4>
+          </div>
+          <footer>
+            <FontAwesomeIcon
+              icon={isSelected ? 'chevron-down' : 'chevron-right'}
+            />
+          </footer>
         </div>
-        <footer>
-          <FontAwesomeIcon
-            icon={isSelected ? 'chevron-down' : 'chevron-right'}
-          />
-        </footer>
       </div>
     </React.Fragment>
   );

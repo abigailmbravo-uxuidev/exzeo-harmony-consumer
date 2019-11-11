@@ -8,7 +8,7 @@ const ContactEmailAnchor = () => {
     <a
       className="contactEmail"
       data-test="email"
-      title="call us"
+      title="email us"
       href={`${CONTACT_EMAIL.href}`}
     >
       {CONTACT_EMAIL.display}&nbsp;
