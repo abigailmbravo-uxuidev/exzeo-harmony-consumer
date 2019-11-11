@@ -14,7 +14,9 @@ const PolicyholderCard = ({ policyHolder, icons }) => {
     <div className="card" data-test="agency">
       <div className="cardContent">
         <h4>
-          {policyHolder.firstName}&nbsp;{policyHolder.lastName}
+          {`Policyholder ${policyHolder.order + 1}: ${policyHolder.firstName} ${
+            policyHolder.lastName
+          }`}
         </h4>
         <p>
           {`${policyHolder.emailAddress.toLowerCase()}`}

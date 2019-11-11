@@ -65,9 +65,8 @@ const QuoteWorkflow = ({ history, match }) => {
     template
   ]);
 
-  // TODO really only necessary for development (auto-refreshing)
   useEffect(() => {
-    if (!quote.quoteNumber) retrieveQuote(match.params.quoteNumber);
+    if (!quote.quoteNumber) retrieveQuote();
 
     // unset the quote if we leave QuoteWorkflow
     return () => setQuote({});

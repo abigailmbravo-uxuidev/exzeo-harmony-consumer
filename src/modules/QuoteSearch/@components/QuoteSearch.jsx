@@ -10,14 +10,10 @@ import {
   Modal,
   validation,
   composeValidators
-  // Switch
 } from '@exzeo/core-ui';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
 import { useQuote } from 'modules/Quote';
-
-// import QuoteCard from './QuoteCard';
-// import NoResults from './NoResults';
 
 export const VALID_QUOTE_STATES = [
   'Quote Started',
@@ -40,7 +36,11 @@ const QuoteSearch = () => {
   const { quote, setQuoteForUser } = useQuote();
 
   useEffect(() => {
-    if (searchState.hasSearched && !searchState.invalidQuoteState) {
+    if (
+      searchState.hasSearched &&
+      !searchState.noResults &&
+      !searchState.invalidQuoteState
+    ) {
       setQuoteForUser(searchState.result);
     }
   }, [
@@ -56,29 +56,31 @@ const QuoteSearch = () => {
         setSearchState(initialState);
       }
 
-      const params = {
+      setLoading(true);
+      const result = await quoteData.retrieveQuote({
         lastName,
         zipCode,
-        email,
-        // TODO the above are currently being ignored by server
-        quoteNumber
-      };
-
-      setLoading(true);
-      // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
-      const result = await quoteData.retrieveQuote(params);
+        quoteNumber,
+        email
+      });
       const quoteFound = result && result.quoteNumber;
 
       setSearchState({
         hasSearched: true,
         result: result,
         noResults: !quoteFound,
-        // TODO this is confusing logic, but will ultimately not be needed here once we accept 'email' as valid search criteria and can then potentially return multiple quotes
         invalidQuoteState:
           quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
       });
     } catch (error) {
-      console.error('Error searching: ', error);
+      if (error.status === 404 || error.status === 403) {
+        setSearchState({
+          hasSearched: true,
+          result: null,
+          noResults: true,
+          invalidQuoteState: false
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -209,21 +211,30 @@ const QuoteSearch = () => {
                   {searchState.noResults && (
                     <Modal
                       header={
-                        <span className="modalIcons">
-                          <FontAwesomeIcon icon="exclamation-triangle" />
-                        </span>
+                        <React.Fragment>
+                          <h4>Oops! We're Sorry</h4>
+                          <a onClick={() => resetSearch(form)}>
+                            <FontAwesomeIcon icon="times" />
+                          </a>
+                        </React.Fragment>
                       }
-                      size={Modal.sizes.medium}
-                      className="success"
+                      size={Modal.sizes.small}
+                      className="error"
                     >
-                      <div className="cardContent">
+                      <div className="card-block">
                         <p>
-                          Oops! We were unable to find the quote you were
-                          looking for. Please try again or feel free to contact
-                          us for support.
+                          We were unable to find the quote you were looking for.
+                          Please try again or feel free to contact us for
+                          support.
                         </p>
                       </div>
                       <div className="card-footer">
+                        <Link
+                          to="/searchAddress"
+                          className={Button.constants.classNames.secondary}
+                        >
+                          Start New Quote
+                        </Link>
                         <Button
                           className={Button.constants.classNames.primary}
                           data-test="reset"
@@ -231,28 +242,24 @@ const QuoteSearch = () => {
                         >
                           Try Again
                         </Button>
-                        <Link
-                          to="/searchAddress"
-                          className={Button.constants.classNames.secondary}
-                        >
-                          New Quote
-                        </Link>
                       </div>
                     </Modal>
                   )}
 
                   {searchState.result && searchState.invalidQuoteState && (
                     <Modal
-                      header="Error Occurred"
-                      size={Modal.sizes.medium}
+                      size={Modal.sizes.small}
                       className="error"
+                      header={<h4>Error Occured</h4>}
                     >
-                      <div className="cardContent">
-                        We apologize but this Quote has a status of{' '}
-                        {searchState.result.quoteState} which is no longer
-                        retrievable. For questions or edits, please contact us.
-                        Provide phone and contact methods. Click Here to start a
-                        new quote.
+                      <div className="card-block">
+                        <p>
+                          We apologize but this Quote has a status of{' '}
+                          {searchState.result.quoteState} which is no longer
+                          retrievable. For questions or edits, please contact
+                          us. Provide phone and contact methods. Click Here to
+                          start a new quote.
+                        </p>
                       </div>
                       <div className="card-footer">
                         <Button
