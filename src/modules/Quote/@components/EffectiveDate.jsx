@@ -21,11 +21,12 @@ const EffectiveDate = ({ initialValues }) => {
             input={input}
             meta={meta}
             dataTest="effectiveDate"
-            label="Please select a date for your policy to become effective."
+            label="Please select an effective date:"
             styleName="effectiveDate datePicker"
             minDate={minDate}
             maxDate={maxDate}
             monthsShown={2}
+            popperPlacement="top-end"
           />
         )}
       </Field>

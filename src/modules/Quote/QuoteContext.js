@@ -1,4 +1,5 @@
 import React from 'react';
+import store2 from 'store2';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
 const QuoteContext = React.createContext();
@@ -13,22 +14,43 @@ export function useQuote() {
 
   const [quote, setQuote] = context;
 
-  const retrieveQuote = async (quoteNumber, lastName, zipCode, email) => {
+  const retrieveQuote = async params => {
     try {
       setLoading(true);
-      const params = {
-        lastName,
-        zipCode,
-        email,
-        quoteNumber
-      };
 
-      // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
-      const quote = await quoteData.retrieveQuote(params);
+      let savedQuote;
+      let retrieveParams;
+
+      if (!params) {
+        savedQuote = store2.get('quote');
+        if (savedQuote) {
+          if (
+            savedQuote.property.physicalAddress.zip &&
+            (savedQuote.policyHolders[0] || {}).lastName &&
+            savedQuote.quoteNumber
+          ) {
+            retrieveParams = {
+              quoteNumber: savedQuote.quoteNumber,
+              zipCode: savedQuote.property.physicalAddress.zip,
+              lastName: savedQuote.policyHolders[0].lastName
+            };
+          } else {
+            setQuote(savedQuote);
+            return;
+          }
+        } else {
+          throw Error('Unable to retrieve quote.');
+        }
+      } else {
+        retrieveParams = params;
+      }
+
+      const quote = await quoteData.retrieveQuote(retrieveParams);
       const formattedQuote = formatQuoteForUser(quote);
+      store2.set('quote', formattedQuote, true);
       setQuote(formattedQuote);
     } catch (error) {
-      throw Error(error);
+      throw error;
     } finally {
       setLoading(false);
     }
@@ -45,6 +67,7 @@ export function useQuote() {
       });
 
       const formattedQuote = formatQuoteForUser(quote);
+      store2.set('quote', formattedQuote, true);
       setQuote(formattedQuote);
     } catch (error) {
       throw Error(error);
@@ -61,9 +84,10 @@ export function useQuote() {
       const quote = await quoteData.updateQuote(updateData);
 
       const formattedQuote = formatQuoteForUser(quote);
+      store2.set('quote', formattedQuote, true);
       setQuote(formattedQuote);
     } catch (error) {
-      throw Error(error);
+      throw error;
     } finally {
       setLoading(false);
     }
@@ -78,7 +102,7 @@ export function useQuote() {
       }
       await quoteData.sendApplication(quoteNumber, 'docusign');
     } catch (error) {
-      throw Error(error);
+      throw error;
     } finally {
       setLoading(false);
     }
@@ -115,6 +139,7 @@ function formatQuoteForSubmit(data, options) {
 
 // Edit quote for Form
 function formatQuoteForUser(quoteData) {
+  if (!quoteData) return {};
   return {
     ...quoteData,
     effectiveDate: new Date(quoteData.effectiveDate),
@@ -125,16 +150,4 @@ function formatQuoteForUser(quoteData) {
       quoteData.property.physicalAddress.city ===
         (quoteData.policyHolderMailingAddress || {}).city
   };
-
-  // if (quoteData.policyHolders[1] && quoteData.policyHolders[1].firstName) {
-  //   quoteData.additionalPolicyholder = true;
-  // }
-
-  // if (quoteData.product === 'AF3') {
-  //   quoteData.personalPropertySlider = Math.ceil(
-  //     (quoteData.coverageLimits.personalProperty.amount * 100) /
-  //     quoteData.coverageLimits.building.amount
-  //   );
-  //   return quoteData;
-  // }
 }
