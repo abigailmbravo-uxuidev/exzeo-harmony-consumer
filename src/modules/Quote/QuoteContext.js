@@ -18,8 +18,8 @@ export function useQuote() {
     try {
       setLoading(true);
 
-      let savedQuote;
-      let retrieveParams;
+      let savedQuote = {};
+      let retrieveParams = {};
 
       if (!params) {
         savedQuote = store2.get('quote');
