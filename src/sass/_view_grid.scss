@@ -210,112 +210,57 @@
             .form-group {
               margin-right: 1rem;
 
-              &:last-of-type {
-                margin-right: 0;
-              }
-            }
-          }
-
-          .form-group {
-            &.type-ahead {
-              z-index: 100;
-              overflow: visible;
-
-              .react-select__menu-list {
-                max-height: 35vh;
-              }
-            }
-
-            &.order {
-              &.select {
-                border-bottom: 1px solid $navy;
+              select {
+                height: 1.5rem;
+                border-width: 0;
+                color: $navy;
+                font-size: $fontSizeBody;
                 background-color: $extraLightGrey;
-                label {
-                  position: relative;
-                  margin-bottom: 0;
-                }
-
-                select {
-                  height: 1rem;
-                  border-width: 0;
-                  color: $navy;
-                  font-size: $fontSizeBody;
-                }
               }
+            }
+            &:last-of-type {
+              margin-right: 0;
             }
           }
         }
 
-        .card-footer {
-          @include forPhoneOnly {
+        .form-group {
+          &.type-ahead {
+            z-index: 100;
+            overflow: visible;
+
+            .react-select__menu-list {
+              max-height: 35vh;
+            }
           }
-          .btn-group {
-            display: flex;
-            flex-grow: 1;
-            flex-shrink: 1;
-            .btn {
-              display: flex;
-              flex-grow: 1;
-              flex-shrink: 1;
-              justify-content: center;
-              margin-bottom: 0;
-              margin-left: 0;
-              text-transform: capitalize;
 
-              &.btn-primary {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: $borderRadius;
-                border-bottom-left-radius: 0;
-
-                @include forPhoneOnly {
-                  border-bottom-right-radius: 0;
-                }
+          &.order {
+            &.select {
+              border-bottom: 1px solid $navy;
+              background-color: $extraLightGrey;
+              label {
+                position: relative;
+                margin-bottom: 0;
               }
 
-              &.btn-secondary {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: $borderRadius;
-
-                @include forPhoneOnly {
-                  border-bottom-left-radius: 0;
-                }
+              select {
+                height: 1rem;
+                border-width: 0;
+                color: $navy;
+                font-size: $fontSizeBody;
               }
             }
           }
         }
       }
 
-      .share {
-        overflow: hidden;
-
-        .card-block {
-          overflow-x: hidden;
-          overflow-y: auto;
-          padding: $padding $padding * 1.5 $padding;
-          border-top-left-radius: $borderRadius;
-          border-top-right-radius: $borderRadius;
-          background-color: $white;
-
-          @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
-
-          .form-group {
-            &:last-of-type {
-              margin-bottom: 0;
-            }
-          }
+      .card-footer {
+        @include forPhoneOnly {
         }
-
-        .card-footer {
+        .btn-group {
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
-
-          @include forPhoneOnly {
-          }
-
           .btn {
             display: flex;
             flex-grow: 1;
@@ -349,1201 +294,1239 @@
           }
         }
       }
-
-      &.addMailingAddressModal {
-        .card-block {
-          position: relative;
-          display: flex;
-          flex-wrap: wrap;
-          .form-group {
-            &.view-col-9 {
-              flex-grow: 1;
-              flex-shrink: 1;
-              margin-right: 0.5rem;
-              width: auto;
-
-              @include forPhoneOnly {
-                flex-grow: 0;
-                flex-shrink: 0;
-                width: 100%;
-              }
-            }
-            &.view-col-1 {
-              flex-grow: 0;
-              flex-shrink: 0;
-              margin-right: 0.5rem;
-              width: 8.33%;
-
-              @include forPhoneOnly {
-                flex-grow: 1;
-                flex-shrink: 1;
-                width: auto;
-              }
-            }
-            &.view-col-2 {
-              flex-grow: 0;
-              flex-shrink: 0;
-              width: 16.66%;
-
-              @include forPhoneOnly {
-                flex-grow: 1;
-                flex-shrink: 1;
-                width: auto;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  > div {
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-
-  .card {
-    //thank you page
-    &.thankYouCard {
-      position: relative;
-      align-self: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-      margin: 0 auto;
-      padding: ($padding * 2) ($padding * 2) $padding;
-      //width: 34rem;
-
-      @include forPhoneOnly {
-        width: 100%;
-      }
-
-      .quoteNumber {
-        text-align: center;
-      }
-
-      label {
-        z-index: 1;
-        padding-top: $padding;
-        color: $navy;
-        text-align: center;
-        font-size: $fontSizeHeader;
-        font-family: $serif;
-      }
-
-      .confettiWrapper {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-
-      .thankYouCircle {
-        position: absolute;
-        top: -6rem;
-        right: calc(50% - 27rem);
-        z-index: 0;
-        width: 54rem;
-
-        @include forPhoneOnly {
-          position: absolute;
-          top: -1rem;
-          right: -20rem;
-          left: -20rem;
-          width: 64rem;
-        }
-
-        svg {
-          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-
-          fill: $navy;
-        }
-      }
-
-      .thankYouIcon {
-        z-index: 1;
-        align-items: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        color: white;
-        font-size: 10rem;
-        animation-name: tada;
-        animation-duration: 1.5s;
-        animation-delay: 2s;
-
-        svg {
-          width: 15rem;
-          height: 15rem;
-          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
-
-          fill: $white;
-        }
-      }
-
-      a {
-        z-index: 21;
-        text-align: center;
-      }
-    }
-    //congratulations
-    &.congratsCard {
-      position: relative;
-      align-self: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-      margin: 0 auto;
-      padding: ($padding * 2) ($padding * 2) $padding;
-      width: 34rem;
-
-      @include forPhoneOnly {
-        width: 100%;
-      }
-
-      label {
-        z-index: 20;
-        z-index: 1;
-        padding-top: $padding;
-        color: $navy;
-        text-align: center;
-        font-size: $fontSizeHeader;
-        font-family: $serif;
-      }
-      .confettiWrapper {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-      .congratsCircle {
-        position: absolute;
-        top: -6rem;
-        right: -8rem;
-        left: -8rem;
-        z-index: 0;
-        width: 54rem;
-
-        @include forPhoneOnly {
-          position: absolute;
-          top: -1rem;
-          right: -20rem;
-          left: -20rem;
-          width: 64rem;
-        }
-
-        svg {
-          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-
-          fill: $navy;
-        }
-      }
-
-      .congratsIcon {
-        z-index: 1;
-        align-items: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        color: white;
-        font-size: 10rem;
-        animation-name: tada;
-        animation-duration: 1.5s;
-        animation-delay: 2s;
-
-        svg {
-          width: 15rem;
-          height: 15rem;
-          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
-
-          fill: $white;
-        }
-      }
-    }
-  }
-
-  //policyholder info styling
-  .policyHolderInfo {
-    margin-bottom: 0.5rem;
-    h4 {
-      margin-bottom: 0.5rem;
-      padding-top: ($padding / 2);
-    }
-    .card {
-      flex-direction: row;
-
-      .cardContent {
-        @include forPhoneOnly {
-          padding-right: 0.75rem;
-        }
-        h4 {
-          margin-bottom: 0;
-          padding-top: 0;
-        }
-      }
-
-      a {
-        //padding: ($padding/2) $padding ($padding/2) ($padding/2);
-        margin-left: 1rem;
-        //height: 2rem;
-
-        svg {
-          align-content: center;
-        }
-      }
-
-      .cardFooter {
-        margin: 0;
-        padding: $padding;
-
-        a {
-          &:hover {
-            color: $blue;
-          }
-        }
-      }
-    }
-    .form-group {
-      &.policyHolder {
-        &.radio {
-          &.segmented {
-            overflow: visible;
-            flex-direction: row;
-            margin-bottom: 1rem;
-
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-
-            .group-label {
-              margin-bottom: 0.5rem;
-            }
-            label {
-              flex-grow: 1;
-              flex-shrink: 1;
-              font-size: $fontSizeSubheader--small;
-
-              @include forPhoneOnly {
-                padding-right: 0;
-              }
-            }
-
-            .segmented-answer-wrapper {
-              align-self: flex-start;
-              flex-grow: 1;
-              flex-shrink: 1;
-              margin-top: 0.5rem;
-              width: 6rem;
-              border-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                margin-bottom: 1.5rem;
-                width: 100%;
-              }
-              label {
-                padding: $padding/2;
-                font-size: $fontSizeBase;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  //address section
-  .addressSection {
-    margin-bottom: 0.5rem;
-
-    &.error {
-      span {
-        color: $red;
-      }
-    }
-    h4 {
-      margin-bottom: 0.5rem;
-      padding-top: ($padding / 2);
     }
 
-    .card {
-      flex-direction: row;
+    .share {
+      overflow: hidden;
 
-      .cardContent {
-        h4 {
-          margin-bottom: 0;
-          padding-top: 0;
-        }
-      }
+      .card-block {
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: $padding $padding * 1.5 $padding;
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+        background-color: $white;
 
-      .cardFooter {
-        display: flex;
-        align-items: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        justify-content: center;
-        padding: $padding;
-        a {
-          margin-left: 1rem;
-          svg {
-          }
-        }
-      }
-    }
+        @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
 
-    .form-group {
-      &.mailingSameAsProperty {
-        &.radio {
-          &.segmented {
-            overflow: visible;
-            flex-direction: row;
-            margin-bottom: 1rem;
-
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-
-            .group-label {
-              margin-bottom: 0.5rem;
-            }
-
-            label {
-              flex-grow: 1;
-              flex-shrink: 1;
-              font-size: $fontSizeSubheader--small;
-
-              @include forPhoneOnly {
-                padding-right: 0;
-              }
-            }
-
-            .segmented-answer-wrapper {
-              align-self: flex-start;
-              flex-grow: 1;
-              flex-shrink: 1;
-              margin-top: 0.5rem;
-              width: 6rem;
-              border-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                margin-bottom: 1.5rem;
-                width: 100%;
-              }
-              label {
-                padding: $padding/2;
-                font-size: $fontSizeBase;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  //additional info styling
-  .additionalInfo {
-    .card {
-      flex-direction: row;
-      p {
-        padding: ($padding / 4) 0;
-        line-height: 1.4;
-
-        @include forPhoneOnly {
-          line-height: 1;
-        }
-      }
-
-      a {
-        padding: ($padding/2) $padding 0 ($padding/2);
-
-        svg {
-          align-content: center;
-        }
-      }
-    }
-    .form-group {
-      &.additionalInterest {
-        &.radio {
-          &.segmented {
-            flex-direction: row;
+        .form-group {
+          &:last-of-type {
             margin-bottom: 0;
-
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-
-            .group-label {
-              margin-bottom: 0.5rem;
-            }
-            label {
-              flex-grow: 1;
-              flex-shrink: 1;
-              font-size: $fontSizeSubheader--small;
-
-              @include forPhoneOnly {
-                padding-right: 0;
-              }
-            }
-            .segmented-answer-wrapper {
-              align-self: flex-start;
-              margin-top: 0.5rem;
-              width: 6rem;
-              border-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                margin-bottom: 1.5rem;
-                width: 100%;
-              }
-
-              label {
-                padding: $padding/2;
-                font-size: $fontSizeBase;
-              }
-            }
           }
         }
       }
-      //open helpful info on this page since additional interests is very complex
-      label {
-        align-items: flex-start;
-        flex-direction: column;
-        span {
-          max-width: 30rem;
-          i {
-            display: none;
-          }
-          .__react_component_tooltip {
-            position: relative;
-            top: 0 !important;
-            left: 0 !important;
-            display: flex;
-            visibility: visible;
-            padding: 0;
-            max-width: 100%;
-            width: 100%;
-            background-color: transparent;
-            color: $navy;
-            font-weight: $normal;
-            font-family: $sans;
-            opacity: 1;
 
-            @include forPhoneOnly {
-              margin: 0.5rem 0 0;
-            }
+      .card-footer {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
 
-            &:after {
-              display: none;
-            }
-
-            &.place-right {
-              margin-left: 0;
-            }
-          }
+        @include forPhoneOnly {
         }
-      }
-    }
 
-    ul {
-      margin: 0 0 1.5rem 0;
-      padding: 0;
-
-      li {
-        list-style: none;
-
-        .card {
-          position: relative;
+        .btn {
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
+          justify-content: center;
+          margin-bottom: 0;
+          margin-left: 0;
+          text-transform: capitalize;
 
-          a {
-            flex-direction: row;
-            &.remove {
-              font-size: 1rem;
-            }
-
-            &.edit {
-              font-size: 1rem;
-
-              @include forPhoneOnly {
-                padding-right: 0.25rem;
-              }
-            }
-          }
-
-          > div {
-            flex-grow: 1;
-            flex-shrink: 1;
-            padding: ($padding / 2) $padding 0 $padding;
+          &.btn-primary {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: $borderRadius;
+            border-bottom-left-radius: 0;
 
             @include forPhoneOnly {
-              padding-bottom: ($padding / 2);
+              border-bottom-right-radius: 0;
             }
+          }
 
-            h4 {
-              margin-top: 0.25rem;
-              margin-bottom: 0.25rem;
-              font-size: $fontSizeBase;
-              font-family: $serif;
+          &.btn-secondary {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: $borderRadius;
 
-              @include forPhoneOnly {
-                margin-top: 0.5rem;
-                font-size: $fontSizeBase;
-              }
-            }
-
-            p {
-              margin-bottom: 0;
-
-              @include forPhoneOnly {
-                padding-top: $padding/4;
-              }
-            }
-
-            &.card-icon {
-              display: none;
+            @include forPhoneOnly {
+              border-bottom-left-radius: 0;
             }
           }
         }
       }
     }
 
-    .form-footer {
-      margin-top: 1rem;
-    }
-  }
-
-  //customize quote styling
-  .workflow {
-    @include forPhoneOnly {
-      .form-footer {
+    &.addMailingAddressModal {
+      .card-block {
+        position: relative;
         display: flex;
-        flex-direction: column;
-        .btn {
-          margin: 0 0 1rem 0;
-          width: 100%;
-          text-align: center;
-        }
-      }
-    }
-    div {
-      &.agencySelect {
-        label {
-          padding-left: 0;
-        }
-      }
-      label {
-        padding-left: $padding/2;
-      }
-      input {
-        padding-left: $padding/2;
-      }
-      &.switch {
-        label {
-          padding-left: 0;
-        }
-      }
-    }
-    .slider-component {
-      .form-group {
-        label {
-          margin-bottom: 1rem;
-          padding-left: 0;
-          font-size: $fontSizeSubheader--small;
-          font-family: $serif;
-        }
-      }
-    }
-
-    .subtitle {
-      strong {
-        display: block;
-        margin-bottom: 0.25rem;
-      }
-      p {
-        margin-right: 0;
-        margin-bottom: 1rem;
-        max-width: 100%;
-        font-family: $sans;
-      }
-    }
-
-    //well styling
-    .well {
-      position: relative;
-      display: flex;
-      overflow: visible;
-      margin-top: 0.5rem;
-      padding: $padding $padding 0 $padding;
-      //for phone
-
-      @include forPhoneOnly {
-        .card {
-          flex-direction: column;
-          justify-content: center;
-          margin-left: 0;
-
-          &.fade-in {
-            min-height: auto;
-          }
-
-          .card-header {
-            position: relative;
-            align-items: center;
-            flex-direction: column;
-            padding-right: 0;
-            padding-left: 0;
-            width: 50%;
-          }
-
-          .cardContent {
-            margin-bottom: 1rem;
-            text-align: center;
-
-            p {
-              padding: 0 $padding;
-            }
-          }
-
-          .card-footer {
-            flex-direction: column;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-
-            .btn,
-            .btn-primary {
-              margin-top: 0;
-              margin-bottom: 1rem;
-              margin-left: 0;
-              padding: $padding/2;
-              text-align: center;
-            }
-
-            .btn-secondary {
-              margin-top: 0;
-              margin-bottom: 1.5rem;
-              margin-left: 0;
-              padding: $padding/2;
-              text-align: center;
-            }
-          }
-        }
-      }
-
-      //results modal styling
-      .modal {
-        z-index: 100;
-        display: flex;
-
-        .card {
-          margin: 0;
-          padding: 0;
-          background-color: transparent;
-          box-shadow: 0 0 0 0 rgba($white, 0);
-
-          .card-footer {
-            position: unset;
-            display: flex;
-            margin-top: 0.75rem;
-
-            button {
-              margin: 0;
-              padding: 0.4rem 1rem;
-            }
-          }
-
-          .share {
-            z-index: 1;
-            .card-block {
-              margin-top: 0;
-              padding: 0;
-
-              .form-group {
-                width: 100%;
-                color: $navy;
-
-                #toName {
-                  background-color: rgba($extraLightGrey, 0.9);
-                }
-
-                #toEmail {
-                  background-color: rgba($extraLightGrey, 0.9);
-                }
-              }
-
-              .error {
-                span {
-                  display: block;
-                  padding: ($padding / 4) 0 0 ($padding / 2);
-                  width: 100%;
-                  height: auto;
-                  border-radius: 0;
-                  background-color: transparent;
-                  box-shadow: none;
-                  font-size: $fontSizeBody;
-                }
-              }
-            }
-          }
-
-          .card-header {
-            h4 {
-              display: none;
-            }
-          }
-        }
-
-        .form-group {
-          z-index: 14;
-          overflow: visible;
-        }
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
-        padding: 0 $padding;
-        min-height: 176px;
-        background-color: $navy;
-
-        &:hover {
-          transform: none;
-        }
-
-        .cardContent {
-          display: flex;
-          padding-left: 150px;
-          background-color: $navy;
-          color: $white;
-
-          p {
+        .form-group {
+          &.view-col-9 {
             flex-grow: 1;
             flex-shrink: 1;
-            padding-top: $padding;
-            padding-left: $padding;
-            color: white;
-            font-weight: $bold;
-            font-size: $fontSizeBase;
-            line-height: 1.2;
-          }
+            margin-right: 0.5rem;
+            width: auto;
 
-          span {
+            @include forPhoneOnly {
+              flex-grow: 0;
+              flex-shrink: 0;
+              width: 100%;
+            }
+          }
+          &.view-col-1 {
             flex-grow: 0;
             flex-shrink: 0;
+            margin-right: 0.5rem;
+            width: 8.33%;
+
+            @include forPhoneOnly {
+              flex-grow: 1;
+              flex-shrink: 1;
+              width: auto;
+            }
+          }
+          &.view-col-2 {
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 16.66%;
+
+            @include forPhoneOnly {
+              flex-grow: 1;
+              flex-shrink: 1;
+              width: auto;
+            }
           }
         }
+      }
+    }
+  }
+}
 
-        .card-header {
-          position: absolute;
-          display: flex;
-          padding: $padding;
-          width: 32%;
+> div {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.card {
+  //thank you page
+  &.thankYouCard {
+    position: relative;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 auto;
+    padding: ($padding * 2) ($padding * 2) $padding;
+    //width: 34rem;
+
+    @include forPhoneOnly {
+      width: 100%;
+    }
+
+    .quoteNumber {
+      text-align: center;
+    }
+
+    label {
+      z-index: 1;
+      padding-top: $padding;
+      color: $navy;
+      text-align: center;
+      font-size: $fontSizeHeader;
+      font-family: $serif;
+    }
+
+    .confettiWrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .thankYouCircle {
+      position: absolute;
+      top: -6rem;
+      right: calc(50% - 27rem);
+      z-index: 0;
+      width: 54rem;
+
+      @include forPhoneOnly {
+        position: absolute;
+        top: -1rem;
+        right: -20rem;
+        left: -20rem;
+        width: 64rem;
+      }
+
+      svg {
+        filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+
+        fill: $navy;
+      }
+    }
+
+    .thankYouIcon {
+      z-index: 1;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      color: white;
+      font-size: 10rem;
+      animation-name: tada;
+      animation-duration: 1.5s;
+      animation-delay: 2s;
+
+      svg {
+        width: 15rem;
+        height: 15rem;
+        filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+
+        fill: $white;
+      }
+    }
+
+    a {
+      z-index: 21;
+      text-align: center;
+    }
+  }
+  //congratulations
+  &.congratsCard {
+    position: relative;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 auto;
+    padding: ($padding * 2) ($padding * 2) $padding;
+    width: 34rem;
+
+    @include forPhoneOnly {
+      width: 100%;
+    }
+
+    label {
+      z-index: 20;
+      z-index: 1;
+      padding-top: $padding;
+      color: $navy;
+      text-align: center;
+      font-size: $fontSizeHeader;
+      font-family: $serif;
+    }
+    .confettiWrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .congratsCircle {
+      position: absolute;
+      top: -6rem;
+      right: -8rem;
+      left: -8rem;
+      z-index: 0;
+      width: 54rem;
+
+      @include forPhoneOnly {
+        position: absolute;
+        top: -1rem;
+        right: -20rem;
+        left: -20rem;
+        width: 64rem;
+      }
+
+      svg {
+        filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+
+        fill: $navy;
+      }
+    }
+
+    .congratsIcon {
+      z-index: 1;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      color: white;
+      font-size: 10rem;
+      animation-name: tada;
+      animation-duration: 1.5s;
+      animation-delay: 2s;
+
+      svg {
+        width: 15rem;
+        height: 15rem;
+        filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+
+        fill: $white;
+      }
+    }
+  }
+}
+
+//policyholder info styling
+.policyHolderInfo {
+  margin-bottom: 0.5rem;
+  h4 {
+    margin-bottom: 0.5rem;
+    padding-top: ($padding / 2);
+  }
+  .card {
+    flex-direction: row;
+
+    .cardContent {
+      @include forPhoneOnly {
+        padding-right: 0.75rem;
+      }
+      h4 {
+        margin-bottom: 0;
+        padding-top: 0;
+      }
+    }
+
+    a {
+      //padding: ($padding/2) $padding ($padding/2) ($padding/2);
+      margin-left: 1rem;
+      //height: 2rem;
+
+      svg {
+        align-content: center;
+      }
+    }
+
+    .cardFooter {
+      margin: 0;
+      padding: $padding;
+
+      a {
+        &:hover {
+          color: $blue;
         }
+      }
+    }
+  }
+  .form-group {
+    &.policyHolder {
+      &.radio {
+        &.segmented {
+          overflow: visible;
+          flex-direction: row;
+          margin-bottom: 1rem;
 
-        .card-footer {
-          position: relative;
-          display: flex;
-          margin-top: 0.75rem;
+          @include forPhoneOnly {
+            flex-direction: column;
+          }
 
-          button {
-            position: absolute;
-            right: 0;
-            left: 0;
-            margin: 0;
-            padding: 0.4rem 1rem;
-            width: 100%;
+          .group-label {
+            margin-bottom: 0.5rem;
+          }
+          label {
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: $fontSizeSubheader--small;
+
+            @include forPhoneOnly {
+              padding-right: 0;
+            }
+          }
+
+          .segmented-answer-wrapper {
+            align-self: flex-start;
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-top: 0.5rem;
+            width: 6rem;
+            border-radius: $borderRadius;
+
+            @include forPhoneOnly {
+              margin-bottom: 1.5rem;
+              width: 100%;
+            }
+            label {
+              padding: $padding/2;
+              font-size: $fontSizeBase;
+            }
           }
         }
-        .modalIcons {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding-bottom: 14px;
-          width: 125px;
-          height: 125px;
-          border-radius: 50%;
-          background-color: $white;
-          box-shadow: 0 8px 12px rgba($navy, 0.15);
-          font-size: 50px;
+      }
+    }
+  }
+}
 
-          svg {
-            color: $red;
-            font-size: 80px;
-          }
+//address section
+.addressSection {
+  margin-bottom: 0.5rem;
+
+  &.error {
+    span {
+      color: $red;
+    }
+  }
+  h4 {
+    margin-bottom: 0.5rem;
+    padding-top: ($padding / 2);
+  }
+
+  .card {
+    flex-direction: row;
+
+    .cardContent {
+      h4 {
+        margin-bottom: 0;
+        padding-top: 0;
+      }
+    }
+
+    .cardFooter {
+      display: flex;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      justify-content: center;
+      padding: $padding;
+      a {
+        margin-left: 1rem;
+        svg {
         }
       }
     }
   }
 
   .form-group {
-    margin-bottom: 1rem;
-
-    &.radio {
-      &.segmented {
-        margin-bottom: 1.5rem;
-
-        @include forPhoneOnly {
+    &.mailingSameAsProperty {
+      &.radio {
+        &.segmented {
+          overflow: visible;
+          flex-direction: row;
           margin-bottom: 1rem;
-        }
-        &.segmented-answer-wrapper {
-          font-weight: $normal;
-          font-size: $fontSizeBase;
-        }
 
-        > label {
-          padding-left: 0;
+          @include forPhoneOnly {
+            flex-direction: column;
+          }
+
+          .group-label {
+            margin-bottom: 0.5rem;
+          }
+
+          label {
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: $fontSizeSubheader--small;
+
+            @include forPhoneOnly {
+              padding-right: 0;
+            }
+          }
+
+          .segmented-answer-wrapper {
+            align-self: flex-start;
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-top: 0.5rem;
+            width: 6rem;
+            border-radius: $borderRadius;
+
+            @include forPhoneOnly {
+              margin-bottom: 1.5rem;
+              width: 100%;
+            }
+            label {
+              padding: $padding/2;
+              font-size: $fontSizeBase;
+            }
+          }
         }
       }
-    }
-
-    label {
-      margin-bottom: 1rem;
     }
   }
-
-  footer {
-    z-index: 99;
-    padding: $padding;
-
-    @include forPhoneOnly {
-      margin-bottom: 1rem;
-
-      div[role='banner'] {
-        flex-direction: column;
-
-        small {
-          align-self: center;
-        }
-      }
-    }
-
-    &.navFooter {
-      padding: $padding 0;
+}
+//additional info styling
+.additionalInfo {
+  .card {
+    flex-direction: row;
+    p {
+      padding: ($padding / 4) 0;
+      line-height: 1.4;
 
       @include forPhoneOnly {
+        line-height: 1;
+      }
+    }
+
+    a {
+      padding: ($padding/2) $padding 0 ($padding/2);
+
+      svg {
         align-content: center;
-        margin-bottom: 0;
-        padding-bottom: 0;
+      }
+    }
+  }
+  .form-group {
+    &.additionalInterest {
+      &.radio {
+        &.segmented {
+          flex-direction: row;
+          margin-bottom: 0;
 
-        label {
-          text-align: center;
+          @include forPhoneOnly {
+            flex-direction: column;
+          }
+
+          .group-label {
+            margin-bottom: 0.5rem;
+          }
+          label {
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: $fontSizeSubheader--small;
+
+            @include forPhoneOnly {
+              padding-right: 0;
+            }
+          }
+          .segmented-answer-wrapper {
+            align-self: flex-start;
+            margin-top: 0.5rem;
+            width: 6rem;
+            border-radius: $borderRadius;
+
+            @include forPhoneOnly {
+              margin-bottom: 1.5rem;
+              width: 100%;
+            }
+
+            label {
+              padding: $padding/2;
+              font-size: $fontSizeBase;
+            }
+          }
         }
+      }
+    }
+    //open helpful info on this page since additional interests is very complex
+    label {
+      align-items: flex-start;
+      flex-direction: column;
+      span {
+        max-width: 30rem;
+        i {
+          display: none;
+        }
+        .__react_component_tooltip {
+          position: relative;
+          top: 0 !important;
+          left: 0 !important;
+          display: flex;
+          visibility: visible;
+          padding: 0;
+          max-width: 100%;
+          width: 100%;
+          background-color: transparent;
+          color: $navy;
+          font-weight: $normal;
+          font-family: $sans;
+          opacity: 1;
 
-        & div {
-          text-align: center;
+          @include forPhoneOnly {
+            margin: 0.5rem 0 0;
+          }
+
+          &:after {
+            display: none;
+          }
+
+          &.place-right {
+            margin-left: 0;
+          }
         }
       }
     }
   }
 
-  .title {
-    margin-bottom: 1rem;
-    color: $navy;
-    font-weight: $bold;
-    font-size: $fontSizeHeader;
-    font-family: $serif;
+  ul {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
 
-    @include forPhoneOnly {
-      font-size: $fontSizeSubheader;
+    li {
+      list-style: none;
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        a {
+          flex-direction: row;
+          &.remove {
+            font-size: 1rem;
+          }
+
+          &.edit {
+            font-size: 1rem;
+
+            @include forPhoneOnly {
+              padding-right: 0.25rem;
+            }
+          }
+        }
+
+        > div {
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding: ($padding / 2) $padding 0 $padding;
+
+          @include forPhoneOnly {
+            padding-bottom: ($padding / 2);
+          }
+
+          h4 {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            font-size: $fontSizeBase;
+            font-family: $serif;
+
+            @include forPhoneOnly {
+              margin-top: 0.5rem;
+              font-size: $fontSizeBase;
+            }
+          }
+
+          p {
+            margin-bottom: 0;
+
+            @include forPhoneOnly {
+              padding-top: $padding/4;
+            }
+          }
+
+          &.card-icon {
+            display: none;
+          }
+        }
+      }
     }
   }
 
   .form-footer {
-    display: flex;
-    align-items: flex-start;
-    flex-grow: 1;
-    flex-shrink: 1;
-    justify-content: flex-end;
     margin-top: 1rem;
-    width: 100%;
+  }
+}
 
-    .btn-primary {
-      margin-left: 1rem;
+//customize quote styling
+.workflow {
+  @include forPhoneOnly {
+    .form-footer {
+      display: flex;
+      flex-direction: column;
+      .btn {
+        margin: 0 0 1rem 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  div {
+    &.agencySelect {
+      label {
+        padding-left: 0;
+      }
+    }
+    label {
+      padding-left: $padding/2;
+    }
+    input {
+      padding-left: $padding/2;
+    }
+    &.switch {
+      label {
+        padding-left: 0;
+      }
+    }
+  }
+  .slider-component {
+    .form-group {
+      label {
+        margin-bottom: 1rem;
+        padding-left: 0;
+        font-size: $fontSizeSubheader--small;
+        font-family: $serif;
+      }
     }
   }
 
-  .switch {
+  .subtitle {
+    strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    p {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      max-width: 100%;
+      font-family: $sans;
+    }
+  }
+
+  //well styling
+  .well {
+    position: relative;
+    display: flex;
+    overflow: visible;
+    margin-top: 0.5rem;
+    padding: $padding $padding 0 $padding;
+    //for phone
+
+    @include forPhoneOnly {
+      .card {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+
+        &.fade-in {
+          min-height: auto;
+        }
+
+        .card-header {
+          position: relative;
+          align-items: center;
+          flex-direction: column;
+          padding-right: 0;
+          padding-left: 0;
+          width: 50%;
+        }
+
+        .cardContent {
+          margin-bottom: 1rem;
+          text-align: center;
+
+          p {
+            padding: 0 $padding;
+          }
+        }
+
+        .card-footer {
+          flex-direction: column;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+
+          .btn,
+          .btn-primary {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            margin-left: 0;
+            padding: $padding/2;
+            text-align: center;
+          }
+
+          .btn-secondary {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            margin-left: 0;
+            padding: $padding/2;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    //results modal styling
+    .modal {
+      z-index: 100;
+      display: flex;
+
+      .card {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: 0 0 0 0 rgba($white, 0);
+
+        .card-footer {
+          position: unset;
+          display: flex;
+          margin-top: 0.75rem;
+
+          button {
+            margin: 0;
+            padding: 0.4rem 1rem;
+          }
+        }
+
+        .share {
+          z-index: 1;
+          .card-block {
+            margin-top: 0;
+            padding: 0;
+
+            .form-group {
+              width: 100%;
+              color: $navy;
+
+              #toName {
+                background-color: rgba($extraLightGrey, 0.9);
+              }
+
+              #toEmail {
+                background-color: rgba($extraLightGrey, 0.9);
+              }
+            }
+
+            .error {
+              span {
+                display: block;
+                padding: ($padding / 4) 0 0 ($padding / 2);
+                width: 100%;
+                height: auto;
+                border-radius: 0;
+                background-color: transparent;
+                box-shadow: none;
+                font-size: $fontSizeBody;
+              }
+            }
+          }
+        }
+
+        .card-header {
+          h4 {
+            display: none;
+          }
+        }
+      }
+
+      .form-group {
+        z-index: 14;
+        overflow: visible;
+      }
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding: 0 $padding;
+      min-height: 176px;
+      background-color: $navy;
+
+      &:hover {
+        transform: none;
+      }
+
+      .cardContent {
+        display: flex;
+        padding-left: 150px;
+        background-color: $navy;
+        color: $white;
+
+        p {
+          flex-grow: 1;
+          flex-shrink: 1;
+          padding-top: $padding;
+          padding-left: $padding;
+          color: white;
+          font-weight: $bold;
+          font-size: $fontSizeBase;
+          line-height: 1.2;
+        }
+
+        span {
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+
+      .card-header {
+        position: absolute;
+        display: flex;
+        padding: $padding;
+        width: 32%;
+      }
+
+      .card-footer {
+        position: relative;
+        display: flex;
+        margin-top: 0.75rem;
+
+        button {
+          position: absolute;
+          right: 0;
+          left: 0;
+          margin: 0;
+          padding: 0.4rem 1rem;
+          width: 100%;
+        }
+      }
+      .modalIcons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 14px;
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: 0 8px 12px rgba($navy, 0.15);
+        font-size: 50px;
+
+        svg {
+          color: $red;
+          font-size: 80px;
+        }
+      }
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  &.radio {
+    &.segmented {
+      margin-bottom: 1.5rem;
+
+      @include forPhoneOnly {
+        margin-bottom: 1rem;
+      }
+      &.segmented-answer-wrapper {
+        font-weight: $normal;
+        font-size: $fontSizeBase;
+      }
+
+      > label {
+        padding-left: 0;
+      }
+    }
+  }
+
+  label {
+    margin-bottom: 1rem;
+  }
+}
+
+footer {
+  z-index: 99;
+  padding: $padding;
+
+  @include forPhoneOnly {
+    margin-bottom: 1rem;
+
+    div[role='banner'] {
+      flex-direction: column;
+
+      small {
+        align-self: center;
+      }
+    }
+  }
+
+  &.navFooter {
+    padding: $padding 0;
+
+    @include forPhoneOnly {
+      align-content: center;
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      label {
+        text-align: center;
+      }
+
+      & div {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: $navy;
+  font-weight: $bold;
+  font-size: $fontSizeHeader;
+  font-family: $serif;
+
+  @include forPhoneOnly {
+    font-size: $fontSizeSubheader;
+  }
+}
+
+.form-footer {
+  display: flex;
+  align-items: flex-start;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  width: 100%;
+
+  .btn-primary {
+    margin-left: 1rem;
+  }
+}
+
+.switch {
+  margin-bottom: 0;
+}
+
+.searchInputWrapper {
+  p {
+    margin-top: 0.5rem;
     margin-bottom: 0;
   }
 
-  .searchInputWrapper {
-    p {
-      margin-top: 0.5rem;
-      margin-bottom: 0;
-    }
-
-    .property-search {
-      margin-bottom: 0.5rem;
-    }
+  .property-search {
+    margin-bottom: 0.5rem;
   }
+}
 
-  section {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 1;
+section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
 
-    //biling specific styling
-    &.billing {
-      ul {
-        padding-left: 0;
-        list-style: none;
+  //biling specific styling
+  &.billing {
+    ul {
+      padding-left: 0;
+      list-style: none;
 
-        li {
-          .billingCheckBox {
+      li {
+        .billingCheckBox {
+          align-items: center;
+          cursor: pointer;
+
+          .emptyCheckBox {
+            border: 2px $navy solid;
+            display: flex;
             align-items: center;
-            cursor: pointer;
+            justify-content: center;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: $borderRadius;
+            margin-bottom: 1rem;
 
-            .emptyCheckBox {
-              border: 2px $navy solid;
-              display: flex;
+            svg {
+              font-size: 0.875rem;
+            }
+          }
+
+          .billToId {
+            .cardContent {
               align-items: center;
-              justify-content: center;
-              width: 1.5rem;
-              height: 1.5rem;
-              border-radius: $borderRadius;
-              margin-bottom: 1rem;
-
-              svg {
-                font-size: 0.875rem;
-              }
             }
+          }
 
-            .billToId {
-              .cardContent {
-                align-items: center;
-              }
+          footer {
+            svg {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .card {
+          display: flex;
+          flex-direction: row;
+          padding: $padding/4;
+          margin-left: 1rem;
+
+          @include forPhoneOnly {
+            padding: 0 $padding;
+
+            .cardContent {
+              //padding: $padding 0;
             }
 
             footer {
-              svg {
-                margin-bottom: 0;
-              }
+              margin-bottom: 0;
             }
           }
-          .card {
-            display: flex;
-            flex-direction: row;
-            padding: $padding/4;
+
+          footer {
+            width: auto;
+          }
+        }
+        div {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          &.fade-in {
             margin-left: 1rem;
-
             @include forPhoneOnly {
-              padding: 0 $padding;
-
-              .cardContent {
-                //padding: $padding 0;
-              }
-
-              footer {
-                margin-bottom: 0;
-              }
-            }
-
-            footer {
-              width: auto;
+              flex-direction: column;
             }
           }
-          div {
-            display: flex;
-            flex-grow: 1;
-            flex-shrink: 1;
-            &.fade-in {
-              margin-left: 1rem;
+
+          .card {
+            margin-right: 1rem;
+            padding: 0;
+
+            @include transition(all 0.2s ease-in-out);
+
+            &.payPlan {
+              flex-direction: column;
+              flex-grow: 0;
+              flex-shrink: 1;
+              min-height: 14rem;
+              width: 33.33%;
+
               @include forPhoneOnly {
-                flex-direction: column;
-              }
-            }
+                display: flex;
+                justify-content: center;
+                margin: 0 1rem 1rem 1rem;
+                min-height: auto;
+                width: auto;
 
-            .card {
-              margin-right: 1rem;
-              padding: 0;
-
-              @include transition(all 0.2s ease-in-out);
-
-              &.payPlan {
-                flex-direction: column;
-                flex-grow: 0;
-                flex-shrink: 1;
-                min-height: 14rem;
-                width: 33.33%;
-
-                @include forPhoneOnly {
-                  display: flex;
-                  justify-content: center;
-                  margin: 0 1rem 1rem 1rem;
-                  min-height: auto;
-                  width: auto;
-
-                  .container {
-                    position: absolute;
-                    top: 35%;
-                    width: 100%;
-                    text-align: center;
-                  }
-
-                  a,
-                  a:hover {
-                    color: #ddd;
-                    text-decoration: none;
-                  }
-
-                  dl {
-                    display: flex;
-                    text-align: center;
-
-                    div {
-                      display: flex;
-                      flex-direction: row;
-                      flex-grow: 0;
-                      flex-shrink: 0;
-                      justify-content: center;
-                      padding: ($padding / 2) 0;
-
-                      dd {
-                        font-size: $fontSizeBase;
-                      }
-                    }
-                  }
+                .container {
+                  position: absolute;
+                  top: 35%;
+                  width: 100%;
+                  text-align: center;
                 }
 
-                &.selected {
-                  .cardContent {
-                    background-color: $white;
-                    color: $navy;
-                  }
-
-                  .card-footer {
-                    label {
-                      background-color: $navy;
-                      color: $white;
-                    }
-                  }
+                a,
+                a:hover {
+                  color: #ddd;
+                  text-decoration: none;
                 }
 
-                .card-header {
-                  z-index: 2;
-                  flex-grow: 0;
-                  flex-shrink: 0;
-                  h3 {
-                    margin-bottom: 0;
-                    padding: ($padding/2) 0 0 0;
-                    text-align: center;
-                  }
-                }
-                .card-footer {
-                  flex-grow: 0;
-                  flex-shrink: 0;
-                  transition: box-shadow 0.2s ease-in-out;
-
-                  @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
-
-                  &:hover {
-                    @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
-                  }
-
-                  label {
-                    padding: ($padding/2) 0;
-                    background-color: $white;
-                    color: $navy;
-                    text-align: center;
-                    font-family: $serif;
-
-                    &:hover {
-                      background-color: mix($blue, $navy, 80%);
-                      color: $white;
-                      cursor: pointer;
-                    }
-                  }
-                }
-                &:hover {
-                  cursor: pointer;
-                }
-                &.selected {
-                  label {
-                    background-color: $navy;
-                    &:hover {
-                      background-color: $navy;
-                      cursor: default;
-                    }
-                  }
-                }
-              }
-
-              &:last-of-type {
-                margin-right: 0;
-
-                @include forPhoneOnly {
-                  margin-right: 1rem;
-                }
-              }
-
-              .cardContent {
                 dl {
-                  position: relative;
                   display: flex;
-                  flex-direction: column;
-                  flex-grow: 1;
-                  flex-shrink: 1;
-                  margin-bottom: 0;
+                  text-align: center;
 
                   div {
-                    flex-direction: column;
-                    padding-top: ($padding / 2);
-                    padding-bottom: ($padding / 4);
-                    border-bottom: 1px dashed $navy;
+                    display: flex;
+                    flex-direction: row;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    justify-content: center;
+                    padding: ($padding / 2) 0;
 
-                    &:last-of-type {
-                      padding-bottom: ($padding/4);
-                      border-bottom: 0;
-                    }
-
-                    &.semiCard {
-                      flex-grow: 0;
-                      flex-shrink: 0;
+                    dd {
+                      font-size: $fontSizeBase;
                     }
                   }
-                  dd {
-                    margin-bottom: 0.25rem;
-                    padding: 0;
-                    font-weight: $normal;
-                    font-size: $fontSizeBase;
-                    font-family: $sans;
+                }
+              }
 
-                    @include forPhoneOnly {
-                      + dd {
-                        margin-left: 0.25rem;
-                      }
-                    }
-                  }
+              &.selected {
+                .cardContent {
+                  background-color: $white;
+                  color: $navy;
+                }
+
+                .card-footer {
                   label {
-                    padding: 0;
-                    color: $blue;
-                    text-align: center;
-                    font-size: $fontSizeSubheader--small;
-                    font-family: $serif;
+                    background-color: $navy;
+                    color: $white;
+                  }
+                }
+              }
+
+              .card-header {
+                z-index: 2;
+                flex-grow: 0;
+                flex-shrink: 0;
+                h3 {
+                  margin-bottom: 0;
+                  padding: ($padding/2) 0 0 0;
+                  text-align: center;
+                }
+              }
+              .card-footer {
+                flex-grow: 0;
+                flex-shrink: 0;
+                transition: box-shadow 0.2s ease-in-out;
+
+                @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
+
+                &:hover {
+                  @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
+                }
+
+                label {
+                  padding: ($padding/2) 0;
+                  background-color: $white;
+                  color: $navy;
+                  text-align: center;
+                  font-family: $serif;
+
+                  &:hover {
+                    background-color: mix($blue, $navy, 80%);
+                    color: $white;
+                    cursor: pointer;
+                  }
+                }
+              }
+              &:hover {
+                cursor: pointer;
+              }
+              &.selected {
+                label {
+                  background-color: $navy;
+                  &:hover {
+                    background-color: $navy;
+                    cursor: default;
                   }
                 }
               }
             }
-          }
-        }
-      }
 
-      &.error {
-        h4 {
-          margin-bottom: 0.25rem;
-        }
-        span {
-          margin-bottom: 1rem;
-          color: $red;
-          font-size: $fontSizeLabel;
-        }
+            &:last-of-type {
+              margin-right: 0;
 
-        ul {
-          li {
-            .card {
-              @include shadow(0, 3px, 6px, rgba($red, 0.16));
-              footer {
-                svg {
-                  color: $red;
+              @include forPhoneOnly {
+                margin-right: 1rem;
+              }
+            }
+
+            .cardContent {
+              dl {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                flex-shrink: 1;
+                margin-bottom: 0;
+
+                div {
+                  flex-direction: column;
+                  padding-top: ($padding / 2);
+                  padding-bottom: ($padding / 4);
+                  border-bottom: 1px dashed $navy;
+
+                  &:last-of-type {
+                    padding-bottom: ($padding/4);
+                    border-bottom: 0;
+                  }
+
+                  &.semiCard {
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                  }
+                }
+                dd {
+                  margin-bottom: 0.25rem;
+                  padding: 0;
+                  font-weight: $normal;
+                  font-size: $fontSizeBase;
+                  font-family: $sans;
+
+                  @include forPhoneOnly {
+                    + dd {
+                      margin-left: 0.25rem;
+                    }
+                  }
+                }
+                label {
+                  padding: 0;
+                  color: $blue;
+                  text-align: center;
+                  font-size: $fontSizeSubheader--small;
+                  font-family: $serif;
                 }
               }
             }
@@ -1552,180 +1535,204 @@
       }
     }
 
-    &.results {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 0;
-      flex-shrink: 0;
-      margin: 0;
-      width: 100%;
-    }
+    &.error {
+      h4 {
+        margin-bottom: 0.25rem;
+      }
+      span {
+        margin-bottom: 1rem;
+        color: $red;
+        font-size: $fontSizeLabel;
+      }
 
-    label {
-      margin-bottom: 0;
-      padding-top: ($padding / 4);
-      padding-bottom: 0;
-    }
-
-    p {
-      margin: 0;
-      padding-top: ($padding / 4);
-      padding-bottom: ($padding / 4);
-    }
-  }
-
-  //quote number infomation bar
-  .infoBar {
-    display: flex;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    padding: $padding;
-    width: 100%;
-
-    @include forPhoneOnly {
-      margin-top: 1rem;
-      width: 100vw;
-    }
-
-    h2 {
-      font-weight: normal;
-      font-size: $fontSizeSubheader;
-    }
-
-    label {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 0;
-      width: auto;
-      font-weight: normal;
-    }
-
-    p {
-      flex-direction: column-reverse;
-      margin-bottom: 0;
-      width: auto;
-      font-family: $serif;
+      ul {
+        li {
+          .card {
+            @include shadow(0, 3px, 6px, rgba($red, 0.16));
+            footer {
+              svg {
+                color: $red;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
-  //retrieve quote styling
-  .retrieveQuoteWrapper {
+  &.results {
     display: flex;
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
-    padding: 0 0 0.5rem 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  label {
+    margin-bottom: 0;
+    padding-top: ($padding / 4);
+    padding-bottom: 0;
+  }
+
+  p {
+    margin: 0;
+    padding-top: ($padding / 4);
+    padding-bottom: ($padding / 4);
+  }
+}
+
+//quote number infomation bar
+.infoBar {
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding: $padding;
+  width: 100%;
+
+  @include forPhoneOnly {
+    margin-top: 1rem;
+    width: 100vw;
+  }
+
+  h2 {
+    font-weight: normal;
+    font-size: $fontSizeSubheader;
+  }
+
+  label {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    width: auto;
+    font-weight: normal;
+  }
+
+  p {
+    flex-direction: column-reverse;
+    margin-bottom: 0;
+    width: auto;
+    font-family: $serif;
+  }
+}
+
+//retrieve quote styling
+.retrieveQuoteWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0 0 0.5rem 0;
+  width: 100%;
+
+  h1 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .form-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
     width: 100%;
 
-    h1 {
-      margin-bottom: 0;
-      padding-bottom: 0;
+    :disabled {
+      border-color: transparent;
+      background-color: rgba($navy, 0.3);
+      color: $extraLightGrey;
     }
 
-    .form-footer {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1rem;
-      width: 100%;
-
-      :disabled {
-        border-color: transparent;
-        background-color: rgba($navy, 0.3);
-        color: $extraLightGrey;
-      }
-
-      button {
-        margin-left: 1rem;
-      }
+    button {
+      margin-left: 1rem;
     }
   }
+}
 
-  //view grid styling from harmony
-  .view-grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
+//view grid styling from harmony
+.view-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .view-grid {
-    @include forPhoneOnly {
-      font-size: $fontSizeSubheader--small;
-
-      .fa {
-        font-size: $fontSizeSubheader--small;
-      }
-    }
-    > * {
-      padding: $padding;
-      width: 100%;
-    }
+.view-grid {
+  @include forPhoneOnly {
+    font-size: $fontSizeSubheader--small;
 
     .fa {
       font-size: $fontSizeSubheader--small;
     }
   }
-  // SECTION componet
-
-  .view-grid {
-    section {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    section {
-      display: flex;
-
-      > * {
-        padding: $padding;
-      }
-    }
+  > * {
+    //padding: $padding;
+    width: 100%;
   }
 
-  //policyholder modal styling
-  .policyholderModal {
-    h4 {
-      position: relative;
-      margin-bottom: 4rem;
+  .fa {
+    font-size: $fontSizeSubheader--small;
+  }
+}
+// SECTION componet
 
-      &:after {
-        position: absolute;
-        top: 3rem;
-        left: calc(50% - 20rem);
-        width: 40rem;
-        content: 'Policyholder 2 is for spouse or co-owner that resides in the home.';
-        text-align: center;
-        font-weight: $normal;
-        font-size: $fontSizeBody;
-        font-family: $sans;
-      }
-    }
+.view-grid {
+  section {
+    display: flex;
+    flex-wrap: wrap;
   }
 
-  // responsize styles
-  @supports (display: grid) {
-    @include forPhoneOnly {
-      .view-grid,
-      .view-grid section {
-        .view-col-1,
-        .view-col-10,
-        .view-col-11,
-        .view-col-2,
-        .view-col-3,
-        .view-col-4,
-        .view-col-5,
-        .view-col-6,
-        .view-col-7,
-        .view-col-8,
-        .view-col-9 {
-          width: 100%;
-        }
+  section {
+    display: flex;
+
+    > * {
+      //padding: $padding 0;
+    }
+  }
+}
+
+//policyholder modal styling
+.policyholderModal {
+  h4 {
+    position: relative;
+    margin-bottom: 4rem;
+
+    &:after {
+      position: absolute;
+      top: 3rem;
+      left: calc(50% - 20rem);
+      width: 40rem;
+      content: 'Policyholder 2 is for spouse or co-owner that resides in the home.';
+      text-align: center;
+      font-weight: $normal;
+      font-size: $fontSizeBody;
+      font-family: $sans;
+    }
+  }
+}
+
+// responsize styles
+@supports (display: grid) {
+  @include forPhoneOnly {
+    .view-grid,
+    .view-grid section {
+      .view-col-1,
+      .view-col-10,
+      .view-col-11,
+      .view-col-2,
+      .view-col-3,
+      .view-col-4,
+      .view-col-5,
+      .view-col-6,
+      .view-col-7,
+      .view-col-8,
+      .view-col-9 {
+        width: 100%;
       }
-      .view-grid {
-        > div {
-          padding: $padding * 2;
-        }
-        > section > dl {
-          padding: 0 ($padding * 2);
-        }
+    }
+    .view-grid {
+      > div {
+        padding: $padding * 2;
+      }
+      > section > dl {
+        padding: 0 ($padding * 2);
       }
     }
   }
@@ -1735,7 +1742,7 @@
 
 @include forPhoneOnly {
   .view-grid {
-    padding: 0;
+    //padding: 0;
 
     .title {
       padding-top: $padding/4;
