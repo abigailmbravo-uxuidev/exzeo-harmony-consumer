@@ -1853,6 +1853,7 @@ $colors: $blue, $red, $green, $navy, gold;
           }
         }
         .react-datepicker-wrapper {
+          cursor: pointer;
           display: flex;
 
           justify-self: flex-end;
@@ -1875,6 +1876,7 @@ $colors: $blue, $red, $green, $navy, gold;
               background-repeat: no-repeat;
               font-weight: $bold;
               font-family: $serif;
+              cursor: pointer;
             }
           }
         }
