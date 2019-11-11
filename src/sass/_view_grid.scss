@@ -1663,7 +1663,7 @@ section {
     }
   }
   > * {
-    padding: $padding;
+    //padding: $padding;
     width: 100%;
   }
 
@@ -1683,7 +1683,7 @@ section {
     display: flex;
 
     > * {
-      padding: $padding;
+      //padding: $padding 0;
     }
   }
 }
@@ -1742,7 +1742,7 @@ section {
 
 @include forPhoneOnly {
   .view-grid {
-    padding: 0;
+    //padding: 0;
 
     .title {
       padding-top: $padding/4;
