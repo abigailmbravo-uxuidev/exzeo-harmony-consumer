@@ -43,12 +43,7 @@ const QuoteSearch = () => {
     ) {
       setQuoteForUser(searchState.result);
     }
-  }, [
-    searchState.hasSearched,
-    searchState.invalidQuoteState,
-    searchState.result,
-    setQuoteForUser
-  ]);
+  }, [searchState, setQuoteForUser]);
 
   async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
     try {
