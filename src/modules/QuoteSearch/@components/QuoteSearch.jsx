@@ -211,21 +211,30 @@ const QuoteSearch = () => {
                   {searchState.noResults && (
                     <Modal
                       header={
-                        <span className="modalIcons">
-                          <FontAwesomeIcon icon="exclamation-triangle" />
-                        </span>
+                        <React.Fragment>
+                          <h4>Oops! We're Sorry</h4>
+                          <a onClick={() => resetSearch(form)}>
+                            <FontAwesomeIcon icon="times" />
+                          </a>
+                        </React.Fragment>
                       }
-                      size={Modal.sizes.medium}
-                      className="success"
+                      size={Modal.sizes.small}
+                      className="error"
                     >
-                      <div className="cardContent">
+                      <div className="card-block">
                         <p>
-                          Oops! We were unable to find the quote you were
-                          looking for. Please try again or feel free to contact
-                          us for support.
+                          We were unable to find the quote you were looking for.
+                          Please try again or feel free to contact us for
+                          support.
                         </p>
                       </div>
                       <div className="card-footer">
+                        <Link
+                          to="/searchAddress"
+                          className={Button.constants.classNames.secondary}
+                        >
+                          Start New Quote
+                        </Link>
                         <Button
                           className={Button.constants.classNames.primary}
                           data-test="reset"
@@ -233,21 +242,16 @@ const QuoteSearch = () => {
                         >
                           Try Again
                         </Button>
-                        <Link
-                          to="/searchAddress"
-                          className={Button.constants.classNames.secondary}
-                        >
-                          New Quote
-                        </Link>
                       </div>
                     </Modal>
                   )}
 
                   {searchState.result && searchState.invalidQuoteState && (
-                    <Modal size={Modal.sizes.small} className="error">
-                      <div className="card-header">
-                        <h4>Error Occured</h4>
-                      </div>
+                    <Modal
+                      size={Modal.sizes.small}
+                      className="error"
+                      header={<h4>Error Occured</h4>}
+                    >
                       <div className="card-block">
                         <p>
                           We apologize but this Quote has a status of{' '}

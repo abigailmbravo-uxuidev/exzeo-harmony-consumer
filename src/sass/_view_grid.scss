@@ -51,7 +51,8 @@
         border-radius: 0;
       }
 
-      &.error {
+      &.error,
+      &.oops {
         flex-direction: column;
 
         .card-block {
