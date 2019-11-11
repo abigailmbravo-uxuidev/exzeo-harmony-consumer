@@ -1166,6 +1166,7 @@
         li {
           .billingCheckBox {
             align-items: center;
+            cursor: pointer;
 
             .emptyCheckBox {
               border: 2px $navy solid;

@@ -31,8 +31,8 @@ const Billing = ({ initialValues }) => {
 
       {billingError && (
         <span>
-          Please select a name below, where you would like us to send the bill
-          for the Flood insurance policy.
+          Please select the person or company we should send the bill to for
+          your Flood insurance policy.
         </span>
       )}
 
