@@ -36,7 +36,11 @@ const QuoteSearch = () => {
   const { quote, setQuoteForUser } = useQuote();
 
   useEffect(() => {
-    if (searchState.hasSearched && !searchState.invalidQuoteState) {
+    if (
+      searchState.hasSearched &&
+      !searchState.noResults &&
+      !searchState.invalidQuoteState
+    ) {
       setQuoteForUser(searchState.result);
     }
   }, [
@@ -69,7 +73,14 @@ const QuoteSearch = () => {
           quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
       });
     } catch (error) {
-      console.error('Error searching: ', error);
+      if (error.status === 404 || error.status === 403) {
+        setSearchState({
+          hasSearched: true,
+          result: null,
+          noResults: true,
+          invalidQuoteState: false
+        });
+      }
     } finally {
       setLoading(false);
     }

@@ -139,6 +139,7 @@ function formatQuoteForSubmit(data, options) {
 
 // Edit quote for Form
 function formatQuoteForUser(quoteData) {
+  if (!quoteData) return {};
   return {
     ...quoteData,
     effectiveDate: new Date(quoteData.effectiveDate),
@@ -149,16 +150,4 @@ function formatQuoteForUser(quoteData) {
       quoteData.property.physicalAddress.city ===
         (quoteData.policyHolderMailingAddress || {}).city
   };
-
-  // if (quoteData.policyHolders[1] && quoteData.policyHolders[1].firstName) {
-  //   quoteData.additionalPolicyholder = true;
-  // }
-
-  // if (quoteData.product === 'AF3') {
-  //   quoteData.personalPropertySlider = Math.ceil(
-  //     (quoteData.coverageLimits.personalProperty.amount * 100) /
-  //     quoteData.coverageLimits.building.amount
-  //   );
-  //   return quoteData;
-  // }
 }
