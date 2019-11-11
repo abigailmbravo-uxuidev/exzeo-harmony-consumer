@@ -9,7 +9,7 @@ const BillingOption = ({ option, handleClick, isSelected }) => {
         onClick={() => handleClick(option.answer)}
       >
         <span className="emptyCheckBox">
-          <FontAwesomeIcon icon={isSelected ? 'check' : ''} />
+          {isSelected && <FontAwesomeIcon icon="check" />}
         </span>
         <div className="card billToId" data-test="billToCard">
           <div className="cardContent">

@@ -11,11 +11,12 @@ import { ROUTES } from 'constants/navigation';
 import QuoteSearch from 'modules/QuoteSearch';
 import AddressSearch from 'modules/AddressSearch';
 import { QuoteContextProvider, QuoteWorkflow } from 'modules/Quote';
-import ThankYou from 'components/ThankYou';
 import Header from 'components/Header';
+import ErrorHandler from 'components/ErrorHandler';
+import Footer from 'components/Footer';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
-import Footer from 'components/Footer';
+import ThankYou from 'components/ThankYou';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
 
       <RouteErrorBoundary>
         <QuoteContextProvider>
+          <ErrorHandler />
           <div role="region">
             <Switch>
               <Route

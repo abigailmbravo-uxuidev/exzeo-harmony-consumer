@@ -28,10 +28,6 @@ const SummaryFooter = ({ formInstance, values, history }) => {
     history.push(WORKFLOW_ROUTING[ROUTES.summary.path]);
   };
 
-  if (loading) {
-    return <SectionLoader />;
-  }
-
   return (
     <React.Fragment>
       <Button

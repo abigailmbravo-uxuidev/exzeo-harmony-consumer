@@ -68,7 +68,7 @@ const QuoteSearch = () => {
           quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
       });
     } catch (error) {
-      if (error.status === 404 || error.status === 403) {
+      if (error.status >= 400) {
         setSearchState({
           hasSearched: true,
           result: null,

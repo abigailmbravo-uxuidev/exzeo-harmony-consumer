@@ -6,17 +6,16 @@ const QuoteContext = React.createContext();
 
 export function useQuote() {
   const context = React.useContext(QuoteContext);
-  const [loading, setLoading] = React.useState(false);
 
   if (!context) {
     throw new Error(`useQuote must be used within a QuoteProvider`);
   }
 
-  const [quote, setQuote] = context;
+  const [quoteState, setQuoteState] = context;
 
   const retrieveQuote = async params => {
     try {
-      setLoading(true);
+      setQuoteState(state => ({ ...state, loading: true }));
 
       let savedQuote = {};
       let retrieveParams = {};
@@ -35,11 +34,14 @@ export function useQuote() {
               lastName: savedQuote.policyHolders[0].lastName
             };
           } else {
-            setQuote(savedQuote);
+            setQuoteState(state => ({ ...state, quote: savedQuote }));
             return;
           }
         } else {
-          throw Error('Unable to retrieve quote.');
+          setQuoteState(state => ({
+            ...state,
+            error: { message: 'Unable to retrieve quote.' }
+          }));
         }
       } else {
         retrieveParams = params;
@@ -48,17 +50,17 @@ export function useQuote() {
       const quote = await quoteData.retrieveQuote(retrieveParams);
       const formattedQuote = formatQuoteForUser(quote);
       store2.set('quote', formattedQuote, true);
-      setQuote(formattedQuote);
+      setQuoteState(state => ({ ...state, quote: formattedQuote }));
     } catch (error) {
-      throw error;
+      setQuoteState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setQuoteState(state => ({ ...state, loading: false }));
     }
   };
 
   const createQuote = async (address, companyCode, product) => {
     try {
-      setLoading(true);
+      setQuoteState(state => ({ ...state, loading: true }));
       const quote = await quoteData.createQuote({
         igdID: address.id,
         stateCode: address.physicalAddress.state,
@@ -68,55 +70,67 @@ export function useQuote() {
 
       const formattedQuote = formatQuoteForUser(quote);
       store2.set('quote', formattedQuote, true);
-      setQuote(formattedQuote);
+      setQuoteState(state => ({ ...state, quote: formattedQuote }));
     } catch (error) {
-      throw Error(error);
+      setQuoteState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setQuoteState(state => ({ ...state, loading: false }));
     }
   };
 
   const updateQuote = async (data, options = {}) => {
     try {
-      setLoading(true);
+      setQuoteState(state => ({ ...state, loading: true }));
       const updateData = formatQuoteForSubmit(data, options);
 
       const quote = await quoteData.updateQuote(updateData);
 
       const formattedQuote = formatQuoteForUser(quote);
       store2.set('quote', formattedQuote, true);
-      setQuote(formattedQuote);
+      setQuoteState(state => ({ ...state, quote: formattedQuote }));
     } catch (error) {
-      throw error;
+      setQuoteState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setQuoteState(state => ({ ...state, loading: false }));
     }
   };
 
   const sendApplication = async (quoteNumber, options = {}) => {
     try {
-      setLoading(true);
+      setQuoteState(state => ({ ...state, loading: true }));
       const quote = await quoteData.verifyQuote({ quoteNumber }, options);
       if (!quote || quote.quoteState !== 'Application Ready') {
-        throw new Error('Quote is not in Application Ready state');
+        setQuoteState(state => ({
+          ...state,
+          error: { message: 'Quote is not in Application Ready state' }
+        }));
+        return;
       }
       await quoteData.sendApplication(quoteNumber, 'docusign');
     } catch (error) {
-      throw error;
+      setQuoteState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setQuoteState(state => ({ ...state, loading: false }));
     }
   };
 
   const setQuoteForUser = quote => {
     const formattedQuote = formatQuoteForUser(quote);
-    setQuote(formattedQuote);
+    setQuoteState(state => ({ ...state, quote: formattedQuote }));
   };
 
+  const setQuote = React.useCallback(
+    quote => {
+      setQuoteState(state => ({ ...state, quote }));
+    },
+    [setQuoteState]
+  );
+
   return {
-    quote,
+    quote: quoteState.quote,
     setQuote,
-    loading,
+    loading: quoteState.loading,
+    error: quoteState.error,
     createQuote,
     retrieveQuote,
     setQuoteForUser,
@@ -126,8 +140,12 @@ export function useQuote() {
 }
 
 export function QuoteContextProvider(props) {
-  const [quote, setQuote] = React.useState({});
-  const value = React.useMemo(() => [quote, setQuote], [quote]);
+  const [quoteState, setQuoteState] = React.useState({
+    quote: {},
+    error: null,
+    loading: false
+  });
+  const value = React.useMemo(() => [quoteState, setQuoteState], [quoteState]);
   return <QuoteContext.Provider value={value} {...props} />;
 }
 
