@@ -77,7 +77,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
               <p>
                 Once all electronic signatures have been received, the policy
                 will automatically be bound and the policy documents will be
-                emailed to you and to the policyholder.
+                emailed to you and your agent.
               </p>
 
               <p>
