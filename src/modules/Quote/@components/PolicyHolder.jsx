@@ -87,6 +87,8 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
         <ModalPortal>
           <div className="policyholderModal">
             <PolicyHolderModal
+              className=""
+              header=""
               handleFormSubmit={handlePolicyHolderSubmit}
               handleCancel={() => setModal(INITIAL_STATE)}
               initialValues={initialValues.policyHolders[modal.ph]}

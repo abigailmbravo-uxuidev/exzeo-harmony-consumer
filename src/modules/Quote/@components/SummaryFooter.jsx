@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Modal, ModalPortal, SectionLoader } from '@exzeo/core-ui';
+import { Button, Modal, ModalPortal } from '@exzeo/core-ui';
 import { useAgentInfo } from '@exzeo/core-ui/src/@Harmony';
 import { useQuote } from '../QuoteContext';
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
@@ -11,7 +11,7 @@ const productDescription = 'Flood';
 
 const SummaryFooter = ({ formInstance, values, history }) => {
   const [showConfirm, setShowConfirm] = useState(false);
-  const { sendApplication, quote, loading } = useQuote();
+  const { sendApplication, quote } = useQuote();
   const { agent } = useAgentInfo(values.agentCode);
 
   const promptToConfirm = () => {

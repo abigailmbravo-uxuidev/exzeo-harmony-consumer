@@ -13,21 +13,22 @@ import Subtitle from 'components/Subtitle';
 
 import { useWorkflowTemplate } from '../hooks';
 import { useQuote } from '../QuoteContext';
-import WorkflowFooter from './WorkflowFooter';
-import Share from './Share';
-import PropertyDetails from './PropertyDetails';
-import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
-import PolicyHolder from './PolicyHolder';
-import ThankYou from './WorkflowComplete';
-import Address from './Address';
-import EffectiveDatePicker from './EffectiveDate';
-import Billing from './Billing';
-import AgencyDetails from './AgencyDetails';
-import QuoteDetails from './QuoteDetails';
-import PolicyholderDetails from './PolicyholderDetails';
 import AdditionalInterestsDetails from './AdditionalInterestsDetails';
+import Address from './Address';
+import AgencyDetails from './AgencyDetails';
+import Billing from './Billing';
+import EditAgency from './EditAgency';
+import EffectiveDatePicker from './EffectiveDate';
+import PolicyHolder from './PolicyHolder';
+import PolicyholderDetails from './PolicyholderDetails';
+import PropertyDetails from './PropertyDetails';
+import QuoteDetails from './QuoteDetails';
+import QuoteUpdateError from './QuoteUpdateError';
+import Share from './Share';
+import ThankYou from './WorkflowComplete';
 import UnderwritingExceptionHandler from './UnderwritingExceptionHandler';
+import WorkflowFooter from './WorkflowFooter';
 
 const EMPTY_OBJ = {};
 
@@ -52,10 +53,10 @@ const CUSTOM_COMPONENTS = {
 
 const QuoteWorkflow = ({ history, match }) => {
   const [recalc, setRecalc] = useState(false);
-  const [submissionError, setSubmissionError] = useState(false);
   const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
     loading: quoteLoading,
+    error,
     quote,
     setQuote,
     retrieveQuote,
@@ -74,12 +75,6 @@ const QuoteWorkflow = ({ history, match }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (submissionError) {
-      throw new Error('submission error');
-    }
-  }, [submissionError]);
-
   const customHandlers = {
     handleSubmit: updateQuote
   };
@@ -94,16 +89,16 @@ const QuoteWorkflow = ({ history, match }) => {
 
       history.push(WORKFLOW_ROUTING[match.params.step]);
     } catch (error) {
-      if (error.status <= 400) {
-        setSubmissionError(true);
-        return;
-      }
       throw error;
     }
   }
 
   if (!quote.quoteNumber || !template) {
     return <SectionLoader />;
+  }
+
+  if (error) {
+    return <QuoteUpdateError />;
   }
 
   return (
