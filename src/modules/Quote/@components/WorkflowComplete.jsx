@@ -6,12 +6,20 @@ const ThankYou = () => {
     <div className="card congratsCard">
       <Confetti />
       <section className="congratsCircle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 946.74 357.43">
-          <g>
-            <path d="M0,0C81,160.6,247.41,270.75,439.55,270.75S798.11,160.6,879.11,0Z" />
-          </g>
+        <svg
+          id="Layer_1"
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 879.10003 270.79999"
+        >
+          <title>circ</title>
+          <path
+            d="M33.8,0c81,160.6,247.4,270.8,439.5,270.8S831.9,160.6,912.9,0Z"
+            transform="translate(-33.8)"
+          />
         </svg>
       </section>
+
       <section className="congratsIcon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 675 600">
           <defs>
@@ -87,9 +95,21 @@ const ThankYou = () => {
         please contact us.
       </p>
 
-      <a href="https://typtap.com/" target="_self" rel="noopener noreferrer">
-        www.typtap.com
-      </a>
+      <div className="congratsCardFooter">
+        <a href="tel:8442897968" target="_self" rel="noopener noreferrer">
+          844-289-7968
+        </a>
+        <a
+          href="mailto:customerservice@typtap.com"
+          target="_self"
+          rel="noopener noreferrer"
+        >
+          customerservice@typtap.com
+        </a>
+        <a href="https://typtap.com/" target="_self" rel="noopener noreferrer">
+          www.typtap.com
+        </a>
+      </div>
     </div>
   );
 };
