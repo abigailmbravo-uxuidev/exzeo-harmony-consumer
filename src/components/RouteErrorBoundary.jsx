@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Error from 'components/Error';
-import { QuoteContextProvider } from 'modules/Quote';
 
 class RouteErrorBoundary extends Component {
   state = {

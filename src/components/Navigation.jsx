@@ -29,8 +29,8 @@ const Navigation = ({ location, match }) => {
     <React.Fragment>
       <button
         className={classNames('navOpener', {
-          hasUnderwritingError: hasError,
-          hasUnderwritingException: hasException
+          hasUnderwritingException: hasException,
+          hide: hasError || error
         })}
         onClick={() => setNavOpen(state => !state)}
       >

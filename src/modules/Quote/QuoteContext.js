@@ -1,3 +1,6 @@
+// The pattern for QuoteContext follows: https://kentcdodds.com/blog/how-to-use-react-context-effectively
+// No need to export the Context.consumer - which is clumsy to use - but export a custom hook that returns the
+// 'interface' for this Context
 import React from 'react';
 import store2 from 'store2';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
@@ -27,7 +30,7 @@ export function useQuote() {
   // the quote is far enough along to have enough info to retrieve, attempt
   // to retrieve latest from service. If we have a quote, but it is not far
   // enough along, rehydrate with what we have. Otherwise, set error to
-  // trigger error screen.
+  // trigger error screen. This is almost entirely a development environment issue.
   const refreshQuote = quoteNumber => {
     let savedQuote = {};
     savedQuote = store2.get('quote');
@@ -149,17 +152,12 @@ function formatQuoteForSubmit(data, options) {
   return data;
 }
 
-// Edit quote for Form
+// Edit quote for form
 function formatQuoteForUser(quoteData = {}) {
   if (!quoteData.quoteNumber) return {};
   return {
     ...quoteData,
     effectiveDate: new Date(quoteData.effectiveDate),
-    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {},
-    sameAsPropertyAddress:
-      quoteData.property.physicalAddress.address1 ===
-        (quoteData.policyHolderMailingAddress || {}).address1 &&
-      quoteData.property.physicalAddress.city ===
-        (quoteData.policyHolderMailingAddress || {}).city
+    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {}
   };
 }

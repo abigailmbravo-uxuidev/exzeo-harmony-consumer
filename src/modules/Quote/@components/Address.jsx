@@ -16,12 +16,12 @@ import { AddressWithAutoFill } from '@exzeo/core-ui/src/@Harmony';
 import { BOOL_OPTIONS } from '../../../constants/input';
 import AddressCard from './AddressCard';
 
-function initializeAddressForm(quote) {
+function initializeAddressForm(document) {
   return {
     sameAsPropertyAddress:
-      quote.property.physicalAddress.address1 ===
-      quote.policyHolderMailingAddress.address1,
-    policyHolderMailingAddress: quote.policyHolderMailingAddress
+      document.property.physicalAddress.address1 ===
+      document.policyHolderMailingAddress.address1,
+    policyHolderMailingAddress: document.policyHolderMailingAddress
   };
 }
 
