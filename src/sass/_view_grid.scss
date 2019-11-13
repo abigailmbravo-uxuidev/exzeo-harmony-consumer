@@ -8,6 +8,14 @@
   padding: ($padding / 4) $padding 0 ($padding * 1.5);
   width: 100%;
 
+  > div[role='region'] {
+    > nav[role='navigation'] {
+      display: none;
+    }
+    .appError {
+      padding: 0;
+    }
+  }
   .modal {
     position: fixed;
     top: 0;
@@ -1363,7 +1371,7 @@ section {
           flex-grow: 1;
           flex-shrink: 1;
           &.fade-in {
-            margin-left: 1rem;
+            margin-left: 1.5rem;
             @include forPhoneOnly {
               flex-direction: column;
             }
