@@ -5,7 +5,7 @@ import TypTapLink from './TypTapLink';
 
 const Error = () => {
   return (
-    <div role="region">
+    <React.Fragment>
       <nav role="navigation"></nav>
       <div className="appError">
         <div className="title">Uh Oh!</div>
@@ -19,7 +19,7 @@ const Error = () => {
           </UnderwritingFooter>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

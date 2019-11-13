@@ -21,9 +21,9 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <RouteErrorBoundary>
-        <QuoteContextProvider>
-          <div role="region">
+      <div role="region">
+        <RouteErrorBoundary>
+          <QuoteContextProvider>
             <Switch>
               <Route
                 exact
@@ -72,9 +72,9 @@ const App = () => {
                 <AppFooter />
               </div>
             </main>
-          </div>
-        </QuoteContextProvider>
-      </RouteErrorBoundary>
+          </QuoteContextProvider>
+        </RouteErrorBoundary>
+      </div>
     </Router>
   );
 };
