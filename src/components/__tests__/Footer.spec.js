@@ -10,7 +10,11 @@ describe('Test Footer component', () => {
     </Router>
   );
 
-  it('should contain a link to New Quote', () => {
-    expect(true);
+  test('should contain a link to New Quote', () => {
+    expect(getByText('New Quote')).toHaveAttribute('href', '/searchAddress');
+    expect(getByText('Retrieve Quote')).toHaveAttribute(
+      'href',
+      '/retrieveQuote'
+    );
   });
 });
