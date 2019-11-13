@@ -88,15 +88,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
           <div className="policyholderModal">
             <PolicyHolderModal
               className=""
-              header={
-                <h4>
-                  {`Policyholder ${
-                    initialValues.policyHolders[modal.ph]
-                      ? initialValues.policyHolders[modal.ph].order + 1
-                      : 2
-                  }`}
-                </h4>
-              }
+              header={<h4>{`Policyholder ${modal.ph + 1}`}</h4>}
               handleFormSubmit={handlePolicyHolderSubmit}
               handleCancel={() => setModal(INITIAL_STATE)}
               initialValues={initialValues.policyHolders[modal.ph]}
