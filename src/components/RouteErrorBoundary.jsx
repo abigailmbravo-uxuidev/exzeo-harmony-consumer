@@ -17,7 +17,7 @@ class RouteErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <Error />;
+      return <Error type="crash" />;
     }
 
     return this.props.children;
