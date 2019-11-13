@@ -59,7 +59,7 @@ const QuoteWorkflow = ({ history, match }) => {
     error,
     quote,
     setQuote,
-    retrieveQuote,
+    refreshQuote,
     updateQuote
   } = useQuote();
   const { template } = useWorkflowTemplate(quote);
@@ -68,10 +68,10 @@ const QuoteWorkflow = ({ history, match }) => {
   ]);
 
   useEffect(() => {
-    if (!quote.quoteNumber) retrieveQuote();
+    if (!quote.quoteNumber) refreshQuote(match.params.quoteNumber);
 
-    // unset the quote if we leave QuoteWorkflow
-    return () => setQuote({});
+    // reset quoteState when we leave QuoteWorkflow
+    return () => setQuote();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

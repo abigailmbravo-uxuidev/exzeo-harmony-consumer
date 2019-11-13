@@ -33,7 +33,7 @@ const initialState = {
 const QuoteSearch = () => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
-  const { quote, setQuoteForUser } = useQuote();
+  const { quote, setQuote } = useQuote();
 
   useEffect(() => {
     if (
@@ -41,9 +41,9 @@ const QuoteSearch = () => {
       !searchState.noResults &&
       !searchState.invalidQuoteState
     ) {
-      setQuoteForUser(searchState.result);
+      setQuote({ quote: searchState.result });
     }
-  }, [searchState, setQuoteForUser]);
+  }, [searchState, setQuote]);
 
   async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
     try {
