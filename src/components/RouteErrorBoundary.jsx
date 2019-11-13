@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Error from 'components/Error';
+import { QuoteContextProvider } from 'modules/Quote';
 
 class RouteErrorBoundary extends Component {
   state = {
@@ -17,7 +18,16 @@ class RouteErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <Error type="crash" />;
+      return (
+        <React.Fragment>
+          <nav role="navigation" />
+          <main role="main">
+            <div className="view-grid">
+              <Error type="crash" />
+            </div>
+          </main>
+        </React.Fragment>
+      );
     }
 
     return this.props.children;
