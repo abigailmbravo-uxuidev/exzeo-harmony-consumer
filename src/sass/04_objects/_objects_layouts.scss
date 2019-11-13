@@ -14,13 +14,6 @@ body {
   flex-shrink: 0;
   height: 100vh;
 
-  //app error
-  .appError {
-    padding-top: ($padding * 1.75);
-    padding-right: calc(((100vw - 102rem) / 2) + 31rem);
-    padding-left: 1.5rem;
-  }
-
   //region layout
   div[role='region'] {
     overflow: hidden;
@@ -33,7 +26,8 @@ body {
       height: 100%;
     }
 
-    nav[role='navigation'] {
+    nav[role='navigation'],
+    &.spacer {
       z-index: 60;
       overflow-y: auto;
       flex-grow: 0;

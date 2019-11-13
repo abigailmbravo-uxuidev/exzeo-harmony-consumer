@@ -7,7 +7,7 @@ import TypTapLink from './TypTapLink';
 const Error = ({ type }) => {
   return (
     <React.Fragment>
-      <nav role="navigation"></nav>
+      <div className="spacer"></div>
       <div className={classNames('appError', type)}>
         <div className="title">Uh Oh!</div>
         <p>

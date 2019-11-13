@@ -8,14 +8,6 @@
   padding: ($padding / 4) $padding 0 ($padding * 1.5);
   width: 100%;
 
-  > div[role='region'] {
-    > nav[role='navigation'] {
-      display: none;
-    }
-    .appError {
-      padding: 0;
-    }
-  }
   .modal {
     position: fixed;
     top: 0;
