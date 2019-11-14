@@ -3,6 +3,7 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 
+// https://testing-library.com/docs/example-react-router#reducing-boilerplate
 export function renderWithRouter(
   ui,
   {
