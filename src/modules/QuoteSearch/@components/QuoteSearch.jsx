@@ -245,16 +245,38 @@ const QuoteSearch = () => {
                     <Modal
                       size={Modal.sizes.small}
                       className="error"
-                      header={<h4>Error Occured</h4>}
+                      header={<h4>Unretrievable Quote</h4>}
                     >
                       <div className="card-block">
                         <p>
                           We apologize but this Quote has a status of{' '}
                           {searchState.result.quoteState} which is no longer
                           retrievable. For questions or edits, please contact
-                          us. Provide phone and contact methods. Click Here to
-                          start a new quote.
+                          us.
                         </p>
+                        <div className="congratsCardFooter">
+                          <a
+                            href="tel:8442897968"
+                            target="_self"
+                            rel="noopener noreferrer"
+                          >
+                            844-289-7968
+                          </a>
+                          <a
+                            href="mailto:customerservice@typtap.com"
+                            target="_self"
+                            rel="noopener noreferrer"
+                          >
+                            customerservice@typtap.com
+                          </a>
+                          <a
+                            href="https://typtap.com/"
+                            target="_self"
+                            rel="noopener noreferrer"
+                          >
+                            www.typtap.com
+                          </a>
+                        </div>
                       </div>
                       <div className="card-footer">
                         <Button

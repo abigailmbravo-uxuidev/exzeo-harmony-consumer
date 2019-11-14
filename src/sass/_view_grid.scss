@@ -54,6 +54,16 @@
       &.error,
       &.oops {
         flex-direction: column;
+        .congratsCardFooter {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          z-index: 100;
+
+          a {
+            cursor: pointer;
+          }
+        }
 
         .card-block {
           color: $navy;
