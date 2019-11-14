@@ -14,6 +14,9 @@ import {
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
 import { useQuote } from 'modules/Quote';
+import ContactPhoneAnchor from 'components/ContactPhoneAnchor';
+import ContactEmailAnchor from 'components/ContactEmailAnchor';
+import TypTapLink from 'components/TypTapLink';
 
 export const VALID_QUOTE_STATES = [
   'Quote Started',
@@ -255,27 +258,9 @@ const QuoteSearch = () => {
                           us.
                         </p>
                         <div className="congratsCardFooter">
-                          <a
-                            href="tel:8442897968"
-                            target="_self"
-                            rel="noopener noreferrer"
-                          >
-                            844-289-7968
-                          </a>
-                          <a
-                            href="mailto:customerservice@typtap.com"
-                            target="_self"
-                            rel="noopener noreferrer"
-                          >
-                            customerservice@typtap.com
-                          </a>
-                          <a
-                            href="https://typtap.com/"
-                            target="_self"
-                            rel="noopener noreferrer"
-                          >
-                            www.typtap.com
-                          </a>
+                          <ContactPhoneAnchor />
+                          <ContactEmailAnchor />
+                          <TypTapLink />
                         </div>
                       </div>
                       <div className="card-footer">

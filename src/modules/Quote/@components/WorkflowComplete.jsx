@@ -1,5 +1,8 @@
 import React from 'react';
 import Confetti from 'components/Confetti';
+import ContactPhoneAnchor from 'components/ContactPhoneAnchor';
+import ContactEmailAnchor from 'components/ContactEmailAnchor';
+import TypTapLink from 'components/TypTapLink';
 
 const ThankYou = () => {
   return (
@@ -96,19 +99,9 @@ const ThankYou = () => {
       </p>
 
       <div className="congratsCardFooter">
-        <a href="tel:8442897968" target="_self" rel="noopener noreferrer">
-          844-289-7968
-        </a>
-        <a
-          href="mailto:customerservice@typtap.com"
-          target="_self"
-          rel="noopener noreferrer"
-        >
-          customerservice@typtap.com
-        </a>
-        <a href="https://typtap.com/" target="_self" rel="noopener noreferrer">
-          www.typtap.com
-        </a>
+        <ContactPhoneAnchor />
+        <ContactEmailAnchor />
+        <TypTapLink />
       </div>
     </div>
   );

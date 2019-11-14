@@ -1,5 +1,6 @@
 import React from 'react';
 import Confetti from 'components/Confetti';
+import TypTapLink from 'components/TypTapLink';
 
 const ThankYou = ({ location }) => {
   return (
@@ -76,9 +77,7 @@ const ThankYou = ({ location }) => {
         you need our help, call us, email us, send a carrier pigeon, whatever!
         We're here and love to talk all things insurance!
       </p>
-      <a href="https://typtap.com/" target="_self" rel="noopener noreferrer">
-        www.typtap.com
-      </a>
+      <TypTapLink />
     </div>
   );
 };
