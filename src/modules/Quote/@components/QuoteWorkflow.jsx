@@ -56,7 +56,7 @@ const QuoteWorkflow = ({ history, match }) => {
   const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
     loading: quoteLoading,
-    error,
+    error: quoteUpdateError,
     quote,
     setQuote,
     refreshQuote,
@@ -97,8 +97,8 @@ const QuoteWorkflow = ({ history, match }) => {
     return <SectionLoader />;
   }
 
-  if (error) {
-    return <QuoteUpdateError />;
+  if (quoteUpdateError) {
+    return <QuoteUpdateError error={quoteUpdateError} />;
   }
 
   return (
