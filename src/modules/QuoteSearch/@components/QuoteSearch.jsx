@@ -248,14 +248,12 @@ const QuoteSearch = () => {
                     <Modal
                       size={Modal.sizes.small}
                       className="error"
-                      header={<h4>Unretrievable Quote</h4>}
+                      header={<h4>Quote Can't Be Retrieved</h4>}
                     >
                       <div className="card-block">
                         <p>
-                          We apologize but this Quote has a status of{' '}
-                          {searchState.result.quoteState} which is no longer
-                          retrievable. For questions or edits, please contact
-                          us.
+                          We apologize, this quote can no longer be retrieved or
+                          edited. For questions or edits, please contact us.
                         </p>
                         <div className="congratsCardFooter">
                           <ContactPhoneAnchor />

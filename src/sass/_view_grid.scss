@@ -57,11 +57,31 @@
         .congratsCardFooter {
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
           z-index: 100;
+          justify-content: center;
 
           a {
             cursor: pointer;
+            color: $navy;
+            font-weight: $bold;
+            font-family: $serif;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: 14px;
+
+            &.contactSite {
+              justify-content: flex-end;
+            }
+
+            &.contactEmail {
+              justify-content: center;
+            }
+
+            svg {
+              display: flex;
+              align-self: center;
+            }
           }
         }
 
