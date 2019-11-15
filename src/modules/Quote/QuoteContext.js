@@ -1,42 +1,79 @@
+// The pattern for QuoteContext follows: https://kentcdodds.com/blog/how-to-use-react-context-effectively
+// No need to export the Context.consumer - which is clumsy to use - but export a custom hook that returns the
+// 'interface' for this Context
 import React from 'react';
+import store2 from 'store2';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
+
+const INITIAL_STATE = { quote: {}, loading: false, error: null };
 
 const QuoteContext = React.createContext();
 
 export function useQuote() {
   const context = React.useContext(QuoteContext);
-  const [loading, setLoading] = React.useState(false);
 
   if (!context) {
     throw new Error(`useQuote must be used within a QuoteProvider`);
   }
 
-  const [quote, setQuote] = context;
+  const [quoteState, setState] = context;
 
-  const retrieveQuote = async (quoteNumber, lastName, zipCode, email) => {
+  const setQuote = React.useCallback(
+    (quoteState = INITIAL_STATE) => {
+      const formattedQuote = formatQuoteForUser(quoteState.quote || {});
+      setState(state => ({ ...state, ...quoteState, quote: formattedQuote }));
+    },
+    [setState]
+  );
+
+  // Attempt to reload quote from localStorage, if there is a quote, and
+  // the quote is far enough along to have enough info to retrieve, attempt
+  // to retrieve latest from service. If we have a quote, but it is not far
+  // enough along, rehydrate with what we have. Otherwise, set error to
+  // trigger error screen. This is almost entirely a development environment issue.
+  const refreshQuote = quoteNumber => {
+    let savedQuote = {};
+    savedQuote = store2.get('quote');
+    if (savedQuote && savedQuote.quoteNumber === quoteNumber) {
+      if (
+        savedQuote.property.physicalAddress.zip &&
+        (savedQuote.policyHolders[0] || {}).lastName &&
+        savedQuote.quoteNumber
+      ) {
+        const params = {
+          quoteNumber: savedQuote.quoteNumber,
+          zipCode: savedQuote.property.physicalAddress.zip,
+          lastName: savedQuote.policyHolders[0].lastName
+        };
+
+        retrieveQuote(params);
+      } else {
+        setState(state => ({ ...state, quote: savedQuote }));
+      }
+    } else {
+      throw new Error(
+        'Unable to refresh quote. Please start over or go back to retrieve'
+      );
+    }
+  };
+
+  const retrieveQuote = async params => {
     try {
-      setLoading(true);
-      const params = {
-        lastName,
-        zipCode,
-        email,
-        quoteNumber
-      };
-
-      // TODO for now only searching by quoteNumber, expecting one quote to return, but we will be adding the ability to search by email, which could result in multiple quotes...
+      setState(state => ({ ...state, loading: true }));
       const quote = await quoteData.retrieveQuote(params);
       const formattedQuote = formatQuoteForUser(quote);
-      setQuote(formattedQuote);
+      store2.set('quote', formattedQuote, true);
+      setState(state => ({ ...state, quote: formattedQuote }));
     } catch (error) {
-      throw Error(error);
+      setState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setState(state => ({ ...state, loading: false }));
     }
   };
 
   const createQuote = async (address, companyCode, product) => {
     try {
-      setLoading(true);
+      setState(state => ({ ...state, loading: true }));
       const quote = await quoteData.createQuote({
         igdID: address.id,
         stateCode: address.physicalAddress.state,
@@ -45,65 +82,67 @@ export function useQuote() {
       });
 
       const formattedQuote = formatQuoteForUser(quote);
-      setQuote(formattedQuote);
+      store2.set('quote', formattedQuote, true);
+      setState(state => ({ ...state, quote: formattedQuote }));
     } catch (error) {
-      throw Error(error);
+      setState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setState(state => ({ ...state, loading: false }));
     }
   };
 
   const updateQuote = async (data, options = {}) => {
     try {
-      setLoading(true);
+      setState(state => ({ ...state, loading: true }));
       const updateData = formatQuoteForSubmit(data, options);
 
       const quote = await quoteData.updateQuote(updateData);
 
       const formattedQuote = formatQuoteForUser(quote);
-      setQuote(formattedQuote);
+      store2.set('quote', formattedQuote, true);
+      setState(state => ({ ...state, quote: formattedQuote }));
     } catch (error) {
-      throw Error(error);
+      setState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setState(state => ({ ...state, loading: false }));
     }
   };
 
   const sendApplication = async (quoteNumber, options = {}) => {
     try {
-      setLoading(true);
+      setState(state => ({ ...state, loading: true }));
       const quote = await quoteData.verifyQuote({ quoteNumber }, options);
       if (!quote || quote.quoteState !== 'Application Ready') {
-        throw new Error('Quote is not in Application Ready state');
+        setState(state => ({
+          ...state,
+          error: { message: 'Quote is not in Application Ready state' }
+        }));
+        return;
       }
       await quoteData.sendApplication(quoteNumber, 'docusign');
     } catch (error) {
-      throw Error(error);
+      setState(state => ({ ...state, error }));
     } finally {
-      setLoading(false);
+      setState(state => ({ ...state, loading: false }));
     }
   };
 
-  const setQuoteForUser = quote => {
-    const formattedQuote = formatQuoteForUser(quote);
-    setQuote(formattedQuote);
-  };
-
   return {
-    quote,
+    quote: quoteState.quote,
+    loading: quoteState.loading,
+    error: quoteState.error,
     setQuote,
-    loading,
     createQuote,
+    refreshQuote,
     retrieveQuote,
-    setQuoteForUser,
-    updateQuote,
-    sendApplication
+    sendApplication,
+    updateQuote
   };
 }
 
 export function QuoteContextProvider(props) {
-  const [quote, setQuote] = React.useState({});
-  const value = React.useMemo(() => [quote, setQuote], [quote]);
+  const [quoteState, setState] = React.useState(INITIAL_STATE);
+  const value = React.useMemo(() => [quoteState, setState], [quoteState]);
   return <QuoteContext.Provider value={value} {...props} />;
 }
 
@@ -113,28 +152,12 @@ function formatQuoteForSubmit(data, options) {
   return data;
 }
 
-// Edit quote for Form
-function formatQuoteForUser(quoteData) {
+// Edit quote for form
+function formatQuoteForUser(quoteData = {}) {
+  if (!quoteData.quoteNumber) return {};
   return {
     ...quoteData,
     effectiveDate: new Date(quoteData.effectiveDate),
-    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {},
-    sameAsPropertyAddress:
-      quoteData.property.physicalAddress.address1 ===
-        (quoteData.policyHolderMailingAddress || {}).address1 &&
-      quoteData.property.physicalAddress.city ===
-        (quoteData.policyHolderMailingAddress || {}).city
+    policyHolderMailingAddress: quoteData.policyHolderMailingAddress || {}
   };
-
-  // if (quoteData.policyHolders[1] && quoteData.policyHolders[1].firstName) {
-  //   quoteData.additionalPolicyholder = true;
-  // }
-
-  // if (quoteData.product === 'AF3') {
-  //   quoteData.personalPropertySlider = Math.ceil(
-  //     (quoteData.coverageLimits.personalProperty.amount * 100) /
-  //     quoteData.coverageLimits.building.amount
-  //   );
-  //   return quoteData;
-  // }
 }

@@ -51,7 +51,15 @@ body {
 
       @include forPhoneOnly {
         margin-top: 4rem;
-        padding: $padding 2rem;
+
+        footer {
+          padding: 0 $padding;
+          text-align: center;
+
+          small {
+            padding-top: ($padding / 2);
+          }
+        }
       }
 
       h1 {
@@ -96,7 +104,8 @@ body {
     @include forPhoneOnly {
       button {
         &.navOpener {
-          &.hasUnderwritingError {
+          &.hasUnderwritingError,
+          &.hide {
             display: none;
           }
         }

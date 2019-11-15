@@ -121,7 +121,7 @@
           background: transparent;
         }
         &:hover {
-          cursor: pointer;
+          cursor: default;
         }
 
         &:after {
@@ -147,7 +147,7 @@
 
         &.type-error {
           padding: 1rem;
-          max-width: 24rem;
+          max-width: 34rem;
           border-radius: $borderRadius;
           background-color: $white;
           box-shadow: 0 8px 12px rgba($navy, 0.15);
@@ -182,6 +182,11 @@
           &.place-right {
             &:after {
               border-right-color: $white;
+            }
+          }
+          &.place-top {
+            &:after {
+              border-top-color: $white;
             }
           }
         }
@@ -230,9 +235,6 @@
   &.slider {
     z-index: 2;
 
-    + .form-group.slider {
-      z-index: 1;
-    }
     label {
       @include forPhoneOnly {
         position: relative;

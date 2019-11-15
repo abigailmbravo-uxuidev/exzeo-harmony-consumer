@@ -79,13 +79,6 @@ export const ROUTES = {
     order: 10,
     workflowPage: 8,
     label: 'You Win!'
-  },
-  thankyou: {
-    key: 'thankyou',
-    path: 'thankyou',
-    order: 11,
-    workflowPage: 9,
-    label: 'You Win!'
   }
 };
 
@@ -97,6 +90,5 @@ export const WORKFLOW_ROUTING = {
   [ROUTES.additionalInfo.path]: ROUTES.policyholder.path,
   [ROUTES.policyholder.path]: ROUTES.billing.path,
   [ROUTES.billing.path]: ROUTES.summary.path,
-  [ROUTES.summary.path]: ROUTES.complete.path,
-  [ROUTES.complete.path]: ROUTES.thankyou.path
+  [ROUTES.summary.path]: ROUTES.complete.path
 };

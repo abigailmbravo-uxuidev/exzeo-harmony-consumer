@@ -1,1 +1,1 @@
-export { default } from './@components/AddressSearch';
+export { default as AddressSearch } from './@components/AddressSearch';

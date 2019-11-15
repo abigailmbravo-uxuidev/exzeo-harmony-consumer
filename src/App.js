@@ -8,23 +8,22 @@ import {
 import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
 
 import { ROUTES } from 'constants/navigation';
-import QuoteSearch from 'modules/QuoteSearch';
-import AddressSearch from 'modules/AddressSearch';
+import { QuoteSearch } from 'modules/QuoteSearch';
+import { AddressSearch } from 'modules/AddressSearch';
 import { QuoteContextProvider, QuoteWorkflow } from 'modules/Quote';
-import ThankYou from 'components/ThankYou';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
-import Footer from 'components/Footer';
+import ThankYou from 'components/ThankYou';
 
 const App = () => {
   return (
     <Router>
       <Header />
-
-      <RouteErrorBoundary>
-        <QuoteContextProvider>
-          <div role="region">
+      <div role="region">
+        <RouteErrorBoundary>
+          <QuoteContextProvider>
             <Switch>
               <Route
                 exact
@@ -73,9 +72,9 @@ const App = () => {
                 <AppFooter />
               </div>
             </main>
-          </div>
-        </QuoteContextProvider>
-      </RouteErrorBoundary>
+          </QuoteContextProvider>
+        </RouteErrorBoundary>
+      </div>
     </Router>
   );
 };

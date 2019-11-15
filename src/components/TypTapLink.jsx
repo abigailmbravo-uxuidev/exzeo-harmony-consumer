@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TypTapLink = () => (
   <a
-    className="contactPhone"
+    className="contactSite"
     data-test="typtap-link"
     title="typtap.com"
     href={`${TYP_TAP_URL.href}`}

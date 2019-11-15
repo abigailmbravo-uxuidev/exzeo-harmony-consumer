@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Modal, ModalPortal, SectionLoader } from '@exzeo/core-ui';
+import { Button, Modal, ModalPortal } from '@exzeo/core-ui';
 import { useAgentInfo } from '@exzeo/core-ui/src/@Harmony';
 import { useQuote } from '../QuoteContext';
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
@@ -11,7 +11,7 @@ const productDescription = 'Flood';
 
 const SummaryFooter = ({ formInstance, values, history }) => {
   const [showConfirm, setShowConfirm] = useState(false);
-  const { sendApplication, quote, loading } = useQuote();
+  const { sendApplication, quote } = useQuote();
   const { agent } = useAgentInfo(values.agentCode);
 
   const promptToConfirm = () => {
@@ -27,10 +27,6 @@ const SummaryFooter = ({ formInstance, values, history }) => {
     await sendApplication(quote.quoteNumber, {});
     history.push(WORKFLOW_ROUTING[ROUTES.summary.path]);
   };
-
-  if (loading) {
-    return <SectionLoader />;
-  }
 
   return (
     <React.Fragment>
@@ -81,7 +77,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
               <p>
                 Once all electronic signatures have been received, the policy
                 will automatically be bound and the policy documents will be
-                emailed to you and to the policyholder.
+                emailed to you and your agent.
               </p>
 
               <p>

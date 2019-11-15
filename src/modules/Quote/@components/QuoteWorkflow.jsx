@@ -13,21 +13,22 @@ import Subtitle from 'components/Subtitle';
 
 import { useWorkflowTemplate } from '../hooks';
 import { useQuote } from '../QuoteContext';
-import WorkflowFooter from './WorkflowFooter';
-import Share from './Share';
-import PropertyDetails from './PropertyDetails';
-import EditAgency from './EditAgency';
 import AdditionalInterests from './AdditionalInterests';
-import PolicyHolder from './PolicyHolder';
-import ThankYou from './WorkflowComplete';
-import Address from './Address';
-import EffectiveDatePicker from './EffectiveDate';
-import Billing from './Billing';
-import AgencyDetails from './AgencyDetails';
-import QuoteDetails from './QuoteDetails';
-import PolicyholderDetails from './PolicyholderDetails';
 import AdditionalInterestsDetails from './AdditionalInterestsDetails';
+import Address from './Address';
+import AgencyDetails from './AgencyDetails';
+import Billing from './Billing';
+import EditAgency from './EditAgency';
+import EffectiveDatePicker from './EffectiveDate';
+import PolicyHolder from './PolicyHolder';
+import PolicyholderDetails from './PolicyholderDetails';
+import PropertyDetails from './PropertyDetails';
+import QuoteDetails from './QuoteDetails';
+import QuoteUpdateError from './QuoteUpdateError';
+import Share from './Share';
+import ThankYou from './WorkflowComplete';
 import UnderwritingExceptionHandler from './UnderwritingExceptionHandler';
+import WorkflowFooter from './WorkflowFooter';
 
 const EMPTY_OBJ = {};
 
@@ -55,9 +56,10 @@ const QuoteWorkflow = ({ history, match }) => {
   const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
     loading: quoteLoading,
+    error: quoteUpdateError,
     quote,
     setQuote,
-    retrieveQuote,
+    refreshQuote,
     updateQuote
   } = useQuote();
   const { template } = useWorkflowTemplate(quote);
@@ -65,12 +67,11 @@ const QuoteWorkflow = ({ history, match }) => {
     template
   ]);
 
-  // TODO really only necessary for development (auto-refreshing)
   useEffect(() => {
-    if (!quote.quoteNumber) retrieveQuote(match.params.quoteNumber);
+    if (!quote.quoteNumber) refreshQuote(match.params.quoteNumber);
 
-    // unset the quote if we leave QuoteWorkflow
-    return () => setQuote({});
+    // reset quoteState when we leave QuoteWorkflow
+    return () => setQuote();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -88,12 +89,16 @@ const QuoteWorkflow = ({ history, match }) => {
 
       history.push(WORKFLOW_ROUTING[match.params.step]);
     } catch (error) {
-      throw Error(error);
+      throw error;
     }
   }
 
   if (!quote.quoteNumber || !template) {
     return <SectionLoader />;
+  }
+
+  if (quoteUpdateError) {
+    return <QuoteUpdateError error={quoteUpdateError} />;
   }
 
   return (

@@ -28,9 +28,8 @@ const Share = ({ formInstance, initialValues }) => {
         </div>
       </div>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet
-        metus quis aliquet porttitor. Pellentesque hendrerit felis in ex
-        molestie, id dictum dolor imperdiet.
+        If you would like us to email a copy of the quote with coverage details,
+        please select the Share Quote option.
       </p>
       <div className="iconBtnWrapper">
         <label>Share Quote</label>

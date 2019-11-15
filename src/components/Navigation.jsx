@@ -9,7 +9,7 @@ import { useQuote } from 'modules/Quote';
 import { hasUnderwritingExceptions } from 'utilities/underwritingExceptions';
 
 const Navigation = ({ location, match }) => {
-  const { quote } = useQuote();
+  const { quote, error } = useQuote();
   const [navOpen, setNavOpen] = useState(false);
   const locationOrder = match.params.step ? ROUTES[match.params.step].order : 0;
   const workflowPage = match.params.step
@@ -29,8 +29,8 @@ const Navigation = ({ location, match }) => {
     <React.Fragment>
       <button
         className={classNames('navOpener', {
-          hasUnderwritingError: hasError,
-          hasUnderwritingException: hasException
+          hasUnderwritingException: hasException,
+          hide: hasError || error
         })}
         onClick={() => setNavOpen(state => !state)}
       >
@@ -52,8 +52,11 @@ const Navigation = ({ location, match }) => {
         className={classNames('navWrapper', {
           navSlideOut: navOpen,
           navSlideIn: !navOpen,
-          hasUnderwritingError: hasError,
-          hasUnderwritingException: hasException
+          hide:
+            hasError ||
+            hasException ||
+            error ||
+            locationOrder === ROUTES.complete.order
         })}
       >
         <div className="propertyAddressWrapper">
