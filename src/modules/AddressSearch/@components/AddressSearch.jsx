@@ -48,7 +48,7 @@ const AddressSearch = ({ location, match }) => {
                 className={Button.constants.classNames.primary}
                 customClass="multi-input btnSearch"
                 type="submit"
-                data-test="submit"
+                data-test="submit-hidden"
               >
                 <FontAwesomeIcon icon="search" size="sm" />
               </Button>

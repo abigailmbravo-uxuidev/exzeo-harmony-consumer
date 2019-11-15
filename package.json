@@ -44,6 +44,10 @@
     "src/**/*.{js,jsx,ts,tsx,css,scss,json,md}": [
       "prettier --single-quote --write",
       "git add"
+    ],
+    "cypress/**/*.js": [
+      "prettier --single-quote --write",
+      "git add"
     ]
   },
   "eslintConfig": {
