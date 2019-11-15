@@ -12,7 +12,7 @@
     "cypress": "react-scripts cypress"
   },
   "dependencies": {
-    "@exzeo/core-ui": "0.9.6",
+    "@exzeo/core-ui": "0.9.9",
     "@exzeo/react-scripts": "2.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
@@ -29,6 +29,7 @@
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^8.0.9",
     "cypress": "3.5.0",
+    "history": "^4.10.1",
     "husky": "^3.0.4",
     "jest-teamcity-reporter": "^0.9.0",
     "lint-staged": "^9.2.5",

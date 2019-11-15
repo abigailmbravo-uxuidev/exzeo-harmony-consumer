@@ -14,6 +14,9 @@ import {
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
 import { useQuote } from 'modules/Quote';
+import ContactPhoneAnchor from 'components/ContactPhoneAnchor';
+import ContactEmailAnchor from 'components/ContactEmailAnchor';
+import TypTapLink from 'components/TypTapLink';
 
 export const VALID_QUOTE_STATES = [
   'Quote Started',
@@ -33,7 +36,7 @@ const initialState = {
 const QuoteSearch = () => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
-  const { quote, setQuoteForUser } = useQuote();
+  const { quote, setQuote } = useQuote();
 
   useEffect(() => {
     if (
@@ -41,14 +44,9 @@ const QuoteSearch = () => {
       !searchState.noResults &&
       !searchState.invalidQuoteState
     ) {
-      setQuoteForUser(searchState.result);
+      setQuote({ quote: searchState.result });
     }
-  }, [
-    searchState.hasSearched,
-    searchState.invalidQuoteState,
-    searchState.result,
-    setQuoteForUser
-  ]);
+  }, [searchState, setQuote]);
 
   async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
     try {
@@ -73,7 +71,7 @@ const QuoteSearch = () => {
           quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
       });
     } catch (error) {
-      if (error.status === 404 || error.status === 403) {
+      if (error.status >= 400) {
         setSearchState({
           hasSearched: true,
           result: null,
@@ -250,16 +248,18 @@ const QuoteSearch = () => {
                     <Modal
                       size={Modal.sizes.small}
                       className="error"
-                      header={<h4>Error Occured</h4>}
+                      header={<h4>Quote Can't Be Retrieved</h4>}
                     >
                       <div className="card-block">
                         <p>
-                          We apologize but this Quote has a status of{' '}
-                          {searchState.result.quoteState} which is no longer
-                          retrievable. For questions or edits, please contact
-                          us. Provide phone and contact methods. Click Here to
-                          start a new quote.
+                          We apologize, this quote can no longer be retrieved or
+                          edited. For questions or edits, please contact us.
                         </p>
+                        <div className="congratsCardFooter">
+                          <ContactPhoneAnchor />
+                          <ContactEmailAnchor />
+                          <TypTapLink />
+                        </div>
                       </div>
                       <div className="card-footer">
                         <Button

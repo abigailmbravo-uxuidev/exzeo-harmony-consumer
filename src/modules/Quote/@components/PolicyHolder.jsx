@@ -8,7 +8,7 @@ import PolicyholderCard from './PolicyholderCard';
 
 const INITIAL_STATE = {
   show: false,
-  ph: null
+  ph: 0
 };
 
 const PolicyHolder = ({ initialValues, config, customHandlers }) => {
@@ -71,13 +71,13 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
       >
         <h3>Add Policyholder</h3>
         <Button
+          type="button"
           data-test="add-policyHolder"
+          className={Button.constants.classNames.icon}
+          disabled={initialValues.policyHolders.length > 1}
           onClick={() =>
             setModal({ show: true, ph: initialValues.policyHolders.length })
           }
-          disabled={initialValues.policyHolders.length > 1}
-          className={Button.constants.classNames.icon}
-          type="button"
         >
           <FontAwesomeIcon icon="plus" />
         </Button>
@@ -85,14 +85,24 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
 
       {modal.show && (
         <ModalPortal>
-          <div className="policyholderModal">
-            <PolicyHolderModal
-              handleFormSubmit={handlePolicyHolderSubmit}
-              handleCancel={() => setModal(INITIAL_STATE)}
-              initialValues={initialValues.policyHolders[modal.ph]}
-              order={modal.ph}
-            />
-          </div>
+          <PolicyHolderModal
+            className="policyholderModal"
+            handleFormSubmit={handlePolicyHolderSubmit}
+            handleCancel={() => setModal(INITIAL_STATE)}
+            initialValues={initialValues.policyHolders[modal.ph]}
+            order={modal.ph}
+            header={
+              <React.Fragment>
+                <h4>{`Policyholder ${modal.ph + 1}`}</h4>
+                {modal.ph === 1 && (
+                  <p>
+                    Policyholder 2 is for spouse or co-owner that resides in the
+                    home.
+                  </p>
+                )}
+              </React.Fragment>
+            }
+          />
         </ModalPortal>
       )}
     </section>

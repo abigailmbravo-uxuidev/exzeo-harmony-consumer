@@ -26,7 +26,8 @@ body {
       height: 100%;
     }
 
-    nav[role='navigation'] {
+    nav[role='navigation'],
+    &.spacer {
       z-index: 60;
       overflow-y: auto;
       flex-grow: 0;
@@ -108,7 +109,8 @@ body {
     @include forPhoneOnly {
       button {
         &.navOpener {
-          &.hasUnderwritingError {
+          &.hasUnderwritingError,
+          &.hide {
             display: none;
           }
         }

@@ -767,32 +767,6 @@
       "step": {},
       "components": [
         {
-          "id": "1e704fbb-eb1c-4f9d-8875-f43a332ad49bd0a",
-          "type": "$TITLE",
-          "dependencies": [],
-          "data": {
-            "text": "You did such a great job!"
-          },
-          "formData": {},
-          "children": []
-        },
-        {
-          "id": "6c1b8558-360e-4e2b-9d96-3092b457483vv",
-          "type": "$CUSTOM",
-          "dependencies": [],
-          "data": {
-            "component": "$INFO"
-          },
-          "formData": {},
-          "children": []
-        }
-      ]
-    },
-    {
-      "name": "thankyou",
-      "step": {},
-      "components": [
-        {
           "id": "1e704fbb-eb1c-4f9d-8875-f43aad468689bd0a",
           "type": "$CUSTOM",
           "dependencies": [],

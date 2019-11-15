@@ -54,6 +54,36 @@
       &.error,
       &.oops {
         flex-direction: column;
+        .congratsCardFooter {
+          display: flex;
+          flex-direction: row;
+          z-index: 100;
+          justify-content: center;
+
+          a {
+            cursor: pointer;
+            color: $navy;
+            font-weight: $bold;
+            font-family: $serif;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: 14px;
+
+            &.contactSite {
+              justify-content: flex-end;
+            }
+
+            &.contactEmail {
+              justify-content: center;
+            }
+
+            svg {
+              display: flex;
+              align-self: center;
+            }
+          }
+        }
 
         .card-block {
           color: $navy;
@@ -501,7 +531,6 @@
     flex-shrink: 0;
     margin: 0 auto;
     padding: ($padding * 2) ($padding * 2) $padding;
-    width: 34rem;
 
     @include forPhoneOnly {
       width: 100%;
@@ -526,8 +555,7 @@
     .congratsCircle {
       position: absolute;
       top: -6rem;
-      right: -8rem;
-      left: -8rem;
+      right: calc(50% - 27rem);
       z-index: 0;
       width: 54rem;
 
@@ -543,6 +571,17 @@
         filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
 
         fill: $navy;
+      }
+    }
+
+    .congratsCardFooter {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      z-index: 100;
+
+      a {
+        cursor: pointer;
       }
     }
 
@@ -1354,7 +1393,7 @@ section {
           flex-grow: 1;
           flex-shrink: 1;
           &.fade-in {
-            margin-left: 1rem;
+            margin-left: 1.5rem;
             @include forPhoneOnly {
               flex-direction: column;
             }
@@ -1648,6 +1687,11 @@ section {
   }
 }
 
+//app error
+.appError {
+  margin: 0;
+  padding: 0;
+}
 //view grid styling from harmony
 .view-grid {
   display: flex;
@@ -1693,18 +1737,17 @@ section {
   h4 {
     position: relative;
     margin-bottom: 4rem;
+  }
 
-    &:after {
-      position: absolute;
-      top: 3rem;
-      left: calc(50% - 20rem);
-      width: 40rem;
-      content: 'Policyholder 2 is for spouse or co-owner that resides in the home.';
-      text-align: center;
-      font-weight: $normal;
-      font-size: $fontSizeBody;
-      font-family: $sans;
-    }
+  p {
+    position: absolute;
+    top: 3rem;
+    left: calc(50% - 20rem);
+    width: 40rem;
+    text-align: center;
+    font-weight: $normal;
+    font-size: $fontSizeBody;
+    font-family: $sans;
   }
 }
 

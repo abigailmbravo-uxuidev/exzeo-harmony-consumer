@@ -329,7 +329,8 @@ nav[role='navigation'] {
     }
   }
 
-  &.hasUnderwritingError {
+  &.hasUnderwritingError,
+  &.hide {
     .propertyAddressWrapper {
       display: none;
       font-size: $fontSizeLabel;

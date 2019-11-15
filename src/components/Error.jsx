@@ -1,11 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import UnderwritingFooter from './ContactFooter';
 import TypTapLink from './TypTapLink';
 
-const Error = () => {
+const Error = ({ type }) => {
   return (
-    <div className="appError">
+    <div className={classNames('appError', type)}>
       <div className="title">Uh Oh!</div>
       <p>
         We are experiencing technical difficulties. Please try again later, or
