@@ -13,8 +13,8 @@ context('Search Address', () => {
       .clickSubmit();
       cy.wait('@fetchAddress').then(({request}) => {
         expect(request.body.path.includes(knownAddress))
-      })
-      .findDataTag(`result-${knownAddress}`)
+      });
+      cy.findDataTag(`result-${knownAddress}`)
       .should('exist')
       .and('be.visible');
   });
@@ -24,7 +24,10 @@ context('Search Address', () => {
       .findDataTag('address')
       .type(unknownAddress)
       .clickSubmit()
-      .findDataTag('no-results')
+    cy.wait('@fetchAddress').then(({request}) => {
+      expect(request.body.path.includes(unknownAddress))
+    })
+      cy.findDataTag('no-results')
       .should('exist')
       .and('be.visible');
   });
