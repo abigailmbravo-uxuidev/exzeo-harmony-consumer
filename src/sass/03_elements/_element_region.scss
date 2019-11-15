@@ -9,8 +9,4 @@ div[role='region'] {
   background-position-x: calc(((100vw - 102rem) / 2) + 67rem);
   background-position-y: 1.5rem;
   background-repeat: no-repeat;
-
-  @include forPhoneOnly {
-    height: 100%;
-  }
 }

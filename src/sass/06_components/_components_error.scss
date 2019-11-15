@@ -56,31 +56,18 @@
     margin-bottom: 1rem;
     justify-content: space-between;
     font-family: $serif;
-
-    @include forPhoneOnly {
-      flex-direction: column;
-      padding: ($padding / 4) 0;
-    }
     a {
       align-self: center;
       flex-grow: 0;
       flex-shrink: 0;
       margin-bottom: 0;
 
-      @include forPhoneOnly {
-        padding-top: ($padding / 4);
-      }
       &.contactEmail {
         color: $navy;
       }
 
       &.btn {
         text-align: center;
-
-        @include forPhoneOnly {
-          margin-top: 2rem;
-          width: 100%;
-        }
       }
     }
   }

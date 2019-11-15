@@ -22,10 +22,6 @@ body {
     width: 100%;
     height: calc(100vh - 4rem);
 
-    @include forPhoneOnly {
-      height: 100%;
-    }
-
     nav[role='navigation'] {
       z-index: 60;
       overflow-y: auto;

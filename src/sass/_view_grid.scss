@@ -22,10 +22,6 @@
       background-color: rgba($white, 0.95);
       animation: modal-fade 0.35s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
-      @include forPhoneOnly {
-        background-color: $white;
-      }
-
       .card {
         position: absolute;
         top: 5.75rem;
@@ -63,11 +59,6 @@
             li {
               font-weight: $bold;
             }
-          }
-
-          @include forPhoneOnly {
-            flex-grow: 1;
-            flex-shrink: 1;
           }
 
           p {
@@ -116,35 +107,7 @@
           }
 
           &.applicationComplete {
-            @include forPhoneOnly {
-              flex-direction: column;
-              padding: $padding ($padding * 2);
-
-              a {
-                margin-bottom: 1rem;
-
-                &.btn {
-                  border-radius: $borderRadius;
-                }
-              }
-
-              button {
-                &.btn {
-                  border-radius: $borderRadius;
-                }
-              }
-            }
           }
-        }
-
-        @include forTabletPortraitOnly {
-          width: 70vw;
-        }
-        @include forPhoneOnly {
-          top: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 0;
         }
 
         .card-header {
@@ -155,20 +118,12 @@
             flex-direction: row-reverse;
             right: 16px;
             top: 0;
-
-            @include forPhoneOnly {
-              font-size: 1.5rem;
-              top: 8px;
-            }
           }
+
           h4 {
             text-align: center;
             font-size: $fontSizeHeader;
             font-family: $serif;
-
-            @include forPhoneOnly {
-              padding-top: $padding * 2;
-            }
           }
         }
 
@@ -193,10 +148,6 @@
             .flex-form {
               display: flex;
               flex-direction: row;
-
-              @include forPhoneOnly {
-                flex-direction: column;
-              }
 
               .form-group {
                 margin-right: 1rem;
@@ -238,8 +189,6 @@
           }
 
           .card-footer {
-            @include forPhoneOnly {
-            }
             .btn-group {
               display: flex;
               flex-grow: 1;
@@ -258,10 +207,6 @@
                   border-top-right-radius: 0;
                   border-bottom-right-radius: $borderRadius;
                   border-bottom-left-radius: 0;
-
-                  @include forPhoneOnly {
-                    border-bottom-right-radius: 0;
-                  }
                 }
 
                 &.btn-secondary {
@@ -269,10 +214,6 @@
                   border-top-right-radius: 0;
                   border-bottom-right-radius: 0;
                   border-bottom-left-radius: $borderRadius;
-
-                  @include forPhoneOnly {
-                    border-bottom-left-radius: 0;
-                  }
                 }
               }
             }
@@ -303,10 +244,6 @@
             display: flex;
             flex-grow: 1;
             flex-shrink: 1;
-
-            @include forPhoneOnly {
-            }
-
             .btn {
               display: flex;
               flex-grow: 1;
@@ -321,10 +258,6 @@
                 border-top-right-radius: 0;
                 border-bottom-right-radius: $borderRadius;
                 border-bottom-left-radius: 0;
-
-                @include forPhoneOnly {
-                  border-bottom-right-radius: 0;
-                }
               }
 
               &.btn-secondary {
@@ -332,10 +265,6 @@
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
                 border-bottom-left-radius: $borderRadius;
-
-                @include forPhoneOnly {
-                  border-bottom-left-radius: 0;
-                }
               }
             }
           }
@@ -359,11 +288,6 @@
       margin: 0 auto;
       padding: ($padding * 2) ($padding * 2) $padding;
       //width: 34rem;
-
-      @include forPhoneOnly {
-        width: 100%;
-      }
-
       .quoteNumber {
         text-align: center;
       }
@@ -391,13 +315,6 @@
         right: calc(50% - 32rem);
         z-index: 0;
         width: 64rem;
-
-        @include forPhoneOnly {
-          position: absolute;
-          top: -1.125rem;
-          right: calc(50% - 30rem);
-          width: 60rem;
-        }
 
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
@@ -441,10 +358,6 @@
       padding: ($padding * 2) ($padding * 2) $padding;
       width: 34rem;
 
-      @include forPhoneOnly {
-        width: 100%;
-      }
-
       label {
         z-index: 20;
         z-index: 1;
@@ -468,14 +381,6 @@
         left: -8rem;
         z-index: 0;
         width: 54rem;
-
-        @include forPhoneOnly {
-          position: absolute;
-          top: -1rem;
-          right: -20rem;
-          left: -20rem;
-          width: 64rem;
-        }
 
         svg {
           filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
@@ -516,9 +421,6 @@
       flex-direction: row;
 
       .cardContent {
-        @include forPhoneOnly {
-          padding-right: 0.75rem;
-        }
         h4 {
           margin-bottom: 0;
           padding-top: 0;
@@ -548,10 +450,6 @@
             flex-direction: row;
             margin-bottom: 1rem;
 
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-
             .group-label {
               margin-bottom: 0.5rem;
             }
@@ -559,10 +457,6 @@
               flex-grow: 1;
               flex-shrink: 1;
               font-size: $fontSizeSubheader--small;
-
-              @include forPhoneOnly {
-                padding-right: 0;
-              }
             }
 
             .segmented-answer-wrapper {
@@ -572,11 +466,6 @@
               margin-top: 0.5rem;
               width: 6rem;
               border-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                margin-bottom: 1.5rem;
-                width: 100%;
-              }
               label {
                 padding: $padding/2;
                 font-size: $fontSizeBase;
@@ -621,10 +510,6 @@
             flex-direction: row;
             margin-bottom: 1rem;
 
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-
             .group-label {
               margin-bottom: 0.5rem;
             }
@@ -633,10 +518,6 @@
               flex-grow: 1;
               flex-shrink: 1;
               font-size: $fontSizeSubheader--small;
-
-              @include forPhoneOnly {
-                padding-right: 0;
-              }
             }
 
             .segmented-answer-wrapper {
@@ -646,11 +527,6 @@
               margin-top: 0.5rem;
               width: 6rem;
               border-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                margin-bottom: 1.5rem;
-                width: 100%;
-              }
               label {
                 padding: $padding/2;
                 font-size: $fontSizeBase;
@@ -674,10 +550,6 @@
       p {
         line-height: 1.4;
         padding: ($padding / 4) 0;
-
-        @include forPhoneOnly {
-          line-height: 1;
-        }
       }
 
       a {
@@ -695,10 +567,6 @@
             flex-direction: row;
             margin-bottom: 0;
 
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-
             .group-label {
               margin-bottom: 0.5rem;
             }
@@ -706,22 +574,12 @@
               flex-grow: 1;
               flex-shrink: 1;
               font-size: $fontSizeSubheader--small;
-
-              @include forPhoneOnly {
-                padding-right: 0;
-              }
             }
             .segmented-answer-wrapper {
               align-self: flex-start;
               margin-top: 0.5rem;
               width: 6rem;
               border-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                margin-bottom: 1.5rem;
-                width: 100%;
-              }
-
               label {
                 padding: $padding/2;
                 font-size: $fontSizeBase;
@@ -753,11 +611,6 @@
             font-weight: $normal;
             font-family: $sans;
             opacity: 1;
-
-            @include forPhoneOnly {
-              margin: 0.5rem 0 0;
-            }
-
             &:after {
               display: none;
             }
@@ -791,10 +644,6 @@
 
             &.edit {
               font-size: 1rem;
-
-              @include forPhoneOnly {
-                padding-right: 0.25rem;
-              }
             }
           }
 
@@ -803,28 +652,15 @@
             flex-shrink: 1;
             padding: ($padding / 2) $padding 0 $padding;
 
-            @include forPhoneOnly {
-              padding-bottom: ($padding / 2);
-            }
-
             h4 {
               margin-top: 0.25rem;
               margin-bottom: 0.25rem;
               font-size: $fontSizeBase;
               font-family: $serif;
-
-              @include forPhoneOnly {
-                margin-top: 0.5rem;
-                font-size: $fontSizeBase;
-              }
             }
 
             p {
               margin-bottom: 0;
-
-              @include forPhoneOnly {
-                padding-top: $padding/4;
-              }
             }
 
             &.card-icon {
@@ -842,17 +678,6 @@
 
   //customize quote styling
   .workflow {
-    @include forPhoneOnly {
-      .form-footer {
-        display: flex;
-        flex-direction: column;
-        .btn {
-          margin: 0 0 1rem 0;
-          width: 100%;
-          text-align: center;
-        }
-      }
-    }
     div {
       &.agencySelect {
         label {
@@ -892,10 +717,6 @@
         margin-bottom: 1rem;
         max-width: 100%;
         font-family: $sans;
-
-        @include forPhoneOnly {
-          font-size: $fontSizeLabel;
-        }
       }
     }
 
@@ -906,61 +727,6 @@
       overflow: visible;
       margin-top: 0.5rem;
       padding: $padding $padding 0 $padding;
-      //for phone
-
-      @include forPhoneOnly {
-        .card {
-          flex-direction: column;
-          justify-content: center;
-          margin-left: 0;
-
-          &.fade-in {
-            min-height: auto;
-          }
-
-          .card-header {
-            position: relative;
-            align-items: center;
-            flex-direction: column;
-            padding-right: 0;
-            padding-left: 0;
-            width: 50%;
-          }
-
-          .cardContent {
-            margin-bottom: 1rem;
-            text-align: center;
-
-            p {
-              padding: 0 $padding;
-            }
-          }
-
-          .card-footer {
-            flex-direction: column;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-
-            .btn,
-            .btn-primary {
-              margin-top: 0;
-              margin-bottom: 1rem;
-              margin-left: 0;
-              padding: $padding/2;
-              text-align: center;
-            }
-
-            .btn-secondary {
-              margin-top: 0;
-              margin-bottom: 1.5rem;
-              margin-left: 0;
-              padding: $padding/2;
-              text-align: center;
-            }
-          }
-        }
-      }
 
       //results modal styling
       .modal {
@@ -1115,10 +881,6 @@
     &.radio {
       &.segmented {
         margin-bottom: 1.5rem;
-
-        @include forPhoneOnly {
-          margin-bottom: 1rem;
-        }
         &.segmented-answer-wrapper {
           font-weight: $normal;
           font-size: $fontSizeBase;
@@ -1139,34 +901,8 @@
     z-index: 99;
     padding: $padding;
 
-    @include forPhoneOnly {
-      margin-bottom: 1rem;
-
-      div[role='banner'] {
-        flex-direction: column;
-
-        small {
-          align-self: center;
-        }
-      }
-    }
-
     &.navFooter {
       padding: $padding 0;
-
-      @include forPhoneOnly {
-        align-content: center;
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-        label {
-          text-align: center;
-        }
-
-        & div {
-          text-align: center;
-        }
-      }
     }
   }
 
@@ -1176,10 +912,6 @@
     font-weight: $bold;
     font-size: $fontSizeHeader;
     font-family: $serif;
-
-    @include forPhoneOnly {
-      font-size: $fontSizeSubheader;
-    }
   }
 
   .form-footer {
@@ -1228,18 +960,6 @@
             flex-direction: row;
             padding: $padding/4;
 
-            @include forPhoneOnly {
-              padding: 0 $padding;
-
-              .cardContent {
-                //padding: $padding 0;
-              }
-
-              footer {
-                margin-bottom: 0;
-              }
-            }
-
             footer {
               width: auto;
             }
@@ -1249,9 +969,6 @@
             flex-grow: 1;
             flex-shrink: 1;
             &.fade-in {
-              @include forPhoneOnly {
-                flex-direction: column;
-              }
             }
 
             .card {
@@ -1266,45 +983,6 @@
                 flex-shrink: 1;
                 min-height: 14rem;
                 width: 33.33%;
-
-                @include forPhoneOnly {
-                  display: flex;
-                  justify-content: center;
-                  margin: 0 1rem 1rem 1rem;
-                  min-height: auto;
-                  width: auto;
-
-                  .container {
-                    position: absolute;
-                    top: 35%;
-                    width: 100%;
-                    text-align: center;
-                  }
-
-                  a,
-                  a:hover {
-                    color: #ddd;
-                    text-decoration: none;
-                  }
-
-                  dl {
-                    display: flex;
-                    text-align: center;
-
-                    div {
-                      display: flex;
-                      flex-direction: row;
-                      flex-grow: 0;
-                      flex-shrink: 0;
-                      justify-content: center;
-                      padding: ($padding / 2) 0;
-
-                      dd {
-                        font-size: $fontSizeBase;
-                      }
-                    }
-                  }
-                }
 
                 &.selected {
                   .cardContent {
@@ -1371,10 +1049,6 @@
 
               &:last-of-type {
                 margin-right: 0;
-
-                @include forPhoneOnly {
-                  margin-right: 1rem;
-                }
               }
 
               .cardContent {
@@ -1408,12 +1082,6 @@
                     font-weight: $normal;
                     font-size: $fontSizeBase;
                     font-family: $sans;
-
-                    @include forPhoneOnly {
-                      + dd {
-                        margin-left: 0.25rem;
-                      }
-                    }
                   }
                   label {
                     padding: 0;
@@ -1484,11 +1152,6 @@
     padding: $padding;
     width: 100%;
 
-    @include forPhoneOnly {
-      margin-top: 1rem;
-      width: 100vw;
-    }
-
     h2 {
       font-weight: normal;
       font-size: $fontSizeSubheader;
@@ -1549,13 +1212,6 @@
   }
 
   .view-grid {
-    @include forPhoneOnly {
-      font-size: $fontSizeSubheader--small;
-
-      .fa {
-        font-size: $fontSizeSubheader--small;
-      }
-    }
     > * {
       padding: $padding;
       width: 100%;
@@ -1584,65 +1240,6 @@
 
   // responsize styles
   @supports (display: grid) {
-    @include forPhoneOnly {
-      .view-grid,
-      .view-grid section {
-        .view-col-1,
-        .view-col-10,
-        .view-col-11,
-        .view-col-2,
-        .view-col-3,
-        .view-col-4,
-        .view-col-5,
-        .view-col-6,
-        .view-col-7,
-        .view-col-8,
-        .view-col-9 {
-          width: 100%;
-        }
-      }
-      .view-grid {
-        > div {
-          padding: $padding * 2;
-        }
-        > section > dl {
-          padding: 0 ($padding * 2);
-        }
-      }
-    }
-  }
-}
-
-//view grid mobile style
-
-@include forPhoneOnly {
-  .view-grid {
-    padding: 0;
-
-    .title {
-      padding-top: $padding/4;
-    }
-    form {
-      section {
-        .form-footer {
-          .btn {
-            margin: 0.5rem 0 0 0;
-            width: 100%;
-          }
-        }
-      }
-    }
-    footer {
-      padding: $padding 0;
-    }
-
-    //title styling for phone
-    .workflow {
-      .title {
-        margin-bottom: 0.25rem;
-        font-size: $fontSizeHeader--small;
-      }
-    }
   }
 }
 
@@ -1753,15 +1350,8 @@ $colors: $blue, $red, $green, $navy, gold;
           width: auto;
           font-size: $fontSizeSubheader--small;
           font-family: $serif;
-
-          @include forPhoneOnly {
-            width: 100%;
-          }
         }
         .react-datepicker-wrapper {
-          @include forPhoneOnly {
-            width: 100%;
-          }
           .react-datepicker__input-container {
             input {
               padding-top: $padding/2;
@@ -1780,12 +1370,6 @@ $colors: $blue, $red, $green, $navy, gold;
 
               @include forDatePicker {
                 width: 16rem;
-              }
-              @include forPhoneOnly {
-                display: block;
-                float: none;
-                margin: 0 auto;
-                height: 15rem;
               }
 
               .react-datepicker__triangle {

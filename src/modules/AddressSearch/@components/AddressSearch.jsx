@@ -39,7 +39,7 @@ const AddressSearch = ({ location, match }) => {
                     label="Property Address"
                     styleName="property-search"
                     dataTest="address"
-                    placeholder="Type your street address &amp; select Search Address"
+                    placeholder="Type your street address &amp; select search address"
                   />
                 )}
               </Field>
