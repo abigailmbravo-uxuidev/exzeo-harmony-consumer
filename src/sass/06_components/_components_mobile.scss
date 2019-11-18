@@ -3,22 +3,28 @@
     div[role='region'] {
       height: 100%;
 
-      main {
-        //margin-bottom: 4rem;
+      main[role='main'] {
+        margin-top: 3rem;
       }
     }
   }
   .view-grid {
-    padding: 0;
     font-size: $fontSizeSubheader--small;
+    padding: $padding $padding 0 $padding;
 
     .title {
       padding-top: $padding/4;
       font-size: $fontSizeSubheader;
+      margin-bottom: 0;
     }
 
     .fa {
       font-size: $fontSizeSubheader--small;
+    }
+
+    > * {
+      padding: ($padding/4) $padding;
+      width: 100%;
     }
 
     //GENERAL STYLING
@@ -138,7 +144,18 @@
     //form styling - mobile
     form {
       section {
+        h3 {
+          font-size: $fontSizeBase;
+          justify-content: flex-end;
+        }
+
+        button {
+          .btn {
+            width: 100%;
+          }
+        }
         .form-footer {
+          margin-top: 0;
           .btn {
             margin: 0.5rem 0 0 0;
             width: 100%;
@@ -202,6 +219,23 @@
 
     //section styling -- mobile billing styling & mobile results styling within - mobile
     section {
+      //error
+      &.error {
+        span {
+          color: $red;
+          font-size: $fontSizeBase;
+          margin-bottom: 0.25rem;
+        }
+
+        button {
+          span {
+            margin-bottom: 0;
+          }
+        }
+        svg {
+          color: $red;
+        }
+      }
       //biling specific styling
       &.billing {
         ul {
@@ -348,6 +382,27 @@
       }
 
       p {
+      }
+
+      //add button styling
+      .addBtnWrapper {
+        h3 {
+          display: none;
+        }
+        button {
+          width: 100%;
+
+          span {
+            padding-right: $padding / 2;
+            display: block;
+            font-size: $fontSizeSubheader--small;
+          }
+
+          svg {
+            height: 0.8em;
+            align-self: center;
+          }
+        }
       }
     }
 
@@ -554,6 +609,7 @@
               }
               label {
                 padding-right: 0;
+                font-size: $fontSizeSubheader--small;
               }
               .segmented-answer-wrapper {
                 margin-bottom: 1.5rem;
@@ -678,6 +734,7 @@
               width: 100%;
               .react-datepicker__input-container {
                 input {
+                  width: 100%;
                 }
               }
             }
@@ -756,9 +813,13 @@
     //information bar styling - mobile
     .infoBar {
       margin-top: 1rem;
+      margin-left: -2rem;
       width: 100vw;
+      flex-direction: column;
+      border-radius: 0;
 
       h2 {
+        margin-bottom: 0.25rem;
       }
 
       label {
@@ -800,6 +861,7 @@
         }
 
         .cardFooter {
+          padding-left: 0;
         }
       }
       .form-group {

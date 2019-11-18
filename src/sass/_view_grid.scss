@@ -5,7 +5,7 @@
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: ($padding / 4) $padding 0 ($padding * 1.5);
+  padding: $padding $padding 0 ($padding * 1.5);
   width: 100%;
 
   .modal {
@@ -22,283 +22,100 @@
     animation: modal-fade 0.35s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
     .card {
-      max-width: 36rem;
-    }
-  }
+      position: absolute;
+      top: 5.75rem;
+      bottom: 5.75rem;
+      margin-bottom: 0;
+      width: 60vw;
+      background-color: transparent;
+      box-shadow: none;
+      animation: slide-top 0.65s ease-in-out both;
+      max-width: 32rem;
 
-  .card {
-    position: absolute;
-    top: 5.75rem;
-    bottom: 5.75rem;
-    margin-bottom: 0;
-    width: 60vw;
-    background-color: transparent;
-    box-shadow: none;
-    animation: slide-top 0.65s ease-in-out both;
-
-    &.error,
-    &.oops {
-      flex-direction: column;
-      .congratsCardFooter {
-        display: flex;
-        flex-direction: row;
-        z-index: 100;
-        justify-content: center;
-
-        a {
-          cursor: pointer;
-          color: $navy;
-          font-weight: $bold;
-          font-family: $serif;
+      &.error,
+      &.oops {
+        flex-direction: column;
+        .congratsCardFooter {
           display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-          font-size: 14px;
-
-          &.contactSite {
-            justify-content: flex-end;
-          }
-
-          &.contactEmail {
-            justify-content: center;
-          }
-
-          svg {
-            display: flex;
-            align-self: center;
-          }
-        }
-      }
-      &.fade-in {
-        #sendQuoteSummary {
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-          flex-shrink: 1;
-
-          .card-footer {
-            flex-grow: 0;
-            flex-shrink: 0;
-          }
-        }
-      }
-
-      .card-block {
-        color: $navy;
-        line-height: 1.4;
-      }
-
-      &:hover {
-        box-shadow: none;
-        cursor: default;
-      }
-    }
-
-    .card-block {
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding: 1rem 1.5rem 1rem;
-      border-top-left-radius: 0.375rem;
-      border-top-right-radius: 0.375rem;
-      background-color: white;
-      box-shadow: inset 0 3px 6px rgba(29, 64, 78, 0.16);
-
-      ul {
-        li {
-          font-weight: $bold;
-        }
-      }
-
-      p {
-        margin-bottom: 0.5rem;
-      }
-    }
-
-    .card-footer {
-      display: flex;
-      flex-grow: 0;
-      flex-shrink: 1;
-
-      a {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-        justify-content: center;
-        margin-bottom: 0;
-        margin-left: 0;
-        text-transform: capitalize;
-
-        &.btn {
-          &.btn-secondary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: $borderRadius;
-          }
-        }
-      }
-
-      button,
-      a {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-        justify-content: center;
-        margin-bottom: 0;
-        margin-left: 0;
-        text-transform: capitalize;
-
-        &.btn {
-          &.btn-primary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: $borderRadius;
-            border-bottom-left-radius: 0;
-          }
-
-          &.btn-secondary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: $borderRadius;
-          }
-        }
-
-        &.applicationComplete {
-        }
-      }
-
-      .btn-group {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-
-        .btn {
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
+          flex-direction: row;
+          z-index: 100;
           justify-content: center;
-          margin-bottom: 0;
-          margin-left: 0;
-          text-transform: capitalize;
 
-          &.btn-primary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: $borderRadius;
-            border-bottom-left-radius: 0;
+          a {
+            cursor: pointer;
+            color: $navy;
+            font-weight: $bold;
+            font-family: $serif;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: 14px;
 
-            @include forPhoneOnly {
-              border-bottom-right-radius: 0;
+            &.contactSite {
+              justify-content: flex-end;
             }
-          }
 
-          &.btn-secondary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: $borderRadius;
+            &.contactEmail {
+              justify-content: center;
+            }
 
-            @include forPhoneOnly {
-              border-bottom-left-radius: 0;
+            svg {
+              display: flex;
+              align-self: center;
             }
           }
         }
-      }
-    }
+        &.fade-in {
+          #sendQuoteSummary {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-shrink: 1;
 
-    .card-header {
-      a {
-        font-size: 2rem;
-        display: flex;
-        position: absolute;
-        flex-direction: row-reverse;
-        right: 16px;
-        top: 0;
-      }
+            .card-footer {
+              flex-grow: 0;
+              flex-shrink: 0;
+            }
+          }
+        }
 
-      h4 {
-        text-align: center;
-        font-size: $fontSizeHeader;
-        font-family: $serif;
-      }
-    }
+        .card-block {
+          color: $navy;
+          line-height: 1.4;
+        }
 
-    form {
-      overflow: hidden;
+        &:hover {
+          box-shadow: none;
+          cursor: default;
+        }
+      }
 
       .card-block {
         overflow-x: hidden;
         overflow-y: auto;
-        padding: $padding $padding * 1.5 $padding;
-        border-top-left-radius: $borderRadius;
-        border-top-right-radius: $borderRadius;
-        background-color: $white;
+        padding: 1rem 1.5rem 1rem;
+        border-top-left-radius: 0.375rem;
+        border-top-right-radius: 0.375rem;
+        background-color: white;
+        box-shadow: inset 0 3px 6px rgba(29, 64, 78, 0.16);
 
-        @include forDatePicker {
-          flex-grow: 1;
-          flex-shrink: 1;
+        ul {
+          li {
+            font-weight: $bold;
+          }
         }
 
-        @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
-
-        .flex-form {
-          display: flex;
-          flex-direction: row;
-
-          .form-group {
-            margin-right: 1rem;
-
-            select {
-              height: 1.5rem;
-              border-width: 0;
-              color: $navy;
-              font-size: $fontSizeBody;
-              background-color: $extraLightGrey;
-            }
-          }
-          &:last-of-type {
-            margin-right: 0;
-          }
+        p {
+          margin-bottom: 0.5rem;
         }
       }
 
-      .form-group {
-        &.type-ahead {
-          z-index: 100;
-          overflow: visible;
-
-          .react-select__menu-list {
-            max-height: 35vh;
-          }
-        }
-
-        &.order {
-          &.select {
-            border-bottom: 1px solid $navy;
-            background-color: $extraLightGrey;
-            label {
-              position: relative;
-              margin-bottom: 0;
-            }
-
-            select {
-              height: 1rem;
-              border-width: 0;
-              color: $navy;
-              font-size: $fontSizeBody;
-            }
-          }
-        }
-      }
-    }
-
-    .card-footer {
-      .btn-group {
+      .card-footer {
         display: flex;
-        flex-grow: 1;
+        flex-grow: 0;
         flex-shrink: 1;
-        .btn {
+
+        a {
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
@@ -307,18 +124,190 @@
           margin-left: 0;
           text-transform: capitalize;
 
-          &.btn-primary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: $borderRadius;
-            border-bottom-left-radius: 0;
+          &.btn {
+            &.btn-secondary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: $borderRadius;
+            }
+          }
+        }
+
+        button,
+        a {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          justify-content: center;
+          margin-bottom: 0;
+          margin-left: 0;
+          text-transform: capitalize;
+
+          &.btn {
+            &.btn-primary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: $borderRadius;
+              border-bottom-left-radius: 0;
+            }
+
+            &.btn-secondary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: $borderRadius;
+            }
           }
 
-          &.btn-secondary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: $borderRadius;
+          &.applicationComplete {
+          }
+        }
+
+        .btn-group {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          .btn {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            justify-content: center;
+            margin-bottom: 0;
+            margin-left: 0;
+            text-transform: capitalize;
+
+            &.btn-primary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: $borderRadius;
+              border-bottom-left-radius: 0;
+            }
+
+            &.btn-secondary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: $borderRadius;
+            }
+          }
+        }
+      }
+
+      .card-header {
+        a {
+          font-size: 2rem;
+          display: flex;
+          position: absolute;
+          flex-direction: row-reverse;
+          right: 16px;
+          top: 0;
+        }
+
+        h4 {
+          text-align: center;
+          font-size: $fontSizeHeader;
+          font-family: $serif;
+        }
+      }
+
+      form {
+        overflow: hidden;
+
+        .card-block {
+          overflow-x: hidden;
+          overflow-y: auto;
+          padding: $padding $padding * 1.5 $padding;
+          border-top-left-radius: $borderRadius;
+          border-top-right-radius: $borderRadius;
+          background-color: $white;
+
+          @include forDatePicker {
+            flex-grow: 1;
+            flex-shrink: 1;
+          }
+
+          @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
+
+          .flex-form {
+            display: flex;
+            flex-direction: row;
+
+            .form-group {
+              margin-right: 1rem;
+
+              select {
+                height: 1.5rem;
+                border-width: 0;
+                color: $navy;
+                font-size: $fontSizeBody;
+                background-color: $extraLightGrey;
+              }
+            }
+            &:last-of-type {
+              margin-right: 0;
+            }
+          }
+        }
+
+        .form-group {
+          &.type-ahead {
+            z-index: 100;
+            overflow: visible;
+
+            .react-select__menu-list {
+              max-height: 35vh;
+            }
+          }
+
+          &.order {
+            &.select {
+              border-bottom: 1px solid $navy;
+              background-color: $extraLightGrey;
+              label {
+                position: relative;
+                margin-bottom: 0;
+              }
+
+              select {
+                height: 1rem;
+                border-width: 0;
+                color: $navy;
+                font-size: $fontSizeBody;
+              }
+            }
+          }
+        }
+      }
+
+      .card-footer {
+        .btn-group {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          .btn {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            justify-content: center;
+            margin-bottom: 0;
+            margin-left: 0;
+            text-transform: capitalize;
+
+            &.btn-primary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: $borderRadius;
+              border-bottom-left-radius: 0;
+            }
+
+            &.btn-secondary {
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: $borderRadius;
+            }
           }
         }
       }
@@ -1040,11 +1029,11 @@ footer {
 }
 
 .title {
-  margin-bottom: 1rem;
   color: $navy;
   font-weight: $bold;
   font-size: $fontSizeHeader;
   font-family: $serif;
+  margin-bottom: 1rem;
 }
 
 .form-footer {
@@ -1383,10 +1372,10 @@ section {
 }
 
 .view-grid {
-  > * {
-    padding: $padding;
-    width: 100%;
-  }
+  //> * {
+  //padding-top: $padding;
+  //width: 100%;
+  //}
 
   .fa {
     font-size: $fontSizeSubheader--small;
@@ -1404,7 +1393,6 @@ section {
     display: flex;
 
     > * {
-      //padding: $padding 0;
     }
   }
 }
