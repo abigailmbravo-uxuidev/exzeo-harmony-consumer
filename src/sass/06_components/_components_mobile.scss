@@ -239,7 +239,23 @@
       //biling specific styling
       &.billing {
         ul {
+          margin-bottom: 0;
           li {
+            div {
+              &.billingCheckBox {
+                span {
+                  display: none;
+                }
+                .card {
+                  margin: 0 0 1rem 0;
+                  padding: 0;
+
+                  &:last-of-type {
+                    margin-right: 0;
+                  }
+                }
+              }
+            }
             .card {
               padding: 0 $padding;
 
@@ -263,6 +279,7 @@
                   margin: 0 1rem 1rem 1rem;
                   min-height: auto;
                   width: auto;
+                  padding: 0;
 
                   .container {
                     position: absolute;
@@ -526,6 +543,11 @@
         //results modal styling
         .modal {
           .card {
+            .card-header {
+              h4 {
+              }
+            }
+
             .card-footer {
               button {
               }
@@ -545,11 +567,6 @@
                   span {
                   }
                 }
-              }
-            }
-
-            .card-header {
-              h4 {
               }
             }
           }
@@ -904,6 +921,13 @@
           height: 100%;
           border-radius: 0;
           width: 100%;
+
+          &.policyholderModal {
+            p {
+              left: 0;
+              padding: $padding;
+            }
+          }
 
           form {
             .card-footer {
