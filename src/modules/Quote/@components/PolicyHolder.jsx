@@ -79,6 +79,7 @@ const PolicyHolder = ({ initialValues, config, customHandlers }) => {
             setModal({ show: true, ph: initialValues.policyHolders.length })
           }
         >
+          <span>Add Policyholder</span>
           <FontAwesomeIcon icon="plus" />
         </Button>
       </div>
