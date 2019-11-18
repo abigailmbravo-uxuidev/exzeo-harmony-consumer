@@ -94,6 +94,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}
+                data-test="save-and-quit"
               >
                 Save & Continue Later
               </Link>

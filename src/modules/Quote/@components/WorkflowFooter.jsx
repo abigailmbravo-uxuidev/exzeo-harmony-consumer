@@ -36,12 +36,14 @@ const WorkflowFooter = ({ recalc, workflowPage, history }) => {
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}
+                data-test="save-and-quit"
               >
                 Save & Continue Later
               </Link>
               <Link
                 to="additionalInfo"
                 className={Button.constants.classNames.primary}
+                data-test="continue"
               >
                 Continue to Purchase
               </Link>

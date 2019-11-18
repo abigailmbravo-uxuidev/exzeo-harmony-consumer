@@ -55,7 +55,7 @@ const AddressSearch = ({ location, match }) => {
               <p>Let’s get your quote started by looking for your address.</p>
             </div>
 
-            <section className="results">
+            <section className="results" data-test="search-results">
               {loading && <SectionLoader />}
 
               {searchState.hasSearched &&

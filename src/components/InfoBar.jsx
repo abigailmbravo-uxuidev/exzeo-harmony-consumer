@@ -5,7 +5,10 @@ import { format } from '@exzeo/core-ui';
 const InfoBar = ({ initialValues, config = {} }) => {
   const { totalPremium } = initialValues.rating || {};
   return (
-    <div className={classNames('infoBar', { className: config.className })}>
+    <div
+      className={classNames('infoBar', { className: config.className })}
+      data-test="detail-header"
+    >
       <h2>
         Premium:&nbsp;
         <strong>
