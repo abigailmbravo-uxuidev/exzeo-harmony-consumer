@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink, Link } from 'react-router-dom';
@@ -21,6 +21,12 @@ const Navigation = ({ location, match }) => {
     [workflowPage, quote.underwritingExceptions]
   );
 
+  useEffect(() => {
+    if (navOpen && (hasError || hasException || error)) {
+      setNavOpen(false);
+    }
+  }, [navOpen, hasError, hasException, error]);
+
   const isRouteActive = linkOrder => () => {
     return linkOrder === locationOrder;
   };
@@ -29,8 +35,7 @@ const Navigation = ({ location, match }) => {
     <React.Fragment>
       <button
         className={classNames('navOpener', {
-          hasUnderwritingException: hasException,
-          hide: hasError || error
+          hide: hasError || hasException || error
         })}
         onClick={() => setNavOpen(state => !state)}
       >

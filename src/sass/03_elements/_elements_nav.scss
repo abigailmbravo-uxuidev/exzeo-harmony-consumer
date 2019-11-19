@@ -329,7 +329,6 @@ nav[role='navigation'] {
     }
   }
 
-  &.hasUnderwritingError,
   &.hide {
     .propertyAddressWrapper {
       display: none;
@@ -338,30 +337,6 @@ nav[role='navigation'] {
     }
     > ul {
       display: none;
-    }
-  }
-
-  &.hasUnderwritingException {
-    opacity: 0.4;
-
-    @include forPhoneOnly {
-      opacity: 1;
-    }
-    > ul {
-      a {
-        &.active {
-          h3 {
-            color: $lightGrey;
-          }
-          span {
-            background-color: $lightGrey;
-          }
-          p {
-            border-color: $lightGrey;
-            color: $lightGrey;
-          }
-        }
-      }
     }
   }
 }
