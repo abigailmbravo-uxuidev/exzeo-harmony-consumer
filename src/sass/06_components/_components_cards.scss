@@ -319,6 +319,19 @@
         background-color: transparent;
       }
     }
+    &.Details {
+      &.error {
+        .card-header {
+          h3 {
+            color: $red;
+          }
+        }
+        span {
+          color: $red;
+          padding: 0 0 $padding $padding;
+        }
+      }
+    }
   }
 }
 
