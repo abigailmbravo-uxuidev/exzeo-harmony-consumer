@@ -14,7 +14,7 @@ import { useAddressSearch } from '../hooks';
 import AddressNoResults from './AddressNoResults';
 import AddressResults from './AddressResults';
 
-const AddressSearch = ({ location, match }) => {
+const AddressSearch = () => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
 
   return (
