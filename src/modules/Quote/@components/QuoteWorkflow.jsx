@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Prompt } from 'react-router-dom';
 import {
   Gandalf,
   getConfigForJsonTransform,
@@ -87,7 +88,7 @@ const QuoteWorkflow = ({ history, match }) => {
         return;
       }
 
-      history.push(WORKFLOW_ROUTING[match.params.step]);
+      history.replace(WORKFLOW_ROUTING[match.params.step]);
     } catch (error) {
       throw error;
     }
