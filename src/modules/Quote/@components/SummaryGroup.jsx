@@ -1,12 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useField, validation } from '@exzeo/core-ui';
+import { useField } from '@exzeo/core-ui';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const requireConfirmation = value =>
+  value === true || value === 'true' ? undefined : 'Field Required';
+
 export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
   const confirmField = useField(name, {
-    validate: validation.isRequired
+    validate: requireConfirmation
   });
 
   const confirmFieldError =
