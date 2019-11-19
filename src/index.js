@@ -6,6 +6,7 @@ import 'core-js/features/object/values';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { http } from '@exzeo/core-ui';
 
 import App from './App';
@@ -16,7 +17,12 @@ import './sass/main.scss';
 
 http.defaults.headers.common['authorization'] = 'Bearer consumer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

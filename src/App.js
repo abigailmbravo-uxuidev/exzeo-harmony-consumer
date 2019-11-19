@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
 
 import { ROUTES } from 'constants/navigation';
@@ -18,8 +13,16 @@ import RouteErrorBoundary from 'components/RouteErrorBoundary';
 import ThankYou from 'components/ThankYou';
 
 const App = () => {
+  const viewGridRef = React.createRef();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    viewGridRef.current.scrollIntoView(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
   return (
-    <Router>
+    <React.Fragment>
       <Header />
       <div role="region">
         <RouteErrorBoundary>
@@ -43,7 +46,7 @@ const App = () => {
             </Switch>
 
             <main role="main">
-              <div className="view-grid">
+              <div className="view-grid" ref={viewGridRef}>
                 <Route
                   exact
                   path={ROUTES.retrieveQuote.path}
@@ -75,7 +78,7 @@ const App = () => {
           </QuoteContextProvider>
         </RouteErrorBoundary>
       </div>
-    </Router>
+    </React.Fragment>
   );
 };
 

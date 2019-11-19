@@ -118,6 +118,7 @@ const QuoteWorkflow = ({ history, match }) => {
         transformConfig={transformConfig}
         options={EMPTY_OBJ}
         customHandlers={customHandlers}
+        useRefToScroll={false}
         renderFooter={
           <WorkflowFooter
             history={history}
