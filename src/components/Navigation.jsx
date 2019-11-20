@@ -101,7 +101,9 @@ const Navigation = ({ location, match }) => {
             })}
           >
             {location.pathname === '/thankyou' ? (
-              <Link to={ROUTES.searchAddress.path}>
+              <Link
+                to={`/${match.params.state}/${match.params.product}/searchAddress`}
+              >
                 <h3>{ROUTES.searchAddress.label}</h3>
                 <span />
                 <p />
@@ -131,7 +133,7 @@ const Navigation = ({ location, match }) => {
               to={
                 locationOrder < ROUTES.additionalInfo.order
                   ? '#'
-                  : `/quote/${match.params.quoteNumber}/underwriting`
+                  : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/underwriting`
               }
             >
               <h3>Quote</h3>
@@ -145,7 +147,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.underwriting.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/underwriting`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/underwriting`
                   }
                   isActive={isRouteActive(ROUTES.underwriting.order)}
                   className={classNames({
@@ -171,7 +173,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.customize.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/customize`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/customize`
                   }
                   isActive={isRouteActive(ROUTES.customize.order)}
                   className={classNames({
@@ -192,7 +194,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.save.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/save`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/save`
                   }
                   isActive={isRouteActive(ROUTES.save.order)}
                   className={classNames({
@@ -213,7 +215,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.share.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/share`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/share`
                   }
                   isActive={isRouteActive(ROUTES.share.order)}
                   className={classNames({
@@ -250,7 +252,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.additionalInfo.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/additionalInfo`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/additionalInfo`
                   }
                   isActive={isRouteActive(ROUTES.additionalInfo.order)}
                   className={classNames({
@@ -276,7 +278,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.policyholder.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/policyholder`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/policyholder`
                   }
                   isActive={isRouteActive(ROUTES.policyholder.order)}
                   className={classNames({
@@ -301,7 +303,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.billing.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/billing`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/billing`
                   }
                   isActive={isRouteActive(ROUTES.billing.order)}
                   className={classNames({
@@ -322,7 +324,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.summary.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/summary`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/summary`
                   }
                   isActive={isRouteActive(ROUTES.summary.order)}
                   className={classNames({
@@ -343,7 +345,7 @@ const Navigation = ({ location, match }) => {
                   to={
                     locationOrder < ROUTES.complete.order
                       ? '#'
-                      : `/quote/${match.params.quoteNumber}/complete`
+                      : `/${match.params.state}/${match.params.product}/quote/${match.params.quoteNumber}/complete`
                   }
                   isActive={isRouteActive(ROUTES.complete.order)}
                   className={classNames({
