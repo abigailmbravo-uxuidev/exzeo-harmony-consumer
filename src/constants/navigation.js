@@ -1,21 +1,29 @@
+export const CSP_CONTEXT_PARAMS = '/:state/:product';
+
 export const ROUTES = {
-  workflow: {
-    key: 'workflow',
-    path: '/quote/:quoteNumber/:step',
-    order: null,
-    label: null
-  },
   retrieveQuote: {
     key: 'retrieve',
-    path: '/retrieveQuote',
+    path: `${CSP_CONTEXT_PARAMS}/retrieveQuote`,
     order: 0,
     label: 'Retrieve'
   },
   searchAddress: {
     key: 'search',
-    path: '/searchAddress',
+    path: `${CSP_CONTEXT_PARAMS}/searchAddress`,
     order: 1,
     label: 'Search'
+  },
+  thankYou: {
+    key: 'thankYou',
+    path: `${CSP_CONTEXT_PARAMS}/thankYou`,
+    order: null,
+    label: null
+  },
+  workflow: {
+    key: 'workflow',
+    path: `${CSP_CONTEXT_PARAMS}/quote/:quoteNumber/:step`,
+    order: null,
+    label: null
   },
   underwriting: {
     key: 'underwriting',

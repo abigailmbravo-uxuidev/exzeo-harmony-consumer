@@ -5,7 +5,7 @@ context('Create new quote', () => {
   beforeEach('Set Route Aliases', () => setRouteAliases());
 
   it('Should create new quote with known address', () => {
-    cy.visit('/')
+    cy.visit('/FL/Flood')
       .findDataTag('address')
       .type(AF3_QUOTE.search_query)
       .clickSubmit();

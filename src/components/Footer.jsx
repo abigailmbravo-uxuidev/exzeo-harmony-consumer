@@ -10,11 +10,11 @@ const QuoteSearchFooter = () => {
       </label>
       <div id="startOverRetrieve">
         <span>
-          <Link to="/searchAddress">New Quote</Link>
+          <Link to="searchAddress">New Quote</Link>
         </span>
         &nbsp;|&nbsp;
         <span>
-          <Link to="/retrieveQuote">Retrieve Quote</Link>
+          <Link to="retrieveQuote">Retrieve Quote</Link>
         </span>
       </div>
     </footer>

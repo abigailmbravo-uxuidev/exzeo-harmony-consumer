@@ -6,7 +6,7 @@ import 'core-js/features/object/values';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { http } from '@exzeo/core-ui';
 
 import App from './App';
@@ -19,7 +19,7 @@ http.defaults.headers.common['authorization'] = 'Bearer consumer';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <Route path="/:state/:product" component={App} />
   </Router>,
   document.getElementById('root')
 );

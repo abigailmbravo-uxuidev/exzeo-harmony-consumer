@@ -5,7 +5,7 @@ context('Search Address', () => {
   beforeEach('Set Route Aliases', () => setRouteAliases());
 
   it('Should return known test address successfully', () => {
-    cy.visit('/');
+    cy.visit('/FL/Flood');
     // we expect the index route to redirect to 'search'
     cy.url().should('include', '/searchAddress');
     cy.findDataTag('address')
@@ -20,7 +20,7 @@ context('Search Address', () => {
   });
 
   it('Should display message when address not found', () => {
-    cy.visit('/')
+    cy.visit('/FL/Flood')
       .findDataTag('address')
       .type(UNKNOWN_ADDRESS)
       .clickSubmit();
