@@ -33,7 +33,7 @@ const initialState = {
   invalidQuoteState: false
 };
 
-const QuoteSearch = () => {
+const QuoteSearch = ({ match }) => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const { quote, setQuote } = useQuote();
@@ -228,7 +228,7 @@ const QuoteSearch = () => {
                       </div>
                       <div className="card-footer">
                         <Link
-                          to="/searchAddress"
+                          to={`/${match.params.state}/${match.params.product}/searchAddress`}
                           className={Button.constants.classNames.secondary}
                         >
                           Start New Quote
@@ -270,7 +270,7 @@ const QuoteSearch = () => {
                           Try Again
                         </Button>
                         <Link
-                          to="/searchAddress"
+                          to={`/${match.params.state}/${match.params.product}/searchAddress`}
                           className={Button.constants.classNames.primary}
                         >
                           Start New Quote
@@ -283,7 +283,7 @@ const QuoteSearch = () => {
                     !searchState.invalidQuoteState &&
                     quote.quoteNumber && (
                       <Redirect
-                        to={`/quote/${quote.quoteNumber}/underwriting`}
+                        to={`/${match.params.state}/${match.params.product}/quote/${quote.quoteNumber}/underwriting`}
                       />
                     )}
                 </React.Fragment>

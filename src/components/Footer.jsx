@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const QuoteSearchFooter = () => {
+const QuoteSearchFooter = ({ match }) => {
   return (
     <footer className="navFooter">
       <hr />
@@ -10,11 +10,19 @@ const QuoteSearchFooter = () => {
       </label>
       <div id="startOverRetrieve">
         <span>
-          <Link to="searchAddress">New Quote</Link>
+          <Link
+            to={`/${match.params.state}/${match.params.product}/searchAddress`}
+          >
+            New Quote
+          </Link>
         </span>
         &nbsp;|&nbsp;
         <span>
-          <Link to="retrieveQuote">Retrieve Quote</Link>
+          <Link
+            to={`/${match.params.state}/${match.params.product}/retrieveQuote`}
+          >
+            Retrieve Quote
+          </Link>
         </span>
       </div>
     </footer>

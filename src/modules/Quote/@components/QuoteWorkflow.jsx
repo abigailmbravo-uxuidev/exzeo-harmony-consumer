@@ -122,6 +122,7 @@ const QuoteWorkflow = ({ history, match }) => {
         useRefToScroll={false}
         renderFooter={
           <WorkflowFooter
+            match={match}
             history={history}
             recalc={recalc}
             workflowPage={workflowPage}

@@ -17,7 +17,8 @@ import {
 } from '@exzeo/core-ui/src/@Harmony';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { BOOL_OPTIONS } from '../../../constants/input';
+import { BOOL_OPTIONS } from 'constants/input';
+import { ROUTES, WORKFLOW_ROUTING } from 'constants/navigation';
 
 function setInitialValues(groupedAI) {
   return {
@@ -36,19 +37,13 @@ const INITIAL_STATE = {
 };
 
 // TODO modify this component to accept a config from the CSP template to determine questions, order, and other behavior
-const AdditionalInterests = ({
-  config,
-  initialValues,
-  customHandlers,
-  formInstance
-}) => {
+const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
   const [modal, setModal] = useState(INITIAL_STATE);
   const {
     groupedAdditionalInterests: groupedAIs,
     update,
     remove,
     options
-    // loaded
   } = useAdditionalInterests(initialValues);
 
   async function submitAdditionalInterest(additionalInterest, aiFormInstance) {
@@ -412,7 +407,9 @@ const AdditionalInterests = ({
             <div className="form-footer">
               <Link
                 className={Button.constants.classNames.primary}
-                to={invalid ? '#' : 'policyholder'}
+                to={
+                  invalid ? '#' : WORKFLOW_ROUTING[ROUTES.additionalInfo.path]
+                }
                 disabled={invalid}
               >
                 Continue

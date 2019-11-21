@@ -71,7 +71,7 @@ const App = ({ location, match, history }) => {
                   render={routeProps => <ThankYou {...routeProps} />}
                 />
 
-                <Footer />
+                <Footer match={match} />
                 <AppFooter />
               </div>
             </main>

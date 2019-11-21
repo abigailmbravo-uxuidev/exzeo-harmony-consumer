@@ -7,7 +7,7 @@ import { useQuote } from 'modules/Quote';
 
 import AddressCard from './AddressCard';
 
-const AddressResults = ({ results, companyCode, product }) => {
+const AddressResults = ({ results, companyCode, product, match }) => {
   const { quote, loading, createQuote } = useQuote();
 
   async function handleClick(address) {
@@ -19,7 +19,11 @@ const AddressResults = ({ results, companyCode, product }) => {
   }
 
   if (quote.quoteNumber) {
-    return <Redirect to={`quote/${quote.quoteNumber}/underwriting`} />;
+    return (
+      <Redirect
+        to={`/${match.params.state}/${match.params.product}/quote/${quote.quoteNumber}/underwriting`}
+      />
+    );
   }
 
   return (

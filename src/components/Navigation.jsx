@@ -83,7 +83,9 @@ const Navigation = ({ location, match }) => {
           <li
             key={ROUTES.retrieveQuote.key}
             className={classNames({
-              hide: location.pathname !== ROUTES.retrieveQuote.path
+              hide:
+                location.pathname !==
+                `/${match.params.state}/${match.params.product}/retrieveQuote`
             })}
           >
             <h3>{ROUTES.retrieveQuote.label}</h3>
@@ -97,10 +99,13 @@ const Navigation = ({ location, match }) => {
             key={ROUTES.searchAddress.key}
             className={classNames({
               hide: location.pathname !== ROUTES.searchAddress.path,
-              complete: location.pathname === '/thankyou'
+              complete:
+                location.pathname ===
+                `/${match.params.state}/${match.params.product}/thankYou`
             })}
           >
-            {location.pathname === '/thankyou' ? (
+            {location.pathname ===
+            `/${match.params.state}/${match.params.product}/thankYou` ? (
               <Link
                 to={`/${match.params.state}/${match.params.product}/searchAddress`}
               >
@@ -123,9 +128,12 @@ const Navigation = ({ location, match }) => {
             key="quote"
             className={classNames({
               disabled:
-                location.pathname === '/searchAddress' ||
-                location.pathname === '/retrieveQuote' ||
-                location.pathname === '/thankYou',
+                location.pathname ===
+                  `/${match.params.state}/${match.params.product}/searchAddress` ||
+                location.pathname ===
+                  `/${match.params.state}/${match.params.product}/retrieveQuote` ||
+                location.pathname ===
+                  `/${match.params.state}/${match.params.product}/thankYou`,
               complete: locationOrder >= ROUTES.additionalInfo.order
             })}
           >
