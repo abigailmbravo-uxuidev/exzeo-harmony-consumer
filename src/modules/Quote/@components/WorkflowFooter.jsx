@@ -33,7 +33,7 @@ const WorkflowFooter = ({ recalc, workflowPage, history, match }) => {
               <Link
                 key="secondary"
                 to={{
-                  pathname: `${match.params.state}/${match.params.product}/thankYou`,
+                  pathname: `/${match.params.state}/${match.params.product}/thankYou`,
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}

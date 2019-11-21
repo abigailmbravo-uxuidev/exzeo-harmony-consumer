@@ -90,7 +90,7 @@ const SummaryFooter = ({ formInstance, values, history, match }) => {
             <div className="card-footer applicationComplete">
               <Link
                 to={{
-                  pathname: `${match.params.state}/${match.params.product}/thankYou`,
+                  pathname: `/${match.params.state}/${match.params.product}/thankYou`,
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}
