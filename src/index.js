@@ -6,7 +6,7 @@ import 'core-js/features/object/values';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { http } from '@exzeo/core-ui';
 
 import App from './App';
@@ -17,9 +17,24 @@ import './sass/main.scss';
 
 http.defaults.headers.common['authorization'] = 'Bearer consumer';
 
+const Landing = () => {
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to="/fl/flood">Get Flood Quote</Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
 ReactDOM.render(
   <Router>
-    <Route path="/:state/:product" component={App} />
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route path="/:state/:product" component={App} />
+    </Switch>
   </Router>,
   document.getElementById('root')
 );
