@@ -19,7 +19,7 @@ http.defaults.headers.common['authorization'] = 'Bearer consumer';
 
 const Landing = () => {
   return (
-    <div>
+    <div className="landingPage">
       <ul>
         <li>
           <Link to="/fl/flood">Get Flood Quote</Link>
