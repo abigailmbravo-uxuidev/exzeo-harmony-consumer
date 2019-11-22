@@ -17,6 +17,7 @@ import './sass/main.scss';
 
 http.defaults.headers.common['authorization'] = 'Bearer consumer';
 
+// TODO this is temporary and for development purposes
 const Landing = () => {
   return (
     <div className="landingPage">
