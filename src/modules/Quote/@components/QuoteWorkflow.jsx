@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-// import { Prompt } from 'react-router-dom';
+import { Prompt } from 'react-router-dom';
 import {
   Gandalf,
   getConfigForJsonTransform,
@@ -131,13 +131,21 @@ const QuoteWorkflow = ({ history, match }) => {
         formListeners={
           <FormSpy subscription={{ dirty: true }}>
             {({ dirty }) => (
-              <TriggerRecalc
-                dirty={dirty}
-                isRecalc={recalc}
-                setRecalc={setRecalc}
-                workflowPage={workflowPage}
-                recalcPage={ROUTES.customize.workflowPage}
-              />
+              <React.Fragment>
+                <TriggerRecalc
+                  dirty={dirty}
+                  isRecalc={recalc}
+                  setRecalc={setRecalc}
+                  workflowPage={workflowPage}
+                  recalcPage={ROUTES.customize.workflowPage}
+                />
+                <Prompt
+                  when={dirty}
+                  message={location =>
+                    'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.'
+                  }
+                />
+              </React.Fragment>
             )}
           </FormSpy>
         }

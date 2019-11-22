@@ -21,6 +21,7 @@ const AddressResults = ({ results, companyCode, product, match }) => {
   if (quote.quoteNumber) {
     return (
       <Redirect
+        push
         to={`/${match.params.state}/${match.params.product}/quote/${quote.quoteNumber}/underwriting`}
       />
     );
