@@ -13,18 +13,12 @@ import {
 } from '@exzeo/core-ui';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
+import { ROUTES } from 'constants/navigation';
+import { VALID_QUOTE_STATES } from 'constants/quote';
 import { useQuote } from 'modules/Quote';
 import ContactPhoneAnchor from 'components/ContactPhoneAnchor';
 import ContactEmailAnchor from 'components/ContactEmailAnchor';
 import TypTapLink from 'components/TypTapLink';
-
-export const VALID_QUOTE_STATES = [
-  'Quote Started',
-  'Quote Qualified',
-  'Application Started',
-  'Application Ready',
-  'Quote Stopped'
-];
 
 const initialState = {
   hasSearched: false,
@@ -33,7 +27,7 @@ const initialState = {
   invalidQuoteState: false
 };
 
-const QuoteSearch = ({ match }) => {
+const QuoteSearch = ({ cspMatch }) => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const { quote, setQuote } = useQuote();
@@ -228,7 +222,7 @@ const QuoteSearch = ({ match }) => {
                       </div>
                       <div className="card-footer">
                         <Link
-                          to={`/${match.params.state}/${match.params.product}/searchAddress`}
+                          to={`${cspMatch}/searchAddress`}
                           className={Button.constants.classNames.secondary}
                         >
                           Start New Quote
@@ -270,7 +264,7 @@ const QuoteSearch = ({ match }) => {
                           Try Again
                         </Button>
                         <Link
-                          to={`/${match.params.state}/${match.params.product}/searchAddress`}
+                          to={`${cspMatch}/searchAddress`}
                           className={Button.constants.classNames.primary}
                         >
                           Start New Quote
@@ -283,7 +277,7 @@ const QuoteSearch = ({ match }) => {
                     !searchState.invalidQuoteState &&
                     quote.quoteNumber && (
                       <Redirect
-                        to={`/${match.params.state}/${match.params.product}/quote/${quote.quoteNumber}/underwriting`}
+                        to={`${cspMatch}/quote/${quote.quoteNumber}/${ROUTES.underwriting.path}`}
                       />
                     )}
                 </React.Fragment>

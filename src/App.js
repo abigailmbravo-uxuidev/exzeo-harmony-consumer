@@ -14,6 +14,7 @@ import ThankYou from 'components/ThankYou';
 
 const App = ({ location, match, history }) => {
   const viewGridRef = React.createRef();
+  const cspMatch = match.url;
 
   React.useEffect(() => {
     viewGridRef.current.scrollIntoView(true);
@@ -22,7 +23,7 @@ const App = ({ location, match, history }) => {
 
   return (
     <React.Fragment>
-      <Header match={match} location={location} history={history} />
+      <Header cspMatch={cspMatch} location={location} history={history} />
       <div role="region">
         <RouteErrorBoundary>
           <QuoteContextProvider>
@@ -30,7 +31,7 @@ const App = ({ location, match, history }) => {
               <Route
                 exact
                 path={CSP_CONTEXT_PARAMS}
-                render={() => <Redirect to={`${match.url}/searchAddress`} />}
+                render={() => <Redirect to={`${cspMatch}/searchAddress`} />}
               />
 
               {/* TODO look for better pattern - these varying paths mean that different 'match params' may be available/unavailable to the nav component depending on location */}
@@ -42,7 +43,9 @@ const App = ({ location, match, history }) => {
                   ROUTES.workflow.path,
                   ROUTES.thankYou.path
                 ]}
-                render={routeProps => <Navigation {...routeProps} />}
+                render={routeProps => (
+                  <Navigation {...routeProps} cspMatch={cspMatch} />
+                )}
               />
             </Switch>
 
@@ -51,18 +54,24 @@ const App = ({ location, match, history }) => {
                 <Route
                   exact
                   path={ROUTES.retrieveQuote.path}
-                  render={routeProps => <QuoteSearch {...routeProps} />}
+                  render={routeProps => (
+                    <QuoteSearch {...routeProps} cspMatch={cspMatch} />
+                  )}
                 />
 
                 <Route
                   exact
                   path={ROUTES.searchAddress.path}
-                  render={routeProps => <AddressSearch {...routeProps} />}
+                  render={routeProps => (
+                    <AddressSearch {...routeProps} cspMatch={cspMatch} />
+                  )}
                 />
 
                 <Route
                   path={ROUTES.workflow.path}
-                  render={routeProps => <QuoteWorkflow {...routeProps} />}
+                  render={routeProps => (
+                    <QuoteWorkflow {...routeProps} cspMatch={cspMatch} />
+                  )}
                 />
 
                 <Route
@@ -71,7 +80,7 @@ const App = ({ location, match, history }) => {
                   render={routeProps => <ThankYou {...routeProps} />}
                 />
 
-                <Footer match={match} />
+                <Footer cspMatch={cspMatch} />
                 <AppFooter />
               </div>
             </main>

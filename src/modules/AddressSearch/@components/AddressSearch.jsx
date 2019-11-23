@@ -14,7 +14,7 @@ import { useAddressSearch } from '../hooks';
 import AddressNoResults from './AddressNoResults';
 import AddressResults from './AddressResults';
 
-const AddressSearch = ({ match }) => {
+const AddressSearch = ({ cspMatch }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
 
   return (
@@ -63,7 +63,7 @@ const AddressSearch = ({ match }) => {
                   <AddressNoResults />
                 ) : (
                   <AddressResults
-                    match={match}
+                    cspMatch={cspMatch}
                     results={searchState.results}
                     companyCode={'TTIC'}
                     product={'AF3'}

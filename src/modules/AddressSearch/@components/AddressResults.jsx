@@ -7,7 +7,7 @@ import { useQuote } from 'modules/Quote';
 
 import AddressCard from './AddressCard';
 
-const AddressResults = ({ results, companyCode, product, match }) => {
+const AddressResults = ({ results, companyCode, product, cspMatch }) => {
   const { quote, loading, createQuote } = useQuote();
 
   async function handleClick(address) {
@@ -22,7 +22,7 @@ const AddressResults = ({ results, companyCode, product, match }) => {
     return (
       <Redirect
         push
-        to={`/${match.params.state}/${match.params.product}/quote/${quote.quoteNumber}/underwriting`}
+        to={`${cspMatch}/quote/${quote.quoteNumber}/underwriting`}
       />
     );
   }

@@ -4,7 +4,7 @@ import { ROUTES } from 'constants/navigation';
 import { Link } from 'react-router-dom';
 import SummaryFooter from './SummaryFooter';
 
-const WorkflowFooter = ({ recalc, workflowPage, history, match }) => {
+const WorkflowFooter = ({ recalc, workflowPage, history, cspMatch }) => {
   if (
     workflowPage === ROUTES.additionalInfo.workflowPage ||
     workflowPage === ROUTES.complete.workflowPage
@@ -18,7 +18,7 @@ const WorkflowFooter = ({ recalc, workflowPage, history, match }) => {
         if (workflowPage === ROUTES.summary.workflowPage) {
           return (
             <SummaryFooter
-              match={match}
+              cspMatch={cspMatch}
               history={history}
               submitting={submitting}
               formInstance={form}
@@ -33,7 +33,7 @@ const WorkflowFooter = ({ recalc, workflowPage, history, match }) => {
               <Link
                 key="secondary"
                 to={{
-                  pathname: `/${match.params.state}/${match.params.product}/thankYou`,
+                  pathname: `${cspMatch}/thankYou`,
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}

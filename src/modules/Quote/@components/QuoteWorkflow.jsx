@@ -52,7 +52,7 @@ const CUSTOM_COMPONENTS = {
   $COVERAGE_WATCHER_AF3: PersonalPropertyCoverageWatcher
 };
 
-const QuoteWorkflow = ({ history, match }) => {
+const QuoteWorkflow = ({ history, match, cspMatch }) => {
   const [recalc, setRecalc] = useState(false);
   const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
@@ -122,7 +122,7 @@ const QuoteWorkflow = ({ history, match }) => {
         useRefToScroll={false}
         renderFooter={
           <WorkflowFooter
-            match={match}
+            cspMatch={cspMatch}
             history={history}
             recalc={recalc}
             workflowPage={workflowPage}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const QuoteSearchFooter = ({ match }) => {
+const QuoteSearchFooter = ({ cspMatch }) => {
   return (
     <footer className="navFooter">
       <hr />
@@ -10,19 +10,11 @@ const QuoteSearchFooter = ({ match }) => {
       </label>
       <div id="startOverRetrieve">
         <span>
-          <Link
-            to={`/${match.params.state}/${match.params.product}/searchAddress`}
-          >
-            New Quote
-          </Link>
+          <Link to={`${cspMatch}/searchAddress`}>New Quote</Link>
         </span>
         &nbsp;|&nbsp;
         <span>
-          <Link
-            to={`/${match.params.state}/${match.params.product}/retrieveQuote`}
-          >
-            Retrieve Quote
-          </Link>
+          <Link to={`${cspMatch}/retrieveQuote`}>Retrieve Quote</Link>
         </span>
       </div>
     </footer>

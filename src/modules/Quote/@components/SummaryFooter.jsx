@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const companyName = 'TypTap';
 const productDescription = 'Flood';
 
-const SummaryFooter = ({ formInstance, values, history, match }) => {
+const SummaryFooter = ({ formInstance, values, history, match, cspMatch }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { sendApplication, quote } = useQuote();
   const { agent } = useAgentInfo(values.agentCode);
@@ -90,7 +90,7 @@ const SummaryFooter = ({ formInstance, values, history, match }) => {
             <div className="card-footer applicationComplete">
               <Link
                 to={{
-                  pathname: `/${match.params.state}/${match.params.product}/thankYou`,
+                  pathname: `${cspMatch}/thankYou`,
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}
