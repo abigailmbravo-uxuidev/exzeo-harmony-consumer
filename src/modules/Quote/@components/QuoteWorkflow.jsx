@@ -140,10 +140,13 @@ const QuoteWorkflow = ({ history, match }) => {
                   recalcPage={ROUTES.customize.workflowPage}
                 />
                 <Prompt
-                  when={dirty}
-                  message={location =>
-                    'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.'
-                  }
+                  when={true}
+                  message={(location, action) => {
+                    if (dirty || action === 'POP') {
+                      return 'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.';
+                    }
+                    return true;
+                  }}
                 />
               </React.Fragment>
             )}
