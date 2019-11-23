@@ -14,12 +14,13 @@ import ThankYou from 'components/ThankYou';
 
 const App = ({ location, match, history }) => {
   const viewGridRef = React.createRef();
-  const cspMatch = match.url;
+  // set the base url containing CSP info. Remove trailing slash ('/') if there
+  // is one because all subsequent urls are built assuming no trailing slash
+  const cspMatch = match.url.replace(/\/+$/, '');
 
   React.useEffect(() => {
     viewGridRef.current.scrollIntoView(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname]);
+  }, [viewGridRef, location.pathname]);
 
   return (
     <React.Fragment>
@@ -34,8 +35,11 @@ const App = ({ location, match, history }) => {
                 render={() => <Redirect to={`${cspMatch}/searchAddress`} />}
               />
 
-              {/* TODO look for better pattern - these varying paths mean that different 'match params' may be available/unavailable to the nav component depending on location */}
-              {/* Nav 'path' array must include all routes/patterns that we want Nav rendering (Navigation needs to know where we are :p) */}
+              {/* TODO: look for better pattern - these varying paths mean that
+                  different 'match params' may be available/unavailable to the
+                  nav component depending on location */}
+              {/* Nav 'path' array must include all routes/patterns that we want
+                  Nav rendering ( Navigation needs to know where we are :p ) */}
               <Route
                 path={[
                   ROUTES.searchAddress.path,
