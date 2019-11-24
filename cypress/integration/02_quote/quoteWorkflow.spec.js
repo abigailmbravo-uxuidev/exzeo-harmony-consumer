@@ -116,5 +116,23 @@ context('Create new quote', () => {
     });
 
     // Complete 'summary' page
+    cy.findDataTag('confirm')
+      .each($el => {
+        $el.click();
+        // there are currently 5 sections that the user must review and confirm
+      })
+      .findDataTag('confirmed')
+      .should('have.length', 5)
+      .clickSubmit('#harmony-quote');
+    cy.clickSubmit('.modal');
+    cy.wait('@verifyQuote').then(({ response }) => {
+      expect(response.body.result.quoteInputState).to.equal('Ready');
+    });
+    cy.wait('@sendApplication').then(({ response }) => {
+      expect(response.body.result.quoteInputState).to.equal('Ready');
+    });
+
+    // 'complete' page.
+    cy.findDataTag('quote-complete');
   });
 });

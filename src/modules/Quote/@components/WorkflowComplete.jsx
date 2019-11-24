@@ -6,7 +6,7 @@ import TypTapLink from 'components/TypTapLink';
 
 const ThankYou = () => {
   return (
-    <div className="card congratsCard">
+    <div className="card congratsCard" data-test="quote-complete">
       <Confetti />
       <section className="congratsCircle">
         <svg

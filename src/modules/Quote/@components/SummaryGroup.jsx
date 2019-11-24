@@ -25,6 +25,7 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
       {confirmField.input.value && (
         <div
           className="confirmedIndicator"
+          data-test="confirmed"
           onClick={() => confirmField.input.onChange(!confirmField.input.value)}
         >
           <div className="confirmedMessage">
@@ -44,6 +45,7 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
       {confirmFieldError && <span>Please confirm details to continue</span>}
       <div
         className="card-footer"
+        data-test="confirm"
         onClick={() => confirmField.input.onChange(!confirmField.input.value)}
       >
         <label>
