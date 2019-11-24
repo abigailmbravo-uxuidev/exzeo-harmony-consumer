@@ -7,5 +7,13 @@ export const setRouteAliases = () =>
     .as('createQuote')
     .route('POST', '/svc?quoteManager.updateQuote')
     .as('updateQuote')
+    .route('POST', '/svc?quoteManager.reviewQuote')
+    .as('reviewQuote')
+    .route('POST', '/svc?quoteManager.retrieveQuote')
+    .as('retrieveQuote')
+    .route('POST', '/svc?getBillingOptions')
+    .as('getBillingOptions')
     .route('POST', '/svc?UWQuestions')
-    .as('underwritingQuestions');
+    .as('underwritingQuestions')
+    .route('POST', 'questions')
+    .as('getQuestions');

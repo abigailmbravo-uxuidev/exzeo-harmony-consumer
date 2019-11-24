@@ -407,6 +407,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
             <div className="form-footer">
               <Link
                 className={Button.constants.classNames.primary}
+                data-test="submit"
                 to={
                   invalid ? '#' : WORKFLOW_ROUTING[ROUTES.additionalInfo.path]
                 }
