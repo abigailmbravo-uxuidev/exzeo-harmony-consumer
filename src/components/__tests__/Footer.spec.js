@@ -4,12 +4,7 @@ import Footer from 'components/Footer';
 
 describe('Test Footer component', () => {
   const props = {
-    match: {
-      params: {
-        state: 'westeros',
-        product: 'iron'
-      }
-    }
+    cspMatch: '/westeros/iron'
   };
 
   const { getByText } = renderWithRouter(<Footer {...props} />);
