@@ -4,18 +4,25 @@
       height: 100%;
 
       main[role='main'] {
+        //trying to solve issue on safari
+        position: relative;
+
         margin-top: 3rem;
       }
     }
   }
   .view-grid {
-    font-size: $fontSizeSubheader--small;
+    position: absolute;
+
     padding: $padding $padding 0 $padding;
 
+    font-size: $fontSizeSubheader--small;
+
     .title {
-      padding-top: $padding/4;
-      font-size: $fontSizeSubheader;
       margin-bottom: 0;
+      padding-top: $padding/4;
+
+      font-size: $fontSizeSubheader;
     }
 
     .fa {
@@ -23,8 +30,8 @@
     }
 
     > * {
-      padding: ($padding/4) $padding;
       width: 100%;
+      padding: ($padding/4) $padding;
     }
 
     //GENERAL STYLING
@@ -48,6 +55,7 @@
           position: absolute;
           top: -1.125rem;
           right: calc(50% - 30rem);
+
           width: 60rem;
 
           svg {
@@ -77,6 +85,7 @@
           top: -2rem;
           right: -22.5rem;
           left: -22.5rem;
+
           width: 64rem;
 
           svg {
@@ -90,9 +99,10 @@
         }
 
         .congratsCardFooter {
-          flex-direction: column;
-          font-size: 14px;
           align-items: center;
+          flex-direction: column;
+
+          font-size: 14px;
 
           a {
             color: $navy;
@@ -105,8 +115,9 @@
     .contactFooter {
       > div {
         flex-direction: column;
-        padding: ($padding / 4) 0;
+
         margin-bottom: 0;
+        padding: ($padding / 4) 0;
 
         a {
           padding-top: ($padding / 4);
@@ -116,8 +127,8 @@
           }
 
           &.btn {
-            margin-top: 0.5rem;
             width: 100%;
+            margin-top: 0.5rem;
           }
         }
       }
@@ -137,6 +148,7 @@
 
       &.navFooter {
         align-content: center;
+
         margin-bottom: 0;
         padding-bottom: 0;
 
@@ -158,8 +170,9 @@
     form {
       section {
         h3 {
-          font-size: $fontSizeBase;
           justify-content: flex-end;
+
+          font-size: $fontSizeBase;
         }
 
         button {
@@ -170,8 +183,8 @@
         .form-footer {
           margin-top: 0;
           .btn {
-            margin: 0.5rem 0 0 0;
             width: 100%;
+            margin: 0.5rem 0 0 0;
           }
         }
       }
@@ -235,9 +248,11 @@
       //error
       &.error {
         span {
-          color: $red;
-          font-size: $fontSizeBase;
           margin-bottom: 0.25rem;
+
+          color: $red;
+
+          font-size: $fontSizeBase;
         }
 
         button {
@@ -289,26 +304,31 @@
                 &.payPlan {
                   display: flex;
                   justify-content: center;
-                  margin: 0 1rem 1rem 1rem;
-                  min-height: auto;
+
                   width: auto;
+                  min-height: auto;
+                  margin: 0 1rem 1rem 1rem;
                   padding: 0;
 
                   .container {
                     position: absolute;
                     top: 35%;
+
                     width: 100%;
+
                     text-align: center;
                   }
 
                   a,
                   a:hover {
-                    color: #ddd;
                     text-decoration: none;
+
+                    color: #ddd;
                   }
 
                   dl {
                     display: flex;
+
                     text-align: center;
 
                     div {
@@ -317,6 +337,7 @@
                       flex-grow: 0;
                       flex-shrink: 0;
                       justify-content: center;
+
                       padding: ($padding / 2) 0;
 
                       dd {
@@ -431,14 +452,17 @@
           width: 100%;
 
           span {
-            padding-right: $padding / 2;
             display: block;
+
+            padding-right: $padding / 2;
+
             font-size: $fontSizeSubheader--small;
           }
 
           svg {
-            height: 0.8em;
             align-self: center;
+
+            height: 0.8em;
           }
         }
       }
@@ -455,6 +479,7 @@
     .workflow {
       .title {
         margin-bottom: 0.25rem;
+
         font-size: $fontSizeHeader--small;
       }
 
@@ -471,8 +496,9 @@
 
         //@include shadow(0, -3px, 5px, rgba($navy, 0.16));
         .btn {
-          margin: 0 0 1rem 0;
           width: 100%;
+          margin: 0 0 1rem 0;
+
           text-align: center;
         }
       }
@@ -512,6 +538,7 @@
         .card {
           flex-direction: column;
           justify-content: center;
+
           margin-left: 0;
 
           &.fade-in {
@@ -520,15 +547,18 @@
 
           .card-header {
             position: relative;
+
             align-items: center;
             flex-direction: column;
+
+            width: 50%;
             padding-right: 0;
             padding-left: 0;
-            width: 50%;
           }
 
           .cardContent {
             margin-bottom: 1rem;
+
             text-align: center;
 
             p {
@@ -538,9 +568,10 @@
 
           .card-footer {
             flex-direction: column;
+
+            width: 100%;
             margin: 0;
             padding: 0;
-            width: 100%;
 
             .btn,
             .btn-primary {
@@ -548,6 +579,7 @@
               margin-bottom: 1rem;
               margin-left: 0;
               padding: $padding/2;
+
               text-align: center;
             }
 
@@ -556,6 +588,7 @@
               margin-bottom: 1.5rem;
               margin-left: 0;
               padding: $padding/2;
+
               text-align: center;
             }
           }
@@ -647,11 +680,12 @@
               }
               label {
                 padding-right: 0;
+
                 font-size: $fontSizeSubheader--small;
               }
               .segmented-answer-wrapper {
-                margin-bottom: 1.5rem;
                 width: 100%;
+                margin-bottom: 1.5rem;
 
                 label {
                 }
@@ -694,6 +728,7 @@
 
               h4 {
                 margin-top: 0.5rem;
+
                 font-size: $fontSizeBase;
               }
 
@@ -743,8 +778,8 @@
               }
 
               .segmented-answer-wrapper {
-                margin-bottom: 1.5rem;
                 width: 100%;
+                margin-bottom: 1.5rem;
 
                 label {
                 }
@@ -782,8 +817,9 @@
                 .react-datepicker {
                   display: block;
                   float: none;
-                  margin: 0 auto;
+
                   height: 15rem;
+                  margin: 0 auto;
 
                   .react-datepicker__triangle {
                   }
@@ -850,10 +886,12 @@
 
     //information bar styling - mobile
     .infoBar {
+      flex-direction: column;
+
+      width: 100vw;
       margin-top: 1rem;
       margin-left: -2rem;
-      width: 100vw;
-      flex-direction: column;
+
       border-radius: 0;
 
       h2 {
@@ -915,8 +953,8 @@
               }
 
               .segmented-answer-wrapper {
-                margin-bottom: 1.5rem;
                 width: 100%;
+                margin-bottom: 1.5rem;
                 label {
                 }
               }
@@ -938,14 +976,17 @@
 
         .card {
           top: 0;
+
+          width: 100%;
           width: 100%;
           height: 100%;
+
           border-radius: 0;
-          width: 100%;
 
           &.policyholderModal {
             p {
               left: 0;
+
               padding: $padding;
             }
           }
@@ -989,6 +1030,7 @@
         .card-block {
           &.applicationComplete {
             flex-direction: column;
+
             padding: $padding ($padding * 2);
 
             a {
@@ -1009,8 +1051,9 @@
 
         .card-header {
           a {
-            font-size: 1.5rem;
             top: 8px;
+
+            font-size: 1.5rem;
           }
           h4 {
             padding-top: $padding * 2;
@@ -1024,8 +1067,10 @@
               &.select {
                 select {
                   height: 2rem;
-                  border-width: 0;
+
                   color: $navy;
+                  border-width: 0;
+
                   font-size: $fontSizeBody;
                 }
               }
@@ -1078,16 +1123,19 @@
           &.view-col-9 {
             flex-grow: 0;
             flex-shrink: 0;
+
             width: 100%;
           }
           &.view-col-1 {
             flex-grow: 1;
             flex-shrink: 1;
+
             width: auto;
           }
           &.view-col-2 {
             flex-grow: 1;
             flex-shrink: 1;
+
             width: auto;
           }
         }
@@ -1142,15 +1190,18 @@ $colors: $blue, $red, $green, $navy, gold;
   .confetti-#{$i} {
     top: -10%;
     left: unquote($l + '%');
+
     width: #{$w}px;
     height: #{$w * 0.4}px;
-    background-color: nth($colors, random(5));
-    opacity: random() + 0.5;
+
     transform: rotate(#{random() * 360}deg);
     animation: drop-#{$i}
       unquote(4 + random() + 's')
       unquote(random() + 's')
       infinite;
+
+    opacity: random() + 0.5;
+    background-color: nth($colors, random(5));
   }
   @keyframes drop-#{$i} {
     100% {
