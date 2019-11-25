@@ -1512,7 +1512,8 @@ section {
 //view grid styling from harmony
 .view-grid {
   display: flex;
-  flex-wrap: wrap;
+  //causing problems in safari -- deleting temp & seeing if solution
+  //flex-wrap: wrap;
 }
 
 .view-grid {
