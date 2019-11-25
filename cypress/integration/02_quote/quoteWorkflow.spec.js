@@ -66,7 +66,7 @@ context('Create new quote', () => {
     // TODO test 'send quote summary' and probably 'save and continue later' stuff
 
     // this submit does not update the quote
-    cy.findDataTag('continue').click();
+    cy.clickSubmit('#harmony-quote');
 
     // Complete 'additional insured' page
     // TODO test AI Page functionality: Add/remove some AIs
@@ -133,6 +133,7 @@ context('Create new quote', () => {
     });
 
     // 'complete' page.
+    // for now just making sure we ended up on the 'complete/congrats' page.
     cy.findDataTag('quote-complete');
   });
 });

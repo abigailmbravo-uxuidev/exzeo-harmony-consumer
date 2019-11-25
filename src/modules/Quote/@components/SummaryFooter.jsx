@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, ModalPortal } from '@exzeo/core-ui';
 import { useAgentInfo } from '@exzeo/core-ui/src/@Harmony';
-import { useQuote } from '../QuoteContext';
+
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
-import { Link } from 'react-router-dom';
+import { useQuote } from '../QuoteContext';
 
 const companyName = 'TypTap';
 const productDescription = 'Flood';
 
-const SummaryFooter = ({ formInstance, values, history, match, cspMatch }) => {
+const SummaryFooter = ({ formInstance, values, history, cspMatch }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { sendApplication, quote } = useQuote();
   const { agent } = useAgentInfo(values.agentCode);
@@ -100,10 +101,10 @@ const SummaryFooter = ({ formInstance, values, history, match, cspMatch }) => {
               </Link>
               <Button
                 type="button"
-                data-test="submit"
                 className={Button.constants.classNames.primary}
-                onKeyPress={e => e.charCode === 13 && handleSendApplication()}
                 onClick={() => handleSendApplication()}
+                onKeyPress={e => e.charCode === 13 && handleSendApplication()}
+                data-test="submit"
               >
                 Send for Signature
               </Button>

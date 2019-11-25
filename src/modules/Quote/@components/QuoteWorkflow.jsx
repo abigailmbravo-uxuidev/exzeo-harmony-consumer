@@ -142,7 +142,12 @@ const QuoteWorkflow = ({ history, match, cspMatch }) => {
                 <Prompt
                   when={true}
                   message={(location, action) => {
-                    if (dirty || action === 'POP') {
+                    if (
+                      action === 'POP' ||
+                      (dirty &&
+                        workflowPage !== ROUTES.summary.workflowPage &&
+                        workflowPage !== ROUTES.complete.workflowPage)
+                    ) {
                       return 'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.';
                     }
                     return true;

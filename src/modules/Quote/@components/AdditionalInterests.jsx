@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Form,
   Field,
   OnChangeListener,
   ModalPortal,
   Radio,
-  validation,
-  Button
+  validation
 } from '@exzeo/core-ui';
 import {
   useAdditionalInterests,
@@ -18,7 +16,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { BOOL_OPTIONS } from 'constants/input';
-import { ROUTES, WORKFLOW_ROUTING } from 'constants/navigation';
 
 function setInitialValues(groupedAI) {
   return {
@@ -67,7 +64,7 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
   return (
     <div className={config.className}>
       <Form onSubmit={x => x} initialValues={setInitialValues(groupedAIs)}>
-        {({ values, invalid, form }) => (
+        {({ values, form }) => (
           <React.Fragment>
             <Field name="mortgagee1" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -403,19 +400,6 @@ const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
                   </li>
                 </ul>
               )}
-
-            <div className="form-footer">
-              <Link
-                className={Button.constants.classNames.primary}
-                data-test="submit"
-                to={
-                  invalid ? '#' : WORKFLOW_ROUTING[ROUTES.additionalInfo.path]
-                }
-                disabled={invalid}
-              >
-                Continue
-              </Link>
-            </div>
           </React.Fragment>
         )}
       </Form>

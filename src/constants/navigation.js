@@ -90,6 +90,13 @@ export const ROUTES = {
   }
 };
 
+export const NAV_BAR_MATCH_ROUTES = [
+  ROUTES.searchAddress.path,
+  ROUTES.retrieveQuote.path,
+  ROUTES.workflow.path,
+  ROUTES.thankYou.path
+];
+
 export const WORKFLOW_ROUTING = {
   [ROUTES.underwriting.path]: ROUTES.customize.path,
   [ROUTES.customize.path]: ROUTES.save.path,
