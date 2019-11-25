@@ -2,7 +2,11 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { AppFooter } from '@exzeo/core-ui/src/@Harmony';
 
-import { CSP_CONTEXT_PARAMS, ROUTES } from 'constants/navigation';
+import {
+  CSP_CONTEXT_PARAMS,
+  NAV_BAR_MATCH_ROUTES,
+  ROUTES
+} from 'constants/navigation';
 import { QuoteSearch } from 'modules/QuoteSearch';
 import { AddressSearch } from 'modules/AddressSearch';
 import { QuoteContextProvider, QuoteWorkflow } from 'modules/Quote';
@@ -41,12 +45,7 @@ const App = ({ location, match, history }) => {
               {/* Nav 'path' array must include all routes/patterns that we want
                   Nav rendering ( Navigation needs to know where we are :p ) */}
               <Route
-                path={[
-                  ROUTES.searchAddress.path,
-                  ROUTES.retrieveQuote.path,
-                  ROUTES.workflow.path,
-                  ROUTES.thankYou.path
-                ]}
+                path={NAV_BAR_MATCH_ROUTES}
                 render={routeProps => (
                   <Navigation {...routeProps} cspMatch={cspMatch} />
                 )}

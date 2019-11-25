@@ -96,7 +96,7 @@ const Navigation = ({ location, match, cspMatch }) => {
           <li
             key={ROUTES.searchAddress.key}
             className={classNames({
-              hide: location.pathname !== ROUTES.searchAddress.path,
+              hide: location.pathname !== `${cspMatch}/searchAddress`,
               complete: location.pathname === `${cspMatch}/thankYou`
             })}
           >
