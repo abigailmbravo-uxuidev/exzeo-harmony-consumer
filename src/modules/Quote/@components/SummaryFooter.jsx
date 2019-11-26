@@ -55,7 +55,7 @@ const SummaryFooter = ({ formInstance, values, history, cspMatch }) => {
               </React.Fragment>
             }
           >
-            <div className="card-block">
+            <div className="card-block mobileGrowShrink">
               <p>
                 You have successfully completed a {companyName}{' '}
                 {productDescription} Quote.

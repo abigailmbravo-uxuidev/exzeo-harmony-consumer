@@ -91,7 +91,7 @@ const QuoteSearch = ({ cspMatch }) => {
         subscription={{ pristine: true, submitting: true }}
       >
         {({ handleSubmit, submitting, pristine, form }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="retrieveQuoteForm">
             <div className="retrieveQuoteWrapper">
               <Field
                 name="lastName"

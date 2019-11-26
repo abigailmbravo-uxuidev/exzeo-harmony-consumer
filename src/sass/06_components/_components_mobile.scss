@@ -1016,7 +1016,16 @@
               padding: $padding;
             }
           }
-
+          .card-footer {
+            button,
+            a {
+              &.btn-secondary,
+              &.btn-primary {
+                border-radius: 0;
+              }
+            }
+          }
+          // todo - possible delete radius styles below
           form {
             .card-footer {
               .btn-group {
@@ -1233,4 +1242,9 @@ $colors: $blue, $red, $green, $navy, gold;
   100% {
     opacity: 1;
   }
+}
+
+.mobileGrowShrink {
+  flex-grow: 1;
+  flex-shrink: 1;
 }
