@@ -79,8 +79,6 @@ body {
       //mobile styling
 
       @include forPhoneOnly {
-        margin-top: 4rem;
-
         footer {
           padding: 0 $padding;
 

@@ -22,7 +22,7 @@ const AddressSearch = ({ cspMatch }) => {
       <div className="title">Search Address</div>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="searchAddressForm">
             <div className="searchInputWrapper">
               <Field
                 name="address"

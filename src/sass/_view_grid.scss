@@ -9,6 +9,13 @@
   width: 100%;
   padding: $padding $padding 0 ($padding * 1.5);
 
+  //scroll area (does not scroll - scrolls on main"
+  // todo
+  .scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
   .modal {
     position: fixed;
     z-index: 200;
@@ -235,6 +242,8 @@
 
       form {
         overflow: hidden;
+        flex-grow: 1;
+        flex-shrink: 1;
 
         .card-block {
           overflow-x: hidden;
@@ -398,1137 +407,1119 @@
       }
     }
   }
-}
 
-> div {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
+  .card {
+    //thank you page
+    &.thankYouCard {
+      position: relative;
 
-.card {
-  //thank you page
-  &.thankYouCard {
-    position: relative;
-
-    align-self: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    margin: 0 auto;
-    padding: ($padding * 2) ($padding * 2) $padding;
-    //width: 34rem;
-    .quoteNumber {
-      text-align: center;
-    }
-
-    label {
-      z-index: 1;
-
-      padding-top: $padding;
-
-      text-align: center;
-
-      color: $navy;
-
-      font-family: $serif;
-      font-size: $fontSizeHeader;
-    }
-
-    .confettiWrapper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    .thankYouCircle {
-      position: absolute;
-      z-index: 0;
-      top: -2.5rem;
-      right: calc(50% - 32rem);
-
-      width: 64rem;
-
-      svg {
-        filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-        fill: $navy;
-      }
-    }
-
-    .thankYouIcon {
-      z-index: 1;
-
-      align-items: center;
+      align-self: center;
       flex-grow: 0;
       flex-shrink: 0;
 
-      animation-name: tada;
-      animation-duration: 1.5s;
-      animation-delay: 2s;
-
-      color: white;
-
-      font-size: 10rem;
-
-      svg {
-        width: 15rem;
-        height: 15rem;
-
-        filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
-        fill: $white;
+      margin: 0 auto;
+      padding: ($padding * 2) ($padding * 2) $padding;
+      //width: 34rem;
+      .quoteNumber {
+        text-align: center;
       }
-    }
 
-    a {
-      z-index: 21;
+      label {
+        z-index: 1;
 
-      text-align: center;
-    }
-  }
-  //congratulations
-  &.congratsCard {
-    position: relative;
+        padding-top: $padding;
 
-    align-self: center;
-    flex-grow: 0;
-    flex-shrink: 0;
+        text-align: center;
 
-    margin: 0 auto;
-    padding: ($padding * 2) ($padding * 2) $padding;
+        color: $navy;
 
-    label {
-      z-index: 20;
-      z-index: 1;
-
-      padding-top: $padding;
-
-      text-align: center;
-
-      color: $navy;
-
-      font-family: $serif;
-      font-size: $fontSizeHeader;
-    }
-    .confettiWrapper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-    .congratsCircle {
-      position: absolute;
-      z-index: 0;
-      top: -6rem;
-      right: -8rem;
-      left: -8rem;
-
-      width: 54rem;
-
-      svg {
-        filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-        fill: $navy;
+        font-family: $serif;
+        font-size: $fontSizeHeader;
       }
-    }
 
-    .congratsCardFooter {
-      z-index: 100;
+      .confettiWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
 
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      .thankYouCircle {
+        position: absolute;
+        z-index: 0;
+        top: -2.5rem;
+        right: calc(50% - 32rem);
+
+        width: 64rem;
+
+        svg {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+          fill: $navy;
+        }
+      }
+
+      .thankYouIcon {
+        z-index: 1;
+
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        animation-name: tada;
+        animation-duration: 1.5s;
+        animation-delay: 2s;
+
+        color: white;
+
+        font-size: 10rem;
+
+        svg {
+          width: 15rem;
+          height: 15rem;
+
+          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+          fill: $white;
+        }
+      }
 
       a {
-        cursor: pointer;
+        z-index: 21;
+
+        text-align: center;
       }
     }
+    //congratulations
+    &.congratsCard {
+      position: relative;
 
-    .congratsIcon {
-      z-index: 1;
-
-      align-items: center;
+      align-self: center;
       flex-grow: 0;
       flex-shrink: 0;
 
-      animation-name: tada;
-      animation-duration: 1.5s;
-      animation-delay: 2s;
+      margin: 0 auto;
+      padding: ($padding * 2) ($padding * 2) $padding;
 
-      color: white;
+      label {
+        z-index: 20;
+        z-index: 1;
 
-      font-size: 10rem;
+        padding-top: $padding;
 
-      svg {
-        width: 15rem;
-        height: 15rem;
+        text-align: center;
 
-        filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
-        fill: $white;
+        color: $navy;
+
+        font-family: $serif;
+        font-size: $fontSizeHeader;
       }
-    }
-  }
-}
-
-//policyholder info styling
-.policyHolderInfo {
-  margin-bottom: 0.5rem;
-  h4 {
-    margin-bottom: 0.5rem;
-    padding-top: ($padding / 2);
-  }
-  .card {
-    flex-direction: row;
-
-    .cardContent {
-      h4 {
-        margin-bottom: 0;
-        padding-top: 0;
+      .confettiWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
-    }
+      .congratsCircle {
+        position: absolute;
+        z-index: 0;
+        top: -6rem;
+        right: -8rem;
+        left: -8rem;
 
-    a {
-      //padding: ($padding/2) $padding ($padding/2) ($padding/2);
-      margin-left: 1rem;
-      //height: 2rem;
+        width: 54rem;
 
-      svg {
-        align-content: center;
-      }
-    }
-
-    .cardFooter {
-      margin: 0;
-      padding: $padding;
-
-      a {
-        &:hover {
-          color: $blue;
+        svg {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+          fill: $navy;
         }
       }
-    }
-  }
-  .form-group {
-    &.policyHolder {
-      &.radio {
-        &.segmented {
-          overflow: visible;
-          flex-direction: row;
 
-          margin-bottom: 1rem;
-
-          .group-label {
-            margin-bottom: 0.5rem;
-          }
-          label {
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            font-size: $fontSizeSubheader--small;
-          }
-
-          .segmented-answer-wrapper {
-            align-self: flex-start;
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            width: 6rem;
-            margin-top: 0.5rem;
-
-            border-radius: $borderRadius;
-            label {
-              padding: $padding/2;
-
-              font-size: $fontSizeBase;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-//address section
-.addressSection {
-  margin-bottom: 0.5rem;
-
-  &.error {
-    span {
-      color: $red;
-    }
-  }
-  h4 {
-    margin-bottom: 0.5rem;
-    padding-top: ($padding / 2);
-  }
-
-  .card {
-    flex-direction: row;
-
-    .cardContent {
-      h4 {
-        margin-bottom: 0;
-        padding-top: 0;
-      }
-    }
-
-    .cardFooter {
-      display: flex;
-      align-items: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-      justify-content: center;
-
-      padding: $padding;
-      a {
-        margin-left: 1rem;
-      }
-    }
-  }
-
-  .form-group {
-    &.mailingSameAsProperty {
-      &.radio {
-        &.segmented {
-          overflow: visible;
-          flex-direction: row;
-
-          margin-bottom: 1rem;
-
-          .group-label {
-            margin-bottom: 0.5rem;
-          }
-
-          label {
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            font-size: $fontSizeSubheader--small;
-          }
-
-          .segmented-answer-wrapper {
-            align-self: flex-start;
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            width: 6rem;
-            margin-top: 0.5rem;
-
-            border-radius: $borderRadius;
-            label {
-              padding: $padding/2;
-
-              font-size: $fontSizeBase;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .well {
-    &.hide {
-      display: none;
-    }
-  }
-}
-//additional info styling
-.additionalInfo {
-  .card {
-    flex-direction: row;
-    p {
-      padding: ($padding / 4) 0;
-
-      line-height: 1.4;
-    }
-
-    a {
-      padding: ($padding/2) $padding 0 ($padding/2);
-
-      svg {
-        align-content: center;
-      }
-    }
-  }
-  .form-group {
-    &.additionalInterest {
-      &.radio {
-        &.segmented {
-          flex-direction: row;
-
-          margin-bottom: 0;
-
-          .group-label {
-            margin-bottom: 0.5rem;
-          }
-          label {
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            font-size: $fontSizeSubheader--small;
-          }
-          .segmented-answer-wrapper {
-            align-self: flex-start;
-
-            width: 6rem;
-            margin-top: 0.5rem;
-
-            border-radius: $borderRadius;
-            label {
-              padding: $padding/2;
-
-              font-size: $fontSizeBase;
-            }
-          }
-        }
-      }
-    }
-    //open helpful info on this page since additional interests is very complex
-    label {
-      align-items: flex-start;
-      flex-direction: column;
-      span {
-        max-width: 30rem;
-        i {
-          display: none;
-        }
-        .__react_component_tooltip {
-          position: relative;
-          top: 0 !important;
-          left: 0 !important;
-
-          display: flex;
-          visibility: visible;
-
-          width: 100%;
-          max-width: 100%;
-          padding: 0;
-
-          opacity: 1;
-          color: $navy;
-          background-color: transparent;
-
-          font-family: $sans;
-          font-weight: $normal;
-          &:after {
-            display: none;
-          }
-
-          &.place-right {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-  }
-
-  ul {
-    margin: 0 0 1.5rem 0;
-    padding: 0;
-
-    li {
-      list-style: none;
-
-      .card {
-        position: relative;
+      .congratsCardFooter {
+        z-index: 100;
 
         display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
+        flex-direction: row;
+        justify-content: space-between;
 
         a {
-          flex-direction: row;
-          &.remove {
-            font-size: 1rem;
-          }
+          cursor: pointer;
+        }
+      }
 
-          &.edit {
-            font-size: 1rem;
+      .congratsIcon {
+        z-index: 1;
+
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        animation-name: tada;
+        animation-duration: 1.5s;
+        animation-delay: 2s;
+
+        color: white;
+
+        font-size: 10rem;
+
+        svg {
+          width: 15rem;
+          height: 15rem;
+
+          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  //policyholder info styling
+  .policyHolderInfo {
+    margin-bottom: 0.5rem;
+    h4 {
+      margin-bottom: 0.5rem;
+      padding-top: ($padding / 2);
+    }
+    .card {
+      flex-direction: row;
+
+      .cardContent {
+        h4 {
+          margin-bottom: 0;
+          padding-top: 0;
+        }
+      }
+
+      a {
+        //padding: ($padding/2) $padding ($padding/2) ($padding/2);
+        margin-left: 1rem;
+        //height: 2rem;
+
+        svg {
+          align-content: center;
+        }
+      }
+
+      .cardFooter {
+        margin: 0;
+        padding: $padding;
+
+        a {
+          &:hover {
+            color: $blue;
           }
         }
+      }
+    }
+    .form-group {
+      &.policyHolder {
+        &.radio {
+          &.segmented {
+            overflow: visible;
+            flex-direction: row;
 
-        > div {
+            margin-bottom: 1rem;
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+            label {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              font-size: $fontSizeSubheader--small;
+            }
+
+            .segmented-answer-wrapper {
+              align-self: flex-start;
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              width: 6rem;
+              margin-top: 0.5rem;
+
+              border-radius: $borderRadius;
+              label {
+                padding: $padding/2;
+
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //address section
+  .addressSection {
+    margin-bottom: 0.5rem;
+
+    &.error {
+      span {
+        color: $red;
+      }
+    }
+    h4 {
+      margin-bottom: 0.5rem;
+      padding-top: ($padding / 2);
+    }
+
+    .card {
+      flex-direction: row;
+
+      .cardContent {
+        h4 {
+          margin-bottom: 0;
+          padding-top: 0;
+        }
+      }
+
+      .cardFooter {
+        display: flex;
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+
+        padding: $padding;
+        a {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .form-group {
+      &.mailingSameAsProperty {
+        &.radio {
+          &.segmented {
+            overflow: visible;
+            flex-direction: row;
+
+            margin-bottom: 1rem;
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+
+            label {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              font-size: $fontSizeSubheader--small;
+            }
+
+            .segmented-answer-wrapper {
+              align-self: flex-start;
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              width: 6rem;
+              margin-top: 0.5rem;
+
+              border-radius: $borderRadius;
+              label {
+                padding: $padding/2;
+
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .well {
+      &.hide {
+        display: none;
+      }
+    }
+  }
+  //additional info styling
+  .additionalInfo {
+    .card {
+      flex-direction: row;
+      p {
+        padding: ($padding / 4) 0;
+
+        line-height: 1.4;
+      }
+
+      a {
+        padding: ($padding/2) $padding 0 ($padding/2);
+
+        svg {
+          align-content: center;
+        }
+      }
+    }
+    .form-group {
+      &.additionalInterest {
+        &.radio {
+          &.segmented {
+            flex-direction: row;
+
+            margin-bottom: 0;
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+            label {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              font-size: $fontSizeSubheader--small;
+            }
+            .segmented-answer-wrapper {
+              align-self: flex-start;
+
+              width: 6rem;
+              margin-top: 0.5rem;
+
+              border-radius: $borderRadius;
+              label {
+                padding: $padding/2;
+
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+      //open helpful info on this page since additional interests is very complex
+      label {
+        align-items: flex-start;
+        flex-direction: column;
+        span {
+          //max-width: 30rem;
+          i {
+            display: none;
+          }
+          .__react_component_tooltip {
+            position: relative;
+            top: 0 !important;
+            left: 0 !important;
+
+            display: flex;
+            visibility: visible;
+
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+
+            opacity: 1;
+            color: $navy;
+            background-color: transparent;
+
+            font-family: $sans;
+            font-weight: $normal;
+            &:after {
+              display: none;
+            }
+
+            &.place-right {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      margin: 0 0 1.5rem 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        .card {
+          position: relative;
+
+          display: flex;
           flex-grow: 1;
           flex-shrink: 1;
 
-          padding: ($padding / 2) $padding 0 $padding;
+          a {
+            flex-direction: row;
+            &.remove {
+              font-size: 1rem;
+            }
 
-          h4 {
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
-
-            font-family: $serif;
-            font-size: $fontSizeBase;
+            &.edit {
+              font-size: 1rem;
+            }
           }
 
-          p {
-            margin-bottom: 0;
-          }
+          > div {
+            flex-grow: 1;
+            flex-shrink: 1;
 
-          &.card-icon {
-            display: none;
+            padding: ($padding / 2) $padding 0 $padding;
+
+            h4 {
+              margin-top: 0.25rem;
+              margin-bottom: 0.25rem;
+
+              font-family: $serif;
+              font-size: $fontSizeBase;
+            }
+
+            p {
+              margin-bottom: 0;
+            }
+
+            &.card-icon {
+              display: none;
+            }
           }
         }
       }
     }
+
+    .form-footer {
+      margin-top: 1rem;
+    }
   }
 
-  .form-footer {
-    margin-top: 1rem;
-  }
-}
+  //customize quote styling
+  .workflow {
+    div {
+      &.agencySelect {
+        label {
+          padding-left: 0;
+        }
+      }
+      label {
+        padding-left: $padding/2;
+      }
+      input {
+        padding-left: $padding/2;
+      }
+      &.switch {
+        label {
+          padding-left: 0;
+        }
+      }
+    }
+    .slider-component {
+      .form-group {
+        label {
+          margin-bottom: 1rem;
+          padding-left: 0;
 
-//customize quote styling
-.workflow {
-  div {
-    &.agencySelect {
-      label {
-        padding-left: 0;
+          font-family: $serif;
+          font-size: $fontSizeSubheader--small;
+        }
       }
     }
-    label {
-      padding-left: $padding/2;
-    }
-    input {
-      padding-left: $padding/2;
-    }
-    &.switch {
-      label {
-        padding-left: 0;
+
+    .subtitle {
+      strong {
+        display: block;
+
+        margin-bottom: 0.25rem;
       }
-    }
-  }
-  .slider-component {
-    .form-group {
-      label {
+      p {
+        max-width: 100%;
+        margin-right: 0;
         margin-bottom: 1rem;
-        padding-left: 0;
 
-        font-family: $serif;
-        font-size: $fontSizeSubheader--small;
+        font-family: $sans;
       }
     }
-  }
 
-  .subtitle {
-    strong {
-      display: block;
-
-      margin-bottom: 0.25rem;
-    }
-    p {
-      max-width: 100%;
-      margin-right: 0;
-      margin-bottom: 1rem;
-
-      font-family: $sans;
-    }
-  }
-
-  //well styling
-  .well {
-    position: relative;
-
-    display: flex;
-    overflow: visible;
-
-    margin-top: 0.5rem;
-    padding: $padding $padding 0 $padding;
-
-    //results modal styling
-    .modal {
-      z-index: 100;
+    //well styling
+    // todo
+    .well {
+      position: relative;
 
       display: flex;
+      overflow: visible;
+
+      margin-top: 0.5rem;
+      padding: $padding $padding 0 $padding;
+
+      //results modal styling
+      .modal {
+        z-index: 100;
+
+        display: flex;
+
+        .card {
+          margin: 0;
+          padding: 0;
+
+          background-color: transparent;
+          box-shadow: 0 0 0 0 rgba($white, 0);
+
+          .card-footer {
+            position: unset;
+
+            display: flex;
+
+            margin-top: 0.75rem;
+
+            button {
+              margin: 0;
+              padding: 0.4rem 1rem;
+            }
+          }
+
+          .share {
+            z-index: 1;
+            .card-block {
+              margin-top: 0;
+              padding: 0;
+
+              .form-group {
+                width: 100%;
+
+                color: $navy;
+
+                #toName {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+
+                #toEmail {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+              }
+
+              .error {
+                span {
+                  display: block;
+
+                  width: 100%;
+                  height: auto;
+                  padding: ($padding / 4) 0 0 ($padding / 2);
+
+                  border-radius: 0;
+                  background-color: transparent;
+                  box-shadow: none;
+
+                  font-size: $fontSizeBody;
+                }
+              }
+            }
+          }
+
+          .card-header {
+            h4 {
+              display: none;
+            }
+          }
+        }
+
+        .form-group {
+          z-index: 14;
+
+          overflow: visible;
+        }
+      }
 
       .card {
-        margin: 0;
-        padding: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
 
-        background-color: transparent;
-        box-shadow: 0 0 0 0 rgba($white, 0);
+        min-height: 176px;
+        padding: 0 $padding;
+
+        background-color: $navy;
+
+        &:hover {
+          transform: none;
+        }
+
+        .cardContent {
+          display: flex;
+
+          padding-left: 150px;
+
+          color: $white;
+          background-color: $navy;
+
+          p {
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            padding-top: $padding;
+            padding-left: $padding;
+
+            color: white;
+
+            font-size: $fontSizeBase;
+            font-weight: $bold;
+            line-height: 1.2;
+          }
+
+          span {
+            flex-grow: 0;
+            flex-shrink: 0;
+          }
+        }
+
+        .card-header {
+          position: absolute;
+
+          display: flex;
+
+          width: 32%;
+          padding: $padding;
+        }
 
         .card-footer {
-          position: unset;
+          position: relative;
 
           display: flex;
 
           margin-top: 0.75rem;
 
           button {
+            position: absolute;
+            right: 0;
+            left: 0;
+
+            width: 100%;
             margin: 0;
             padding: 0.4rem 1rem;
           }
         }
+        .modalIcons {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-        .share {
-          z-index: 1;
-          .card-block {
-            margin-top: 0;
-            padding: 0;
+          width: 125px;
+          height: 125px;
+          padding-bottom: 14px;
 
-            .form-group {
-              width: 100%;
+          border-radius: 50%;
+          background-color: $white;
+          box-shadow: 0 8px 12px rgba($navy, 0.15);
 
-              color: $navy;
+          font-size: 50px;
 
-              #toName {
-                background-color: rgba($extraLightGrey, 0.9);
-              }
+          svg {
+            color: $red;
 
-              #toEmail {
-                background-color: rgba($extraLightGrey, 0.9);
-              }
-            }
-
-            .error {
-              span {
-                display: block;
-
-                width: 100%;
-                height: auto;
-                padding: ($padding / 4) 0 0 ($padding / 2);
-
-                border-radius: 0;
-                background-color: transparent;
-                box-shadow: none;
-
-                font-size: $fontSizeBody;
-              }
-            }
+            font-size: 80px;
           }
-        }
-
-        .card-header {
-          h4 {
-            display: none;
-          }
-        }
-      }
-
-      .form-group {
-        z-index: 14;
-
-        overflow: visible;
-      }
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-
-      min-height: 176px;
-      padding: 0 $padding;
-
-      background-color: $navy;
-
-      &:hover {
-        transform: none;
-      }
-
-      .cardContent {
-        display: flex;
-
-        padding-left: 150px;
-
-        color: $white;
-        background-color: $navy;
-
-        p {
-          flex-grow: 1;
-          flex-shrink: 1;
-
-          padding-top: $padding;
-          padding-left: $padding;
-
-          color: white;
-
-          font-size: $fontSizeBase;
-          font-weight: $bold;
-          line-height: 1.2;
-        }
-
-        span {
-          flex-grow: 0;
-          flex-shrink: 0;
-        }
-      }
-
-      .card-header {
-        position: absolute;
-
-        display: flex;
-
-        width: 32%;
-        padding: $padding;
-      }
-
-      .card-footer {
-        position: relative;
-
-        display: flex;
-
-        margin-top: 0.75rem;
-
-        button {
-          position: absolute;
-          right: 0;
-          left: 0;
-
-          width: 100%;
-          margin: 0;
-          padding: 0.4rem 1rem;
-        }
-      }
-      .modalIcons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 125px;
-        height: 125px;
-        padding-bottom: 14px;
-
-        border-radius: 50%;
-        background-color: $white;
-        box-shadow: 0 8px 12px rgba($navy, 0.15);
-
-        font-size: 50px;
-
-        svg {
-          color: $red;
-
-          font-size: 80px;
         }
       }
     }
   }
-}
 
-.form-group {
-  margin-bottom: 1rem;
-
-  &.radio {
-    &.segmented {
-      margin-bottom: 1.5rem;
-      &.segmented-answer-wrapper {
-        font-size: $fontSizeBase;
-        font-weight: $normal;
-      }
-
-      > label {
-        padding-left: 0;
-      }
-    }
-  }
-
-  label {
+  .form-group {
     margin-bottom: 1rem;
+
+    &.radio {
+      &.segmented {
+        margin-bottom: 1.5rem;
+        &.segmented-answer-wrapper {
+          font-size: $fontSizeBase;
+          font-weight: $normal;
+        }
+
+        > label {
+          padding-left: 0;
+        }
+      }
+    }
+
+    label {
+      margin-bottom: 1rem;
+    }
   }
-}
 
-footer {
-  z-index: 99;
+  footer {
+    z-index: 99;
 
-  padding: $padding;
+    padding: $padding;
 
-  &.navFooter {
-    padding: $padding 0;
+    &.navFooter {
+      padding: $padding 0;
+    }
   }
-}
 
-.title {
-  margin-bottom: 1rem;
+  .title {
+    margin-bottom: 1rem;
 
-  color: $navy;
+    color: $navy;
 
-  font-family: $serif;
-  font-size: $fontSizeHeader;
-  font-weight: $bold;
-}
-
-.form-footer {
-  display: flex;
-  align-items: flex-start;
-  flex-grow: 1;
-  flex-shrink: 1;
-  justify-content: flex-end;
-
-  width: 100%;
-  margin-top: 1rem;
-
-  .btn-primary {
-    margin-left: 1rem;
+    font-family: $serif;
+    font-size: $fontSizeHeader;
+    font-weight: $bold;
   }
-}
 
-.switch {
-  margin-bottom: 0;
-}
+  .form-footer {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-end;
 
-.searchInputWrapper {
-  p {
-    margin-top: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+
+    .btn-primary {
+      margin-left: 1rem;
+    }
+  }
+
+  .switch {
     margin-bottom: 0;
   }
 
-  .property-search {
-    margin-bottom: 0.5rem;
-  }
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 1;
-
-  //biling specific styling
-  &.billing {
-    ul {
-      padding-left: 0;
-
-      list-style: none;
-
-      li {
-        .billingCheckBox {
-          align-items: center;
-
-          cursor: pointer;
-
-          .emptyCheckBox {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 1.5rem;
-            height: 1.5rem;
-            margin-bottom: 1rem;
-
-            border: 2px $navy solid;
-            border-radius: $borderRadius;
-
-            svg {
-              font-size: 0.875rem;
-            }
-          }
-
-          .billToId {
-            .cardContent {
-              align-items: center;
-            }
-          }
-
-          footer {
-            svg {
-              margin-bottom: 0;
-            }
-          }
-        }
-        .card {
-          display: flex;
-          flex-direction: row;
-
-          margin-left: 1rem;
-          padding: $padding/4;
-
-          footer {
-            width: auto;
-          }
-        }
-        div {
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-
-          .card {
-            margin-right: 1rem;
-            padding: 0;
-
-            @include transition(all 0.2s ease-in-out);
-
-            &.payPlan {
-              flex-direction: column;
-              flex-grow: 0;
-              flex-shrink: 1;
-
-              width: 33.33%;
-              min-height: 14rem;
-
-              &.selected {
-                .cardContent {
-                  color: $navy;
-                  background-color: $white;
-                }
-
-                .card-footer {
-                  label {
-                    color: $white;
-                    background-color: $navy;
-                  }
-                }
-              }
-
-              .card-header {
-                z-index: 2;
-
-                flex-grow: 0;
-                flex-shrink: 0;
-                h3 {
-                  margin-bottom: 0;
-                  padding: ($padding/2) 0 0 0;
-
-                  text-align: center;
-                }
-              }
-              .card-footer {
-                flex-grow: 0;
-                flex-shrink: 0;
-
-                transition: box-shadow 0.2s ease-in-out;
-
-                @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
-
-                &:hover {
-                  @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
-                }
-
-                label {
-                  padding: ($padding/2) 0;
-
-                  text-align: center;
-
-                  color: $navy;
-                  background-color: $white;
-
-                  font-family: $serif;
-
-                  &:hover {
-                    cursor: pointer;
-
-                    color: $white;
-                    background-color: mix($blue, $navy, 80%);
-                  }
-                }
-              }
-              &:hover {
-                cursor: pointer;
-              }
-              &.selected {
-                label {
-                  background-color: $navy;
-                  &:hover {
-                    cursor: default;
-
-                    background-color: $navy;
-                  }
-                }
-              }
-            }
-
-            &:last-of-type {
-              margin-right: 0;
-            }
-
-            .cardContent {
-              dl {
-                position: relative;
-
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1;
-                flex-shrink: 1;
-
-                margin-bottom: 0;
-
-                div {
-                  flex-direction: column;
-
-                  padding-top: ($padding / 2);
-                  padding-bottom: ($padding / 4);
-
-                  border-bottom: 1px dashed $navy;
-
-                  &:last-of-type {
-                    padding-bottom: ($padding/4);
-
-                    border-bottom: 0;
-                  }
-
-                  &.semiCard {
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                  }
-                }
-                dd {
-                  margin-bottom: 0.25rem;
-                  padding: 0;
-
-                  font-family: $sans;
-                  font-size: $fontSizeBase;
-                  font-weight: $normal;
-                }
-                label {
-                  padding: 0;
-
-                  text-align: center;
-
-                  color: $blue;
-
-                  font-family: $serif;
-                  font-size: $fontSizeSubheader--small;
-                }
-              }
-            }
-          }
-        }
-      }
+  .searchInputWrapper {
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 0;
     }
 
-    &.error {
-      h4 {
-        margin-bottom: 0.25rem;
-      }
-      span {
-        margin-bottom: 1rem;
+    .property-search {
+      margin-bottom: 0.5rem;
+    }
+  }
 
-        color: $red;
+  section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
 
-        font-size: $fontSizeLabel;
-      }
-
+    //biling specific styling
+    &.billing {
       ul {
+        padding-left: 0;
+
+        list-style: none;
+
         li {
-          .card {
-            @include shadow(0, 3px, 6px, rgba($red, 0.16));
+          .billingCheckBox {
+            align-items: center;
+
+            cursor: pointer;
+
+            .emptyCheckBox {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              width: 1.5rem;
+              height: 1.5rem;
+              margin-bottom: 1rem;
+
+              border: 2px $navy solid;
+              border-radius: $borderRadius;
+
+              svg {
+                font-size: 0.875rem;
+              }
+            }
+
+            .billToId {
+              .cardContent {
+                align-items: center;
+              }
+            }
+
             footer {
               svg {
-                color: $red;
+                margin-bottom: 0;
+              }
+            }
+          }
+          .card {
+            display: flex;
+            flex-direction: row;
+
+            margin-left: 1rem;
+            padding: $padding/4;
+
+            footer {
+              width: auto;
+            }
+          }
+          div {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            .card {
+              margin-right: 1rem;
+              padding: 0;
+
+              @include transition(all 0.2s ease-in-out);
+
+              &.payPlan {
+                flex-direction: column;
+                flex-grow: 0;
+                flex-shrink: 1;
+
+                width: 33.33%;
+                min-height: 14rem;
+
+                &.selected {
+                  .cardContent {
+                    color: $navy;
+                    background-color: $white;
+                  }
+
+                  .card-footer {
+                    label {
+                      color: $white;
+                      background-color: $navy;
+                    }
+                  }
+                }
+
+                .card-header {
+                  z-index: 2;
+
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  h3 {
+                    margin-bottom: 0;
+                    padding: ($padding/2) 0 0 0;
+
+                    text-align: center;
+                  }
+                }
+                .card-footer {
+                  flex-grow: 0;
+                  flex-shrink: 0;
+
+                  transition: box-shadow 0.2s ease-in-out;
+
+                  @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
+
+                  &:hover {
+                    @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
+                  }
+
+                  label {
+                    padding: ($padding/2) 0;
+
+                    text-align: center;
+
+                    color: $navy;
+                    background-color: $white;
+
+                    font-family: $serif;
+
+                    &:hover {
+                      cursor: pointer;
+
+                      color: $white;
+                      background-color: mix($blue, $navy, 80%);
+                    }
+                  }
+                }
+                &:hover {
+                  cursor: pointer;
+                }
+                &.selected {
+                  label {
+                    background-color: $navy;
+                    &:hover {
+                      cursor: default;
+
+                      background-color: $navy;
+                    }
+                  }
+                }
+              }
+
+              &:last-of-type {
+                margin-right: 0;
+              }
+
+              .cardContent {
+                dl {
+                  position: relative;
+
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                  flex-shrink: 1;
+
+                  margin-bottom: 0;
+
+                  div {
+                    flex-direction: column;
+
+                    padding-top: ($padding / 2);
+                    padding-bottom: ($padding / 4);
+
+                    border-bottom: 1px dashed $navy;
+
+                    &:last-of-type {
+                      padding-bottom: ($padding/4);
+
+                      border-bottom: 0;
+                    }
+
+                    &.semiCard {
+                      flex-grow: 0;
+                      flex-shrink: 0;
+                    }
+                  }
+                  dd {
+                    margin-bottom: 0.25rem;
+                    padding: 0;
+
+                    font-family: $sans;
+                    font-size: $fontSizeBase;
+                    font-weight: $normal;
+                  }
+                  label {
+                    padding: 0;
+
+                    text-align: center;
+
+                    color: $blue;
+
+                    font-family: $serif;
+                    font-size: $fontSizeSubheader--small;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.error {
+        h4 {
+          margin-bottom: 0.25rem;
+        }
+        span {
+          margin-bottom: 1rem;
+
+          color: $red;
+
+          font-size: $fontSizeLabel;
+        }
+
+        ul {
+          li {
+            .card {
+              @include shadow(0, 3px, 6px, rgba($red, 0.16));
+              footer {
+                svg {
+                  color: $red;
+                }
               }
             }
           }
         }
       }
     }
+
+    &.results {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      width: 100%;
+      margin: 0;
+    }
+
+    label {
+      margin-bottom: 0;
+      padding-top: ($padding / 4);
+      padding-bottom: 0;
+    }
+
+    p {
+      margin: 0;
+      padding-top: ($padding / 4);
+      padding-bottom: ($padding / 4);
+    }
   }
 
-  &.results {
+  //quote number infomation bar
+  .infoBar {
+    display: flex;
+
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding: $padding;
+
+    h2 {
+      font-size: $fontSizeSubheader;
+      font-weight: normal;
+    }
+
+    label {
+      display: flex;
+      justify-content: flex-end;
+
+      width: auto;
+      margin-bottom: 0;
+
+      font-weight: normal;
+    }
+
+    p {
+      flex-direction: column-reverse;
+
+      width: auto;
+      margin-bottom: 0;
+
+      font-family: $serif;
+    }
+  }
+
+  //retrieve quote styling
+  .retrieveQuoteWrapper {
     display: flex;
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
 
     width: 100%;
-    margin: 0;
-  }
+    padding: 0 0 0.5rem 0;
 
-  label {
-    margin-bottom: 0;
-    padding-top: ($padding / 4);
-    padding-bottom: 0;
-  }
-
-  p {
-    margin: 0;
-    padding-top: ($padding / 4);
-    padding-bottom: ($padding / 4);
-  }
-}
-
-//quote number infomation bar
-.infoBar {
-  display: flex;
-
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  padding: $padding;
-
-  h2 {
-    font-size: $fontSizeSubheader;
-    font-weight: normal;
-  }
-
-  label {
-    display: flex;
-    justify-content: flex-end;
-
-    width: auto;
-    margin-bottom: 0;
-
-    font-weight: normal;
-  }
-
-  p {
-    flex-direction: column-reverse;
-
-    width: auto;
-    margin-bottom: 0;
-
-    font-family: $serif;
-  }
-}
-
-//retrieve quote styling
-.retrieveQuoteWrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 0;
-  flex-shrink: 0;
-
-  width: 100%;
-  padding: 0 0 0.5rem 0;
-
-  h1 {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .form-footer {
-    display: flex;
-    justify-content: flex-end;
-
-    width: 100%;
-    margin-top: 1rem;
-
-    :disabled {
-      color: $extraLightGrey;
-      border-color: transparent;
-      background-color: rgba($navy, 0.3);
+    h1 {
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
-    button {
-      margin-left: 1rem;
+    .form-footer {
+      display: flex;
+      justify-content: flex-end;
+
+      width: 100%;
+      margin-top: 1rem;
+
+      :disabled {
+        color: $extraLightGrey;
+        border-color: transparent;
+        background-color: rgba($navy, 0.3);
+      }
+
+      button {
+        margin-left: 1rem;
+      }
     }
   }
-}
 
-//app error
-.appError {
-  margin: 0;
-  padding: 0;
-}
-//view grid styling from harmony
-.view-grid {
-  display: flex;
-  //causing problems in safari -- deleting temp & seeing if solution
-  //flex-wrap: wrap;
-}
-
-.view-grid {
-  //> * {
-  //padding-top: $padding;
-  //width: 100%;
-  //}
+  //app error
+  .appError {
+    margin: 0;
+    padding: 0;
+  }
 
   .fa {
     font-size: $fontSizeSubheader--small;
   }
-}
-// SECTION componet
 
-.view-grid {
+  // SECTION componet
+
   section {
     display: flex;
     flex-wrap: wrap;
