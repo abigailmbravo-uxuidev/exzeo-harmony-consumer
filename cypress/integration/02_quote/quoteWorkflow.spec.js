@@ -117,6 +117,7 @@ context('Create new quote', () => {
 
     // Complete 'summary' page
     cy.findDataTag('confirm')
+      .should('have.length', 5)
       .each($el => {
         $el.click();
         // there are currently 5 sections that the user must review and confirm
