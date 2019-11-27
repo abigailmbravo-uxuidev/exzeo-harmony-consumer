@@ -9,13 +9,13 @@ const InfoBar = ({ initialValues, config = {} }) => {
       className={classNames('infoBar', { className: config.className })}
       data-test="detail-header"
     >
-      <h2>
+      <h2 aria-labelledby="premium-label">
         Premium:&nbsp;
         <strong>
           {totalPremium ? format.toCurrency(totalPremium) : `$ --`}
         </strong>
       </h2>
-      <label>
+      <label id="premium-label">
         Quote Number:&nbsp;<strong>{initialValues.quoteNumber}</strong>
       </label>
     </div>

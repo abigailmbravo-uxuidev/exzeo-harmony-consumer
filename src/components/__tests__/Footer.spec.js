@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithRouter } from 'test-utils';
+import { render } from 'test-utils';
 import Footer from 'components/Footer';
 
 describe('Test Footer component', () => {
@@ -7,9 +7,8 @@ describe('Test Footer component', () => {
     cspMatch: '/westeros/iron'
   };
 
-  const { getByText } = renderWithRouter(<Footer {...props} />);
-
   test('should contain a link to New Quote', () => {
+    const { getByText } = render(<Footer {...props} />);
     expect(getByText('New Quote')).toHaveAttribute(
       'href',
       '/westeros/iron/searchAddress'

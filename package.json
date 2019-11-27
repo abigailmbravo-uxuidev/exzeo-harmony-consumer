@@ -26,8 +26,8 @@
     "store2": "^2.10.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.1.0",
-    "@testing-library/react": "^8.0.9",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
     "cypress": "^3.6.1",
     "history": "^4.10.1",
     "husky": "^3.0.4",

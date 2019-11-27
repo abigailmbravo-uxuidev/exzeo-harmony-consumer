@@ -1,6 +1,5 @@
 import React from 'react';
-import { waitForElement } from '@testing-library/react';
-import { renderWithRouterAndContext } from 'test-utils';
+import { render } from 'test-utils';
 import Navigation from 'components/Navigation';
 
 describe('Test Navigation Component', () => {
@@ -16,9 +15,7 @@ describe('Test Navigation Component', () => {
   };
 
   test('Should correctly display Nav on /searchAddress', () => {
-    const { getByText } = renderWithRouterAndContext(
-      <Navigation {...defaultProps} />
-    );
+    const { getByText } = render(<Navigation {...defaultProps} />);
 
     expect(getByText('Retrieve').closest('li')).toHaveClass('hide');
     expect(getByText('Search').closest('li')).not.toHaveClass();
