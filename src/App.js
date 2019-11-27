@@ -17,10 +17,10 @@ import RouteErrorBoundary from 'components/RouteErrorBoundary';
 import ThankYou from 'components/ThankYou';
 
 const App = ({ location, match, history }) => {
-  const viewGridRef = React.createRef();
   // set the base url containing CSP info. Remove trailing slash ('/') if there
   // is one because all subsequent urls are built assuming no trailing slash
   const cspMatch = match.url.replace(/\/+$/, '');
+  const viewGridRef = React.createRef();
 
   React.useEffect(() => {
     viewGridRef.current.scrollIntoView(true);
