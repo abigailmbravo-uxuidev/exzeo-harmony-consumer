@@ -13,6 +13,7 @@ import App from './App';
 
 import './fontAwesomeInit';
 import './sass/main.scss';
+import { CSP_CONTEXT_PARAMS } from 'constants/navigation';
 // import * as serviceWorker from './serviceWorker';
 
 http.defaults.headers.common['authorization'] = 'Bearer consumer';
@@ -23,7 +24,7 @@ const Landing = () => {
     <div className="landingPage">
       <ul>
         <li>
-          <Link to="/fl/flood">Get Flood Quote</Link>
+          <Link to="/ttic/fl/flood">Get Flood Quote</Link>
         </li>
       </ul>
     </div>
@@ -34,7 +35,7 @@ ReactDOM.render(
   <Router>
     <Switch>
       <Route exact path="/" component={Landing} />
-      <Route path="/:state/:product" component={App} />
+      <Route path={CSP_CONTEXT_PARAMS} component={App} />
     </Switch>
   </Router>,
   document.getElementById('root')

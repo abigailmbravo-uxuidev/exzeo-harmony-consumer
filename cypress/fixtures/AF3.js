@@ -1,3 +1,4 @@
+export const CSP_BASE = '/ttic/fl/flood';
 export const KNOWN_ADDRESS = '4131 TEST ADDRESS';
 export const UNKNOWN_ADDRESS = '7414 E Swoope St';
 
