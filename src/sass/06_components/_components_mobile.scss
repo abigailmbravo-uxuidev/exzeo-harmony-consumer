@@ -1256,6 +1256,142 @@
     }
   }
 
+  //input styling
+  .form-group {
+    label {
+      > span {
+        .fa-info-circle {
+          justify-content: flex-start;
+
+          width: 100%;
+          margin: 0;
+
+          background: transparent;
+
+          &:after {
+            content: 'more info';
+
+            color: $blue;
+          }
+        }
+
+        //tooltip styling
+
+        .__react_component_tooltip {
+          white-space: pre-line;
+
+          &.type-error {
+            position: relative;
+
+            display: none;
+
+            padding: 0;
+
+            background: transparent;
+            box-shadow: 0 0 0 rgba($white, 0);
+
+            &.show {
+              top: 0 !important;
+              left: 0 !important;
+
+              display: flex;
+
+              width: 100%;
+              max-width: 100%;
+              margin: 0;
+
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //range slider styling
+    &.slider {
+      label {
+        position: relative;
+
+        align-items: flex-start;
+        flex-direction: column;
+
+        width: 100%;
+        padding-right: 0;
+      }
+      .range-wrapper {
+        position: relative;
+        z-index: -1;
+
+        .range-value {
+          top: -2.5rem;
+        }
+        .range-control-wrapper {
+          margin-top: 0;
+        }
+      }
+    }
+
+    //segmented answer styling
+
+    &.segmented {
+      label {
+        position: relative;
+
+        align-items: flex-start;
+        flex-direction: column;
+
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .segmented-answer-wrapper {
+        flex-direction: column;
+
+        div {
+          overflow: hidden;
+
+          border-right-width: 0;
+          border-bottom: 1px $lightGrey solid;
+
+          &:last-of-type {
+            border-bottom-width: 0;
+            border-radius: 0 0 $borderRadius $borderRadius;
+          }
+
+          &:first-of-type {
+            border-radius: $borderRadius $borderRadius 0 0;
+          }
+
+          label {
+            padding: ($padding * 0.75);
+          }
+        }
+      }
+    }
+
+    //toggle styling
+
+    &.switch {
+      label {
+        position: relative;
+
+        align-items: flex-start;
+        flex-direction: column;
+
+        width: 100%;
+        padding-right: 0;
+      }
+    }
+
+    &.shareSwitch {
+      label {
+        font-size: $fontSizeSubheader--small;
+      }
+    }
+  }
+
   //keyframes
   @keyframes tada {
     0% {
