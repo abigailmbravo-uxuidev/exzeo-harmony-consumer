@@ -1,4 +1,5 @@
 @include forPhoneOnly {
+  $colors: $blue, $red, $green, $navy, gold;
   .harmony-consumer {
     div[role='region'] {
       //height: 100%;
@@ -11,6 +12,7 @@
       }
     }
   }
+
   .view-grid {
     //position: absolute;
     padding: $padding $padding 0 $padding;
@@ -1151,100 +1153,179 @@
       }
     }
   }
-}
 
-//keyframes
-@keyframes tada {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
+  //card styling
+  .card {
+    .cardContent {
+      h4 {
+        margin-top: 0.5rem;
 
-  10%,
-  20% {
-    -webkit-transform: scale(0.9) rotate(-8deg);
-    transform: scale(0.9) rotate(-8deg);
-  }
+        font-size: $fontSizeBase;
+      }
+      p {
+        padding-top: $padding/4;
 
-  30%,
-  50%,
-  70% {
-    -webkit-transform: scale(1.3) rotate(8deg);
-    transform: scale(1.3) rotate(8deg);
-  }
+        font-size: $fontSizeLabel;
+      }
+    }
 
-  40%,
-  60%,
-  80% {
-    -webkit-transform: scale(1.3) rotate(-8deg);
-    transform: scale(1.3) rotate(-8deg);
-  }
+    &.shareDetails {
+      .cardContent {
+        flex-direction: column;
+      }
+      strong {
+        align-self: flex-start;
+        order: 3;
 
-  90%,
-  100% {
-    -webkit-transform: scale(1) rotate(0);
-    transform: scale(1) rotate(0);
-  }
-}
+        font-size: $fontSizeLabel;
+      }
+    }
 
-//confetti
+    &.summaryCard {
+      position: relative;
 
-[class|='confetti'] {
-  position: absolute;
-}
-$colors: $blue, $red, $green, $navy, gold;
-@for $i from 0 through 550 {
-  $w: random(8);
-  $l: random(100);
-  .confetti-#{$i} {
-    top: -10%;
-    left: unquote($l + '%');
+      @include transition(all 0.2s ease-in-out);
 
-    width: #{$w}px;
-    height: #{$w * 0.4}px;
+      .confirmedIndicator {
+        .confirmedMessage {
+          width: 100%;
+          height: 100%;
 
-    transform: rotate(#{random() * 360}deg);
-    animation: drop-#{$i}
-      unquote(4 + random() + 's')
-      unquote(random() + 's')
-      infinite;
+          background-color: rgba($white, 0.5);
 
-    opacity: random() + 0.5;
-    background-color: nth($colors, random(5));
-  }
-  @keyframes drop-#{$i} {
-    100% {
-      top: 110%;
-      left: unquote($l + random(15) + '%');
+          h5 {
+            padding-bottom: ($padding / 2);
+
+            color: $navy;
+
+            font-size: $fontSizeHeader--small;
+          }
+
+          svg {
+            top: 0.5rem;
+            right: 1.125rem;
+
+            color: $navy;
+
+            font-size: 1.5rem;
+
+            &.fa-check {
+              margin-bottom: 0;
+
+              color: $green;
+
+              font-size: 8rem;
+            }
+          }
+        }
+      }
+
+      .cardContent {
+        flex-direction: column;
+      }
+
+      .card-footer {
+        label {
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
     }
   }
-}
 
-/**
+  //keyframes
+  @keyframes tada {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    10%,
+    20% {
+      -webkit-transform: scale(0.9) rotate(-8deg);
+      transform: scale(0.9) rotate(-8deg);
+    }
+
+    30%,
+    50%,
+    70% {
+      -webkit-transform: scale(1.3) rotate(8deg);
+      transform: scale(1.3) rotate(8deg);
+    }
+
+    40%,
+    60%,
+    80% {
+      -webkit-transform: scale(1.3) rotate(-8deg);
+      transform: scale(1.3) rotate(-8deg);
+    }
+
+    90%,
+    100% {
+      -webkit-transform: scale(1) rotate(0);
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  //confetti
+
+  [class|='confetti'] {
+    position: absolute;
+  }
+  @for $i from 0 through 550 {
+    $w: random(8);
+    $l: random(100);
+    .confetti-#{$i} {
+      top: -10%;
+      left: unquote($l + '%');
+
+      width: #{$w}px;
+      height: #{$w * 0.4}px;
+
+      transform: rotate(#{random() * 360}deg);
+      animation: drop-#{$i}
+        unquote(4 + random() + 's')
+        unquote(random() + 's')
+        infinite;
+
+      opacity: random() + 0.5;
+      background-color: nth($colors, random(5));
+    }
+    @keyframes drop-#{$i} {
+      100% {
+        top: 110%;
+        left: unquote($l + random(15) + '%');
+      }
+    }
+  }
+
+  /**
  * ----------------------------------------
  * animation slide-top
  * ----------------------------------------
  */
 
-@keyframes slide-top {
-  0% {
-    transform: translateY(100vh);
+  @keyframes slide-top {
+    0% {
+      transform: translateY(100vh);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
-  100% {
-    transform: translateY(0);
-  }
-}
 
-@keyframes modal-fade {
-  0% {
-    opacity: 0;
+  @keyframes modal-fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-  100% {
-    opacity: 1;
-  }
-}
 
-.mobileGrowShrink {
-  flex-grow: 1;
-  flex-shrink: 1;
+  .mobileGrowShrink {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 }
