@@ -5,14 +5,17 @@ import { format } from '@exzeo/core-ui';
 const InfoBar = ({ initialValues, config = {} }) => {
   const { totalPremium } = initialValues.rating || {};
   return (
-    <div className={classNames('infoBar', { className: config.className })}>
-      <h2>
+    <div
+      className={classNames('infoBar', { className: config.className })}
+      data-test="detail-header"
+    >
+      <h2 aria-labelledby="premium-label">
         Premium:&nbsp;
         <strong>
           {totalPremium ? format.toCurrency(totalPremium) : `$ --`}
         </strong>
       </h2>
-      <label>
+      <label id="premium-label">
         Quote Number:&nbsp;<strong>{initialValues.quoteNumber}</strong>
       </label>
     </div>

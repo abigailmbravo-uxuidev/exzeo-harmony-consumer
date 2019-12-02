@@ -152,6 +152,10 @@ submit {
     justify-content: center;
     padding: 0;
 
+    span {
+      display: none;
+    }
+
     svg {
       @include transition(all 0.1s ease-in-out);
     }

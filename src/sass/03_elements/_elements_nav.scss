@@ -5,18 +5,21 @@
 
   @include forPhoneOnly {
     position: fixed;
-    top: 4.5rem;
     z-index: 11;
+    top: 4.5rem;
+
     display: flex;
     justify-content: center;
+
+    width: 1.75rem;
+    height: 2.5rem;
     margin-bottom: 0;
     margin-left: 0;
     padding: 0;
-    width: 1.75rem;
-    height: 2.5rem;
+
+    color: $white;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    color: $white;
     svg {
       align-self: center;
     }
@@ -28,21 +31,25 @@
 
   @include forPhoneOnly {
     position: fixed;
+    z-index: 40;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 40;
+
     display: flex;
     justify-content: center;
+
     width: 100vw;
+
     background-color: rgba($navy, 0.125);
 
     svg {
       position: absolute;
+      z-index: 5;
       top: 84px;
       right: 24px;
-      z-index: 5;
+
       color: $navy;
     }
 
@@ -55,18 +62,22 @@
 nav[role='navigation'] {
   display: flex;
   flex-direction: column;
+
   min-width: 13rem;
 
   .propertyAddressWrapper {
     flex-grow: 0;
     flex-shrink: 0;
+
     padding-top: 2rem;
 
     p {
       margin: 0;
+
       text-align: right;
-      font-size: $fontSizeLabel;
+
       font-family: $serif;
+      font-size: $fontSizeLabel;
 
       @include forPhoneOnly {
         text-align: left;
@@ -78,8 +89,10 @@ nav[role='navigation'] {
     overflow-x: hidden;
     flex-grow: 1;
     flex-shrink: 1;
+
     margin: 0;
     padding: 1rem 0rem 2rem 0;
+
     list-style: none;
 
     > li {
@@ -88,13 +101,17 @@ nav[role='navigation'] {
       flex-grow: 1;
       flex-shrink: 1;
       flex-wrap: wrap;
+
       margin-bottom: 0;
+
       text-align: right;
       > a {
-        padding: 0;
         width: 100%;
-        color: $navy;
+        padding: 0;
+
         cursor: default;
+
+        color: $navy;
 
         @include forPhoneOnly {
           flex-direction: row-reverse;
@@ -116,32 +133,38 @@ nav[role='navigation'] {
         ul {
           overflow: hidden;
           //display: none;
+
           max-height: 0;
-          opacity: 0;
           //nav animation
+
           transition: all 0.5s ease-in;
+
+          opacity: 0;
         }
 
         .application {
           display: none;
         }
         h3 {
-          color: $lightGrey;
           cursor: default;
+
+          color: $lightGrey;
         }
         span {
-          background-color: $lightGrey;
           cursor: default;
+
+          background-color: $lightGrey;
         }
       }
       //complete styling - styles first level li and children
       &.complete {
         a {
           padding: 0;
+
           cursor: pointer;
           span {
-            background-color: $navy;
             color: $white;
+            background-color: $navy;
             svg {
               width: 1rem;
               height: 1rem;
@@ -153,10 +176,13 @@ nav[role='navigation'] {
           overflow: hidden;
           //this is for the nav animation
           //display: none;
+
           max-height: 0;
-          opacity: 0;
           //nav animation
+
           transition: all 0.5s ease-in;
+
+          opacity: 0;
         }
 
         ~ li {
@@ -171,13 +197,16 @@ nav[role='navigation'] {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+
         padding: 0;
 
         h3 {
           flex-grow: 1;
           flex-shrink: 1;
-          margin: 0 1rem 0 0;
+
           width: calc(100% - 2rem);
+          margin: 0 1rem 0 0;
+
           text-align: right;
         }
       }
@@ -188,73 +217,91 @@ nav[role='navigation'] {
         flex-grow: 0;
         flex-shrink: 0;
         justify-content: center;
+
         width: 1rem;
         height: 1rem;
+
+        transition: background-color 0.5s ease-in;
+
+        color: $white;
         border-radius: 50%;
         background-color: $green;
-        color: $white;
-        font-weight: bold;
+
         font-size: 0.5rem;
+        font-weight: bold;
         line-height: 1rem;
-        transition: background-color 0.5s ease-in;
 
         svg {
           width: 1rem;
           height: 1rem;
-          background-color: $white;
+
           color: $green;
+          background-color: $white;
         }
       }
 
       > h3 {
         flex-grow: 1;
         flex-shrink: 1;
-        margin: 0 1rem 0 0;
+
         width: calc(100% - 2rem);
-        text-align: right;
+        margin: 0 1rem 0 0;
+
         cursor: pointer;
         transition: color 0.5s ease-in;
+        text-align: right;
       }
 
       p {
         flex-grow: 0;
         flex-shrink: 0;
+
+        width: calc(100% - 7px);
+        min-height: 12px;
         margin-top: 0.75rem;
         margin-right: 7px;
         margin-bottom: 0.75rem;
-        min-height: 12px;
-        width: calc(100% - 7px);
-        border-right: 2px $navy solid;
+
         text-align: right;
+
+        border-right: 2px $navy solid;
+
         line-height: 1.2;
       }
 
       ul {
-        padding: 0;
-        max-height: 100vh;
         width: 100%;
         height: auto;
+        max-height: 100vh;
+        padding: 0;
+
         list-style: none;
-        opacity: 1;
         //nav animation
+
         transition: all 0.5s ease-in;
+
+        opacity: 1;
 
         li {
           margin-bottom: 0;
 
           a {
             padding-bottom: 0;
+
             cursor: pointer;
             &.complete {
               span {
                 svg {
                   display: flex;
+
                   width: 1rem;
                   height: 1rem;
-                  color: $navy;
-                  opacity: 1;
+
                   animation-name: scale-easeOutBounce;
                   animation-duration: 0.3s;
+
+                  opacity: 1;
+                  color: $navy;
                 }
               }
             }
@@ -262,26 +309,31 @@ nav[role='navigation'] {
               color: $navy;
             }
             span {
-              margin: 0 0.3125rem;
               width: 0.375rem;
               height: 0.375rem;
+              margin: 0 0.3125rem;
+
               background-color: $navy;
               svg {
-                color: $navy;
                 //display: none;
                 opacity: 0;
+                color: $navy;
               }
             }
             p {
               flex-grow: 0;
               flex-shrink: 0;
+
+              width: calc(100% - 7px);
+              min-height: 12px;
               margin-right: 7px;
               padding: 0 ($padding * 1.5625) 0 0;
-              min-height: 12px;
-              width: calc(100% - 7px);
-              border-right: 2px $navy solid;
-              color: $navy;
+
               text-align: right;
+
+              color: $navy;
+              border-right: 2px $navy solid;
+
               line-height: 1.2;
 
               &:first-of-type {
@@ -298,8 +350,9 @@ nav[role='navigation'] {
               }
               p {
                 display: block;
-                border-color: $lightGrey;
+
                 color: $lightGrey;
+                border-color: $lightGrey;
               }
             }
             &.active {
@@ -319,8 +372,8 @@ nav[role='navigation'] {
                 background-color: $blue;
               }
               p {
-                border-color: $blue;
                 color: $blue;
+                border-color: $blue;
               }
             }
           }
@@ -329,53 +382,31 @@ nav[role='navigation'] {
     }
   }
 
-  &.hasUnderwritingError,
   &.hide {
     .propertyAddressWrapper {
       display: none;
-      font-size: $fontSizeLabel;
+
       font-family: $serif;
+      font-size: $fontSizeLabel;
     }
     > ul {
       display: none;
-    }
-  }
-
-  &.hasUnderwritingException {
-    opacity: 0.4;
-
-    @include forPhoneOnly {
-      opacity: 1;
-    }
-    > ul {
-      a {
-        &.active {
-          h3 {
-            color: $lightGrey;
-          }
-          span {
-            background-color: $lightGrey;
-          }
-          p {
-            border-color: $lightGrey;
-            color: $lightGrey;
-          }
-        }
-      }
     }
   }
 }
 
 @include forPhoneOnly {
+  .navSlideOut {
+    animation: slideRight 0.15s steps(2, end) both;
+
+    ~ main[role='main'] {
+      filter: blur(2px);
+    }
+  }
+
   .navSlideIn {
     animation: slideLeft 0.15s steps(2, end) both;
-  }
-}
 
-.navSlideOut {
-  animation: slideRight 0.15s steps(2, end) both;
-
-  ~ main[role='main'] {
-    filter: blur(2px);
+    opacity: 0;
   }
 }

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Form,
   Field,
   OnChangeListener,
   ModalPortal,
   Radio,
-  validation,
-  Button
+  validation
 } from '@exzeo/core-ui';
 import {
   useAdditionalInterests,
@@ -17,7 +15,7 @@ import {
 } from '@exzeo/core-ui/src/@Harmony';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { BOOL_OPTIONS } from '../../../constants/input';
+import { BOOL_OPTIONS } from 'constants/input';
 
 function setInitialValues(groupedAI) {
   return {
@@ -36,19 +34,13 @@ const INITIAL_STATE = {
 };
 
 // TODO modify this component to accept a config from the CSP template to determine questions, order, and other behavior
-const AdditionalInterests = ({
-  config,
-  initialValues,
-  customHandlers,
-  formInstance
-}) => {
+const AdditionalInterests = ({ config, initialValues, customHandlers }) => {
   const [modal, setModal] = useState(INITIAL_STATE);
   const {
     groupedAdditionalInterests: groupedAIs,
     update,
     remove,
     options
-    // loaded
   } = useAdditionalInterests(initialValues);
 
   async function submitAdditionalInterest(additionalInterest, aiFormInstance) {
@@ -72,7 +64,7 @@ const AdditionalInterests = ({
   return (
     <div className={config.className}>
       <Form onSubmit={x => x} initialValues={setInitialValues(groupedAIs)}>
-        {({ values, invalid, form }) => (
+        {({ values, form }) => (
           <React.Fragment>
             <Field name="mortgagee1" validate={validation.isRequired}>
               {({ input, meta }) => (
@@ -408,16 +400,6 @@ const AdditionalInterests = ({
                   </li>
                 </ul>
               )}
-
-            <div className="form-footer">
-              <Link
-                className={Button.constants.classNames.primary}
-                to={invalid ? '#' : 'policyholder'}
-                disabled={invalid}
-              >
-                Continue
-              </Link>
-            </div>
           </React.Fragment>
         )}
       </Form>

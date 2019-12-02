@@ -15,7 +15,7 @@
 // breakpoint mixin
 
 @mixin forPhoneOnly {
-  @media (max-width: 599px) {
+  @media (max-width: 766px) {
     @content;
   }
 }

@@ -17,6 +17,7 @@ const PayPlanOptions = ({
     <>
       {paymentPlan && paymentPlan.amount && (
         <div
+          data-test="payment-plan-annual"
           className={classNames('card', 'payPlan', {
             selected: selectedPlan === PAY_PLANS.annual
           })}
@@ -26,7 +27,7 @@ const PayPlanOptions = ({
             <h3>Annual</h3>
           </div>
           <div className="cardContent">
-            <dl className="" data-test="annual-plan">
+            <dl>
               <div>
                 <dd>
                   <span>
@@ -52,6 +53,7 @@ const PayPlanOptions = ({
       )}
       {paymentPlan && paymentPlan.s1 && paymentPlan.s2 && (
         <div
+          data-test="payment-plan-semi-annual"
           className={classNames('card', 'payPlan', {
             selected: selectedPlan === PAY_PLANS.semiAnnual
           })}
@@ -61,7 +63,7 @@ const PayPlanOptions = ({
             <h3>Semi-Annual</h3>
           </div>
           <div className="cardContent">
-            <dl className="" data-test="semi-annual-plan">
+            <dl>
               <div className="semiCard">
                 <dd>
                   <span>
@@ -106,6 +108,7 @@ const PayPlanOptions = ({
         paymentPlan.q3 &&
         paymentPlan.q4 && (
           <div
+            data-test="payment-plan-quarterly"
             className={classNames('card', 'payPlan', {
               selected: selectedPlan === PAY_PLANS.quarterly
             })}
@@ -115,7 +118,7 @@ const PayPlanOptions = ({
               <h3>Quarterly</h3>
             </div>
             <div className="cardContent">
-              <dl className="" data-test="quarterly-plan">
+              <dl>
                 <div>
                   <dd>
                     <span>

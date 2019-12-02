@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { searchData } from '@exzeo/core-ui/src/@Harmony';
 
-const initialState = {
+const INITIAL_STATE = {
   hasSearched: false,
   results: [],
   noResults: false
 };
 
 export function useAddressSearch() {
-  const [searchState, setSearchState] = useState(initialState);
+  const [searchState, setSearchState] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
 
   async function handleSearchSubmit(values) {
-    searchState.hasSearched && setSearchState(initialState);
+    searchState.hasSearched && setSearchState(INITIAL_STATE);
     try {
       setLoading(true);
       const results = await searchData.searchAddress(values.address);
@@ -22,7 +22,9 @@ export function useAddressSearch() {
         noResults: !results.TotalCount
       });
     } catch (error) {
-      console.error('Error searching: ', error);
+      if (process.env.NODE_ENV !== 'production') {
+        console.error('Error searching: ', error);
+      }
     } finally {
       setLoading(false);
     }

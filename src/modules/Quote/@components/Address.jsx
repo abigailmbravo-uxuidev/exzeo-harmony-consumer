@@ -78,6 +78,7 @@ const Address = ({ initialValues, customHandlers }) => {
           disabled={!!initialValues.policyHolderMailingAddress.address1}
           type="button"
         >
+          <span>Add Mailing Address</span>
           <FontAwesomeIcon icon="plus" />
         </Button>
       </div>

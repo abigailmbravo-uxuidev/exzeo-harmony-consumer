@@ -1,0 +1,18 @@
+FROM cypress/base:10
+
+LABEL maintainer=Exzeo
+
+ARG NPM_TOKEN
+
+WORKDIR /app
+
+COPY cypress/package.json /app/package.json
+RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+RUN npm install
+
+ADD cypress.json /app/
+ADD cypress/ /app/cypress
+
+RUN npm cache clean --force && rm -f .npmrc
+
+CMD ["npm", "run", "cypress", "--", "--headless"]

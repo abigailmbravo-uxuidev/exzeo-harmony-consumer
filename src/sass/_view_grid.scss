@@ -5,70 +5,69 @@
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: ($padding / 4) $padding 0 ($padding * 1.5);
+
   width: 100%;
+  padding: $padding $padding 0 ($padding * 1.5);
+
+  //scroll area (does not scroll - scrolls on main"
+  // todo
+  .scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 
   .modal {
     position: fixed;
+    z-index: 200;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 200;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba($white, 0.95);
+
     animation: modal-fade 0.35s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
-    @include forPhoneOnly {
-      background-color: $white;
-    }
-
-    &.modal-sm {
-      .card {
-        max-width: 36rem;
-      }
-    }
+    background-color: rgba($white, 0.95);
 
     .card {
       position: absolute;
       top: 5.75rem;
       bottom: 5.75rem;
-      margin-bottom: 0;
+
       width: 60vw;
-      background-color: transparent;
-      box-shadow: none;
+      max-width: 32rem;
+      margin-bottom: 0;
+
       animation: slide-top 0.65s ease-in-out both;
 
-      @include forTabletPortraitOnly {
-        width: 70vw;
-      }
-      @include forPhoneOnly {
-        top: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-      }
+      background-color: transparent;
+      box-shadow: none;
 
       &.error,
       &.oops {
         flex-direction: column;
         .congratsCardFooter {
+          z-index: 100;
+
           display: flex;
           flex-direction: row;
-          z-index: 100;
           justify-content: center;
 
           a {
-            cursor: pointer;
-            color: $navy;
-            font-weight: $bold;
-            font-family: $serif;
             display: flex;
             flex-grow: 1;
             flex-shrink: 1;
+
+            cursor: pointer;
+
+            color: $navy;
+
+            font-family: $serif;
             font-size: 14px;
+            font-weight: $bold;
 
             &.contactSite {
               justify-content: flex-end;
@@ -84,26 +83,49 @@
             }
           }
         }
+        &.fade-in {
+          #sendQuoteSummary {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            .card-footer {
+              flex-grow: 0;
+              flex-shrink: 0;
+            }
+          }
+        }
 
         .card-block {
           color: $navy;
+
           line-height: 1.4;
         }
 
         &:hover {
-          box-shadow: none;
           cursor: default;
+
+          box-shadow: none;
         }
       }
 
       .card-block {
         overflow-x: hidden;
         overflow-y: auto;
+
         padding: 1rem 1.5rem 1rem;
+
         border-top-left-radius: 0.375rem;
         border-top-right-radius: 0.375rem;
         background-color: white;
         box-shadow: inset 0 3px 6px rgba(29, 64, 78, 0.16);
+
+        ul {
+          li {
+            font-weight: $bold;
+          }
+        }
 
         p {
           margin-bottom: 0.5rem;
@@ -113,16 +135,19 @@
       .card-footer {
         display: flex;
         flex-grow: 0;
-        flex-shrink: 1;
+        flex-shrink: 0;
 
         a {
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
           justify-content: center;
+
           margin-bottom: 0;
           margin-left: 0;
+
           text-transform: capitalize;
+
           &.btn {
             &.btn-secondary {
               border-top-left-radius: 0;
@@ -132,15 +157,19 @@
             }
           }
         }
+
         button,
         a {
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
           justify-content: center;
+
           margin-bottom: 0;
           margin-left: 0;
+
           text-transform: capitalize;
+
           &.btn {
             &.btn-primary {
               border-top-left-radius: 0;
@@ -162,13 +191,16 @@
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
+
           .btn {
             display: flex;
             flex-grow: 1;
             flex-shrink: 1;
             justify-content: center;
+
             margin-bottom: 0;
             margin-left: 0;
+
             text-transform: capitalize;
 
             &.btn-primary {
@@ -176,10 +208,6 @@
               border-top-right-radius: 0;
               border-bottom-right-radius: $borderRadius;
               border-bottom-left-radius: 0;
-
-              @include forPhoneOnly {
-                border-bottom-right-radius: 0;
-              }
             }
 
             &.btn-secondary {
@@ -187,10 +215,6 @@
               border-top-right-radius: 0;
               border-bottom-right-radius: 0;
               border-bottom-left-radius: $borderRadius;
-
-              @include forPhoneOnly {
-                border-bottom-left-radius: 0;
-              }
             }
           }
         }
@@ -201,51 +225,58 @@
           position: absolute;
           top: 0;
           right: 16px;
+
           display: flex;
           flex-direction: row-reverse;
+
           font-size: 2rem;
         }
+
         h4 {
           text-align: center;
-          font-size: $fontSizeHeader;
-          font-family: $serif;
 
-          @include forPhoneOnly {
-            padding-top: $padding * 2;
-          }
+          font-family: $serif;
+          font-size: $fontSizeHeader;
         }
       }
 
       form {
         overflow: hidden;
+        flex-grow: 1;
+        flex-shrink: 1;
 
         .card-block {
           overflow-x: hidden;
           overflow-y: auto;
+
           padding: $padding $padding * 1.5 $padding;
+
           border-top-left-radius: $borderRadius;
           border-top-right-radius: $borderRadius;
           background-color: $white;
 
+          @include forDatePicker {
+            flex-grow: 1;
+            flex-shrink: 1;
+          }
           @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
 
           .flex-form {
             display: flex;
-            flex-direction: row;
-
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
+            overflow: hidden;
+            flex-direction: column;
 
             .form-group {
               margin-right: 1rem;
 
               select {
                 height: 1.5rem;
-                border-width: 0;
+
                 color: $navy;
-                font-size: $fontSizeBody;
+                border-width: 0;
                 background-color: $extraLightGrey;
+
+                font-size: $fontSizeBody;
               }
             }
             &:last-of-type {
@@ -257,6 +288,7 @@
         .form-group {
           &.type-ahead {
             z-index: 100;
+
             overflow: visible;
 
             .react-select__menu-list {
@@ -270,13 +302,16 @@
               background-color: $extraLightGrey;
               label {
                 position: relative;
+
                 margin-bottom: 0;
               }
 
               select {
                 height: 1rem;
-                border-width: 0;
+
                 color: $navy;
+                border-width: 0;
+
                 font-size: $fontSizeBody;
               }
             }
@@ -285,8 +320,6 @@
       }
 
       .card-footer {
-        @include forPhoneOnly {
-        }
         .btn-group {
           display: flex;
           flex-grow: 1;
@@ -296,8 +329,10 @@
             flex-grow: 1;
             flex-shrink: 1;
             justify-content: center;
+
             margin-bottom: 0;
             margin-left: 0;
+
             text-transform: capitalize;
 
             &.btn-primary {
@@ -305,10 +340,6 @@
               border-top-right-radius: 0;
               border-bottom-right-radius: $borderRadius;
               border-bottom-left-radius: 0;
-
-              @include forPhoneOnly {
-                border-bottom-right-radius: 0;
-              }
             }
 
             &.btn-secondary {
@@ -316,9 +347,381 @@
               border-top-right-radius: 0;
               border-bottom-right-radius: 0;
               border-bottom-left-radius: $borderRadius;
+            }
+          }
+        }
+      }
+    }
+  }
 
-              @include forPhoneOnly {
-                border-bottom-left-radius: 0;
+  .share {
+    overflow: hidden;
+
+    .card-block {
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      padding: $padding $padding * 1.5 $padding;
+
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
+      background-color: $white;
+
+      @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
+
+      .form-group {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .card-footer {
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+      .btn {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        justify-content: center;
+
+        margin-bottom: 0;
+        margin-left: 0;
+
+        text-transform: capitalize;
+
+        &.btn-primary {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: $borderRadius;
+          border-bottom-left-radius: 0;
+        }
+
+        &.btn-secondary {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: $borderRadius;
+        }
+      }
+    }
+  }
+
+  .card {
+    //thank you page
+    &.thankYouCard {
+      position: relative;
+
+      align-self: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      margin: 0 auto;
+      padding: ($padding * 2) ($padding * 2) $padding;
+      //width: 34rem;
+      .quoteNumber {
+        text-align: center;
+      }
+
+      label {
+        z-index: 1;
+
+        padding-top: $padding;
+
+        text-align: center;
+
+        color: $navy;
+
+        font-family: $serif;
+        font-size: $fontSizeHeader;
+      }
+
+      .confettiWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      .thankYouCircle {
+        position: absolute;
+        z-index: 0;
+        top: -2.5rem;
+        right: calc(50% - 32rem);
+
+        width: 64rem;
+
+        svg {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+          fill: $navy;
+        }
+      }
+
+      .thankYouIcon {
+        z-index: 1;
+
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        animation-name: tada;
+        animation-duration: 1.5s;
+        animation-delay: 2s;
+
+        color: white;
+
+        font-size: 10rem;
+
+        svg {
+          width: 15rem;
+          height: 15rem;
+
+          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+          fill: $white;
+        }
+      }
+
+      a {
+        z-index: 21;
+
+        text-align: center;
+      }
+    }
+    //congratulations
+    &.congratsCard {
+      position: relative;
+
+      align-self: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      margin: 0 auto;
+      padding: ($padding * 2) ($padding * 2) $padding;
+
+      label {
+        z-index: 20;
+        z-index: 1;
+
+        padding-top: $padding;
+
+        text-align: center;
+
+        color: $navy;
+
+        font-family: $serif;
+        font-size: $fontSizeHeader;
+      }
+      .confettiWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      .congratsCircle {
+        position: absolute;
+        z-index: 0;
+        top: -6rem;
+        right: -8rem;
+        left: -8rem;
+
+        width: 54rem;
+
+        svg {
+          filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
+          fill: $navy;
+        }
+      }
+
+      .congratsCardFooter {
+        z-index: 100;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        a {
+          cursor: pointer;
+        }
+      }
+
+      .congratsIcon {
+        z-index: 1;
+
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        animation-name: tada;
+        animation-duration: 1.5s;
+        animation-delay: 2s;
+
+        color: white;
+
+        font-size: 10rem;
+
+        svg {
+          width: 15rem;
+          height: 15rem;
+
+          filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  //policyholder info styling
+  .policyHolderInfo {
+    margin-bottom: 0.5rem;
+    h4 {
+      margin-bottom: 0.5rem;
+      padding-top: ($padding / 2);
+    }
+    .card {
+      flex-direction: row;
+
+      .cardContent {
+        h4 {
+          margin-bottom: 0;
+          padding-top: 0;
+        }
+      }
+
+      a {
+        //padding: ($padding/2) $padding ($padding/2) ($padding/2);
+        margin-left: 1rem;
+        //height: 2rem;
+
+        svg {
+          align-content: center;
+        }
+      }
+
+      .cardFooter {
+        margin: 0;
+        padding: $padding;
+
+        a {
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+    .form-group {
+      &.policyHolder {
+        &.radio {
+          &.segmented {
+            overflow: visible;
+            flex-direction: row;
+
+            margin-bottom: 1rem;
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+            label {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              font-size: $fontSizeSubheader--small;
+            }
+
+            .segmented-answer-wrapper {
+              align-self: flex-start;
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              width: 6rem;
+              margin-top: 0.5rem;
+
+              border-radius: $borderRadius;
+              label {
+                padding: $padding/2;
+
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //address section
+  .addressSection {
+    margin-bottom: 0.5rem;
+
+    &.error {
+      span {
+        color: $red;
+      }
+    }
+    h4 {
+      margin-bottom: 0.5rem;
+      padding-top: ($padding / 2);
+    }
+
+    .card {
+      flex-direction: row;
+
+      .cardContent {
+        h4 {
+          margin-bottom: 0;
+          padding-top: 0;
+        }
+      }
+
+      .cardFooter {
+        display: flex;
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+
+        padding: $padding;
+        a {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .form-group {
+      &.mailingSameAsProperty {
+        &.radio {
+          &.segmented {
+            overflow: visible;
+            flex-direction: row;
+
+            margin-bottom: 1rem;
+
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+
+            label {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              font-size: $fontSizeSubheader--small;
+            }
+
+            .segmented-answer-wrapper {
+              align-self: flex-start;
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              width: 6rem;
+              margin-top: 0.5rem;
+
+              border-radius: $borderRadius;
+              label {
+                padding: $padding/2;
+
+                font-size: $fontSizeBase;
               }
             }
           }
@@ -326,1398 +729,801 @@
       }
     }
 
-    .share {
-      overflow: hidden;
-
-      .card-block {
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: $padding $padding * 1.5 $padding;
-        border-top-left-radius: $borderRadius;
-        border-top-right-radius: $borderRadius;
-        background-color: $white;
-
-        @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
-
-        .form-group {
-          &:last-of-type {
-            margin-bottom: 0;
-          }
-        }
-      }
-
-      .card-footer {
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-
-        @include forPhoneOnly {
-        }
-
-        .btn {
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-          justify-content: center;
-          margin-bottom: 0;
-          margin-left: 0;
-          text-transform: capitalize;
-
-          &.btn-primary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: $borderRadius;
-            border-bottom-left-radius: 0;
-
-            @include forPhoneOnly {
-              border-bottom-right-radius: 0;
-            }
-          }
-
-          &.btn-secondary {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: $borderRadius;
-
-            @include forPhoneOnly {
-              border-bottom-left-radius: 0;
-            }
-          }
-        }
-      }
-    }
-
-    &.addMailingAddressModal {
-      .card-block {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        .form-group {
-          &.view-col-9 {
-            flex-grow: 1;
-            flex-shrink: 1;
-            margin-right: 0.5rem;
-            width: auto;
-
-            @include forPhoneOnly {
-              flex-grow: 0;
-              flex-shrink: 0;
-              width: 100%;
-            }
-          }
-          &.view-col-1 {
-            flex-grow: 0;
-            flex-shrink: 0;
-            margin-right: 0.5rem;
-            width: 8.33%;
-
-            @include forPhoneOnly {
-              flex-grow: 1;
-              flex-shrink: 1;
-              width: auto;
-            }
-          }
-          &.view-col-2 {
-            flex-grow: 0;
-            flex-shrink: 0;
-            width: 16.66%;
-
-            @include forPhoneOnly {
-              flex-grow: 1;
-              flex-shrink: 1;
-              width: auto;
-            }
-          }
-        }
+    .well {
+      &.hide {
+        display: none;
       }
     }
   }
-}
-
-> div {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-.card {
-  //thank you page
-  &.thankYouCard {
-    position: relative;
-    align-self: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 0 auto;
-    padding: ($padding * 2) ($padding * 2) $padding;
-    //width: 34rem;
-
-    @include forPhoneOnly {
-      width: 100%;
-    }
-
-    .quoteNumber {
-      text-align: center;
-    }
-
-    label {
-      z-index: 1;
-      padding-top: $padding;
-      color: $navy;
-      text-align: center;
-      font-size: $fontSizeHeader;
-      font-family: $serif;
-    }
-
-    .confettiWrapper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    .thankYouCircle {
-      position: absolute;
-      top: -6rem;
-      right: calc(50% - 27rem);
-      z-index: 0;
-      width: 54rem;
-
-      @include forPhoneOnly {
-        position: absolute;
-        top: -1rem;
-        right: -20rem;
-        left: -20rem;
-        width: 64rem;
-      }
-
-      svg {
-        filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-
-        fill: $navy;
-      }
-    }
-
-    .thankYouIcon {
-      z-index: 1;
-      align-items: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-      color: white;
-      font-size: 10rem;
-      animation-name: tada;
-      animation-duration: 1.5s;
-      animation-delay: 2s;
-
-      svg {
-        width: 15rem;
-        height: 15rem;
-        filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
-
-        fill: $white;
-      }
-    }
-
-    a {
-      z-index: 21;
-      text-align: center;
-    }
-  }
-  //congratulations
-  &.congratsCard {
-    position: relative;
-    align-self: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 0 auto;
-    padding: ($padding * 2) ($padding * 2) $padding;
-
-    @include forPhoneOnly {
-      width: 100%;
-    }
-
-    label {
-      z-index: 20;
-      z-index: 1;
-      padding-top: $padding;
-      color: $navy;
-      text-align: center;
-      font-size: $fontSizeHeader;
-      font-family: $serif;
-    }
-    .confettiWrapper {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-    .congratsCircle {
-      position: absolute;
-      top: -6rem;
-      right: calc(50% - 27rem);
-      z-index: 0;
-      width: 54rem;
-
-      @include forPhoneOnly {
-        position: absolute;
-        top: -1rem;
-        right: -20rem;
-        left: -20rem;
-        width: 64rem;
-      }
-
-      svg {
-        filter: drop-shadow(0px 8px 12px rgba($navy, 0.5));
-
-        fill: $navy;
-      }
-    }
-
-    .congratsCardFooter {
-      display: flex;
+  //additional info styling
+  .additionalInfo {
+    .card {
       flex-direction: row;
-      justify-content: space-between;
-      z-index: 100;
+      p {
+        padding: ($padding / 4) 0;
+
+        line-height: 1.4;
+      }
 
       a {
-        cursor: pointer;
-      }
-    }
+        padding: ($padding/2) $padding 0 ($padding/2);
 
-    .congratsIcon {
-      z-index: 1;
-      align-items: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-      color: white;
-      font-size: 10rem;
-      animation-name: tada;
-      animation-duration: 1.5s;
-      animation-delay: 2s;
-
-      svg {
-        width: 15rem;
-        height: 15rem;
-        filter: drop-shadow(0px 8px 12px rgba(29, 64, 78, 0.25));
-
-        fill: $white;
-      }
-    }
-  }
-}
-
-//policyholder info styling
-.policyHolderInfo {
-  margin-bottom: 0.5rem;
-  h4 {
-    margin-bottom: 0.5rem;
-    padding-top: ($padding / 2);
-  }
-  .card {
-    flex-direction: row;
-
-    .cardContent {
-      @include forPhoneOnly {
-        padding-right: 0.75rem;
-      }
-      h4 {
-        margin-bottom: 0;
-        padding-top: 0;
-      }
-    }
-
-    a {
-      //padding: ($padding/2) $padding ($padding/2) ($padding/2);
-      margin-left: 1rem;
-      //height: 2rem;
-
-      svg {
-        align-content: center;
-      }
-    }
-
-    .cardFooter {
-      margin: 0;
-      padding: $padding;
-
-      a {
-        &:hover {
-          color: $blue;
-        }
-      }
-    }
-  }
-  .form-group {
-    &.policyHolder {
-      &.radio {
-        &.segmented {
-          overflow: visible;
-          flex-direction: row;
-          margin-bottom: 1rem;
-
-          @include forPhoneOnly {
-            flex-direction: column;
-          }
-
-          .group-label {
-            margin-bottom: 0.5rem;
-          }
-          label {
-            flex-grow: 1;
-            flex-shrink: 1;
-            font-size: $fontSizeSubheader--small;
-
-            @include forPhoneOnly {
-              padding-right: 0;
-            }
-          }
-
-          .segmented-answer-wrapper {
-            align-self: flex-start;
-            flex-grow: 1;
-            flex-shrink: 1;
-            margin-top: 0.5rem;
-            width: 6rem;
-            border-radius: $borderRadius;
-
-            @include forPhoneOnly {
-              margin-bottom: 1.5rem;
-              width: 100%;
-            }
-            label {
-              padding: $padding/2;
-              font-size: $fontSizeBase;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-//address section
-.addressSection {
-  margin-bottom: 0.5rem;
-
-  &.error {
-    span {
-      color: $red;
-    }
-  }
-  h4 {
-    margin-bottom: 0.5rem;
-    padding-top: ($padding / 2);
-  }
-
-  .card {
-    flex-direction: row;
-
-    .cardContent {
-      h4 {
-        margin-bottom: 0;
-        padding-top: 0;
-      }
-    }
-
-    .cardFooter {
-      display: flex;
-      align-items: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-      justify-content: center;
-      padding: $padding;
-      a {
-        margin-left: 1rem;
         svg {
+          align-content: center;
         }
       }
     }
-  }
+    .form-group {
+      &.additionalInterest {
+        &.radio {
+          &.segmented {
+            flex-direction: row;
 
-  .form-group {
-    &.mailingSameAsProperty {
-      &.radio {
-        &.segmented {
-          overflow: visible;
-          flex-direction: row;
-          margin-bottom: 1rem;
-
-          @include forPhoneOnly {
-            flex-direction: column;
-          }
-
-          .group-label {
-            margin-bottom: 0.5rem;
-          }
-
-          label {
-            flex-grow: 1;
-            flex-shrink: 1;
-            font-size: $fontSizeSubheader--small;
-
-            @include forPhoneOnly {
-              padding-right: 0;
-            }
-          }
-
-          .segmented-answer-wrapper {
-            align-self: flex-start;
-            flex-grow: 1;
-            flex-shrink: 1;
-            margin-top: 0.5rem;
-            width: 6rem;
-            border-radius: $borderRadius;
-
-            @include forPhoneOnly {
-              margin-bottom: 1.5rem;
-              width: 100%;
-            }
-            label {
-              padding: $padding/2;
-              font-size: $fontSizeBase;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-//additional info styling
-.additionalInfo {
-  .card {
-    flex-direction: row;
-    p {
-      padding: ($padding / 4) 0;
-      line-height: 1.4;
-
-      @include forPhoneOnly {
-        line-height: 1;
-      }
-    }
-
-    a {
-      padding: ($padding/2) $padding 0 ($padding/2);
-
-      svg {
-        align-content: center;
-      }
-    }
-  }
-  .form-group {
-    &.additionalInterest {
-      &.radio {
-        &.segmented {
-          flex-direction: row;
-          margin-bottom: 0;
-
-          @include forPhoneOnly {
-            flex-direction: column;
-          }
-
-          .group-label {
-            margin-bottom: 0.5rem;
-          }
-          label {
-            flex-grow: 1;
-            flex-shrink: 1;
-            font-size: $fontSizeSubheader--small;
-
-            @include forPhoneOnly {
-              padding-right: 0;
-            }
-          }
-          .segmented-answer-wrapper {
-            align-self: flex-start;
-            margin-top: 0.5rem;
-            width: 6rem;
-            border-radius: $borderRadius;
-
-            @include forPhoneOnly {
-              margin-bottom: 1.5rem;
-              width: 100%;
-            }
-
-            label {
-              padding: $padding/2;
-              font-size: $fontSizeBase;
-            }
-          }
-        }
-      }
-    }
-    //open helpful info on this page since additional interests is very complex
-    label {
-      align-items: flex-start;
-      flex-direction: column;
-      span {
-        max-width: 30rem;
-        i {
-          display: none;
-        }
-        .__react_component_tooltip {
-          position: relative;
-          top: 0 !important;
-          left: 0 !important;
-          display: flex;
-          visibility: visible;
-          padding: 0;
-          max-width: 100%;
-          width: 100%;
-          background-color: transparent;
-          color: $navy;
-          font-weight: $normal;
-          font-family: $sans;
-          opacity: 1;
-
-          @include forPhoneOnly {
-            margin: 0.5rem 0 0;
-          }
-
-          &:after {
-            display: none;
-          }
-
-          &.place-right {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-  }
-
-  ul {
-    margin: 0 0 1.5rem 0;
-    padding: 0;
-
-    li {
-      list-style: none;
-
-      .card {
-        position: relative;
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-
-        a {
-          flex-direction: row;
-          &.remove {
-            font-size: 1rem;
-          }
-
-          &.edit {
-            font-size: 1rem;
-
-            @include forPhoneOnly {
-              padding-right: 0.25rem;
-            }
-          }
-        }
-
-        > div {
-          flex-grow: 1;
-          flex-shrink: 1;
-          padding: ($padding / 2) $padding 0 $padding;
-
-          @include forPhoneOnly {
-            padding-bottom: ($padding / 2);
-          }
-
-          h4 {
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
-            font-size: $fontSizeBase;
-            font-family: $serif;
-
-            @include forPhoneOnly {
-              margin-top: 0.5rem;
-              font-size: $fontSizeBase;
-            }
-          }
-
-          p {
             margin-bottom: 0;
 
-            @include forPhoneOnly {
-              padding-top: $padding/4;
+            .group-label {
+              margin-bottom: 0.5rem;
+            }
+            label {
+              flex-grow: 1;
+              flex-shrink: 1;
+
+              font-size: $fontSizeSubheader--small;
+            }
+            .segmented-answer-wrapper {
+              align-self: flex-start;
+
+              width: 6rem;
+              margin-top: 0.5rem;
+
+              border-radius: $borderRadius;
+              label {
+                padding: $padding/2;
+
+                font-size: $fontSizeBase;
+              }
+            }
+          }
+        }
+      }
+      //open helpful info on this page since additional interests is very complex
+      label {
+        align-items: flex-start;
+        flex-direction: column;
+        span {
+          //max-width: 30rem;
+          i {
+            display: none;
+          }
+          .__react_component_tooltip {
+            position: relative;
+            top: 0 !important;
+            left: 0 !important;
+
+            display: flex;
+            visibility: visible;
+
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+
+            opacity: 1;
+            color: $navy;
+            background-color: transparent;
+
+            font-family: $sans;
+            font-weight: $normal;
+            &:after {
+              display: none;
+            }
+
+            &.place-right {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      margin: 0 0 1.5rem 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        .card {
+          position: relative;
+
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          a {
+            flex-direction: row;
+            &.remove {
+              font-size: 1rem;
+            }
+
+            &.edit {
+              font-size: 1rem;
             }
           }
 
-          &.card-icon {
-            display: none;
+          > div {
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            padding: ($padding / 2) $padding 0 $padding;
+
+            h4 {
+              margin-top: 0.25rem;
+              margin-bottom: 0.25rem;
+
+              font-family: $serif;
+              font-size: $fontSizeBase;
+            }
+
+            p {
+              margin-bottom: 0;
+            }
+
+            &.card-icon {
+              display: none;
+            }
           }
         }
       }
     }
-  }
 
-  .form-footer {
-    margin-top: 1rem;
-  }
-}
-
-//customize quote styling
-.workflow {
-  @include forPhoneOnly {
     .form-footer {
-      display: flex;
-      flex-direction: column;
-      .btn {
-        margin: 0 0 1rem 0;
-        width: 100%;
-        text-align: center;
-      }
+      margin-top: 1rem;
     }
   }
-  div {
-    &.agencySelect {
+
+  //customize quote styling
+  .workflow {
+    div {
+      &.agencySelect {
+        label {
+          padding-left: 0;
+        }
+      }
       label {
-        padding-left: 0;
+        padding-left: $padding/2;
+      }
+      input {
+        padding-left: $padding/2;
+      }
+      &.switch {
+        label {
+          padding-left: 0;
+        }
       }
     }
-    label {
-      padding-left: $padding/2;
-    }
-    input {
-      padding-left: $padding/2;
-    }
-    &.switch {
-      label {
-        padding-left: 0;
+    .slider-component {
+      .form-group {
+        label {
+          margin-bottom: 1rem;
+          padding-left: 0;
+
+          font-family: $serif;
+          font-size: $fontSizeSubheader--small;
+        }
       }
     }
-  }
-  .slider-component {
-    .form-group {
-      label {
+
+    .subtitle {
+      strong {
+        display: block;
+
+        margin-bottom: 0.25rem;
+      }
+      p {
+        max-width: 100%;
+        margin-right: 0;
         margin-bottom: 1rem;
-        padding-left: 0;
-        font-size: $fontSizeSubheader--small;
-        font-family: $serif;
+
+        font-family: $sans;
       }
     }
-  }
 
-  .subtitle {
-    strong {
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-    p {
-      margin-right: 0;
-      margin-bottom: 1rem;
-      max-width: 100%;
-      font-family: $sans;
-    }
-  }
+    //well styling
+    // todo
+    .well {
+      position: relative;
 
-  //well styling
-  .well {
-    position: relative;
-    display: flex;
-    overflow: visible;
-    margin-top: 0.5rem;
-    padding: $padding $padding 0 $padding;
-    //for phone
+      display: flex;
+      overflow: visible;
 
-    @include forPhoneOnly {
-      .card {
-        flex-direction: column;
-        justify-content: center;
-        margin-left: 0;
+      margin-top: 0.5rem;
+      padding: $padding $padding 0 $padding;
 
-        &.fade-in {
-          min-height: auto;
+      //results modal styling
+      .modal {
+        z-index: 100;
+
+        display: flex;
+
+        .card {
+          margin: 0;
+          padding: 0;
+
+          background-color: transparent;
+          box-shadow: 0 0 0 0 rgba($white, 0);
+
+          .card-footer {
+            position: unset;
+
+            display: flex;
+
+            margin-top: 0.75rem;
+
+            button {
+              margin: 0;
+              padding: 0.4rem 1rem;
+            }
+          }
+
+          .share {
+            z-index: 1;
+            .card-block {
+              margin-top: 0;
+              padding: 0;
+
+              .form-group {
+                width: 100%;
+
+                color: $navy;
+
+                #toName {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+
+                #toEmail {
+                  background-color: rgba($extraLightGrey, 0.9);
+                }
+              }
+
+              .error {
+                span {
+                  display: block;
+
+                  width: 100%;
+                  height: auto;
+                  padding: ($padding / 4) 0 0 ($padding / 2);
+
+                  border-radius: 0;
+                  background-color: transparent;
+                  box-shadow: none;
+
+                  font-size: $fontSizeBody;
+                }
+              }
+            }
+          }
+
+          .card-header {
+            h4 {
+              display: none;
+            }
+          }
         }
 
-        .card-header {
-          position: relative;
-          align-items: center;
-          flex-direction: column;
-          padding-right: 0;
-          padding-left: 0;
-          width: 50%;
+        .form-group {
+          z-index: 14;
+
+          overflow: visible;
+        }
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        min-height: 176px;
+        padding: 0 $padding;
+
+        background-color: $navy;
+
+        &:hover {
+          transform: none;
         }
 
         .cardContent {
-          margin-bottom: 1rem;
-          text-align: center;
+          display: flex;
+
+          padding-left: 150px;
+
+          color: $white;
+          background-color: $navy;
 
           p {
-            padding: 0 $padding;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            padding-top: $padding;
+            padding-left: $padding;
+
+            color: white;
+
+            font-size: $fontSizeBase;
+            font-weight: $bold;
+            line-height: 1.2;
+          }
+
+          span {
+            flex-grow: 0;
+            flex-shrink: 0;
           }
         }
 
-        .card-footer {
-          flex-direction: column;
-          margin: 0;
-          padding: 0;
-          width: 100%;
+        .card-header {
+          position: absolute;
 
-          .btn,
-          .btn-primary {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            margin-left: 0;
-            padding: $padding/2;
-            text-align: center;
-          }
-
-          .btn-secondary {
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            margin-left: 0;
-            padding: $padding/2;
-            text-align: center;
-          }
-        }
-      }
-    }
-
-    //results modal styling
-    .modal {
-      z-index: 100;
-      display: flex;
-
-      .card {
-        margin: 0;
-        padding: 0;
-        background-color: transparent;
-        box-shadow: 0 0 0 0 rgba($white, 0);
-
-        .card-footer {
-          position: unset;
           display: flex;
+
+          width: 32%;
+          padding: $padding;
+        }
+
+        .card-footer {
+          position: relative;
+
+          display: flex;
+
           margin-top: 0.75rem;
 
           button {
+            position: absolute;
+            right: 0;
+            left: 0;
+
+            width: 100%;
             margin: 0;
             padding: 0.4rem 1rem;
           }
         }
-
-        .share {
-          z-index: 1;
-          .card-block {
-            margin-top: 0;
-            padding: 0;
-
-            .form-group {
-              width: 100%;
-              color: $navy;
-
-              #toName {
-                background-color: rgba($extraLightGrey, 0.9);
-              }
-
-              #toEmail {
-                background-color: rgba($extraLightGrey, 0.9);
-              }
-            }
-
-            .error {
-              span {
-                display: block;
-                padding: ($padding / 4) 0 0 ($padding / 2);
-                width: 100%;
-                height: auto;
-                border-radius: 0;
-                background-color: transparent;
-                box-shadow: none;
-                font-size: $fontSizeBody;
-              }
-            }
-          }
-        }
-
-        .card-header {
-          h4 {
-            display: none;
-          }
-        }
-      }
-
-      .form-group {
-        z-index: 14;
-        overflow: visible;
-      }
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      padding: 0 $padding;
-      min-height: 176px;
-      background-color: $navy;
-
-      &:hover {
-        transform: none;
-      }
-
-      .cardContent {
-        display: flex;
-        padding-left: 150px;
-        background-color: $navy;
-        color: $white;
-
-        p {
-          flex-grow: 1;
-          flex-shrink: 1;
-          padding-top: $padding;
-          padding-left: $padding;
-          color: white;
-          font-weight: $bold;
-          font-size: $fontSizeBase;
-          line-height: 1.2;
-        }
-
-        span {
-          flex-grow: 0;
-          flex-shrink: 0;
-        }
-      }
-
-      .card-header {
-        position: absolute;
-        display: flex;
-        padding: $padding;
-        width: 32%;
-      }
-
-      .card-footer {
-        position: relative;
-        display: flex;
-        margin-top: 0.75rem;
-
-        button {
-          position: absolute;
-          right: 0;
-          left: 0;
-          margin: 0;
-          padding: 0.4rem 1rem;
-          width: 100%;
-        }
-      }
-      .modalIcons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 14px;
-        width: 125px;
-        height: 125px;
-        border-radius: 50%;
-        background-color: $white;
-        box-shadow: 0 8px 12px rgba($navy, 0.15);
-        font-size: 50px;
-
-        svg {
-          color: $red;
-          font-size: 80px;
-        }
-      }
-    }
-  }
-}
-
-.form-group {
-  margin-bottom: 1rem;
-
-  &.radio {
-    &.segmented {
-      margin-bottom: 1.5rem;
-
-      @include forPhoneOnly {
-        margin-bottom: 1rem;
-      }
-      &.segmented-answer-wrapper {
-        font-weight: $normal;
-        font-size: $fontSizeBase;
-      }
-
-      > label {
-        padding-left: 0;
-      }
-    }
-  }
-
-  label {
-    margin-bottom: 1rem;
-  }
-}
-
-footer {
-  z-index: 99;
-  padding: $padding;
-
-  @include forPhoneOnly {
-    margin-bottom: 1rem;
-
-    div[role='banner'] {
-      flex-direction: column;
-
-      small {
-        align-self: center;
-      }
-    }
-  }
-
-  &.navFooter {
-    padding: $padding 0;
-
-    @include forPhoneOnly {
-      align-content: center;
-      margin-bottom: 0;
-      padding-bottom: 0;
-
-      label {
-        text-align: center;
-      }
-
-      & div {
-        text-align: center;
-      }
-    }
-  }
-}
-
-.title {
-  margin-bottom: 1rem;
-  color: $navy;
-  font-weight: $bold;
-  font-size: $fontSizeHeader;
-  font-family: $serif;
-
-  @include forPhoneOnly {
-    font-size: $fontSizeSubheader;
-  }
-}
-
-.form-footer {
-  display: flex;
-  align-items: flex-start;
-  flex-grow: 1;
-  flex-shrink: 1;
-  justify-content: flex-end;
-  margin-top: 1rem;
-  width: 100%;
-
-  .btn-primary {
-    margin-left: 1rem;
-  }
-}
-
-.switch {
-  margin-bottom: 0;
-}
-
-.searchInputWrapper {
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .property-search {
-    margin-bottom: 0.5rem;
-  }
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 1;
-
-  //biling specific styling
-  &.billing {
-    ul {
-      padding-left: 0;
-      list-style: none;
-
-      li {
-        .billingCheckBox {
+        .modalIcons {
+          display: flex;
           align-items: center;
-          cursor: pointer;
+          justify-content: center;
 
-          .emptyCheckBox {
-            border: 2px $navy solid;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 1.5rem;
-            height: 1.5rem;
-            border-radius: $borderRadius;
-            margin-bottom: 1rem;
+          width: 125px;
+          height: 125px;
+          padding-bottom: 14px;
 
-            svg {
-              font-size: 0.875rem;
-            }
-          }
+          border-radius: 50%;
+          background-color: $white;
+          box-shadow: 0 8px 12px rgba($navy, 0.15);
 
-          .billToId {
-            .cardContent {
-              align-items: center;
-            }
-          }
+          font-size: 50px;
 
-          footer {
-            svg {
-              margin-bottom: 0;
-            }
-          }
-        }
-        .card {
-          display: flex;
-          flex-direction: row;
-          padding: $padding/4;
-          margin-left: 1rem;
+          svg {
+            color: $red;
 
-          @include forPhoneOnly {
-            padding: 0 $padding;
-
-            .cardContent {
-              //padding: $padding 0;
-            }
-
-            footer {
-              margin-bottom: 0;
-            }
-          }
-
-          footer {
-            width: auto;
-          }
-        }
-        div {
-          display: flex;
-          flex-grow: 1;
-          flex-shrink: 1;
-          &.fade-in {
-            margin-left: 1.5rem;
-            @include forPhoneOnly {
-              flex-direction: column;
-            }
-          }
-
-          .card {
-            margin-right: 1rem;
-            padding: 0;
-
-            @include transition(all 0.2s ease-in-out);
-
-            &.payPlan {
-              flex-direction: column;
-              flex-grow: 0;
-              flex-shrink: 1;
-              min-height: 14rem;
-              width: 33.33%;
-
-              @include forPhoneOnly {
-                display: flex;
-                justify-content: center;
-                margin: 0 1rem 1rem 1rem;
-                min-height: auto;
-                width: auto;
-
-                .container {
-                  position: absolute;
-                  top: 35%;
-                  width: 100%;
-                  text-align: center;
-                }
-
-                a,
-                a:hover {
-                  color: #ddd;
-                  text-decoration: none;
-                }
-
-                dl {
-                  display: flex;
-                  text-align: center;
-
-                  div {
-                    display: flex;
-                    flex-direction: row;
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                    justify-content: center;
-                    padding: ($padding / 2) 0;
-
-                    dd {
-                      font-size: $fontSizeBase;
-                    }
-                  }
-                }
-              }
-
-              &.selected {
-                .cardContent {
-                  background-color: $white;
-                  color: $navy;
-                }
-
-                .card-footer {
-                  label {
-                    background-color: $navy;
-                    color: $white;
-                  }
-                }
-              }
-
-              .card-header {
-                z-index: 2;
-                flex-grow: 0;
-                flex-shrink: 0;
-                h3 {
-                  margin-bottom: 0;
-                  padding: ($padding/2) 0 0 0;
-                  text-align: center;
-                }
-              }
-              .card-footer {
-                flex-grow: 0;
-                flex-shrink: 0;
-                transition: box-shadow 0.2s ease-in-out;
-
-                @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
-
-                &:hover {
-                  @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
-                }
-
-                label {
-                  padding: ($padding/2) 0;
-                  background-color: $white;
-                  color: $navy;
-                  text-align: center;
-                  font-family: $serif;
-
-                  &:hover {
-                    background-color: mix($blue, $navy, 80%);
-                    color: $white;
-                    cursor: pointer;
-                  }
-                }
-              }
-              &:hover {
-                cursor: pointer;
-              }
-              &.selected {
-                label {
-                  background-color: $navy;
-                  &:hover {
-                    background-color: $navy;
-                    cursor: default;
-                  }
-                }
-              }
-            }
-
-            &:last-of-type {
-              margin-right: 0;
-
-              @include forPhoneOnly {
-                margin-right: 1rem;
-              }
-            }
-
-            .cardContent {
-              dl {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1;
-                flex-shrink: 1;
-                margin-bottom: 0;
-
-                div {
-                  flex-direction: column;
-                  padding-top: ($padding / 2);
-                  padding-bottom: ($padding / 4);
-                  border-bottom: 1px dashed $navy;
-
-                  &:last-of-type {
-                    padding-bottom: ($padding/4);
-                    border-bottom: 0;
-                  }
-
-                  &.semiCard {
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                  }
-                }
-                dd {
-                  margin-bottom: 0.25rem;
-                  padding: 0;
-                  font-weight: $normal;
-                  font-size: $fontSizeBase;
-                  font-family: $sans;
-
-                  @include forPhoneOnly {
-                    + dd {
-                      margin-left: 0.25rem;
-                    }
-                  }
-                }
-                label {
-                  padding: 0;
-                  color: $blue;
-                  text-align: center;
-                  font-size: $fontSizeSubheader--small;
-                  font-family: $serif;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &.error {
-      h4 {
-        margin-bottom: 0.25rem;
-      }
-      span {
-        margin-bottom: 1rem;
-        color: $red;
-        font-size: $fontSizeLabel;
-      }
-
-      ul {
-        li {
-          .card {
-            @include shadow(0, 3px, 6px, rgba($red, 0.16));
-            footer {
-              svg {
-                color: $red;
-              }
-            }
+            font-size: 80px;
           }
         }
       }
     }
   }
 
-  &.results {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 0;
-    width: 100%;
+  .form-group {
+    margin-bottom: 1rem;
+
+    &.radio {
+      &.segmented {
+        margin-bottom: 1.5rem;
+        &.segmented-answer-wrapper {
+          font-size: $fontSizeBase;
+          font-weight: $normal;
+        }
+
+        > label {
+          padding-left: 0;
+        }
+      }
+    }
+
+    label {
+      margin-bottom: 1rem;
+    }
   }
 
-  label {
-    margin-bottom: 0;
-    padding-top: ($padding / 4);
-    padding-bottom: 0;
+  footer {
+    z-index: 99;
+
+    padding: $padding;
+
+    &.navFooter {
+      padding: $padding 0;
+    }
   }
 
-  p {
-    margin: 0;
-    padding-top: ($padding / 4);
-    padding-bottom: ($padding / 4);
-  }
-}
+  .title {
+    margin-bottom: 1rem;
 
-//quote number infomation bar
-.infoBar {
-  display: flex;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  padding: $padding;
-  width: 100%;
+    color: $navy;
 
-  @include forPhoneOnly {
-    margin-top: 1rem;
-    width: 100vw;
-  }
-
-  h2 {
-    font-weight: normal;
-    font-size: $fontSizeSubheader;
-  }
-
-  label {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 0;
-    width: auto;
-    font-weight: normal;
-  }
-
-  p {
-    flex-direction: column-reverse;
-    margin-bottom: 0;
-    width: auto;
     font-family: $serif;
-  }
-}
-
-//retrieve quote styling
-.retrieveQuoteWrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 0;
-  flex-shrink: 0;
-  padding: 0 0 0.5rem 0;
-  width: 100%;
-
-  h1 {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    font-size: $fontSizeHeader;
+    font-weight: $bold;
   }
 
   .form-footer {
     display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    flex-shrink: 1;
     justify-content: flex-end;
-    margin-top: 1rem;
+
     width: 100%;
+    margin-top: 1rem;
 
-    :disabled {
-      border-color: transparent;
-      background-color: rgba($navy, 0.3);
-      color: $extraLightGrey;
-    }
-
-    button {
+    .btn-primary {
       margin-left: 1rem;
     }
   }
-}
 
-//app error
-.appError {
-  margin: 0;
-  padding: 0;
-}
-//view grid styling from harmony
-.view-grid {
-  display: flex;
-  flex-wrap: wrap;
-}
+  .switch {
+    margin-bottom: 0;
+  }
 
-.view-grid {
-  @include forPhoneOnly {
-    font-size: $fontSizeSubheader--small;
+  .searchInputWrapper {
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
 
-    .fa {
-      font-size: $fontSizeSubheader--small;
+    .property-search {
+      margin-bottom: 0.5rem;
     }
   }
-  > * {
-    //padding: $padding;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    //biling specific styling
+    &.billing {
+      ul {
+        padding-left: 0;
+
+        list-style: none;
+
+        li {
+          .billingCheckBox {
+            align-items: center;
+
+            cursor: pointer;
+
+            .emptyCheckBox {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              width: 1.5rem;
+              height: 1.5rem;
+              margin-bottom: 1rem;
+
+              border: 2px $navy solid;
+              border-radius: $borderRadius;
+
+              svg {
+                font-size: 0.875rem;
+              }
+            }
+
+            .billToId {
+              .cardContent {
+                align-items: center;
+              }
+            }
+
+            footer {
+              svg {
+                margin-bottom: 0;
+              }
+            }
+          }
+          .card {
+            display: flex;
+            flex-direction: row;
+
+            margin-left: 1rem;
+            padding: $padding/4;
+
+            footer {
+              width: auto;
+            }
+          }
+          div {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            .card {
+              margin-right: 1rem;
+              padding: 0;
+
+              @include transition(all 0.2s ease-in-out);
+
+              &.payPlan {
+                flex-direction: column;
+                flex-grow: 0;
+                flex-shrink: 1;
+
+                width: 33.33%;
+                min-height: 14rem;
+
+                &.selected {
+                  .cardContent {
+                    color: $navy;
+                    background-color: $white;
+                  }
+
+                  .card-footer {
+                    label {
+                      color: $white;
+                      background-color: $navy;
+                    }
+                  }
+                }
+
+                .card-header {
+                  z-index: 2;
+
+                  flex-grow: 0;
+                  flex-shrink: 0;
+                  h3 {
+                    margin-bottom: 0;
+                    padding: ($padding/2) 0 0 0;
+
+                    text-align: center;
+                  }
+                }
+                .card-footer {
+                  flex-grow: 0;
+                  flex-shrink: 0;
+
+                  transition: box-shadow 0.2s ease-in-out;
+
+                  @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
+
+                  &:hover {
+                    @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
+                  }
+
+                  label {
+                    padding: ($padding/2) 0;
+
+                    text-align: center;
+
+                    color: $navy;
+                    background-color: $white;
+
+                    font-family: $serif;
+
+                    &:hover {
+                      cursor: pointer;
+
+                      color: $white;
+                      background-color: mix($blue, $navy, 80%);
+                    }
+                  }
+                }
+                &:hover {
+                  cursor: pointer;
+                }
+                &.selected {
+                  label {
+                    background-color: $navy;
+                    &:hover {
+                      cursor: default;
+
+                      background-color: $navy;
+                    }
+                  }
+                }
+              }
+
+              &:last-of-type {
+                margin-right: 0;
+              }
+
+              .cardContent {
+                dl {
+                  position: relative;
+
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                  flex-shrink: 1;
+
+                  margin-bottom: 0;
+
+                  div {
+                    flex-direction: column;
+
+                    padding-top: ($padding / 2);
+                    padding-bottom: ($padding / 4);
+
+                    border-bottom: 1px dashed $navy;
+
+                    &:last-of-type {
+                      padding-bottom: ($padding/4);
+
+                      border-bottom: 0;
+                    }
+
+                    &.semiCard {
+                      flex-grow: 0;
+                      flex-shrink: 0;
+                    }
+                  }
+                  dd {
+                    margin-bottom: 0.25rem;
+                    padding: 0;
+
+                    font-family: $sans;
+                    font-size: $fontSizeBase;
+                    font-weight: $normal;
+                  }
+                  label {
+                    padding: 0;
+
+                    text-align: center;
+
+                    color: $blue;
+
+                    font-family: $serif;
+                    font-size: $fontSizeSubheader--small;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.error {
+        h4 {
+          margin-bottom: 0.25rem;
+        }
+        span {
+          margin-bottom: 1rem;
+
+          color: $red;
+
+          font-size: $fontSizeLabel;
+        }
+
+        ul {
+          li {
+            .card {
+              @include shadow(0, 3px, 6px, rgba($red, 0.16));
+              footer {
+                svg {
+                  color: $red;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.results {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      width: 100%;
+      margin: 0;
+    }
+
+    label {
+      margin-bottom: 0;
+      padding-top: ($padding / 4);
+      padding-bottom: 0;
+    }
+
+    p {
+      margin: 0;
+      padding-top: ($padding / 4);
+      padding-bottom: ($padding / 4);
+    }
+  }
+
+  //quote number infomation bar
+  .infoBar {
+    display: flex;
+
     width: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding: $padding;
+
+    h2 {
+      font-size: $fontSizeSubheader;
+      font-weight: normal;
+    }
+
+    label {
+      display: flex;
+      justify-content: flex-end;
+
+      width: auto;
+      margin-bottom: 0;
+
+      font-weight: normal;
+    }
+
+    p {
+      flex-direction: column-reverse;
+
+      width: auto;
+      margin-bottom: 0;
+
+      font-family: $serif;
+    }
+  }
+
+  //retrieve quote styling
+  .retrieveQuoteForm {
+    flex-grow: 1;
+    flex-shrink: 0;
+    .retrieveQuoteWrapper {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      width: 100%;
+      padding: 0 0 0.5rem 0;
+
+      h1 {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .form-footer {
+        display: flex;
+        justify-content: flex-end;
+
+        width: 100%;
+        margin-top: 1rem;
+
+        :disabled {
+          color: $extraLightGrey;
+          border-color: transparent;
+          background-color: rgba($navy, 0.3);
+        }
+
+        button {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+
+  //app error
+  .appError {
+    margin: 0;
+    padding: 0;
   }
 
   .fa {
     font-size: $fontSizeSubheader--small;
   }
-}
-// SECTION componet
 
-.view-grid {
+  // SECTION componet
+
   section {
     display: flex;
     flex-wrap: wrap;
@@ -1725,10 +1531,6 @@ section {
 
   section {
     display: flex;
-
-    > * {
-      //padding: $padding 0;
-    }
   }
 }
 
@@ -1736,6 +1538,7 @@ section {
 .policyholderModal {
   h4 {
     position: relative;
+
     margin-bottom: 4rem;
   }
 
@@ -1743,75 +1546,19 @@ section {
     position: absolute;
     top: 3rem;
     left: calc(50% - 20rem);
+
     width: 40rem;
+
     text-align: center;
-    font-weight: $normal;
-    font-size: $fontSizeBody;
+
     font-family: $sans;
+    font-size: $fontSizeBody;
+    font-weight: $normal;
   }
 }
 
 // responsize styles
 @supports (display: grid) {
-  @include forPhoneOnly {
-    .view-grid,
-    .view-grid section {
-      .view-col-1,
-      .view-col-10,
-      .view-col-11,
-      .view-col-2,
-      .view-col-3,
-      .view-col-4,
-      .view-col-5,
-      .view-col-6,
-      .view-col-7,
-      .view-col-8,
-      .view-col-9 {
-        width: 100%;
-      }
-    }
-    .view-grid {
-      > div {
-        padding: $padding * 2;
-      }
-      > section > dl {
-        padding: 0 ($padding * 2);
-      }
-    }
-  }
-}
-
-//view grid mobile style
-
-@include forPhoneOnly {
-  .view-grid {
-    //padding: 0;
-
-    .title {
-      padding-top: $padding/4;
-    }
-    form {
-      section {
-        .form-footer {
-          .btn {
-            margin: 0.5rem 0 0 0;
-            width: 100%;
-          }
-        }
-      }
-    }
-    footer {
-      padding: $padding 0;
-    }
-
-    //title styling for phone
-    .workflow {
-      .title {
-        margin-bottom: 0.25rem;
-        font-size: $fontSizeHeader--small;
-      }
-    }
-  }
 }
 
 //trophy animation
@@ -1860,15 +1607,18 @@ $colors: $blue, $red, $green, $navy, gold;
   .confetti-#{$i} {
     top: -10%;
     left: unquote($l + '%');
+
     width: #{$w}px;
     height: #{$w * 0.4}px;
-    background-color: nth($colors, random(5));
-    opacity: random() + 0.5;
+
     transform: rotate(#{random() * 360}deg);
     animation: drop-#{$i}
       unquote(4 + random() + 's')
       unquote(random() + 's')
       infinite;
+
+    opacity: random() + 0.5;
+    background-color: nth($colors, random(5));
   }
   @keyframes drop-#{$i} {
     100% {
@@ -1906,6 +1656,7 @@ $colors: $blue, $red, $green, $navy, gold;
 
 .datePicker {
   z-index: 100;
+
   padding-top: 0.5rem;
 
   .form-group {
@@ -1920,47 +1671,40 @@ $colors: $blue, $red, $green, $navy, gold;
         label {
           position: relative;
           z-index: 1;
+
           display: flex;
           flex-grow: 1;
           flex-shrink: 1;
+
+          width: auto;
           margin-bottom: 0;
           padding-bottom: ($padding * 0.25);
           padding-left: 0;
-          width: auto;
-          font-size: $fontSizeSubheader--small;
-          font-family: $serif;
 
-          @include forPhoneOnly {
-            margin-bottom: 0.5rem;
-            padding-bottom: 0;
-            width: 100%;
-          }
+          font-family: $serif;
+          font-size: $fontSizeSubheader--small;
         }
         .react-datepicker-wrapper {
-          cursor: pointer;
-          display: flex;
-
-          justify-self: flex-end;
-          @include forPhoneOnly {
-            width: 100%;
-          }
           .react-datepicker__input-container {
             input {
+              width: 9rem;
               padding-top: $padding/2;
               padding-right: 0;
               padding-bottom: $padding/2;
               padding-left: $padding/2;
-              width: 9rem;
+
+              cursor: pointer;
+
               border: 1px $navy solid;
               border-radius: $borderRadius;
               background-color: $white;
               background-image: url('../img/datePicker.svg');
+              background-repeat: no-repeat;
               background-position-x: right;
               background-position-y: center;
-              background-repeat: no-repeat;
-              font-weight: $bold;
+
               font-family: $serif;
-              cursor: pointer;
+              font-weight: $bold;
             }
           }
         }
@@ -1970,26 +1714,23 @@ $colors: $blue, $red, $green, $navy, gold;
           > div {
             .react-datepicker {
               width: 31rem;
+
               border: none;
               box-shadow: 0 8px 12px rgba($navy, 0.15);
 
               @include forDatePicker {
                 width: 16rem;
               }
-              @include forPhoneOnly {
-                display: block;
-                float: none;
-                margin: 0 auto;
-                height: 15rem;
-              }
 
               .react-datepicker__triangle {
                 right: 4rem;
                 left: auto;
+
                 border-bottom-color: $blue;
               }
               .react-datepicker__navigation {
                 margin-bottom: 0;
+
                 border-radius: 0;
                 box-shadow: none;
                 &:hover {
@@ -2019,8 +1760,9 @@ $colors: $blue, $red, $green, $navy, gold;
                   }
                   .react-datepicker__current-month {
                     color: white;
-                    font-size: $fontSizeSubheader--small;
+
                     font-family: $serif;
+                    font-size: $fontSizeSubheader--small;
                   }
                   .react-datepicker__day-names {
                     .react-datepicker__day-name {
@@ -2056,19 +1798,19 @@ $colors: $blue, $red, $green, $navy, gold;
                       }
 
                       &.react-datepicker__day--selected {
-                        background-color: $blue;
                         color: $white;
+                        background-color: $blue;
                       }
 
                       &.react-datepicker__day--today {
+                        color: rgba($navy, 0.5);
                         border-radius: 0.3rem;
                         background-color: $extraLightGrey;
-                        color: rgba($navy, 0.5);
 
                         &:hover {
+                          color: rgba($navy, 0.5);
                           border-radius: 0.3rem;
                           background-color: $extraLightGrey;
-                          color: rgba($navy, 0.5);
                         }
                       }
 
@@ -2076,13 +1818,14 @@ $colors: $blue, $red, $green, $navy, gold;
                         color: $white;
 
                         &:hover {
-                          background-color: transparent;
                           cursor: default;
+
+                          background-color: transparent;
                         }
 
                         &.react-datepicker__day--selected {
-                          background-color: $white;
                           color: $white;
+                          background-color: $white;
                         }
                       }
                     }

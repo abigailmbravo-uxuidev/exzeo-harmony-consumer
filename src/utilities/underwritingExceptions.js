@@ -1,5 +1,8 @@
 import { ROUTES } from 'constants/navigation';
-import { EXCEPTION_TYPES } from 'constants/underwriting';
+import {
+  EXCEPTION_TYPES,
+  SHOW_FATAL_EXCEPTIONS_PAGES
+} from 'constants/underwriting';
 
 export function hasUnderwritingExceptions(
   workflowPage,
@@ -17,12 +20,10 @@ export function hasUnderwritingExceptions(
 
   const hasError =
     !hasException &&
-    (workflowPage === ROUTES.underwriting.workflowPage ||
-      workflowPage === ROUTES.customize.workflowPage ||
-      workflowPage === ROUTES.save.workflowPage) &&
     underwritingExceptions.some(
       ex => ex.action === EXCEPTION_TYPES.fatal && !ex.overridden
-    );
+    ) &&
+    SHOW_FATAL_EXCEPTIONS_PAGES.some(page => page === workflowPage);
 
   return {
     hasException,

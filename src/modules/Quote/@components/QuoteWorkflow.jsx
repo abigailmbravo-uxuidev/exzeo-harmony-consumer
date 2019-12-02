@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Prompt } from 'react-router-dom';
 import {
   Gandalf,
   getConfigForJsonTransform,
@@ -51,7 +52,7 @@ const CUSTOM_COMPONENTS = {
   $COVERAGE_WATCHER_AF3: PersonalPropertyCoverageWatcher
 };
 
-const QuoteWorkflow = ({ history, match }) => {
+const QuoteWorkflow = ({ history, match, cspMatch }) => {
   const [recalc, setRecalc] = useState(false);
   const workflowPage = ROUTES[`${match.params.step}`].workflowPage;
   const {
@@ -87,7 +88,7 @@ const QuoteWorkflow = ({ history, match }) => {
         return;
       }
 
-      history.push(WORKFLOW_ROUTING[match.params.step]);
+      history.replace(WORKFLOW_ROUTING[match.params.step]);
     } catch (error) {
       throw error;
     }
@@ -118,8 +119,10 @@ const QuoteWorkflow = ({ history, match }) => {
         transformConfig={transformConfig}
         options={EMPTY_OBJ}
         customHandlers={customHandlers}
+        useRefToScroll={false}
         renderFooter={
           <WorkflowFooter
+            cspMatch={cspMatch}
             history={history}
             recalc={recalc}
             workflowPage={workflowPage}
@@ -128,13 +131,29 @@ const QuoteWorkflow = ({ history, match }) => {
         formListeners={
           <FormSpy subscription={{ dirty: true }}>
             {({ dirty }) => (
-              <TriggerRecalc
-                dirty={dirty}
-                isRecalc={recalc}
-                setRecalc={setRecalc}
-                workflowPage={workflowPage}
-                recalcPage={ROUTES.customize.workflowPage}
-              />
+              <React.Fragment>
+                <TriggerRecalc
+                  dirty={dirty}
+                  isRecalc={recalc}
+                  setRecalc={setRecalc}
+                  workflowPage={workflowPage}
+                  recalcPage={ROUTES.customize.workflowPage}
+                />
+                <Prompt
+                  when={true}
+                  message={(location, action) => {
+                    if (
+                      action === 'POP' ||
+                      (dirty &&
+                        workflowPage !== ROUTES.summary.workflowPage &&
+                        workflowPage !== ROUTES.complete.workflowPage)
+                    ) {
+                      return 'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.';
+                    }
+                    return true;
+                  }}
+                />
+              </React.Fragment>
             )}
           </FormSpy>
         }

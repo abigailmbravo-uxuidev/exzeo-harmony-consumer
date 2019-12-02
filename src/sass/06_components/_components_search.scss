@@ -2,10 +2,12 @@
 
 .searchInputWrapper {
   position: relative;
+
   flex-grow: 0;
   flex-shrink: 0;
-  margin-bottom: 1rem;
+
   width: 100%;
+  margin-bottom: 1rem;
 
   .property-search {
     position: relative;
@@ -22,33 +24,40 @@
   }
 }
 
-.searchInputWrapper {
-  @include forPhoneOnly {
-    .form-group {
-      label {
-        position: absolute;
-        margin-bottom: 0.25rem;
-        font-size: $fontSizeBody;
-      }
-      input {
-        height: 3rem;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        font-size: $fontSizeBody;
-      }
-    }
+.view-grid {
+  //search result card styling
+  flex-direction: column;
+  .searchAddressForm {
+    flex-grow: 1;
+    flex-shrink: 0;
+    .searchInputWrapper {
+      @include forPhoneOnly {
+        .form-group {
+          label {
+            position: absolute;
 
-    button {
-      height: 3rem;
+            margin-bottom: 0.25rem;
+
+            font-size: $fontSizeBody;
+          }
+          input {
+            height: 3rem;
+
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+
+            font-size: $fontSizeBody;
+          }
+        }
+
+        button {
+          height: 3rem;
+        }
+      }
     }
   }
-}
-
-//search result card styling
-.view-grid {
-  flex-direction: column;
   .title {
     display: flex;
     flex-grow: 0;
@@ -58,13 +67,14 @@
   form {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
 
     section {
       &.results {
         .card {
           flex-direction: row;
+
           padding: 0 $padding;
 
           .cardContent {
@@ -79,9 +89,9 @@
           }
 
           footer {
+            width: auto;
             margin: 0;
             padding: 0;
-            width: auto;
           }
         }
 
@@ -116,6 +126,7 @@
   }
   div {
     color: $red;
+
     font-size: $fontSizeBody;
   }
 
@@ -125,9 +136,4 @@
   svg {
     color: $navy;
   }
-}
-
-//temp -- !! please remove when dev done in react
-form {
-  width: 100%;
 }

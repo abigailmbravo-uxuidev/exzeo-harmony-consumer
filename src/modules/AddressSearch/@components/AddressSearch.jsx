@@ -14,7 +14,7 @@ import { useAddressSearch } from '../hooks';
 import AddressNoResults from './AddressNoResults';
 import AddressResults from './AddressResults';
 
-const AddressSearch = ({ location, match }) => {
+const AddressSearch = ({ cspMatch }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
 
   return (
@@ -22,7 +22,7 @@ const AddressSearch = ({ location, match }) => {
       <div className="title">Search Address</div>
       <Form onSubmit={handleSearchSubmit}>
         {({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="searchAddressForm">
             <div className="searchInputWrapper">
               <Field
                 name="address"
@@ -39,7 +39,7 @@ const AddressSearch = ({ location, match }) => {
                     label="Property Address"
                     styleName="property-search"
                     dataTest="address"
-                    placeholder="Type your street address &amp; select Search Address"
+                    placeholder="Type your street address &amp; select search address"
                   />
                 )}
               </Field>
@@ -55,7 +55,7 @@ const AddressSearch = ({ location, match }) => {
               <p>Let’s get your quote started by looking for your address.</p>
             </div>
 
-            <section className="results">
+            <section className="results" data-test="search-results">
               {loading && <SectionLoader />}
 
               {searchState.hasSearched &&
@@ -63,6 +63,7 @@ const AddressSearch = ({ location, match }) => {
                   <AddressNoResults />
                 ) : (
                   <AddressResults
+                    cspMatch={cspMatch}
                     results={searchState.results}
                     companyCode={'TTIC'}
                     product={'AF3'}

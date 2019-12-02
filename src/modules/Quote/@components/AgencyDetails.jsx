@@ -1,6 +1,6 @@
 import React from 'react';
 import SummaryGroup from './SummaryGroup';
-import { format, noop, SectionLoader } from '@exzeo/core-ui/src';
+import { noop, SectionLoader } from '@exzeo/core-ui/src';
 import { useAgencyInfo } from '@exzeo/core-ui/src/@Harmony';
 import { normalize } from '@exzeo/core-ui/src/Utilities';
 

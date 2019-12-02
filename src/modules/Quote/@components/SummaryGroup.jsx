@@ -1,12 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useField, validation } from '@exzeo/core-ui';
+import { useField } from '@exzeo/core-ui';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const requireConfirmation = value =>
+  value === true || value === 'true' ? undefined : 'Field Required';
+
 export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
   const confirmField = useField(name, {
-    validate: validation.isRequired
+    validate: requireConfirmation
   });
 
   const confirmFieldError =
@@ -19,11 +22,10 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
         error: confirmFieldError
       })}
     >
-      {confirmFieldError && <span>You did something wrong!!!</span>}
-
       {confirmField.input.value && (
         <div
           className="confirmedIndicator"
+          data-test="confirmed"
           onClick={() => confirmField.input.onChange(!confirmField.input.value)}
         >
           <div className="confirmedMessage">
@@ -40,11 +42,15 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
         </Link>
       </div>
       <div className="cardContent">{children}</div>
+      {confirmFieldError && <span>Please confirm details to continue</span>}
       <div
         className="card-footer"
+        data-test="confirm"
         onClick={() => confirmField.input.onChange(!confirmField.input.value)}
       >
-        <label>{confirmField.input.value ? 'Confirmed' : 'Confirm'}</label>
+        <label>
+          {confirmField.input.value ? 'Confirmed' : 'Click to Confirm'}
+        </label>
       </div>
     </div>
   );

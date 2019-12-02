@@ -141,7 +141,9 @@ export function useQuote() {
 }
 
 export function QuoteContextProvider(props) {
-  const [quoteState, setState] = React.useState(INITIAL_STATE);
+  const [quoteState, setState] = React.useState(
+    props.initialState || INITIAL_STATE
+  );
   const value = React.useMemo(() => [quoteState, setState], [quoteState]);
   return <QuoteContext.Provider value={value} {...props} />;
 }

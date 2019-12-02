@@ -38,7 +38,7 @@ const Billing = ({ initialValues }) => {
 
       <ul>
         {billingConfig.billingOptions.map(option => {
-          const billingToConfig = getBillToConfiguration(
+          const billToConfig = getBillToConfiguration(
             billingConfig,
             option.answer
           );
@@ -47,6 +47,7 @@ const Billing = ({ initialValues }) => {
           return (
             <li key={option.answer}>
               <BillingOption
+                billToType={billToConfig.billToType}
                 option={option}
                 handleClick={billToIdField.input.onChange}
                 isSelected={isSelected}
@@ -55,7 +56,7 @@ const Billing = ({ initialValues }) => {
               <div className={classNames({ 'fade-in': isSelected })}>
                 {isSelected && (
                   <PayPlanOptions
-                    availablePlans={billingToConfig.availablePlans}
+                    availablePlans={billToConfig.availablePlans}
                     paymentPlans={billingConfig.paymentPlans}
                     handleClick={payPlanField.input.onChange}
                     selectedPlan={payPlanField.input.value}

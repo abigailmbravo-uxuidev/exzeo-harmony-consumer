@@ -1,20 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { render } from 'test-utils';
 import Footer from 'components/Footer';
 
 describe('Test Footer component', () => {
-  const { getByText } = render(
-    <Router>
-      <Footer />
-    </Router>
-  );
+  const props = {
+    cspMatch: '/westeros/iron'
+  };
 
   test('should contain a link to New Quote', () => {
-    expect(getByText('New Quote')).toHaveAttribute('href', '/searchAddress');
+    const { getByText } = render(<Footer {...props} />);
+    expect(getByText('New Quote')).toHaveAttribute(
+      'href',
+      '/westeros/iron/searchAddress'
+    );
     expect(getByText('Retrieve Quote')).toHaveAttribute(
       'href',
-      '/retrieveQuote'
+      '/westeros/iron/retrieveQuote'
     );
   });
 });

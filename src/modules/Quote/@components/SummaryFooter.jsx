@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, ModalPortal } from '@exzeo/core-ui';
 import { useAgentInfo } from '@exzeo/core-ui/src/@Harmony';
-import { useQuote } from '../QuoteContext';
+
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
-import { Link } from 'react-router-dom';
+import { useQuote } from '../QuoteContext';
 
 const companyName = 'TypTap';
 const productDescription = 'Flood';
 
-const SummaryFooter = ({ formInstance, values, history }) => {
+const SummaryFooter = ({ formInstance, values, history, cspMatch }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { sendApplication, quote } = useQuote();
   const { agent } = useAgentInfo(values.agentCode);
@@ -54,7 +55,7 @@ const SummaryFooter = ({ formInstance, values, history }) => {
               </React.Fragment>
             }
           >
-            <div className="card-block">
+            <div className="card-block mobileGrowShrink">
               <p>
                 You have successfully completed a {companyName}{' '}
                 {productDescription} Quote.
@@ -87,24 +88,25 @@ const SummaryFooter = ({ formInstance, values, history }) => {
               </p>
             </div>
 
-            <div className="card-footer">
+            <div className="card-footer applicationComplete">
               <Link
                 to={{
-                  pathname: '/thankYou',
+                  pathname: `${cspMatch}/thankYou`,
                   state: { quoteNumber: values.quoteNumber }
                 }}
                 className={Button.constants.classNames.secondary}
+                data-test="save-and-quit"
               >
                 Save & Continue Later
               </Link>
               <Button
                 type="button"
-                data-test="submit"
                 className={Button.constants.classNames.primary}
-                onKeyPress={e => e.charCode === 13 && handleSendApplication()}
                 onClick={() => handleSendApplication()}
+                onKeyPress={e => e.charCode === 13 && handleSendApplication()}
+                data-test="submit"
               >
-                Send Application for Signature
+                Send for Signature
               </Button>
             </div>
           </Modal>
