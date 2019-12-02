@@ -1,5 +1,5 @@
 import { setRouteAliases } from '../../helpers/setRouteAliases';
-import { AF3_QUOTE } from '../../fixtures';
+import { AF3_QUOTE, CSP_BASE } from '../../fixtures';
 
 context('Create new quote', () => {
   beforeEach('Set Route Aliases', () => setRouteAliases());
@@ -7,7 +7,7 @@ context('Create new quote', () => {
   it('Should create new quote with known address', () => {
     // Search for address and create quote
 
-    cy.visit('/FL/Flood/searchAddress')
+    cy.visit(`${CSP_BASE}/searchAddress`)
       .findDataTag('address')
       .type(AF3_QUOTE.search_query)
       .clickSubmit();

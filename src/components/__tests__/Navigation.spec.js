@@ -3,7 +3,7 @@ import { render } from 'test-utils';
 import Navigation from 'components/Navigation';
 
 describe('Test Navigation Component', () => {
-  const cspMatch = '/westeros/iron';
+  const cspMatch = '/ironBank/bravos/gold';
   const defaultProps = {
     cspMatch,
     match: {
