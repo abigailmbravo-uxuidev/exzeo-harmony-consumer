@@ -34,17 +34,6 @@
   padding-right: calc(((100vw - 102rem) / 2) + 30rem);
   padding-left: calc((100vw - 102rem) / 2);
 
-  @include forPhoneOnly {
-    margin: 0;
-    padding: $padding * 5 $padding;
-
-    p {
-      margin-bottom: 0.5rem;
-
-      font-size: $fontSizeBase;
-    }
-  }
-
   .title {
     font-family: $serif;
     font-size: $fontSizeHeader;

@@ -91,13 +91,6 @@
         width: auto;
 
         font-family: $serif;
-
-        @include forPhoneOnly {
-          align-self: flex-start;
-          order: 3;
-
-          font-size: $fontSizeLabel;
-        }
       }
       .propertyAddress {
         width: 100%;

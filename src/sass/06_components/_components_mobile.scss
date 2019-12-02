@@ -1256,6 +1256,18 @@
     }
   }
 
+  //error styling
+  .appError {
+    margin: 0;
+    padding: $padding * 5 $padding;
+
+    p {
+      margin-bottom: 0.5rem;
+
+      font-size: $fontSizeBase;
+    }
+  }
+
   //input styling
   .form-group {
     label {
