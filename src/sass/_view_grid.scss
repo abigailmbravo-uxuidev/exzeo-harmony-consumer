@@ -11,6 +11,12 @@
 
   //scroll area (does not scroll - scrolls on main"
   // todo
+
+  #modal-anchor {
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
   .scroll {
     flex-grow: 1;
     flex-shrink: 1;
