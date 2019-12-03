@@ -1,5 +1,7 @@
 //main content area styling
 main[role='main'] {
+  z-index: 60;
+
   display: flex;
   align-content: flex-start;
   flex-direction: column;

@@ -4,9 +4,11 @@
       //height: 100%;
 
       main[role='main'] {
+        z-index: 1;
         //trying to solve issue on safari
         //position: relative;
         //margin-top: 3rem;
+
         padding-top: 0;
       }
     }
