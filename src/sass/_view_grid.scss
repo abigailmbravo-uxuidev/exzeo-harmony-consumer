@@ -1202,6 +1202,18 @@
         list-style: none;
 
         li {
+          @media (min-width: 800px) {
+            &.fade-in {
+              flex-direction: column;
+
+              .card {
+                &.payPlan {
+                  width: 100%;
+                  min-height: auto;
+                }
+              }
+            }
+          }
           .billingCheckBox {
             align-items: center;
 
