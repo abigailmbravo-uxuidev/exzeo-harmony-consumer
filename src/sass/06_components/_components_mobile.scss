@@ -635,7 +635,12 @@
             }
 
             .share {
+              display: flex;
+              flex-direction: column;
+
+              height: 100vh;
               .card-block {
+                flex-grow: 1;
                 .form-group {
                   #toName {
                   }
@@ -1131,7 +1136,12 @@
 
       //mobile share modal styling
       .share {
+        display: flex;
+        flex-direction: column;
+
+        height: 100vh;
         .card-block {
+          flex-grow: 1;
           .form-group {
             &:last-of-type {
             }
