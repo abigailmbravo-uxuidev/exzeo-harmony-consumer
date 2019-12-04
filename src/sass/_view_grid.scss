@@ -31,7 +31,7 @@
     left: 0;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     animation: modal-fade 0.35s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -39,13 +39,13 @@
     background-color: rgba($white, 0.95);
 
     .card {
-      position: absolute;
-      top: 5.75rem;
-      bottom: 5.75rem;
-
+      //position: absolute;
+      //top: 5.75rem;
+      //bottom: 5.75rem;
       width: 60vw;
-      max-width: 32rem;
-      margin-bottom: 0;
+      max-width: 48rem;
+      max-height: 80vh;
+      margin: 6.5rem 0 0;
 
       animation: slide-top 0.65s ease-in-out both;
 
