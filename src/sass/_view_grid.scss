@@ -1203,7 +1203,7 @@
 
         li {
           @media (min-width: 800px) {
-            &.fade-in {
+            .fade-in {
               flex-direction: column;
 
               .card {
