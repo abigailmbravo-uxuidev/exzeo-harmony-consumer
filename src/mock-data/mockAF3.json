@@ -73,7 +73,7 @@
                 "label": "Building Limit",
                 "min": "coverageLimits.building.minAmount",
                 "max": "coverageLimits.building.maxAmount",
-                "hint": "This is the dollar amount of coverage for the structure of your home. This Flood quote includes replacement cost coverage, the total cost to rebuild your home  in the event of a loss. If you have a Declarations Page from your current flood policy it may be listed as Coverage A. \n \n We provide you a range for a recommended value based on information on your home."
+                "hint": "This is the dollar amount of coverage for the structure of your home. This Flood quote includes replacement cost coverage, the total cost to rebuild your home  in the event of a loss. If you have a Declarations Page from your current flood policy it may be listed as Coverage A. We provide you a range for a recommended value based on information on your home."
               },
               "secondaryField": {
                 "name": "coverageLimits.personalProperty.value",

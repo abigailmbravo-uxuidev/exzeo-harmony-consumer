@@ -5,32 +5,37 @@ button,
 submit {
   margin-bottom: 2rem;
   padding: ($padding / 2.5) ($padding * 1.5);
+
+  text-align: center;
+
+  color: $white;
   border: 2px $blue solid;
   border-radius: $borderRadius;
   background-color: $blue;
-  color: $white;
-  font-weight: bold;
-  font-size: $fontSizeSubheader;
+
   font-family: $serif;
+  font-size: $fontSizeSubheader;
+  font-weight: bold;
 
   @include shadow(0, 3px, 6px, rgba($navy, 0.16));
   @include transition(all 0.1s ease-in-out);
 
   &:hover {
+    cursor: pointer;
+
     border-color: rgba($blue, 0);
     background-color: mix($blue, $navy, 80%);
-    cursor: pointer;
 
     @include shadow(0, 1px, 2px, rgba($navy, 0.5));
   }
 
   &.btn-secondary {
-    background-color: $white;
     color: $blue;
+    background-color: $white;
     &:hover {
+      color: $white;
       border-color: rgba($blue, 0);
       background-color: mix($blue, $navy, 80%);
-      color: $white;
     }
   }
 }
@@ -51,8 +56,10 @@ submit {
 
 .iconContainer {
   display: flex;
+
   margin-bottom: 1rem;
   padding: ($padding / 2) 0;
+
   border-top: 1px rgba($lightGrey, 0.5) solid;
   border-bottom: 1px rgba($lightGrey, 0.5) solid;
 
@@ -62,11 +69,14 @@ submit {
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 1;
-    margin: 0;
+
     width: auto;
+    margin: 0;
+
+    color: $navy;
     border-width: 0;
     background-color: transparent;
-    color: $navy;
+
     font-size: 2rem;
 
     @include shadow(0, 0, 0, rgba(0, 0, 0, 0));
@@ -78,11 +88,13 @@ submit {
 
     label {
       width: auto;
-      text-align: center;
-      font-weight: normal;
-      font-size: $fontSizeSubheader--small;
-      font-family: $serif;
+
       cursor: pointer;
+      text-align: center;
+
+      font-family: $serif;
+      font-size: $fontSizeSubheader--small;
+      font-weight: normal;
 
       @include forPhoneOnly {
         font-size: $fontSizeBase;
@@ -104,33 +116,37 @@ submit {
   label {
     flex-grow: 0;
     flex-shrink: 0;
+
+    width: auto;
     margin: 0 0.5rem 0 0;
     padding: 0;
-    width: auto;
-    font-size: $fontSizeSubheader;
+
     font-family: $serif;
+    font-size: $fontSizeSubheader;
   }
   .btn {
-    margin: 0;
-    padding: 0;
     width: 3rem;
     height: 3rem;
-    border-width: 0;
+    margin: 0;
+    padding: 0;
+
     color: $navy;
+    border-width: 0;
   }
 }
 
 //add button styling
 .addBtnWrapper {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   flex-grow: 1;
   flex-shrink: 1;
-  align-items: center;
+  justify-content: flex-end;
   h3 {
     display: flex;
     flex-grow: 0;
     flex-shrink: 0;
+
     width: auto;
     margin-right: 1rem;
     margin-bottom: 0rem;
@@ -141,16 +157,18 @@ submit {
     }
   }
   button {
-    background-color: $white;
-    border-color: $white;
-    color: $navy;
-    width: 2.25rem;
-    height: 2.25rem;
-    margin-bottom: 0rem;
     display: flex;
     align-content: center;
     justify-content: center;
+
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 0rem;
     padding: 0;
+
+    color: $navy;
+    border-color: $white;
+    background-color: $white;
 
     span {
       display: none;
@@ -168,21 +186,26 @@ submit {
 
   &.disabled {
     cursor: default;
+
     color: rgba($lightGrey, 0.5);
 
     button {
-      background-color: rgba($lightGrey, 0.5);
+      cursor: default;
+
       color: $extraLightGrey;
       border-color: transparent;
-      cursor: default;
+      background-color: rgba($lightGrey, 0.5);
+
       @include shadow(0, 3px, 6px, rgba($navy, 0.16));
 
       &:hover {
         cursor: default;
-        @include shadow(0, 3px, 6px, rgba($navy, 0.16));
-        background-color: rgba($lightGrey, 0.5);
+
         color: $extraLightGrey;
         border-color: transparent;
+        background-color: rgba($lightGrey, 0.5);
+
+        @include shadow(0, 3px, 6px, rgba($navy, 0.16));
 
         svg {
           color: $extraLightGrey;
