@@ -5,9 +5,11 @@
       //height: 100%;
 
       main[role='main'] {
+        z-index: 1;
         //trying to solve issue on safari
         //position: relative;
         //margin-top: 3rem;
+
         padding-top: 0;
       }
     }
@@ -347,7 +349,6 @@
             }
             div {
               &.fade-in {
-                flex-direction: column;
               }
 
               .card {
@@ -658,7 +659,12 @@
             }
 
             .share {
+              display: flex;
+              flex-direction: column;
+
+              height: 100vh;
               .card-block {
+                flex-grow: 1;
                 .form-group {
                   #toName {
                   }
@@ -1025,11 +1031,11 @@
         }
 
         .card {
-          top: 0;
-
           width: 100%;
           width: 100%;
-          height: 100%;
+          height: calc(100vh - 4rem);
+          max-height: calc(100vh - 4rem);
+          margin-top: 4rem;
 
           border-radius: 0;
 
@@ -1154,7 +1160,12 @@
 
       //mobile share modal styling
       .share {
+        display: flex;
+        flex-direction: column;
+
+        height: 100vh;
         .card-block {
+          flex-grow: 1;
           .form-group {
             &:last-of-type {
             }

@@ -1,4 +1,4 @@
-export const CSP_CONTEXT_PARAMS = '/:state/:product';
+export const CSP_CONTEXT_PARAMS = '/:companyCode/:state/:product';
 
 export const ROUTES = {
   retrieveQuote: {

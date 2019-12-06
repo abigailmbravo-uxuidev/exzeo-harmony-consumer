@@ -1,11 +1,11 @@
 import { setRouteAliases } from '../../helpers/setRouteAliases';
-import { KNOWN_ADDRESS, UNKNOWN_ADDRESS } from '../../fixtures';
+import { CSP_BASE, KNOWN_ADDRESS, UNKNOWN_ADDRESS } from '../../fixtures';
 
 context('Search Address', () => {
   beforeEach('Set Route Aliases', () => setRouteAliases());
 
   it('Should return known test address successfully', () => {
-    cy.visit('/FL/Flood');
+    cy.visit(CSP_BASE);
     // we expect the index route to redirect to 'search'
     cy.url().should('include', '/searchAddress');
     cy.findDataTag('address')
@@ -20,7 +20,7 @@ context('Search Address', () => {
   });
 
   it('Should display message when address not found', () => {
-    cy.visit('/FL/Flood')
+    cy.visit(CSP_BASE)
       .findDataTag('address')
       .type(UNKNOWN_ADDRESS)
       .clickSubmit();
