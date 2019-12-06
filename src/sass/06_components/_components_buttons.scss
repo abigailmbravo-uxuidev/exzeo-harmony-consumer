@@ -95,10 +95,6 @@ submit {
       font-family: $serif;
       font-size: $fontSizeSubheader--small;
       font-weight: normal;
-
-      @include forPhoneOnly {
-        font-size: $fontSizeBase;
-      }
     }
   }
 }
@@ -108,10 +104,6 @@ submit {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-  @include forPhoneOnly {
-    justify-content: center;
-  }
 
   label {
     flex-grow: 0;
@@ -150,12 +142,8 @@ submit {
     width: auto;
     margin-right: 1rem;
     margin-bottom: 0rem;
-
-    @include forPhoneOnly {
-      flex-grow: 1;
-      flex-shrink: 1;
-    }
   }
+
   button {
     display: flex;
     align-content: center;
