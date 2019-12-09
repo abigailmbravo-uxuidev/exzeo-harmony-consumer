@@ -9,7 +9,7 @@
   width: 100%;
   padding: $padding $padding 0 ($padding * 1.5);
 
-  //scroll area (does not scroll - scrolls on main"
+  //scroll area (does not scroll - scrolls on main
   // todo
   .scroll {
     flex-grow: 1;
@@ -215,7 +215,7 @@ $colors: $blue, $red, $green, $navy, gold;
   }
 }
 
-//date picker styling
+//date picker styling --TODO, needs to be moved to policyholder _page
 
 .datePicker {
   z-index: 100;
