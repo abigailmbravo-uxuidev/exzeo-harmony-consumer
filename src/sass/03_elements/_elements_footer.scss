@@ -42,3 +42,15 @@ main[role='main'] {
     }
   }
 }
+
+.view-grid {
+  footer {
+    z-index: 99;
+
+    padding: $padding;
+
+    &.navFooter {
+      padding: $padding 0;
+    }
+  }
+}
