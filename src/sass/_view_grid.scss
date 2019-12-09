@@ -116,44 +116,6 @@
   }
 }
 
-//retrieve quote styling
-.retrieveQuoteForm {
-  flex-grow: 1;
-  flex-shrink: 0;
-  .retrieveQuoteWrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    width: 100%;
-    padding: 0 0 0.5rem 0;
-
-    h1 {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .form-footer {
-      display: flex;
-      justify-content: flex-end;
-
-      width: 100%;
-      margin-top: 1rem;
-
-      :disabled {
-        color: $extraLightGrey;
-        border-color: transparent;
-        background-color: rgba($navy, 0.3);
-      }
-
-      button {
-        margin-left: 1rem;
-      }
-    }
-  }
-}
-
 .fa {
   font-size: $fontSizeSubheader--small;
 }
