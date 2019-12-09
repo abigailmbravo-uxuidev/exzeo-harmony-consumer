@@ -1,22 +1,214 @@
 //well styling
-
 .well {
+  position: relative;
+
   display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  background-color: $white;
+  overflow: visible;
+
   width: 100%;
   height: auto;
-  @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
-  border-radius: $borderRadius;
-  padding: $padding;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
+  padding: $padding $padding 0 $padding;
+
+  border-radius: $borderRadius;
+  background-color: $white;
+
+  @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
 
   .btn,
   button,
   submit {
     margin: 0 -1rem -1rem;
+
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+}
+
+//this direction effects the structure of the "I want to change my agency" well - hidden label to manipulate the structure
+.switch {
+  + .well {
+    .form-group {
+      &.type-ahead {
+        label {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//TODO - think this whole thing can be deleted but not 100% yet - 12.09.19 AB
+.view-grid {
+  .well {
+    //results modal styling
+    .modal {
+      z-index: 100;
+
+      display: flex;
+
+      .card {
+        margin: 0;
+        padding: 0;
+
+        background-color: transparent;
+        box-shadow: 0 0 0 0 rgba($white, 0);
+
+        .card-footer {
+          position: unset;
+
+          display: flex;
+
+          margin-top: 0.75rem;
+
+          button {
+            margin: 0;
+            padding: 0.4rem 1rem;
+          }
+        }
+
+        .share {
+          z-index: 1;
+          .card-block {
+            margin-top: 0;
+            padding: 0;
+
+            .form-group {
+              width: 100%;
+
+              color: $navy;
+
+              #toName {
+                background-color: rgba($extraLightGrey, 0.9);
+              }
+
+              #toEmail {
+                background-color: rgba($extraLightGrey, 0.9);
+              }
+            }
+
+            .error {
+              span {
+                display: block;
+
+                width: 100%;
+                height: auto;
+                padding: ($padding / 4) 0 0 ($padding / 2);
+
+                border-radius: 0;
+                background-color: transparent;
+                box-shadow: none;
+
+                font-size: $fontSizeBody;
+              }
+            }
+          }
+        }
+
+        .card-header {
+          h4 {
+            display: none;
+          }
+        }
+      }
+
+      .form-group {
+        z-index: 14;
+
+        overflow: visible;
+      }
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      min-height: 176px;
+      padding: 0 $padding;
+
+      background-color: $navy;
+
+      &:hover {
+        transform: none;
+      }
+
+      .cardContent {
+        display: flex;
+
+        padding-left: 150px;
+
+        color: $white;
+        background-color: $navy;
+
+        p {
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          padding-top: $padding;
+          padding-left: $padding;
+
+          color: white;
+
+          font-size: $fontSizeBase;
+          font-weight: $bold;
+          line-height: 1.2;
+        }
+
+        span {
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+
+      .card-header {
+        position: absolute;
+
+        display: flex;
+
+        width: 32%;
+        padding: $padding;
+      }
+
+      .card-footer {
+        position: relative;
+
+        display: flex;
+
+        margin-top: 0.75rem;
+
+        button {
+          position: absolute;
+          right: 0;
+          left: 0;
+
+          width: 100%;
+          margin: 0;
+          padding: 0.4rem 1rem;
+        }
+      }
+      .modalIcons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 125px;
+        height: 125px;
+        padding-bottom: 14px;
+
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: 0 8px 12px rgba($navy, 0.15);
+
+        font-size: 50px;
+
+        svg {
+          color: $red;
+
+          font-size: 80px;
+        }
+      }
+    }
   }
 }

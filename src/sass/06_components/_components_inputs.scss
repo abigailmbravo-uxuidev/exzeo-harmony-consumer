@@ -628,19 +628,6 @@
   }
 }
 
-//type ahead in well directly following a switch - implies switch will controll well
-.switch {
-  + .well {
-    .form-group {
-      &.type-ahead {
-        label {
-          display: none;
-        }
-      }
-    }
-  }
-}
-
 //other styling
 
 hr {
