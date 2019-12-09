@@ -1,5 +1,4 @@
 //policyholder info styling - from view-grid
-
 .policyHolderInfo {
   margin-bottom: 0.5rem;
   h4 {
@@ -49,6 +48,85 @@
           .group-label {
             margin-bottom: 0.5rem;
           }
+          label {
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            font-size: $fontSizeSubheader--small;
+          }
+
+          .segmented-answer-wrapper {
+            align-self: flex-start;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+            width: 6rem;
+            margin-top: 0.5rem;
+
+            border-radius: $borderRadius;
+            label {
+              padding: $padding/2;
+
+              font-size: $fontSizeBase;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//address section (mailing address on policyholder page) - from view-grid
+.addressSection {
+  margin-bottom: 0.5rem;
+
+  &.error {
+    span {
+      color: $red;
+    }
+  }
+  h4 {
+    margin-bottom: 0.5rem;
+    padding-top: ($padding / 2);
+  }
+
+  .card {
+    flex-direction: row;
+
+    .cardContent {
+      h4 {
+        margin-bottom: 0;
+        padding-top: 0;
+      }
+    }
+
+    .cardFooter {
+      display: flex;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      justify-content: center;
+
+      padding: $padding;
+      a {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .form-group {
+    &.mailingSameAsProperty {
+      &.radio {
+        &.segmented {
+          overflow: visible;
+          flex-direction: row;
+
+          margin-bottom: 1rem;
+
+          .group-label {
+            margin-bottom: 0.5rem;
+          }
+
           label {
             flex-grow: 1;
             flex-shrink: 1;
