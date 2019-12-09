@@ -989,346 +989,335 @@
   .switch {
     margin-bottom: 0;
   }
+}
 
-  .searchInputWrapper {
-    p {
-      margin-top: 0.5rem;
-      margin-bottom: 0;
+section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  //biling specific styling
+  &.billing {
+    ul {
+      padding-left: 0;
+
+      list-style: none;
+
+      li {
+        @media (max-width: 800px) {
+          .fade-in {
+            flex-direction: column;
+
+            .card {
+              &.payPlan {
+                width: 100%;
+                min-height: auto;
+              }
+            }
+          }
+        }
+        .billingCheckBox {
+          align-items: center;
+
+          cursor: pointer;
+
+          .emptyCheckBox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 1rem;
+
+            border: 2px $navy solid;
+            border-radius: $borderRadius;
+
+            svg {
+              font-size: 0.875rem;
+            }
+          }
+
+          .billToId {
+            .cardContent {
+              align-items: center;
+            }
+          }
+
+          footer {
+            svg {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .card {
+          display: flex;
+          flex-direction: row;
+
+          margin-left: 1rem;
+          padding: $padding/4;
+
+          footer {
+            width: auto;
+          }
+        }
+        div {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+
+          .card {
+            margin-right: 1rem;
+            padding: 0;
+
+            @include transition(all 0.2s ease-in-out);
+
+            &.payPlan {
+              flex-direction: column;
+              flex-grow: 0;
+              flex-shrink: 1;
+
+              width: 33.33%;
+              min-height: 14rem;
+
+              &.selected {
+                .cardContent {
+                  color: $navy;
+                  background-color: $white;
+                }
+
+                .card-footer {
+                  label {
+                    color: $white;
+                    background-color: $navy;
+                  }
+                }
+              }
+
+              .card-header {
+                z-index: 2;
+
+                flex-grow: 0;
+                flex-shrink: 0;
+                h3 {
+                  margin-bottom: 0;
+                  padding: ($padding/2) 0 0 0;
+
+                  text-align: center;
+                }
+              }
+              .card-footer {
+                flex-grow: 0;
+                flex-shrink: 0;
+
+                transition: box-shadow 0.2s ease-in-out;
+
+                @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
+
+                &:hover {
+                  @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
+                }
+
+                label {
+                  padding: ($padding/2) 0;
+
+                  text-align: center;
+
+                  color: $navy;
+                  background-color: $white;
+
+                  font-family: $serif;
+
+                  &:hover {
+                    cursor: pointer;
+
+                    color: $white;
+                    background-color: mix($blue, $navy, 80%);
+                  }
+                }
+              }
+              &:hover {
+                cursor: pointer;
+              }
+              &.selected {
+                label {
+                  background-color: $navy;
+                  &:hover {
+                    cursor: default;
+
+                    background-color: $navy;
+                  }
+                }
+              }
+            }
+
+            &:last-of-type {
+              margin-right: 0;
+            }
+
+            .cardContent {
+              dl {
+                position: relative;
+
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                flex-shrink: 1;
+
+                margin-bottom: 0;
+
+                div {
+                  flex-direction: column;
+
+                  padding-top: ($padding / 2);
+                  padding-bottom: ($padding / 4);
+
+                  border-bottom: 1px dashed $navy;
+
+                  &:last-of-type {
+                    padding-bottom: ($padding/4);
+
+                    border-bottom: 0;
+                  }
+
+                  &.semiCard {
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                  }
+                }
+                dd {
+                  margin-bottom: 0.25rem;
+                  padding: 0;
+
+                  font-family: $sans;
+                  font-size: $fontSizeBase;
+                  font-weight: $normal;
+                }
+                label {
+                  padding: 0;
+
+                  text-align: center;
+
+                  color: $blue;
+
+                  font-family: $serif;
+                  font-size: $fontSizeSubheader--small;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
-    .property-search {
-      margin-bottom: 0.5rem;
+    &.error {
+      h4 {
+        margin-bottom: 0.25rem;
+      }
+      span {
+        margin-bottom: 1rem;
+
+        color: $red;
+
+        font-size: $fontSizeLabel;
+      }
+
+      ul {
+        li {
+          .card {
+            @include shadow(0, 3px, 6px, rgba($red, 0.16));
+            footer {
+              svg {
+                color: $red;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
-  section {
+  &.results {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
 
-    //biling specific styling
-    &.billing {
-      ul {
-        padding-left: 0;
+    width: 100%;
+    margin: 0;
+  }
 
-        list-style: none;
+  label {
+    margin-bottom: 0;
+    padding-top: ($padding / 4);
+    padding-bottom: 0;
+  }
 
-        li {
-          @media (max-width: 800px) {
-            .fade-in {
-              flex-direction: column;
+  p {
+    margin: 0;
+    padding-top: ($padding / 4);
+    padding-bottom: ($padding / 4);
+  }
+}
 
-              .card {
-                &.payPlan {
-                  width: 100%;
-                  min-height: auto;
-                }
-              }
-            }
-          }
-          .billingCheckBox {
-            align-items: center;
+//retrieve quote styling
+.retrieveQuoteForm {
+  flex-grow: 1;
+  flex-shrink: 0;
+  .retrieveQuoteWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
 
-            cursor: pointer;
+    width: 100%;
+    padding: 0 0 0.5rem 0;
 
-            .emptyCheckBox {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              width: 1.5rem;
-              height: 1.5rem;
-              margin-bottom: 1rem;
-
-              border: 2px $navy solid;
-              border-radius: $borderRadius;
-
-              svg {
-                font-size: 0.875rem;
-              }
-            }
-
-            .billToId {
-              .cardContent {
-                align-items: center;
-              }
-            }
-
-            footer {
-              svg {
-                margin-bottom: 0;
-              }
-            }
-          }
-          .card {
-            display: flex;
-            flex-direction: row;
-
-            margin-left: 1rem;
-            padding: $padding/4;
-
-            footer {
-              width: auto;
-            }
-          }
-          div {
-            display: flex;
-            flex-grow: 1;
-            flex-shrink: 1;
-
-            .card {
-              margin-right: 1rem;
-              padding: 0;
-
-              @include transition(all 0.2s ease-in-out);
-
-              &.payPlan {
-                flex-direction: column;
-                flex-grow: 0;
-                flex-shrink: 1;
-
-                width: 33.33%;
-                min-height: 14rem;
-
-                &.selected {
-                  .cardContent {
-                    color: $navy;
-                    background-color: $white;
-                  }
-
-                  .card-footer {
-                    label {
-                      color: $white;
-                      background-color: $navy;
-                    }
-                  }
-                }
-
-                .card-header {
-                  z-index: 2;
-
-                  flex-grow: 0;
-                  flex-shrink: 0;
-                  h3 {
-                    margin-bottom: 0;
-                    padding: ($padding/2) 0 0 0;
-
-                    text-align: center;
-                  }
-                }
-                .card-footer {
-                  flex-grow: 0;
-                  flex-shrink: 0;
-
-                  transition: box-shadow 0.2s ease-in-out;
-
-                  @include shadow(0px, 0px, 5px, rgba($navy, 0.16));
-
-                  &:hover {
-                    @include shadow(0px, 0px, 10px, rgba($blue, 0.5));
-                  }
-
-                  label {
-                    padding: ($padding/2) 0;
-
-                    text-align: center;
-
-                    color: $navy;
-                    background-color: $white;
-
-                    font-family: $serif;
-
-                    &:hover {
-                      cursor: pointer;
-
-                      color: $white;
-                      background-color: mix($blue, $navy, 80%);
-                    }
-                  }
-                }
-                &:hover {
-                  cursor: pointer;
-                }
-                &.selected {
-                  label {
-                    background-color: $navy;
-                    &:hover {
-                      cursor: default;
-
-                      background-color: $navy;
-                    }
-                  }
-                }
-              }
-
-              &:last-of-type {
-                margin-right: 0;
-              }
-
-              .cardContent {
-                dl {
-                  position: relative;
-
-                  display: flex;
-                  flex-direction: column;
-                  flex-grow: 1;
-                  flex-shrink: 1;
-
-                  margin-bottom: 0;
-
-                  div {
-                    flex-direction: column;
-
-                    padding-top: ($padding / 2);
-                    padding-bottom: ($padding / 4);
-
-                    border-bottom: 1px dashed $navy;
-
-                    &:last-of-type {
-                      padding-bottom: ($padding/4);
-
-                      border-bottom: 0;
-                    }
-
-                    &.semiCard {
-                      flex-grow: 0;
-                      flex-shrink: 0;
-                    }
-                  }
-                  dd {
-                    margin-bottom: 0.25rem;
-                    padding: 0;
-
-                    font-family: $sans;
-                    font-size: $fontSizeBase;
-                    font-weight: $normal;
-                  }
-                  label {
-                    padding: 0;
-
-                    text-align: center;
-
-                    color: $blue;
-
-                    font-family: $serif;
-                    font-size: $fontSizeSubheader--small;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      &.error {
-        h4 {
-          margin-bottom: 0.25rem;
-        }
-        span {
-          margin-bottom: 1rem;
-
-          color: $red;
-
-          font-size: $fontSizeLabel;
-        }
-
-        ul {
-          li {
-            .card {
-              @include shadow(0, 3px, 6px, rgba($red, 0.16));
-              footer {
-                svg {
-                  color: $red;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &.results {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 0;
-      flex-shrink: 0;
-
-      width: 100%;
-      margin: 0;
-    }
-
-    label {
+    h1 {
       margin-bottom: 0;
-      padding-top: ($padding / 4);
       padding-bottom: 0;
     }
 
-    p {
-      margin: 0;
-      padding-top: ($padding / 4);
-      padding-bottom: ($padding / 4);
-    }
-  }
-
-  //retrieve quote styling
-  .retrieveQuoteForm {
-    flex-grow: 1;
-    flex-shrink: 0;
-    .retrieveQuoteWrapper {
+    .form-footer {
       display: flex;
-      flex-direction: column;
-      flex-grow: 0;
-      flex-shrink: 0;
+      justify-content: flex-end;
 
       width: 100%;
-      padding: 0 0 0.5rem 0;
+      margin-top: 1rem;
 
-      h1 {
-        margin-bottom: 0;
-        padding-bottom: 0;
+      :disabled {
+        color: $extraLightGrey;
+        border-color: transparent;
+        background-color: rgba($navy, 0.3);
       }
 
-      .form-footer {
-        display: flex;
-        justify-content: flex-end;
-
-        width: 100%;
-        margin-top: 1rem;
-
-        :disabled {
-          color: $extraLightGrey;
-          border-color: transparent;
-          background-color: rgba($navy, 0.3);
-        }
-
-        button {
-          margin-left: 1rem;
-        }
+      button {
+        margin-left: 1rem;
       }
     }
   }
+}
 
-  //app error
-  .appError {
-    margin: 0;
-    padding: 0;
-  }
+//app error
+.appError {
+  margin: 0;
+  padding: 0;
+}
 
-  .fa {
-    font-size: $fontSizeSubheader--small;
-  }
+.fa {
+  font-size: $fontSizeSubheader--small;
+}
 
-  // SECTION componet
+// SECTION componet
 
-  section {
-    display: flex;
-    flex-wrap: wrap;
-  }
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  section {
-    display: flex;
-  }
+section {
+  display: flex;
 }
 
 //policyholder modal styling

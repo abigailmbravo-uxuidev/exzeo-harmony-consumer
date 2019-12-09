@@ -11,10 +11,17 @@
 
   .property-search {
     position: relative;
+
+    margin-bottom: 0.5rem;
   }
 
   input {
     width: 100%;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
   }
 
   //search bar button override
@@ -24,88 +31,62 @@
   }
 }
 
-.view-grid {
-  //search result card styling
-  flex-direction: column;
-  .searchAddressForm {
-    flex-grow: 1;
-    flex-shrink: 0;
-    .searchInputWrapper {
-    }
-  }
-  .title {
-    display: flex;
-    flex-grow: 0;
-    flex-shrink: 0;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    section {
-      &.results {
-        .card {
-          flex-direction: row;
-
-          padding: 0 $padding;
-
-          .cardContent {
-            padding: ($padding / 4) 0 ($padding / 4) 0;
-          }
-
-          &:hover {
-            cursor: pointer;
-            transform: scale(0.99);
-
-            @include shadow(0, 1px, 4px, rgba($navy, 0.25));
-          }
-
-          footer {
-            width: auto;
-            margin: 0;
-            padding: 0;
-          }
-        }
-
-        .component-loader {
-          height: auto;
-        }
-      }
-    }
-
-    hr {
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
-
-    footer {
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
-  }
+.searchAddressForm {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.title {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-//mobile card styling
+//search result card styling
 
-.results {
-  .card {
-    .cardContent {
-      padding: ($padding / 2) 0;
+form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  section {
+    &.results {
+      .card {
+        flex-direction: row;
+
+        padding: 0 $padding;
+
+        .cardContent {
+          padding: ($padding / 4) 0 ($padding / 4) 0;
+        }
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(0.99);
+
+          @include shadow(0, 1px, 4px, rgba($navy, 0.25));
+        }
+
+        footer {
+          width: auto;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .component-loader {
+        height: auto;
+      }
     }
   }
-  div {
-    color: $red;
 
-    font-size: $fontSizeBody;
+  hr {
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 
-  //div above overwrote card styling for typography
-  h4,
-  p,
-  svg {
-    color: $navy;
+  footer {
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 }
