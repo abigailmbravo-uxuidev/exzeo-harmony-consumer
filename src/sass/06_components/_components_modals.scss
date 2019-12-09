@@ -205,6 +205,30 @@
       }
     }
 
+    //share modal styling
+    .share {
+      overflow: hidden;
+
+      .card-block {
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        padding: $padding $padding * 1.5 $padding;
+
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+        background-color: $white;
+
+        @include shadow(0, 3px, 6px, rgba($navy, 0.16), $inset: true);
+
+        .form-group {
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
     .card-header {
       a {
         position: absolute;
