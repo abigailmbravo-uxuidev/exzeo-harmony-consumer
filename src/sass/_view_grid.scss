@@ -1271,40 +1271,6 @@
     }
   }
 
-  //quote number infomation bar
-  .infoBar {
-    display: flex;
-
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    padding: $padding;
-
-    h2 {
-      font-size: $fontSizeSubheader;
-      font-weight: normal;
-    }
-
-    label {
-      display: flex;
-      justify-content: flex-end;
-
-      width: auto;
-      margin-bottom: 0;
-
-      font-weight: normal;
-    }
-
-    p {
-      flex-direction: column-reverse;
-
-      width: auto;
-      margin-bottom: 0;
-
-      font-family: $serif;
-    }
-  }
-
   //retrieve quote styling
   .retrieveQuoteForm {
     flex-grow: 1;

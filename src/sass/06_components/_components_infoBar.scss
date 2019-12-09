@@ -1,29 +1,54 @@
 .infoBar {
   display: flex;
-  background-color: $blue;
-  color: $white;
-  padding: ($padding * 1.5) ($padding * 1.5);
   overflow: hidden;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  border-radius: $borderRadius;
   align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding: $padding;
+
+  color: $white;
+  border-radius: $borderRadius;
+  background-color: $blue;
+
+  p {
+    flex-direction: column-reverse;
+
+    width: auto;
+    margin-bottom: 0;
+
+    font-family: $serif;
+  }
 
   h2 {
     width: auto;
     margin-bottom: 0;
+
+    font-size: $fontSizeSubheader;
+    font-weight: normal;
   }
+
   span {
-    font-weight: bold;
     font-family: $serif;
+    font-weight: bold;
 
     label {
       width: auto;
-      font-weight: normal;
       padding-top: 0;
+
+      font-weight: normal;
     }
   }
-}
 
-.infoBar {
+  label {
+    display: flex;
+    justify-content: flex-end;
+
+    width: auto;
+    margin-bottom: 0;
+
+    font-weight: normal;
+  }
 }
