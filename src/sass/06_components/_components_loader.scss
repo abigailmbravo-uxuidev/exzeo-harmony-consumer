@@ -1,16 +1,18 @@
 .component-loader,
 .loader {
   position: fixed;
+  z-index: 1000;
   top: 64px;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba($white, 0.8);
+
   color: $lightGrey;
+  background-color: rgba($white, 0.8);
 
   &.loader-sm {
   }
@@ -21,19 +23,23 @@
   &.loader-xl {
   }
   .spinner {
-    margin: 0 auto;
     width: 150px;
+    margin: 0 auto;
+
     text-align: center;
   }
   .spinner > div {
     display: inline-block;
-    margin: 0 4px;
+
     width: 24px;
     height: 24px;
-    border-radius: 100%;
-    background-color: rgba($navy, 1);
+    margin: 0 4px;
+
     -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+
+    border-radius: 100%;
+    background-color: rgba($navy, 1);
   }
   .spinner .bounce1 {
     -webkit-animation-delay: -0.32s;
@@ -44,6 +50,18 @@
     animation-delay: -0.16s;
   }
 }
+
+//form loader
+form {
+  section {
+    &.results {
+      .component-loader {
+        height: auto;
+      }
+    }
+  }
+}
+
 @-webkit-keyframes sk-bouncedelay {
   0%,
   80%,
