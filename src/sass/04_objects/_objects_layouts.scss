@@ -73,16 +73,9 @@ body {
       width: 100%;
       padding: ($padding * 1.5) (calc(((100vw - 102rem) / 2) + 30rem)) $padding
         0;
-      //mobile styling
 
       h1 {
         padding-top: ($padding / 2);
-      }
-
-      footer {
-        &.navFooter {
-          flex-direction: column;
-        }
       }
     }
 

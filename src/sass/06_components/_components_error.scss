@@ -41,31 +41,8 @@
   }
 }
 
-//contact footer
-.contactFooter {
-  > div {
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    justify-content: space-between;
-
-    margin-bottom: 1rem;
-
-    font-family: $serif;
-    a {
-      align-self: center;
-      flex-grow: 0;
-      flex-shrink: 0;
-
-      margin-bottom: 0;
-
-      &.contactEmail {
-        color: $navy;
-      }
-
-      &.btn {
-        text-align: center;
-      }
-    }
-  }
+//TODO - app error - I am not sure which is correct but pulled this styling from view-grid - 12.09.19 AB
+.appError {
+  margin: 0;
+  padding: 0;
 }
