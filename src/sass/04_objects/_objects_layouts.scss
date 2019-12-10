@@ -16,29 +16,6 @@ body {
 
   height: 100vh;
 
-  //jordans landing page
-  .landingPage {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-
-    margin-top: 20rem;
-    padding: 16px;
-
-    text-decoration: underline;
-
-    font-size: 90px;
-    font-weight: bold;
-
-    ul {
-      li {
-        list-style: none;
-
-        font-size: 40px;
-      }
-    }
-  }
-
   //region layout
   div[role='region'] {
     overflow: hidden;
