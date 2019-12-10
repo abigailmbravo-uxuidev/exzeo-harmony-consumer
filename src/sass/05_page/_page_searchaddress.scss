@@ -1,5 +1,4 @@
-//search bar styling
-
+//search address search bar styling
 .searchInputWrapper {
   position: relative;
 
@@ -31,18 +30,13 @@
   }
 }
 
+//search address footer styling
 .searchAddressForm {
   flex-grow: 1;
   flex-shrink: 0;
 }
-.title {
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
 
-//search result card styling
-
+//search address card results
 form {
   display: flex;
   flex-direction: column;

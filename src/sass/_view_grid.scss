@@ -1,5 +1,4 @@
 //consumer view grid styling
-
 .view-grid {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,6 @@
   padding: $padding $padding 0 ($padding * 1.5);
 
   //scroll area (does not scroll - scrolls on main
-  // todo
   .scroll {
     flex-grow: 1;
     flex-shrink: 1;
