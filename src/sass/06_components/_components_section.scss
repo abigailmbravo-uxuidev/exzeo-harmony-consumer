@@ -6,17 +6,6 @@ section {
   flex-shrink: 1;
   flex-wrap: wrap;
 
-  //results section specific styling
-  &.results {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    width: 100%;
-    margin: 0;
-  }
-
   label {
     margin-bottom: 0;
     padding-top: ($padding / 4);
