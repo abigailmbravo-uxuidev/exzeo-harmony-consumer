@@ -1,0 +1,20 @@
+//"I want to change my agency" styling
+
+div {
+  &.agencySelect {
+    label {
+      padding-left: 0;
+    }
+  }
+  label {
+    padding-left: $padding/2;
+  }
+  input {
+    padding-left: $padding/2;
+  }
+  &.switch {
+    label {
+      padding-left: 0;
+    }
+  }
+}

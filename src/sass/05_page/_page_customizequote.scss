@@ -15,8 +15,6 @@
 
 //deductible container styling
 .form-group {
-  margin-bottom: 1rem;
-
   &.radio {
     &.segmented {
       margin-bottom: 1.5rem;
@@ -29,9 +27,5 @@
         padding-left: 0;
       }
     }
-  }
-
-  label {
-    margin-bottom: 1rem;
   }
 }

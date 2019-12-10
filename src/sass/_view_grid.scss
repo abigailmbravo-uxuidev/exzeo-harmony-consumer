@@ -16,27 +16,19 @@
     flex-shrink: 1;
   }
 
-  //page structure
-  .workflow {
-    div {
-      &.agencySelect {
-        label {
-          padding-left: 0;
-        }
-      }
-      label {
-        padding-left: $padding/2;
-      }
-      input {
-        padding-left: $padding/2;
-      }
-      &.switch {
-        label {
-          padding-left: 0;
-        }
-      }
-    }
+  //title styling for main page structure
+  .title {
+    margin-bottom: 1rem;
 
+    color: $navy;
+
+    font-family: $serif;
+    font-size: $fontSizeHeader;
+    font-weight: $bold;
+  }
+
+  //page structure for main page structure
+  .workflow {
     .subtitle {
       strong {
         display: block;
@@ -53,16 +45,16 @@
     }
   }
 
-  .title {
+  //container styling for main page structure
+  .form-group {
     margin-bottom: 1rem;
 
-    color: $navy;
-
-    font-family: $serif;
-    font-size: $fontSizeHeader;
-    font-weight: $bold;
+    label {
+      margin-bottom: 1rem;
+    }
   }
 
+  //footer styling for main page structure
   .form-footer {
     display: flex;
     align-items: flex-start;
