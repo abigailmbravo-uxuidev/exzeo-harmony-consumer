@@ -1,0 +1,12 @@
+//styling for underwriting question
+.underwriting {
+  .form-group {
+    &.radio {
+      &.segmented {
+        .label-segmented {
+          font-size: $fontSizeSubheader--small;
+        }
+      }
+    }
+  }
+}
