@@ -1,0 +1,68 @@
+//congrats detail card styling
+.card {
+  &.shareDetails {
+    margin-bottom: 0.5rem;
+
+    .cardContent {
+      display: flex;
+      flex-wrap: wrap;
+
+      h3 {
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        width: auto;
+        margin-bottom: 0.5rem;
+      }
+      strong {
+        align-self: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        width: auto;
+
+        font-family: $serif;
+      }
+      .propertyAddress {
+        width: 100%;
+        margin-bottom: 0.25rem;
+
+        font-size: $fontSizeBase;
+      }
+    }
+
+    ~ p {
+      margin-bottom: 0.25rem;
+
+      font-size: $fontSizeLabel;
+    }
+  }
+}
+
+//share quote button styling
+.iconBtnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  label {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    width: auto;
+    margin: 0 0.5rem 0 0;
+    padding: 0;
+
+    font-family: $serif;
+    font-size: $fontSizeSubheader;
+  }
+  .btn {
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
+    padding: 0;
+
+    color: $navy;
+    border-width: 0;
+  }
+}

@@ -99,34 +99,6 @@ submit {
   }
 }
 
-//icon button with label
-.iconBtnWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  label {
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    width: auto;
-    margin: 0 0.5rem 0 0;
-    padding: 0;
-
-    font-family: $serif;
-    font-size: $fontSizeSubheader;
-  }
-  .btn {
-    width: 3rem;
-    height: 3rem;
-    margin: 0;
-    padding: 0;
-
-    color: $navy;
-    border-width: 0;
-  }
-}
-
 //add button styling
 .addBtnWrapper {
   display: flex;

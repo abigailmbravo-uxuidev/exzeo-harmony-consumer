@@ -627,17 +627,3 @@
     }
   }
 }
-
-//other styling
-
-hr {
-  flex-grow: 1;
-  flex-shrink: 1;
-
-  height: 1px;
-  margin: 2rem 0 0.5rem 0;
-  padding-top: 0;
-  padding-bottom: 0;
-
-  background-color: $lightGrey;
-}

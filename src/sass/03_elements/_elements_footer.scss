@@ -51,6 +51,10 @@ main[role='main'] {
 
     &.navFooter {
       padding: $padding 0;
+
+      label {
+        padding-left: 0;
+      }
     }
   }
 }
