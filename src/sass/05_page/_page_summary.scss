@@ -180,6 +180,14 @@
       }
     }
     &.Details {
+      .cardContent {
+        .subtitle {
+          p {
+            font-size: 14px;
+            line-height: 1.2;
+          }
+        }
+      }
       &.error {
         .card-header {
           h3 {
