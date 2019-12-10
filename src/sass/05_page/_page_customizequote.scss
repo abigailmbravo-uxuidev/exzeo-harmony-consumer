@@ -1,0 +1,37 @@
+//slider component styling
+.workflow {
+  .slider-component {
+    .form-group {
+      label {
+        margin-bottom: 1rem;
+        padding-left: 0;
+
+        font-family: $serif;
+        font-size: $fontSizeSubheader--small;
+      }
+    }
+  }
+}
+
+//deductible container styling
+.form-group {
+  margin-bottom: 1rem;
+
+  &.radio {
+    &.segmented {
+      margin-bottom: 1.5rem;
+      &.segmented-answer-wrapper {
+        font-size: $fontSizeBase;
+        font-weight: $normal;
+      }
+
+      > label {
+        padding-left: 0;
+      }
+    }
+  }
+
+  label {
+    margin-bottom: 1rem;
+  }
+}

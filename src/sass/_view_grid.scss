@@ -16,7 +16,7 @@
     flex-shrink: 1;
   }
 
-  //customize quote styling
+  //page structure
   .workflow {
     div {
       &.agencySelect {
@@ -36,17 +36,6 @@
         }
       }
     }
-    .slider-component {
-      .form-group {
-        label {
-          margin-bottom: 1rem;
-          padding-left: 0;
-
-          font-family: $serif;
-          font-size: $fontSizeSubheader--small;
-        }
-      }
-    }
 
     .subtitle {
       strong {
@@ -61,28 +50,6 @@
 
         font-family: $sans;
       }
-    }
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-
-    &.radio {
-      &.segmented {
-        margin-bottom: 1.5rem;
-        &.segmented-answer-wrapper {
-          font-size: $fontSizeBase;
-          font-weight: $normal;
-        }
-
-        > label {
-          padding-left: 0;
-        }
-      }
-    }
-
-    label {
-      margin-bottom: 1rem;
     }
   }
 
