@@ -17,6 +17,8 @@ export const setRouteAliases = () =>
     .as('sendApplication')
     .route('POST', '/svc?getBillingOptions')
     .as('getBillingOptions')
+    .route('POST', '/svc?getZipCodeSettings')
+    .as('getZipCodeSettings')
     .route('POST', '/svc?UWQuestions')
     .as('underwritingQuestions')
     .route('POST', 'questions')

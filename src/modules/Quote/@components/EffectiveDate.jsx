@@ -1,16 +1,17 @@
 import React from 'react';
 import { Field, validation, DatePicker, date } from '@exzeo/core-ui';
+import { useZipCodeSettings } from '@exzeo/core-ui/src/@Harmony';
 
 const EffectiveDate = ({ initialValues }) => {
-  const { zipCodeSettings } = initialValues;
+  const { settings, loaded } = useZipCodeSettings(initialValues);
 
   const minDate = new Date(
     // override default formatting
-    date.formatDate(zipCodeSettings.minEffectiveDate, undefined)
+    date.formatDate(settings.minEffectiveDate, undefined)
   );
   const maxDate = new Date(
     // override default formatting
-    date.formatDate(zipCodeSettings.maxEffectiveDate, undefined)
+    date.formatDate(settings.maxEffectiveDate, undefined)
   );
 
   return (
@@ -27,6 +28,7 @@ const EffectiveDate = ({ initialValues }) => {
             maxDate={maxDate}
             monthsShown={2}
             popperPlacement="top-end"
+            disabled={!loaded}
           />
         )}
       </Field>
