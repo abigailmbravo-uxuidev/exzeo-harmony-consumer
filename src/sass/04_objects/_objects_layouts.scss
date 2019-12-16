@@ -55,26 +55,6 @@ body {
         padding-top: ($padding / 2);
       }
     }
-
-    //share quote styling - TODO
-    .iconContainer {
-      flex-direction: row;
-
-      a {
-        .iconTypTap {
-          height: 2rem;
-
-          fill: $navy;
-          @include transition(all 0.1s ease-in-out);
-        }
-
-        &:hover {
-          .iconTypTap {
-            fill: $blue;
-          }
-        }
-      }
-    }
   }
 
   //footer layout
