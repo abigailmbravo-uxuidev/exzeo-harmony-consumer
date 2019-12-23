@@ -41,6 +41,38 @@ Cypress.Commands.add('clickSubmit', (form = 'body', button = 'submit') =>
 );
 
 /**
+ * @param {string} selector - Name of form to submit.
+ * @param {Number} value element(s) found.
+ */
+Cypress.Commands.add('sliderSet', (selector, val) =>
+  // nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set
+  cy.findDataTag(selector).then($range => {
+    // get the DOM node
+    const range = $range[0];
+    // set the value manually
+    Object.getOwnPropertyDescriptor(
+      window.HTMLInputElement.prototype,
+      'value'
+    ).set.call(range, val);
+    // now dispatch the event
+    range.dispatchEvent(new Event('change', { value: val, bubbles: true }));
+  })
+);
+
+Cypress.Commands.add(
+  'chooseReactSelectOption',
+  (tag, searchTerm, selector = '') =>
+    cy
+      .findDataTag(tag)
+      .find(`${selector || 'input[type="text"]'}`)
+      .should('exist')
+      .type(searchTerm, { force: true })
+      .get('div.react-select__option')
+      .should('exist')
+      .then($arr => cy.wrap($arr[0]).click())
+);
+
+/**
  * @param {array} fields - Fields to fill out.
  * @param {Object} data - Data to fill out with keys corresponding to each entry in fields.
  */

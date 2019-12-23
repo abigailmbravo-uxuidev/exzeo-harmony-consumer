@@ -22,4 +22,8 @@ export const setRouteAliases = () =>
     .route('POST', '/svc?UWQuestions')
     .as('underwritingQuestions')
     .route('POST', 'questions')
-    .as('getQuestions');
+    .as('getQuestions')
+    .route('POST', '/svc?searchAgencies')
+    .as('searchAgencies')
+    .route('POST', 'svc?sendQuoteSummary')
+    .as('shareQuote');

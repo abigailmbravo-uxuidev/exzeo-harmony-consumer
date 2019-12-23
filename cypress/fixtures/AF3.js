@@ -10,9 +10,26 @@ export const AF3_QUOTE = {
     monthsOccupied: '10-12'
   },
   customerInfo: {
-    'policyHolders[0].firstName_wrapper': 'Oberyn',
-    'policyHolders[0].lastName_wrapper': 'Martell',
-    'policyHolders[0].emailAddress_wrapper': 'o@b.com',
+    'policyHolders[0].firstName_wrapper': 'Batman',
+    'policyHolders[0].lastName_wrapper': 'Robin',
+    'policyHolders[0].emailAddress_wrapper': 'exzeoqa@exzeo.com',
     'policyHolders[0].primaryPhoneNumber_wrapper': '123 456 7890'
+  },
+
+  mortgageeInfo: {
+    name1: "AMERICA'S SERVICING",
+    name2: 'COMPANY, ISAOA',
+    address1: 'PO BOX 5106',
+    address2: '',
+    city: 'Springfield',
+    state: 'OH',
+    zip: '45501',
+    phoneNumber: '7742194742',
+    referenceNumber: 'ref11111'
+  },
+
+  shareQuoteInfo: {
+    name: 'Batman',
+    email: 'exzeoqa@exzeo.com'
   }
 };
