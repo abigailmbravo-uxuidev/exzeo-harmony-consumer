@@ -37,17 +37,14 @@ context('Create new quote', () => {
       .clickSubmit('#harmony-quote');
 
     // Complete 'customize' page
-    cy.log('[LOG] Notes / Customize page: Verify header content');
     cy.wait('@updateQuote').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal('Initial Data');
       const premium = response.body.result.rating.totalPremium;
       cy.findDataTag('detail-header').within(() => {
         cy.get('h2>strong').should('not.have.text', '$ --');
       });
-      cy.log('[LOG] Notes / Customize page: Change sliders values')
-        .sliderSet('coverageLimits.building.value-slider', 267000)
+      cy.sliderSet('coverageLimits.building.value-slider', 267000)
         .sliderSet('coverageLimits.personalProperty.value-slider', 67000)
-        .log('[LOG] Notes / Customize page: Set Deductible value')
         .findDataTag('deductibles.buildingDeductible.value_500')
         .trigger('click')
         .clickSubmit('#harmony-quote')
@@ -56,12 +53,11 @@ context('Create new quote', () => {
           expect(response.body.result.rating.totalPremium).not.to.eq(premium);
         });
     });
-    cy.clickSubmit('#harmony-quote');
-
-    cy.log('[LOG] Notes / Save page');
-    cy.wait('@searchAgencies').then(({ response }) => {
-      expect(response.body.status).to.equal(200);
-    });
+    cy.clickSubmit('#harmony-quote')
+      .wait('@searchAgencies')
+      .then(({ response }) => {
+        expect(response.body.status).to.equal(200);
+      });
     cy.wait('@updateQuote').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal('Initial Data');
     });
@@ -71,7 +67,7 @@ context('Create new quote', () => {
         .type(`{selectall}{backspace}${value}`);
     });
     cy.findDataTag('edit-agency')
-      .click()
+      .trigger('click')
       .wait('@searchAgencies')
       .then(({ response }) => {
         expect(response.body.status).to.equal(200);
@@ -83,7 +79,6 @@ context('Create new quote', () => {
       .clickSubmit('#harmony-quote');
 
     // Complete 'congrats' page
-    cy.log('[LOG] Notes / Congratulation page: Waiting for "Qualified status"');
 
     cy.wait('@updateQuote').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal('Qualified');
@@ -93,15 +88,18 @@ context('Create new quote', () => {
         zipCode: response.body.result.zipCodeSettings.zip,
         quoteNumber: response.body.result.quoteNumber
       };
-      // Go to Retrieve quote page and retrieve the quote
+
+      // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
       cy.get("a[href*='retrieve']")
         .click()
+        // .trigger('click')
         .wrap(Object.entries(payLoad))
         .each(([field, value]) => {
           cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
         });
       cy.findDataTag('submit')
         .click()
+        // .trigger('click')
         .wait('@retrieveQuote')
         .then(({ response }) => {
           expect(response.body.status).to.equal(200);
@@ -123,14 +121,17 @@ context('Create new quote', () => {
           expect(response.body.status).to.equal(200);
         });
     });
+
+    // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------
+
     cy.findDataTag('share')
-      .click()
+      .trigger('click')
       .wrap(Object.entries(AF3_QUOTE.shareQuoteInfo))
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
     cy.findDataTag('modal-submit')
-      .click()
+      .trigger('click')
       .wait('@shareQuote')
       .then(({ response }) => {
         expect(response.body.message).to.equal('success');
@@ -143,13 +144,14 @@ context('Create new quote', () => {
     });
 
     cy.findDataTag('mortgagee1_true')
-      .click()
+      .trigger('click')
       .wrap(Object.entries(AF3_QUOTE.mortgageeInfo))
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
     cy.findDataTag('ai-modal-submit')
       .click()
+      // .trigger('click')
       .wait('@updateQuote')
       .then(({ response }) => {
         expect(response.body.status).to.equal(200);
@@ -168,13 +170,9 @@ context('Create new quote', () => {
       .findDataTag('policyHolderMailingAddress.address1')
       .should('have.value', AF3_QUOTE.address)
       .findDataTag('ai-modal-submit')
-      .trigger('click');
-
-    cy.log(
-      '[LOG] Notes / Policyholder page: Compare addresses, change Effective date and verify that the date has been changed'
-    );
-    cy.get("[class*='react-datepicker-w']")
-      .click()
+      .trigger('click')
+      .get("[class*='react-datepicker-w']")
+      .trigger('click')
       .wait('@updateQuote')
       .then(({ request, response }) => {
         expect(
@@ -207,11 +205,9 @@ context('Create new quote', () => {
 
     //Complete 'billing' page
     //TODO test with a couple of different AI's?
-    cy.log('[LOG] Notes / Billing page')
-      .wait('@getBillingOptions')
-      .then(({ response }) => {
-        expect(response.body.status).to.equal(200);
-      });
+    cy.wait('@getBillingOptions').then(({ response }) => {
+      expect(response.body.status).to.equal(200);
+    });
     cy.findDataTag('billing-option_Policyholder')
       .first()
       .trigger('click');
@@ -226,8 +222,7 @@ context('Create new quote', () => {
       });
 
     // Complete 'summary' page
-    cy.log('[LOG] Notes / Summary page')
-      .findDataTag('confirm')
+    cy.findDataTag('confirm')
       .should('have.length', 5)
       .each($el => {
         $el.trigger('click');
@@ -242,7 +237,6 @@ context('Create new quote', () => {
       });
 
     // 'complete' page.
-    cy.log('[LOG] Notes / Complete page').findDataTag('quote-complete');
     cy.wait('@sendApplication').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal('Ready');
       const payLoad = {
@@ -252,7 +246,6 @@ context('Create new quote', () => {
       };
       envelopeIdCheck(payLoad, 'https://api.harmony-ins.com/svc').then(
         response => {
-          cy.log('[LOG] Verify that envelopeID is not empty');
           expect(response.body.result.envelopeId).to.not.be.empty;
         }
       );
