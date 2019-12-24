@@ -62,13 +62,13 @@ context('Create new quote', () => {
     cy.wait('@searchAgencies').then(({ response }) => {
       expect(response.body.status).to.equal(200);
     });
+    cy.wait('@updateQuote').then(({ response }) => {
+      expect(response.body.result.quoteInputState).to.equal('Initial Data');
+    });
     cy.wrap(Object.entries(AF3_QUOTE.customerInfo)).each(([field, value]) => {
       cy.findDataTag(field)
         .find('input')
         .type(`{selectall}{backspace}${value}`);
-    });
-    cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal('Initial Data');
     });
     cy.findDataTag('edit-agency')
       .click()
@@ -83,12 +83,46 @@ context('Create new quote', () => {
       .clickSubmit('#harmony-quote');
 
     // Complete 'congrats' page
-    cy.log('[LOG] Notes / Congratulation page: Waiting for "Qualified status"')
-      .wait('@updateQuote')
-      .then(({ response }) => {
-        expect(response.body.result.quoteInputState).to.equal('Qualified');
-        expect(response.body.result.agencyCode).to.equal(20003);
-      });
+    cy.log('[LOG] Notes / Congratulation page: Waiting for "Qualified status"');
+
+    cy.wait('@updateQuote').then(({ response }) => {
+      expect(response.body.result.quoteInputState).to.equal('Qualified');
+      expect(response.body.result.agencyCode).to.equal(20003);
+      const payLoad = {
+        lastName: response.body.result.policyHolders[0].lastName,
+        zipCode: response.body.result.zipCodeSettings.zip,
+        quoteNumber: response.body.result.quoteNumber
+      };
+      // Go to Retrieve quote page and retrieve the quote
+      cy.get("a[href*='retrieve']")
+        .click()
+        .wrap(Object.entries(payLoad))
+        .each(([field, value]) => {
+          cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
+        });
+      cy.findDataTag('submit')
+        .click()
+        .wait('@retrieveQuote')
+        .then(({ response }) => {
+          expect(response.body.status).to.equal(200);
+        });
+      // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
+      cy.clickSubmit('#harmony-quote')
+        .wait('@updateQuote')
+        .then(({ response }) => {
+          expect(response.body.status).to.equal(200);
+        });
+      cy.clickSubmit('#harmony-quote')
+        .wait('@updateQuote')
+        .then(({ response }) => {
+          expect(response.body.status).to.equal(200);
+        });
+      cy.clickSubmit('#harmony-quote')
+        .wait('@updateQuote')
+        .then(({ response }) => {
+          expect(response.body.status).to.equal(200);
+        });
+    });
     cy.findDataTag('share')
       .click()
       .wrap(Object.entries(AF3_QUOTE.shareQuoteInfo))
@@ -147,28 +181,23 @@ context('Create new quote', () => {
           request.body.data.quote.policyHolderMailingAddress.address1
         ).to.equal(request.body.data.quote.property.physicalAddress.address1);
         expect(response.body.result.quoteInputState).to.equal('AppStarted');
+        cy.get('input[class*="r"]')
+          .invoke('val')
+          .then(val1 => {
+            let day = parseInt(val1.split('/')[1]);
+            let shift = day <= 28 ? 1 : -1;
+            cy.get('input[class*="r"]').type(
+              '{selectall}{backspace}' +
+                val1.split('/')[0] +
+                '/' +
+                (day + shift) +
+                '/' +
+                val1.split('/')[2] +
+                '{enter}'
+            );
+          });
         const effDate = response.body.result.effectiveDate;
-        let today = new Date();
-        today.setMonth(today.getMonth() + 1);
-        today.setDate(today.getDate() + 1);
-        let d = today.getDate();
-        let m = today.getMonth() + 1;
-        let y = today.getFullYear();
-        let dExt = d <= 9 ? '00' : '0';
-        let mExt = m <= 9 ? '0' : '';
-        cy.get(
-          "[aria-label='month-" +
-            y +
-            '-' +
-            mExt +
-            m +
-            "']>[class*='react']>[class='react-datepicker__day react-datepicker__day--" +
-            dExt +
-            d +
-            "']"
-        )
-          .click()
-          .clickSubmit('#harmony-quote')
+        cy.clickSubmit('#harmony-quote')
           .wait('@updateQuote')
           .should(({ response }) => {
             expect(response.body.result.effectiveDate).not.to.eq(effDate);
