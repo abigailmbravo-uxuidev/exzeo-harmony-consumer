@@ -92,7 +92,6 @@ context('Create new quote', () => {
       // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
       cy.get("a[href*='retrieve']")
         .click()
-        // .trigger('click')
         .wrap(Object.entries(payLoad))
         .each(([field, value]) => {
           cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
@@ -151,7 +150,6 @@ context('Create new quote', () => {
       });
     cy.findDataTag('ai-modal-submit')
       .click()
-      // .trigger('click')
       .wait('@updateQuote')
       .then(({ response }) => {
         expect(response.body.status).to.equal(200);
