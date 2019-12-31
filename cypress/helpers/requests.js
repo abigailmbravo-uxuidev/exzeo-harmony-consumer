@@ -3,6 +3,7 @@ export function retrieveQuote(payLoad, apiUrl, token) {
     url: apiUrl,
     method: 'POST',
     auth: { bearer: 'consumer' },
+    failOnStatusCode: false,
     body: {
       exchangeName: 'harmony',
       routingKey: 'harmony.quote.retrieveQuote',
