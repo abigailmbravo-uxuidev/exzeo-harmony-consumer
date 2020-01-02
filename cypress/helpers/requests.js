@@ -11,7 +11,7 @@ export function retrieveQuote(payLoad, apiUrl, token) {
     }
   });
 }
-// Total retry time limit ~2 min
+// Total retry time limit ~5 min
 const WAIT_TIME_MS = 5000;
 const RETRY_MAX = 60;
 
