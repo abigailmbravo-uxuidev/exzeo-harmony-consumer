@@ -1,431 +1,456 @@
 @include forPhoneOnly {
-  .harmony-consumer {
-    div[role='region'] {
-      //height: 100%;
+  html {
+    height: 100%;
 
-      main[role='main'] {
-        z-index: 1;
-        //trying to solve issue on safari
-        //position: relative;
-        //margin-top: 3rem;
+    body {
+    }
+    .harmony-consumer {
+      height: 100%;
+      div[role='region'] {
+        height: calc(100% - 4rem);
 
-        padding-top: 0;
+        main[role='main'] {
+          z-index: 1;
+          //trying to solve issue on safari
+          //position: relative;
+          //margin-top: 3rem;
+
+          padding-top: 0;
+        }
       }
     }
-  }
-  .view-grid {
-    //position: absolute;
-    padding: $padding $padding 0 $padding;
+    .view-grid {
+      //position: absolute;
+      padding: $padding $padding 0 $padding;
 
-    font-size: $fontSizeSubheader--small;
-
-    .title {
-      margin-bottom: 0;
-      padding-top: $padding/4;
-
-      font-size: $fontSizeSubheader;
-    }
-
-    .fa {
       font-size: $fontSizeSubheader--small;
-    }
 
-    > * {
-      width: 100%;
-      padding: ($padding/4) $padding;
-    }
+      .title {
+        margin-bottom: 0;
+        padding-top: $padding/4;
 
-    //GENERAL STYLING
-
-    //card styling - mobile
-    .card {
-      //thank you page
-      &.thankYouCard {
-        width: 100%;
-
-        .quoteNumber {
-        }
-
-        label {
-        }
-
-        .confettiWrapper {
-        }
-
-        .thankYouCircle {
-          position: absolute;
-          top: -1.125rem;
-          right: calc(50% - 30rem);
-
-          width: 60rem;
-
-          svg {
-          }
-        }
-
-        .thankYouIcon {
-          svg {
-          }
-        }
-
-        a {
-        }
+        font-size: $fontSizeSubheader;
       }
-      //congratulations card
-      &.congratsCard {
+
+      .fa {
+        font-size: $fontSizeSubheader--small;
+      }
+
+      > * {
         width: 100%;
+        padding: ($padding/4) $padding;
+      }
 
-        label {
-        }
+      //GENERAL STYLING
 
-        .confettiWrapper {
-        }
+      //card styling - mobile
+      .card {
+        //thank you page
+        &.thankYouCard {
+          width: 100%;
 
-        .congratsCircle {
-          position: absolute;
-          top: -2rem;
-          right: -22.5rem;
-          left: -22.5rem;
-
-          width: 64rem;
-
-          svg {
+          .quoteNumber {
           }
-        }
 
-        .congratsIcon {
-          svg {
-            width: 13rem;
+          label {
           }
-        }
 
-        .congratsCardFooter {
-          align-items: center;
-          flex-direction: column;
+          .confettiWrapper {
+          }
 
-          font-size: 14px;
+          .thankYouCircle {
+            position: absolute;
+            top: -1.125rem;
+            right: calc(50% - 30rem);
+
+            width: 60rem;
+
+            svg {
+            }
+          }
+
+          .thankYouIcon {
+            svg {
+            }
+          }
 
           a {
-            color: $navy;
+          }
+        }
+        //congratulations card
+        &.congratsCard {
+          width: 100%;
+
+          label {
+          }
+
+          .confettiWrapper {
+          }
+
+          .congratsCircle {
+            position: absolute;
+            top: -2rem;
+            right: -22.5rem;
+            left: -22.5rem;
+
+            width: 64rem;
+
+            svg {
+            }
+          }
+
+          .congratsIcon {
+            svg {
+              width: 13rem;
+            }
+          }
+
+          .congratsCardFooter {
+            align-items: center;
+            flex-direction: column;
+
+            font-size: 14px;
+
+            a {
+              color: $navy;
+            }
+          }
+        }
+        //may need to be revised - add mailing address modal styling - mobile
+        &.addMailingAddressModal {
+          .card-block {
+            flex-grow: 1;
+            flex-shrink: 1;
+            .form-group {
+              &.view-col-9 {
+                flex-grow: 0;
+                flex-shrink: 0;
+
+                width: 100%;
+              }
+              &.view-col-1 {
+                flex-grow: 1;
+                flex-shrink: 1;
+
+                width: auto;
+              }
+              &.view-col-2 {
+                flex-grow: 1;
+                flex-shrink: 1;
+
+                width: auto;
+              }
+            }
           }
         }
       }
-      //may need to be revised - add mailing address modal styling - mobile
-      &.addMailingAddressModal {
-        .card-block {
-          flex-grow: 1;
-          flex-shrink: 1;
-          .form-group {
-            &.view-col-9 {
-              flex-grow: 0;
-              flex-shrink: 0;
 
+      //contact footer styling - mobile
+      .contactFooter {
+        > div {
+          flex-direction: column;
+
+          margin-bottom: 0;
+          padding: ($padding / 4) 0;
+
+          a {
+            padding-top: ($padding / 4);
+
+            &.contactEmail {
+              color: $navy;
+            }
+
+            &.btn {
               width: 100%;
-            }
-            &.view-col-1 {
-              flex-grow: 1;
-              flex-shrink: 1;
-
-              width: auto;
-            }
-            &.view-col-2 {
-              flex-grow: 1;
-              flex-shrink: 1;
-
-              width: auto;
+              margin-top: 0.5rem;
             }
           }
         }
       }
-    }
 
-    //contact footer styling - mobile
-    .contactFooter {
-      > div {
-        flex-direction: column;
+      //footer styling - mobile
+      footer {
+        padding: $padding 0 ($padding / 4) 0;
 
-        margin-bottom: 0;
-        padding: ($padding / 4) 0;
+        div[role='banner'] {
+          flex-direction: column;
 
-        a {
-          padding-top: ($padding / 4);
+          small {
+            align-self: center;
+          }
+        }
 
-          &.contactEmail {
-            color: $navy;
+        &.navFooter {
+          align-content: center;
+
+          margin-bottom: 0;
+          padding-bottom: 0;
+
+          label {
+            text-align: center;
           }
 
-          &.btn {
-            width: 100%;
-            margin-top: 0.5rem;
+          & div {
+            text-align: center;
+
+            &#startOverRetrieve {
+              font-size: $fontSizeBase;
+            }
           }
         }
       }
-    }
 
-    //footer styling - mobile
-    footer {
-      padding: $padding 0 ($padding / 4) 0;
+      //form styling - mobile
+      form {
+        section {
+          h3 {
+            justify-content: flex-end;
 
-      div[role='banner'] {
-        flex-direction: column;
-
-        small {
-          align-self: center;
-        }
-      }
-
-      &.navFooter {
-        align-content: center;
-
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-        label {
-          text-align: center;
-        }
-
-        & div {
-          text-align: center;
-
-          &#startOverRetrieve {
             font-size: $fontSizeBase;
           }
+
+          button {
+            .btn {
+              width: 100%;
+            }
+          }
+          .form-footer {
+            margin-top: 0;
+            .btn {
+              width: 100%;
+              margin: 0.5rem 0 0 0;
+            }
+          }
+        }
+
+        //styling for search address
+        .searchInputWrapper {
+          .form-group {
+            &.property-search {
+              input {
+                font-size: 13px;
+              }
+            }
+          }
         }
       }
-    }
 
-    //form styling - mobile
-    form {
+      //form group styling - mobile
+      .form-group {
+        &.radio {
+          &.segmented {
+            margin-bottom: 1rem;
+            &.segmented-answer-wrapper {
+            }
+
+            > label {
+            }
+          }
+        }
+      }
+
+      //responsize styles - mobile
+      @supports (display: grid) {
+        .view-grid,
+        .view-grid section {
+          .view-col-1,
+          .view-col-10,
+          .view-col-11,
+          .view-col-2,
+          .view-col-3,
+          .view-col-4,
+          .view-col-5,
+          .view-col-6,
+          .view-col-7,
+          .view-col-8,
+          .view-col-9 {
+            width: 100%;
+          }
+        }
+        .view-grid {
+          > div {
+            padding: $padding * 2;
+          }
+          > section > dl {
+            padding: 0 ($padding * 2);
+          }
+        }
+      }
+
+      //section styling -- mobile billing styling & mobile results styling within - mobile
       section {
-        h3 {
-          justify-content: flex-end;
-
-          font-size: $fontSizeBase;
-        }
-
-        button {
-          .btn {
-            width: 100%;
-          }
-        }
-        .form-footer {
-          margin-top: 0;
-          .btn {
-            width: 100%;
-            margin: 0.5rem 0 0 0;
-          }
-        }
-      }
-
-      //styling for search address
-      .searchInputWrapper {
-        .form-group {
-          &.property-search {
-            input {
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
-
-    //form group styling - mobile
-    .form-group {
-      &.radio {
-        &.segmented {
-          margin-bottom: 1rem;
-          &.segmented-answer-wrapper {
-          }
-
-          > label {
-          }
-        }
-      }
-    }
-
-    //responsize styles - mobile
-    @supports (display: grid) {
-      .view-grid,
-      .view-grid section {
-        .view-col-1,
-        .view-col-10,
-        .view-col-11,
-        .view-col-2,
-        .view-col-3,
-        .view-col-4,
-        .view-col-5,
-        .view-col-6,
-        .view-col-7,
-        .view-col-8,
-        .view-col-9 {
-          width: 100%;
-        }
-      }
-      .view-grid {
-        > div {
-          padding: $padding * 2;
-        }
-        > section > dl {
-          padding: 0 ($padding * 2);
-        }
-      }
-    }
-
-    //section styling -- mobile billing styling & mobile results styling within - mobile
-    section {
-      //error
-      &.error {
-        span {
-          margin-bottom: 0.25rem;
-
-          color: $red;
-
-          font-size: $fontSizeBase;
-        }
-
-        button {
+        //error
+        &.error {
           span {
-            margin-bottom: 0;
+            margin-bottom: 0.25rem;
+
+            color: $red;
+
+            font-size: $fontSizeBase;
+          }
+
+          button {
+            span {
+              margin-bottom: 0;
+            }
+          }
+          svg {
+            color: $red;
           }
         }
-        svg {
-          color: $red;
-        }
-      }
-      //biling specific styling
-      &.billing {
-        ul {
-          margin-bottom: 0;
-          li {
-            div {
-              &.billingCheckBox {
-                span.emptyCheckBox {
-                  display: none;
-                }
-                .card {
-                  margin: 0 0 1rem 0;
-                  padding: 0;
+        //biling specific styling
+        &.billing {
+          ul {
+            margin-bottom: 0;
+            li {
+              div {
+                &.billingCheckBox {
+                  span.emptyCheckBox {
+                    display: none;
+                  }
+                  .card {
+                    margin: 0 0 1rem 0;
+                    padding: 0;
 
-                  &:last-of-type {
-                    margin-right: 0;
+                    &:last-of-type {
+                      margin-right: 0;
+                    }
                   }
                 }
               }
-            }
-            .card {
-              padding: 0 $padding;
-
-              .cardContent {
-                //padding: $padding 0;
-              }
-
-              footer {
-                margin-bottom: 0;
-              }
-            }
-            div {
-              &.fade-in {
-              }
-
               .card {
-                &.payPlan {
-                  display: flex;
-                  justify-content: center;
+                padding: 0 $padding;
 
-                  width: auto;
-                  min-height: auto;
-                  margin: 0 1rem 1rem 1rem;
-                  padding: 0;
+                .cardContent {
+                  //padding: $padding 0;
+                }
 
-                  .container {
-                    position: absolute;
-                    top: 35%;
+                footer {
+                  margin-bottom: 0;
+                }
+              }
+              div {
+                &.fade-in {
+                }
 
-                    width: 100%;
-
-                    text-align: center;
-                  }
-
-                  a,
-                  a:hover {
-                    text-decoration: none;
-
-                    color: #ddd;
-                  }
-
-                  dl {
+                .card {
+                  &.payPlan {
                     display: flex;
+                    justify-content: center;
 
-                    text-align: center;
+                    width: auto;
+                    min-height: auto;
+                    margin: 0 1rem 1rem 1rem;
+                    padding: 0;
 
-                    div {
+                    .container {
+                      position: absolute;
+                      top: 35%;
+
+                      width: 100%;
+
+                      text-align: center;
+                    }
+
+                    a,
+                    a:hover {
+                      text-decoration: none;
+
+                      color: #ddd;
+                    }
+
+                    dl {
                       display: flex;
-                      flex-direction: row;
-                      flex-grow: 0;
-                      flex-shrink: 0;
-                      justify-content: center;
 
-                      padding: ($padding / 2) 0;
+                      text-align: center;
 
-                      dd {
-                        font-size: $fontSizeBase;
+                      div {
+                        display: flex;
+                        flex-direction: row;
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        justify-content: center;
+
+                        padding: ($padding / 2) 0;
+
+                        dd {
+                          font-size: $fontSizeBase;
+                        }
+                      }
+                    }
+
+                    &.selected {
+                      .cardContent {
+                      }
+
+                      .card-footer {
+                        label {
+                        }
+                      }
+                    }
+
+                    .card-header {
+                      h3 {
+                      }
+                    }
+                    .card-footer {
+                      &:hover {
+                      }
+
+                      label {
+                        &:hover {
+                        }
+                      }
+                    }
+                    &:hover {
+                    }
+                    &.selected {
+                      label {
+                        &:hover {
+                        }
                       }
                     }
                   }
 
-                  &.selected {
-                    .cardContent {
-                    }
+                  &:last-of-type {
+                    margin-right: 1rem;
+                  }
 
-                    .card-footer {
+                  .cardContent {
+                    dl {
+                      div {
+                        flex-direction: column;
+                        &:last-of-type {
+                        }
+
+                        &.semiCard {
+                        }
+                      }
+                      dd {
+                        + dd {
+                          margin-left: 0.25rem;
+                        }
+                      }
                       label {
                       }
                     }
                   }
-
-                  .card-header {
-                    h3 {
-                    }
-                  }
-                  .card-footer {
-                    &:hover {
-                    }
-
-                    label {
-                      &:hover {
-                      }
-                    }
-                  }
-                  &:hover {
-                  }
-                  &.selected {
-                    label {
-                      &:hover {
-                      }
-                    }
-                  }
                 }
+              }
+            }
+          }
 
-                &:last-of-type {
-                  margin-right: 1rem;
-                }
+          &.error {
+            h4 {
+            }
+            span {
+            }
 
-                .cardContent {
-                  dl {
-                    div {
-                      flex-direction: column;
-                      &:last-of-type {
-                      }
-
-                      &.semiCard {
-                      }
-                    }
-                    dd {
-                      + dd {
-                        margin-left: 0.25rem;
-                      }
-                    }
-                    label {
+            ul {
+              li {
+                .card {
+                  footer {
+                    svg {
                     }
                   }
                 }
@@ -434,475 +459,457 @@
           }
         }
 
-        &.error {
-          h4 {
-          }
-          span {
-          }
-
-          ul {
-            li {
-              .card {
-                footer {
-                  svg {
-                  }
-                }
+        &.results {
+          .modal {
+            .card {
+              &.error {
+                width: 100%;
+                padding: 0;
               }
             }
           }
         }
-      }
 
-      &.results {
-        .modal {
-          .card {
-            &.error {
-              width: 100%;
-              padding: 0;
-            }
-          }
-        }
-      }
-
-      label {
-      }
-
-      p {
-      }
-
-      //add button styling
-      .addBtnWrapper {
-        h3 {
-          display: none;
-        }
-        button {
-          width: 100%;
-
-          span {
-            display: block;
-
-            padding-right: $padding / 2;
-
-            font-size: $fontSizeSubheader--small;
-          }
-
-          svg {
-            align-self: center;
-
-            height: 0.8em;
-          }
-        }
-      }
-    }
-
-    //subtitles styling - mobile
-    .subtitle {
-      strong {
-        font-size: $fontSizeSubheader--small;
-      }
-    }
-
-    //main workflow & title styling - mobile
-    .workflow {
-      .title {
-        margin-bottom: 0.25rem;
-
-        font-size: $fontSizeHeader--small;
-      }
-
-      .form-footer {
-        display: flex;
-        flex-direction: column-reverse;
-        //position: fixed;
-        //bottom: 0;
-        //z-index: 100;
-        //background-color: $white;
-        //left: 0;
-        //right: 0;
-        //padding: $padding ($padding * 2) 0 ($padding * 2);
-
-        //@include shadow(0, -3px, 5px, rgba($navy, 0.16));
-        .btn {
-          width: 100%;
-          margin: 0 0 1rem 0;
-
-          text-align: center;
-        }
-      }
-
-      div {
-        &.agencySelect {
-          label {
-          }
-        }
         label {
         }
-        input {
+
+        p {
         }
-        &.switch {
-          label {
+
+        //add button styling
+        .addBtnWrapper {
+          h3 {
+            display: none;
+          }
+          button {
+            width: 100%;
+
+            span {
+              display: block;
+
+              padding-right: $padding / 2;
+
+              font-size: $fontSizeSubheader--small;
+            }
+
+            svg {
+              align-self: center;
+
+              height: 0.8em;
+            }
           }
         }
       }
 
-      .slider-component {
-        .form-group {
-          label {
-          }
-        }
-      }
-
+      //subtitles styling - mobile
       .subtitle {
         strong {
-        }
-        p {
-          font-size: $fontSizeLabel;
+          font-size: $fontSizeSubheader--small;
         }
       }
 
-      //mobile well styling
-      .well {
-        .card {
-          flex-direction: column;
-          justify-content: center;
+      //main workflow & title styling - mobile
+      .workflow {
+        .title {
+          margin-bottom: 0.25rem;
 
-          margin-left: 0;
+          font-size: $fontSizeHeader--small;
+        }
 
-          &.fade-in {
-            min-height: auto;
-          }
+        .form-footer {
+          display: flex;
+          flex-direction: column-reverse;
+          //position: fixed;
+          //bottom: 0;
+          //z-index: 100;
+          //background-color: $white;
+          //left: 0;
+          //right: 0;
+          //padding: $padding ($padding * 2) 0 ($padding * 2);
 
-          .card-header {
-            position: relative;
-
-            align-items: center;
-            flex-direction: column;
-
-            width: 50%;
-            padding-right: 0;
-            padding-left: 0;
-          }
-
-          .cardContent {
-            margin-bottom: 1rem;
+          //@include shadow(0, -3px, 5px, rgba($navy, 0.16));
+          .btn {
+            width: 100%;
+            margin: 0 0 1rem 0;
 
             text-align: center;
+          }
+        }
 
-            p {
-              padding: 0 $padding;
+        div {
+          &.agencySelect {
+            label {
             }
           }
-
-          .card-footer {
-            flex-direction: column;
-
-            width: 100%;
-            margin: 0;
-            padding: 0;
-
-            .btn,
-            .btn-primary {
-              margin-top: 0;
-              margin-bottom: 1rem;
-              margin-left: 0;
-              padding: $padding/2;
-
-              text-align: center;
-            }
-
-            .btn-secondary {
-              margin-top: 0;
-              margin-bottom: 1.5rem;
-              margin-left: 0;
-              padding: $padding/2;
-
-              text-align: center;
+          label {
+          }
+          input {
+          }
+          &.switch {
+            label {
             }
           }
         }
 
-        //results modal styling
-        .modal {
+        .slider-component {
+          .form-group {
+            label {
+            }
+          }
+        }
+
+        .subtitle {
+          strong {
+          }
+          p {
+            font-size: $fontSizeLabel;
+          }
+        }
+
+        //mobile well styling
+        .well {
           .card {
+            flex-direction: column;
+            justify-content: center;
+
+            margin-left: 0;
+
+            &.fade-in {
+              min-height: auto;
+            }
+
             .card-header {
-              h4 {
+              position: relative;
+
+              align-items: center;
+              flex-direction: column;
+
+              width: 50%;
+              padding-right: 0;
+              padding-left: 0;
+            }
+
+            .cardContent {
+              margin-bottom: 1rem;
+
+              text-align: center;
+
+              p {
+                padding: 0 $padding;
               }
+            }
+
+            .card-footer {
+              flex-direction: column;
+
+              width: 100%;
+              margin: 0;
+              padding: 0;
+
+              .btn,
+              .btn-primary {
+                margin-top: 0;
+                margin-bottom: 1rem;
+                margin-left: 0;
+                padding: $padding/2;
+
+                text-align: center;
+              }
+
+              .btn-secondary {
+                margin-top: 0;
+                margin-bottom: 1.5rem;
+                margin-left: 0;
+                padding: $padding/2;
+
+                text-align: center;
+              }
+            }
+          }
+
+          //results modal styling
+          .modal {
+            .card {
+              .card-header {
+                h4 {
+                }
+              }
+
+              .card-footer {
+                button {
+                }
+              }
+
+              .share {
+                display: flex;
+                flex-direction: column;
+
+                height: 100vh;
+                .card-block {
+                  flex-grow: 1;
+                  .form-group {
+                    #toName {
+                    }
+
+                    #toEmail {
+                    }
+                  }
+
+                  .error {
+                    span {
+                    }
+                  }
+                }
+              }
+            }
+
+            .form-group {
+            }
+          }
+
+          .card {
+            &:hover {
+            }
+
+            .cardContent {
+              p {
+              }
+
+              span {
+              }
+            }
+
+            .card-header {
             }
 
             .card-footer {
               button {
               }
             }
-
-            .share {
-              display: flex;
-              flex-direction: column;
-
-              height: 100vh;
-              .card-block {
-                flex-grow: 1;
-                .form-group {
-                  #toName {
-                  }
-
-                  #toEmail {
-                  }
-                }
-
-                .error {
-                  span {
-                  }
-                }
+            .modalIcons {
+              svg {
               }
             }
           }
-
-          .form-group {
-          }
         }
+      }
 
+      //SPECIFIC STYLING
+
+      //additional information styling - mobile
+      .additionalInfo {
         .card {
-          &:hover {
+          p {
+            line-height: 1;
           }
 
-          .cardContent {
-            p {
-            }
-
-            span {
-            }
-          }
-
-          .card-header {
-          }
-
-          .card-footer {
-            button {
-            }
-          }
-          .modalIcons {
+          a {
             svg {
             }
           }
         }
-      }
-    }
+        .form-group {
+          &.additionalInterest {
+            &.radio {
+              &.segmented {
+                flex-direction: column;
 
-    //SPECIFIC STYLING
-
-    //additional information styling - mobile
-    .additionalInfo {
-      .card {
-        p {
-          line-height: 1;
-        }
-
-        a {
-          svg {
-          }
-        }
-      }
-      .form-group {
-        &.additionalInterest {
-          &.radio {
-            &.segmented {
-              flex-direction: column;
-
-              .group-label {
-              }
-              label {
-                padding-right: 0;
-
-                font-size: $fontSizeSubheader--small;
-              }
-              .segmented-answer-wrapper {
-                width: 100%;
-                margin-bottom: 1.5rem;
-
-                label {
+                .group-label {
                 }
-              }
-            }
-          }
-        }
-        //open helpful info on this page since additional interests is very complex
-        label {
-          span {
-            i {
-            }
-            .__react_component_tooltip {
-              margin: 0.5rem 0 0;
-
-              &:after {
-              }
-
-              &.place-right {
-              }
-            }
-          }
-        }
-      }
-
-      ul {
-        li {
-          .card {
-            a {
-              &.remove {
-              }
-
-              &.edit {
-                padding-right: 0.25rem;
-              }
-            }
-
-            > div {
-              padding-bottom: ($padding / 2);
-
-              h4 {
-                margin-top: 0.5rem;
-
-                font-size: $fontSizeBase;
-              }
-
-              p {
-                padding-top: $padding/4;
-              }
-
-              &.card-icon {
-              }
-            }
-          }
-        }
-      }
-
-      .form-footer {
-      }
-    }
-
-    //mailing address styling - mobile
-    .addressSection {
-      h4 {
-      }
-
-      .card {
-        .cardContent {
-          h4 {
-          }
-        }
-
-        a {
-          svg {
-          }
-        }
-      }
-
-      .form-group {
-        &.mailingSameAsProperty {
-          &.radio {
-            &.segmented {
-              flex-direction: column;
-
-              .group-label {
-              }
-
-              label {
-                padding-right: 0;
-              }
-
-              .segmented-answer-wrapper {
-                width: 100%;
-                margin-bottom: 1.5rem;
-
                 label {
+                  padding-right: 0;
+
+                  font-size: $fontSizeSubheader--small;
                 }
-              }
-            }
-          }
-        }
-      }
-
-      .well {
-        &.hide {
-        }
-      }
-    }
-
-    //date picker styling - mobile
-    .datePicker {
-      .form-group {
-        &.effectiveDate {
-          &.datePicker {
-            label {
-              width: 100%;
-            }
-            .react-datepicker-wrapper {
-              width: 100%;
-              .react-datepicker__input-container {
-                input {
+                .segmented-answer-wrapper {
                   width: 100%;
+                  margin-bottom: 1.5rem;
+
+                  label {
+                  }
                 }
               }
             }
+          }
+          //open helpful info on this page since additional interests is very complex
+          label {
+            span {
+              i {
+              }
+              .__react_component_tooltip {
+                margin: 0.5rem 0 0;
 
-            .react-datepicker-popper {
+                &:after {
+                }
+
+                &.place-right {
+                }
+              }
+            }
+          }
+        }
+
+        ul {
+          li {
+            .card {
+              a {
+                &.remove {
+                }
+
+                &.edit {
+                  padding-right: 0.25rem;
+                }
+              }
+
               > div {
-                .react-datepicker {
-                  display: block;
-                  float: none;
+                padding-bottom: ($padding / 2);
 
-                  height: 15rem;
-                  margin: 0 auto;
+                h4 {
+                  margin-top: 0.5rem;
 
-                  .react-datepicker__triangle {
+                  font-size: $fontSizeBase;
+                }
+
+                p {
+                  padding-top: $padding/4;
+                }
+
+                &.card-icon {
+                }
+              }
+            }
+          }
+        }
+
+        .form-footer {
+        }
+      }
+
+      //mailing address styling - mobile
+      .addressSection {
+        h4 {
+        }
+
+        .card {
+          .cardContent {
+            h4 {
+            }
+          }
+
+          a {
+            svg {
+            }
+          }
+        }
+
+        .form-group {
+          &.mailingSameAsProperty {
+            &.radio {
+              &.segmented {
+                flex-direction: column;
+
+                .group-label {
+                }
+
+                label {
+                  padding-right: 0;
+                }
+
+                .segmented-answer-wrapper {
+                  width: 100%;
+                  margin-bottom: 1.5rem;
+
+                  label {
                   }
-                  .react-datepicker__navigation {
-                    &:hover {
-                    }
-                    &.react-datepicker__navigation--next {
-                    }
-                    &.react-datepicker__navigation--previous {
-                    }
-                  }
+                }
+              }
+            }
+          }
+        }
 
-                  .react-datepicker__month-container {
-                    .react-datepicker__header {
-                      .react-datepicker__current-month {
+        .well {
+          &.hide {
+          }
+        }
+      }
+
+      //date picker styling - mobile
+      .datePicker {
+        .form-group {
+          &.effectiveDate {
+            &.datePicker {
+              label {
+                width: 100%;
+              }
+              .react-datepicker-wrapper {
+                width: 100%;
+                .react-datepicker__input-container {
+                  input {
+                    width: 100%;
+                  }
+                }
+              }
+
+              .react-datepicker-popper {
+                > div {
+                  .react-datepicker {
+                    display: block;
+                    float: none;
+
+                    height: 15rem;
+                    margin: 0 auto;
+
+                    .react-datepicker__triangle {
+                    }
+                    .react-datepicker__navigation {
+                      &:hover {
                       }
-                      .react-datepicker__day-names {
-                        .react-datepicker__day-name {
+                      &.react-datepicker__navigation--next {
+                      }
+                      &.react-datepicker__navigation--previous {
+                      }
+                    }
+
+                    .react-datepicker__month-container {
+                      .react-datepicker__header {
+                        .react-datepicker__current-month {
+                        }
+                        .react-datepicker__day-names {
+                          .react-datepicker__day-name {
+                          }
                         }
                       }
-                    }
-                    ~ .react-datepicker__month-container {
-                      .react-datepicker__header {
+                      ~ .react-datepicker__month-container {
+                        .react-datepicker__header {
+                        }
                       }
-                    }
 
-                    .react-datepicker__month {
-                      .react-datepicker__week {
-                        .react-datepicker__day {
-                          &:hover {
-                          }
-
-                          &.react-datepicker__day--disabled {
+                      .react-datepicker__month {
+                        .react-datepicker__week {
+                          .react-datepicker__day {
                             &:hover {
                             }
-                          }
 
-                          &.react-datepicker__day--selected {
-                          }
-
-                          &.react-datepicker__day--today {
-                            &:hover {
-                            }
-                          }
-
-                          &.react-datepicker__day--outside-month {
-                            &:hover {
+                            &.react-datepicker__day--disabled {
+                              &:hover {
+                              }
                             }
 
                             &.react-datepicker__day--selected {
                             }
+
+                            &.react-datepicker__day--today {
+                              &:hover {
+                              }
+                            }
+
+                            &.react-datepicker__day--outside-month {
+                              &:hover {
+                              }
+
+                              &.react-datepicker__day--selected {
+                              }
+                            }
                           }
                         }
                       }
@@ -914,213 +921,240 @@
           }
         }
       }
-    }
 
-    //information bar styling - mobile
-    .infoBar {
-      flex-direction: column;
+      //information bar styling - mobile
+      .infoBar {
+        flex-direction: column;
 
-      width: 100vw;
-      margin-top: 1rem;
-      margin-left: -2rem;
+        width: 100vw;
+        margin-top: 1rem;
+        margin-left: -2rem;
 
-      border-radius: 0;
+        border-radius: 0;
 
-      h2 {
-        margin-bottom: 0.25rem;
-      }
-
-      label {
-      }
-
-      p {
-      }
-    }
-
-    //retrieve quote styling - mobile
-    .retrieveQuoteWrapper {
-      h1 {
-      }
-
-      .form-footer {
-        :disabled {
+        h2 {
+          margin-bottom: 0.25rem;
         }
 
-        button {
+        label {
+        }
+
+        p {
         }
       }
-    }
 
-    //policyholder styling - mobile
-    .policyHolderInfo {
-      h4 {
-      }
-      .card {
-        .cardContent {
-          padding-right: 0.75rem;
+      //retrieve quote styling - mobile
+      .retrieveQuoteWrapper {
+        h1 {
+        }
 
-          h4 {
+        .form-footer {
+          :disabled {
+          }
+
+          button {
           }
         }
+      }
 
-        a {
-          svg {
+      //policyholder styling - mobile
+      .policyHolderInfo {
+        h4 {
+        }
+        .card {
+          .cardContent {
+            padding-right: 0.75rem;
+
+            h4 {
+            }
+          }
+
+          a {
+            svg {
+            }
+          }
+
+          .cardFooter {
+            padding-left: 0;
           }
         }
+        .form-group {
+          &.policyHolder {
+            &.radio {
+              &.segmented {
+                flex-direction: column;
 
-        .cardFooter {
-          padding-left: 0;
+                .group-label {
+                }
+                label {
+                  padding-right: 0;
+                }
+
+                .segmented-answer-wrapper {
+                  width: 100%;
+                  margin-bottom: 1.5rem;
+                  label {
+                  }
+                }
+              }
+            }
+          }
         }
       }
-      .form-group {
-        &.policyHolder {
-          &.radio {
-            &.segmented {
+
+      //modal styling - mobile
+      #modal-anchor {
+        .modal {
+          background-color: $white;
+          &.modal-sm {
+            .card {
+              max-width: 36rem;
+            }
+          }
+
+          .card {
+            width: 100%;
+            width: 100%;
+            height: calc(100vh - 4rem);
+            max-height: calc(100vh - 4rem);
+            margin-top: 4rem;
+
+            border-radius: 0;
+
+            &.policyholderModal {
+              p {
+                left: 0;
+
+                padding: $padding;
+              }
+            }
+            .card-footer {
+              button,
+              a {
+                &.btn-secondary,
+                &.btn-primary {
+                  border-radius: 0;
+                }
+              }
+            }
+            // todo - possible delete radius styles below
+            form {
+              .card-footer {
+                .btn-group {
+                  .btn {
+                    &.btn-primary {
+                      border-bottom-right-radius: 0;
+                    }
+
+                    &.btn-secondary {
+                      border-bottom-left-radius: 0;
+                    }
+                  }
+                }
+              }
+
+              .card-block {
+                flex-grow: 1;
+                flex-shrink: 1;
+                .flex-form {
+                  flex-direction: column;
+                }
+              }
+            }
+
+            .card-footer {
+              a {
+                &.btn {
+                  &.btn-secondary {
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+
+          //application complete
+          .card-block {
+            &.applicationComplete {
               flex-direction: column;
 
-              .group-label {
-              }
-              label {
-                padding-right: 0;
+              padding: $padding ($padding * 2);
+
+              a {
+                margin-bottom: 1rem;
+
+                &.btn {
+                  border-radius: $borderRadius;
+                }
               }
 
-              .segmented-answer-wrapper {
-                width: 100%;
-                margin-bottom: 1.5rem;
-                label {
+              button {
+                &.btn {
+                  border-radius: $borderRadius;
                 }
               }
             }
           }
-        }
-      }
-    }
 
-    //modal styling - mobile
-    #modal-anchor {
-      .modal {
-        background-color: $white;
-        &.modal-sm {
-          .card {
-            max-width: 36rem;
-          }
-        }
-
-        .card {
-          width: 100%;
-          width: 100%;
-          height: calc(100vh - 4rem);
-          max-height: calc(100vh - 4rem);
-          margin-top: 4rem;
-
-          border-radius: 0;
-
-          &.policyholderModal {
-            p {
-              left: 0;
-
-              padding: $padding;
-            }
-          }
-          .card-footer {
-            button,
+          .card-header {
             a {
-              &.btn-secondary,
-              &.btn-primary {
-                border-radius: 0;
-              }
+              top: 8px;
+
+              font-size: 1.5rem;
+            }
+            h4 {
+              padding-top: $padding * 2;
             }
           }
-          // todo - possible delete radius styles below
+
           form {
-            .card-footer {
-              .btn-group {
-                .btn {
-                  &.btn-primary {
-                    border-bottom-right-radius: 0;
-                  }
+            overflow: hidden;
+            .form-group {
+              &.order {
+                &.select {
+                  select {
+                    height: 2rem;
 
-                  &.btn-secondary {
-                    border-bottom-left-radius: 0;
+                    color: $navy;
+                    border-width: 0;
+
+                    font-size: $fontSizeBody;
                   }
                 }
-              }
-            }
-
-            .card-block {
-              flex-grow: 1;
-              flex-shrink: 1;
-              .flex-form {
-                flex-direction: column;
               }
             }
           }
 
           .card-footer {
-            a {
-              &.btn {
+            .btn-group {
+              .btn {
+                &.btn-primary {
+                  border-bottom-right-radius: 0;
+                }
+
                 &.btn-secondary {
-                  text-align: center;
+                  border-bottom-left-radius: 0;
                 }
               }
             }
           }
         }
 
-        //application complete
-        .card-block {
-          &.applicationComplete {
-            flex-direction: column;
+        //mobile share modal styling
+        .share {
+          display: flex;
+          flex-direction: column;
 
-            padding: $padding ($padding * 2);
-
-            a {
-              margin-bottom: 1rem;
-
-              &.btn {
-                border-radius: $borderRadius;
-              }
-            }
-
-            button {
-              &.btn {
-                border-radius: $borderRadius;
+          height: 100vh;
+          .card-block {
+            flex-grow: 1;
+            .form-group {
+              &:last-of-type {
               }
             }
           }
-        }
 
-        .card-header {
-          a {
-            top: 8px;
-
-            font-size: 1.5rem;
-          }
-          h4 {
-            padding-top: $padding * 2;
-          }
-        }
-
-        form {
-          overflow: hidden;
-          .form-group {
-            &.order {
-              &.select {
-                select {
-                  height: 2rem;
-
-                  color: $navy;
-                  border-width: 0;
-
-                  font-size: $fontSizeBody;
-                }
-              }
-            }
-          }
-        }
-
-        .card-footer {
-          .btn-group {
+          .card-footer {
             .btn {
               &.btn-primary {
                 border-bottom-right-radius: 0;
@@ -1129,33 +1163,6 @@
               &.btn-secondary {
                 border-bottom-left-radius: 0;
               }
-            }
-          }
-        }
-      }
-
-      //mobile share modal styling
-      .share {
-        display: flex;
-        flex-direction: column;
-
-        height: 100vh;
-        .card-block {
-          flex-grow: 1;
-          .form-group {
-            &:last-of-type {
-            }
-          }
-        }
-
-        .card-footer {
-          .btn {
-            &.btn-primary {
-              border-bottom-right-radius: 0;
-            }
-
-            &.btn-secondary {
-              border-bottom-left-radius: 0;
             }
           }
         }
