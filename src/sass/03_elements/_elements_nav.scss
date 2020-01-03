@@ -164,7 +164,7 @@ nav[role='navigation'] {
           cursor: pointer;
           span {
             color: $white;
-            background-color: $navy;
+            background-color: $green;
             svg {
               width: 1rem;
               height: 1rem;
@@ -225,7 +225,7 @@ nav[role='navigation'] {
 
         color: $white;
         border-radius: 50%;
-        background-color: $green;
+        background-color: $navy;
 
         font-size: 0.5rem;
         font-weight: bold;
@@ -301,7 +301,7 @@ nav[role='navigation'] {
                   animation-duration: 0.3s;
 
                   opacity: 1;
-                  color: $navy;
+                  color: $green;
                 }
               }
             }
