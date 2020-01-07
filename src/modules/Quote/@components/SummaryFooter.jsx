@@ -5,7 +5,7 @@ import { Button, Modal, ModalPortal } from '@exzeo/core-ui';
 import { useAgentInfo } from '@exzeo/core-ui/src/@Harmony';
 
 import { WORKFLOW_ROUTING, ROUTES } from 'constants/navigation';
-import { useQuote } from '../QuoteContext';
+import { useQuote } from '../../../context/QuoteContext';
 
 const companyName = 'TypTap';
 const productDescription = 'Flood';

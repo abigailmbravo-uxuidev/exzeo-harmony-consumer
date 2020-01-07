@@ -15,7 +15,7 @@ import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
 import { ROUTES } from 'constants/navigation';
 import { VALID_QUOTE_STATES } from 'constants/quote';
-import { useQuote } from 'modules/Quote';
+import { useQuote } from 'context/QuoteContext';
 import ContactPhoneAnchor from 'components/ContactPhoneAnchor';
 import ContactEmailAnchor from 'components/ContactEmailAnchor';
 import TypTapLink from 'components/TypTapLink';

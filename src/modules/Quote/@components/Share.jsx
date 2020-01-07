@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ModalPortal, format } from '@exzeo/core-ui';
 import { ShareModal } from '@exzeo/core-ui/src/@Harmony';
-import { useQuote } from 'modules/Quote';
+import { useQuote } from 'context/QuoteContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Share = ({ formInstance, initialValues }) => {

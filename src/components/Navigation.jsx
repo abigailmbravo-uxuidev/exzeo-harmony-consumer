@@ -5,7 +5,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { format } from '@exzeo/core-ui';
 
 import { ROUTES } from 'constants/navigation';
-import { useQuote } from 'modules/Quote';
+import { useQuote } from 'context/QuoteContext';
 import { hasUnderwritingExceptions } from 'utilities/underwritingExceptions';
 
 const Navigation = ({ location, match, cspMatch }) => {

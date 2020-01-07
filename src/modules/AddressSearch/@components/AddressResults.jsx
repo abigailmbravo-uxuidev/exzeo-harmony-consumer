@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { SectionLoader } from '@exzeo/core-ui';
 
 import { CONTACT_PHONE } from 'constants/contactInformation';
-import { useQuote } from 'modules/Quote';
+import { useQuote } from 'context/QuoteContext';
 
 import AddressCard from './AddressCard';
 
