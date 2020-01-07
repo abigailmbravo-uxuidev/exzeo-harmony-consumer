@@ -16,7 +16,7 @@ context('Create new quote', () => {
         expect(request.body.path.includes(AF3_QUOTE.search_query));
       });
     cy.findDataTag(`result-${AF3_QUOTE.address}`)
-      .trigger('click')
+      .click()
       .wait('@createQuote')
       .then(({ response }) => {
         expect(response.body.result.property.physicalAddress.address1).to.equal(
@@ -46,7 +46,7 @@ context('Create new quote', () => {
       cy.sliderSet('coverageLimits.building.value-slider', 267000)
         .sliderSet('coverageLimits.personalProperty.value-slider', 67000)
         .findDataTag('deductibles.buildingDeductible.value_500')
-        .trigger('click')
+        .click()
         .clickSubmit('#harmony-quote')
         .wait('@updateQuote')
         .then(({ response }) => {
@@ -67,7 +67,7 @@ context('Create new quote', () => {
         .type(`{selectall}{backspace}${value}`);
     });
     cy.findDataTag('edit-agency')
-      .trigger('click')
+      .click()
       .wait('@searchAgencies')
       .then(({ response }) => {
         expect(response.body.status).to.equal(200);
@@ -98,7 +98,7 @@ context('Create new quote', () => {
         });
       cy.findDataTag('submit')
         .click()
-        // .trigger('click')
+        // .click()
         .wait('@retrieveQuote')
         .then(({ response }) => {
           expect(response.body.status).to.equal(200);
@@ -124,13 +124,13 @@ context('Create new quote', () => {
     // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------
 
     cy.findDataTag('share')
-      .trigger('click')
+      .click()
       .wrap(Object.entries(AF3_QUOTE.shareQuoteInfo))
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
     cy.findDataTag('modal-submit')
-      .trigger('click')
+      .click()
       .wait('@shareQuote')
       .then(({ response }) => {
         expect(response.body.message).to.equal('success');
@@ -143,7 +143,7 @@ context('Create new quote', () => {
     });
 
     cy.findDataTag('mortgagee1_true')
-      .trigger('click')
+      .click()
       .wrap(Object.entries(AF3_QUOTE.mortgageeInfo))
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
@@ -162,15 +162,15 @@ context('Create new quote', () => {
       expect(response.body.status).to.equal(200);
     });
     cy.findDataTag('add-address')
-      .trigger('click')
+      .click()
       .findDataTag('mailingSameAsProperty_true')
-      .trigger('click')
+      .click()
       .findDataTag('policyHolderMailingAddress.address1')
       .should('have.value', AF3_QUOTE.address)
       .findDataTag('ai-modal-submit')
-      .trigger('click')
+      .click()
       .get("[class*='react-datepicker-w']")
-      .trigger('click')
+      .click()
       .wait('@updateQuote')
       .then(({ request, response }) => {
         expect(
@@ -208,7 +208,7 @@ context('Create new quote', () => {
     });
     cy.findDataTag('billing-option_Policyholder')
       .first()
-      .trigger('click');
+      .click();
     cy.findDataTag('payment-plan-annual')
       .should('have.class', 'selected')
       .clickSubmit('#harmony-quote')
@@ -223,7 +223,7 @@ context('Create new quote', () => {
     cy.findDataTag('confirm')
       .should('have.length', 5)
       .each($el => {
-        $el.trigger('click');
+        $el.click();
       })
       .findDataTag('confirmed')
       .should('have.length', 5)
