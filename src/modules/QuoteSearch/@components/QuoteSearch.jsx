@@ -143,7 +143,7 @@ const QuoteSearch = ({ cspMatch }) => {
                     styleName="required"
                     label="Quote Number"
                     dataTest="quoteNumber"
-                    placeholder="TTIC-A3-"
+                    placeholder="TTIC-AF3-"
                   />
                 )}
               </Field>

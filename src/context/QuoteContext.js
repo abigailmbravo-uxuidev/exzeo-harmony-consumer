@@ -94,13 +94,30 @@ export function useQuote() {
   const updateQuote = async (data, options = {}) => {
     try {
       setState(state => ({ ...state, loading: true }));
-      const updateData = formatQuoteForSubmit(data, options);
+      const formattedQuote = formatQuoteForSubmit(data, options);
 
-      const quote = await quoteData.updateQuote(updateData);
+      const updatedQuote = await quoteData.updateQuote(formattedQuote);
 
-      const formattedQuote = formatQuoteForUser(quote);
-      store2.set('quote', formattedQuote, true);
-      setState(state => ({ ...state, quote: formattedQuote }));
+      // On final page of workflow we need to 'verify quote' to run final underwriting and update quote state
+      let quote = {};
+      if (options.verifyQuote && quote.quoteState !== 'Quote Stopped') {
+        quote = await quoteData.verifyQuote({
+          quoteNumber: data.quoteNumber
+        });
+        if (!quote || quote.quoteState !== 'Application Ready') {
+          setState(state => ({
+            ...state,
+            error: { message: 'Quote is not in Application Ready state' }
+          }));
+          return;
+        }
+      } else {
+        quote = updatedQuote;
+      }
+
+      const result = formatQuoteForUser(quote);
+      store2.set('quote', result, true);
+      setState(state => ({ ...state, quote: result }));
     } catch (error) {
       setState(state => ({ ...state, error }));
     } finally {
@@ -111,14 +128,6 @@ export function useQuote() {
   const sendApplication = async (quoteNumber, options = {}) => {
     try {
       setState(state => ({ ...state, loading: true }));
-      const quote = await quoteData.verifyQuote({ quoteNumber }, options);
-      if (!quote || quote.quoteState !== 'Application Ready') {
-        setState(state => ({
-          ...state,
-          error: { message: 'Quote is not in Application Ready state' }
-        }));
-        return;
-      }
       await quoteData.sendApplication(quoteNumber, 'docusign');
     } catch (error) {
       setState(state => ({ ...state, error }));

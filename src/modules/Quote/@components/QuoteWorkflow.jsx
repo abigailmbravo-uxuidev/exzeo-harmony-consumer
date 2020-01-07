@@ -82,7 +82,9 @@ const QuoteWorkflow = ({ history, match, cspMatch }) => {
 
   async function handleGandalfSubmit(data) {
     try {
-      await updateQuote(data, { workflowPage });
+      await updateQuote(data, {
+        verifyQuote: workflowPage === ROUTES.summary.workflowPage - 1
+      });
 
       if (recalc && workflowPage === ROUTES.customize.workflowPage) {
         return;
