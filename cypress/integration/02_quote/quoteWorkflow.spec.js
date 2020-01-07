@@ -30,9 +30,7 @@ context('Create new quote', () => {
     });
     cy.wrap(Object.entries(AF3_QUOTE.underwriting))
       .each(([name, value]) => {
-        cy.findDataTag(`underwritingAnswers.${name}.answer_${value}`).trigger(
-          'click'
-        );
+        cy.findDataTag(`underwritingAnswers.${name}.answer_${value}`).click();
       })
       .clickSubmit('#harmony-quote');
 
