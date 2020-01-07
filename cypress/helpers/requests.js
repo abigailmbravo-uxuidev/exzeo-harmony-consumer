@@ -3,6 +3,7 @@ export function retrieveQuote(payLoad, apiUrl, token) {
     url: apiUrl,
     method: 'POST',
     auth: { bearer: 'consumer' },
+    failOnStatusCode: false,
     body: {
       exchangeName: 'harmony',
       routingKey: 'harmony.quote.retrieveQuote',
@@ -10,8 +11,8 @@ export function retrieveQuote(payLoad, apiUrl, token) {
     }
   });
 }
-// Total retry time limit ~2 min
-const WAIT_TIME_MS = 2000;
+// Total retry time limit ~5 min
+const WAIT_TIME_MS = 5000;
 const RETRY_MAX = 60;
 
 export function envelopeIdCheck(payLoad, apiUrl, token, attemptNumber = 0) {
