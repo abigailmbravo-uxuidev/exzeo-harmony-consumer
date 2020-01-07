@@ -12,6 +12,8 @@
     padding: ($padding * 2) ($padding * 2) $padding;
     //width: 34rem;
     .quoteNumber {
+      z-index: 100;
+
       text-align: center;
     }
 
