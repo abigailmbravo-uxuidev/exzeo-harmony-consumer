@@ -175,18 +175,18 @@ context('Create new quote', () => {
           request.body.data.quote.policyHolderMailingAddress.address1
         ).to.equal(request.body.data.quote.property.physicalAddress.address1);
         expect(response.body.result.quoteInputState).to.equal('AppStarted');
-        cy.get('input[class*="r"]')
+        cy.get('input[class*="react-datepicker"]')
           .invoke('val')
-          .then(val1 => {
-            let day = parseInt(val1.split('/')[1]);
-            let shift = day <= 28 ? 1 : -1;
-            cy.get('input[class*="r"]').type(
+          .then(effDate => {
+            let effDay = parseInt(effDate.split('/')[1]);
+            let shift = effDay <= 28 ? 1 : -1;
+            cy.get('input[class*="react-datepicker"]').type(
               '{selectall}{backspace}' +
-                val1.split('/')[0] +
+                effDate.split('/')[0] +
                 '/' +
-                (day + shift) +
+                (effDay + shift) +
                 '/' +
-                val1.split('/')[2] +
+                effDate.split('/')[2] +
                 '{enter}'
             );
           });
@@ -221,7 +221,7 @@ context('Create new quote', () => {
     cy.findDataTag('confirm')
       .should('have.length', 5)
       .each($el => {
-        $el.click();
+        $el.trigger('click');
       })
       .findDataTag('confirmed')
       .should('have.length', 5)
