@@ -14,7 +14,7 @@ context('Create new quote', () => {
     cy.wait('@fetchAddress').then(({ request }) => {
       expect(request.body.path.includes(AF3_QUOTE.search_query));
     });
-    cy.findDataTag(`result-${AF3_QUOTE.address}`).click();
+    cy.findDataTag(`result-${AF3_QUOTE.address}`).trigger('click');
     cy.wait('@createQuote').then(({ response }) => {
       expect(response.body.result.property.physicalAddress.address1).to.equal(
         AF3_QUOTE.address
@@ -28,7 +28,9 @@ context('Create new quote', () => {
     });
     cy.wrap(Object.entries(AF3_QUOTE.underwriting))
       .each(([name, value]) => {
-        cy.findDataTag(`underwritingAnswers.${name}.answer_${value}`).click();
+        cy.findDataTag(`underwritingAnswers.${name}.answer_${value}`).trigger(
+          'click'
+        );
       })
       .clickSubmit('#harmony-quote');
 
@@ -79,14 +81,17 @@ context('Create new quote', () => {
     // Complete 'policyholder' page
     // TODO add secondary policyHolder, maybe edit effective date?
 
+    cy.wait('@getZipCodeSettings').then(({ response }) => {
+      expect(response.body.status).to.equal(200);
+    });
     cy.findDataTag('add-address')
-      .click()
+      .trigger('click')
       .findDataTag('mailingSameAsProperty_true')
-      .click();
+      .trigger('click');
     cy.findDataTag('policyHolderMailingAddress.address1')
       .should('have.value', AF3_QUOTE.address)
       .findDataTag('ai-modal-submit')
-      .click();
+      .trigger('click');
     cy.wait('@updateQuote').then(({ request, response }) => {
       expect(
         request.body.data.quote.policyHolderMailingAddress.address1
@@ -106,7 +111,7 @@ context('Create new quote', () => {
     });
     cy.findDataTag('billing-option_Policyholder')
       .first()
-      .click();
+      .trigger('click');
     cy.findDataTag('payment-plan-annual').should('have.class', 'selected');
     cy.clickSubmit('#harmony-quote');
     cy.wait('@updateQuote').then(({ request, response }) => {
@@ -119,7 +124,7 @@ context('Create new quote', () => {
     cy.findDataTag('confirm')
       .should('have.length', 5)
       .each($el => {
-        $el.click();
+        $el.trigger('click');
         // there are currently 5 sections that the user must review and confirm
       })
       .findDataTag('confirmed')

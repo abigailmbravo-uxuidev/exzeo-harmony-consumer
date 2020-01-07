@@ -14,6 +14,8 @@ section {
           .fade-in {
             flex-direction: column;
 
+            padding-left: 0;
+
             .card {
               &.payPlan {
                 width: 100%;
