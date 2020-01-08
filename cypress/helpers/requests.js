@@ -28,6 +28,12 @@ export function envelopeIdCheck(payLoad, apiUrl, token, attemptNumber = 0) {
       RETRY_MAX,
       "Number of retries to 'retrieveQuote' waiting for envelopeId to exist on quote"
     );
+    if (attemptNumber % 5 === 0) {
+      cy.task(
+        'log',
+        'Waiting quote to contain envelopeId (signals docusign ready)'
+      );
+    }
     cy.wait(WAIT_TIME_MS);
     envelopeIdCheck(payLoad, apiUrl, token, attemptNumber + 1);
   });
