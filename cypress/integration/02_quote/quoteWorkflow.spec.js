@@ -88,15 +88,13 @@ context('Create new quote', () => {
       };
 
       // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
-      cy.get("a[href*='retrieve']")
-        .click()
+      cy.task('log', 'Attempting to retrieve saved quote');
+      cy.visit(`${CSP_BASE}/retrieveQuote`)
         .wrap(Object.entries(payLoad))
         .each(([field, value]) => {
           cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
         });
-      cy.findDataTag('submit')
-        .click()
-        // .click()
+      cy.clickSubmit()
         .wait('@retrieveQuote')
         .then(({ response }) => {
           expect(response.body.status).to.equal(200);
@@ -127,8 +125,7 @@ context('Create new quote', () => {
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
-    cy.findDataTag('modal-submit')
-      .click()
+    cy.clickSubmit('.modal', 'modal-submit')
       .wait('@shareQuote')
       .then(({ response }) => {
         expect(response.body.message).to.equal('success');
@@ -146,8 +143,7 @@ context('Create new quote', () => {
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
-    cy.findDataTag('ai-modal-submit')
-      .click()
+    cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit')
       .wait('@updateQuote')
       .then(({ response }) => {
         expect(response.body.status).to.equal(200);
@@ -164,9 +160,8 @@ context('Create new quote', () => {
       .findDataTag('mailingSameAsProperty_true')
       .click()
       .findDataTag('policyHolderMailingAddress.address1')
-      .should('have.value', AF3_QUOTE.address)
-      .findDataTag('ai-modal-submit')
-      .click()
+      .should('have.value', AF3_QUOTE.address);
+    cy.clickSubmit('.modal', 'ai-modal-submit')
       .get("[class*='react-datepicker-w']")
       .click()
       .wait('@updateQuote')
