@@ -1040,9 +1040,8 @@
           .card {
             width: 100%;
             width: 100%;
-            height: calc(100% - 4rem);
-            max-height: calc(100% - 4rem);
-            //margin-top: 4rem;
+            height: calc(100% - 6.5rem);
+            max-height: calc(100% - 6.5rem);
 
             border-radius: 0;
 
@@ -1128,7 +1127,6 @@
               font-size: 1.5rem;
             }
             h4 {
-              padding-top: $padding * 2;
             }
           }
 
