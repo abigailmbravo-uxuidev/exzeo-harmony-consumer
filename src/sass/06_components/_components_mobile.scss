@@ -9,7 +9,10 @@
     }
 
     .harmony-consumer {
+      height: 100%;
       div[role='region'] {
+        height: calc(100% - 4rem);
+
         main[role='main'] {
           z-index: 1;
 
@@ -19,7 +22,6 @@
     }
 
     .view-grid {
-      //position: absolute;
       padding: $padding $padding 0 $padding;
 
       font-size: $fontSizeSubheader--small;
@@ -1569,6 +1571,24 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+
+    //modal
+    #modal-anchor {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      .modal {
+        background-color: $white;
+        &.modal-sm {
+          .card {
+            max-width: 36rem;
+            height: calc(100% - 4rem);
+            max-height: calc(100% - 4rem);
           }
         }
       }
