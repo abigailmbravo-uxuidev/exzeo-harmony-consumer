@@ -2,7 +2,7 @@ export function retrieveQuote(payLoad, apiUrl, token) {
   return cy.request({
     url: apiUrl,
     method: 'POST',
-    auth: { bearer: 'consumer' },
+    auth: { bearer: token },
     failOnStatusCode: false,
     body: {
       exchangeName: 'harmony',

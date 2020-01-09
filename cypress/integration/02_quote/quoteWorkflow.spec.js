@@ -230,16 +230,15 @@ context('Create new quote', () => {
     // 'complete' page.
     cy.wait('@sendApplication').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal('Ready');
+      const apiUrl = Cypress.env('API_URL') + '/svc';
       const payLoad = {
         quoteNumber: response.body.result.quoteNumber,
         lastName: response.body.result.policyHolders[0].lastName,
         zipCode: response.body.result.zipCodeSettings.zip
       };
-      envelopeIdCheck(payLoad, 'https://api.harmony-ins.com/svc').then(
-        response => {
-          expect(response.body.result.envelopeId).to.not.be.empty;
-        }
-      );
+      envelopeIdCheck(payLoad, apiUrl, 'consumer').then(response => {
+        expect(response.body.result.envelopeId).to.not.be.empty;
+      });
     });
   });
 });
