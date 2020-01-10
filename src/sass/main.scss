@@ -17,6 +17,7 @@
 @import '02_generic/generic_boxSizing';
 @import '02_generic/generic_reset';
 @import '02_generic/generic_shared';
+@import '02_generic/generic_animations';
 
 //03_elements
 @import '03_elements/elements_header';
@@ -24,29 +25,38 @@
 @import '03_elements/_elements_typography';
 @import '03_elements/elements_main';
 @import '03_elements/elements_nav';
-@import '03_elements/elements_links';
 @import '03_elements/elements_other';
 @import '03_elements/element_region';
+@import '03_elements/elements_pagestructure';
 
 //04_objects
 @import '04_objects/objects_layouts';
-@import '04_objects/objects_wrapper';
 
-//05_moduals
-@import '05_moduals/moduals_1';
+//05_page
+@import '05_page/page_policyholder';
+@import '05_page/page_additionalinsured';
+@import '05_page/page_retrievequote';
+@import '05_page/page_summary';
+@import '05_page/page_underwriting';
+@import '05_page/page_customizequote';
+@import '05_page/page_savequote';
+@import '05_page/page_congrats';
+@import '05_page/page_quotesaved';
+@import '05_page/page_billing';
+@import '05_page/page_finalcongratulations';
+@import '05_page/page_searchaddress';
+@import '05_page/page_landingpage';
 
 //06_components
 @import '06_components/components_inputs';
 @import '06_components/components_buttons';
 @import '06_components/components_cards';
-@import '06_components/components_pageTitle';
-@import '06_components/components_search';
 @import '06_components/components_well';
 @import '06_components/components_infoBar';
 @import '06_components/components_loader';
 @import '06_components/components_error';
-//viewgrid
-@import 'view_grid';
+@import '06_components/components_modals';
+@import '06_components/_components_section';
 @import '06_components/components_mobile';
 
 //07_theme

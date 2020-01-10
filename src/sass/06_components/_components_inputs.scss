@@ -127,14 +127,6 @@
         border-radius: 50%;
         background: $blue;
 
-        @include forPhoneOnly {
-          justify-content: flex-start;
-
-          width: 100%;
-          margin: 0;
-
-          background: transparent;
-        }
         &:hover {
           cursor: default;
         }
@@ -150,11 +142,6 @@
           font-smooth: auto;
 
           -webkit-font-smoothing: auto;
-          @include forPhoneOnly {
-            content: 'more info';
-
-            color: $blue;
-          }
         }
       }
 
@@ -177,32 +164,6 @@
           font-size: $fontSizeBody;
           font-weight: normal;
           line-height: 1.4;
-
-          @include forPhoneOnly {
-            position: relative;
-
-            display: none;
-
-            padding: 0;
-
-            background: transparent;
-            box-shadow: 0 0 0 rgba($white, 0);
-
-            &.show {
-              top: 0 !important;
-              left: 0 !important;
-
-              display: flex;
-
-              width: 100%;
-              max-width: 100%;
-              margin: 0;
-
-              &:after {
-                display: none;
-              }
-            }
-          }
 
           &.place-right {
             &:after {
@@ -265,15 +226,6 @@
     z-index: 2;
 
     label {
-      @include forPhoneOnly {
-        position: relative;
-
-        align-items: flex-start;
-        flex-direction: column;
-
-        width: 100%;
-        padding-right: 0;
-      }
     }
     .range-wrapper {
       position: relative;
@@ -284,10 +236,7 @@
         top: 0;
 
         width: 100%;
-
-        @include forPhoneOnly {
-          top: -2.5rem;
-        }
+        width: 100%;
 
         input {
           width: 100%;
@@ -306,11 +255,9 @@
         position: relative;
 
         height: 3.5rem;
+        height: 3.5rem;
         margin-top: 2.5rem;
-
-        @include forPhoneOnly {
-          margin-top: 0;
-        }
+        margin-top: 2.5rem;
 
         .range-limit {
           position: absolute;
@@ -496,18 +443,10 @@
         &:last-of-type {
           border-right-width: 0;
           border-radius: 0 $borderRadius $borderRadius 0;
-
-          @include forPhoneOnly {
-            border-radius: 0 0 $borderRadius $borderRadius;
-          }
         }
 
         &:first-of-type {
           border-radius: $borderRadius 0 0 $borderRadius;
-
-          @include forPhoneOnly {
-            border-radius: $borderRadius $borderRadius 0 0;
-          }
         }
 
         label {
@@ -539,35 +478,6 @@
     }
   }
   &.segmented {
-    @include forPhoneOnly {
-      label {
-        position: relative;
-
-        align-items: flex-start;
-        flex-direction: column;
-
-        width: 100%;
-        padding-right: 0;
-      }
-      .segmented-answer-wrapper {
-        flex-direction: column;
-
-        div {
-          overflow: hidden;
-
-          border-right-width: 0;
-          border-bottom: 1px $lightGrey solid;
-
-          &:last-of-type {
-            border-bottom-width: 0;
-          }
-
-          label {
-            padding: ($padding * 0.75);
-          }
-        }
-      }
-    }
   }
 
   //toggle styling
@@ -594,16 +504,6 @@
 
       font-family: $serif;
       font-size: $fontSizeSubheader--small;
-
-      @include forPhoneOnly {
-        position: relative;
-
-        align-items: flex-start;
-        flex-direction: column;
-
-        width: 100%;
-        padding-right: 0;
-      }
 
       span {
         flex-grow: 1;
@@ -663,13 +563,6 @@
             color: $darkGrey;
           }
         }
-      }
-    }
-  }
-  &.shareSwitch {
-    @include forPhoneOnly {
-      label {
-        font-size: $fontSizeSubheader--small;
       }
     }
   }
@@ -733,31 +626,4 @@
       }
     }
   }
-}
-
-//type ahead in well directly following a switch - implies switch will controll well
-.switch {
-  + .well {
-    .form-group {
-      &.type-ahead {
-        label {
-          display: none;
-        }
-      }
-    }
-  }
-}
-
-//other styling
-
-hr {
-  flex-grow: 1;
-  flex-shrink: 1;
-
-  height: 1px;
-  margin: 2rem 0 0.5rem 0;
-  padding-top: 0;
-  padding-bottom: 0;
-
-  background-color: $lightGrey;
 }

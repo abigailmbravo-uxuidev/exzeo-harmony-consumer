@@ -1,0 +1,74 @@
+//consumer view grid styling
+.view-grid {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  width: 100%;
+  padding: $padding $padding 0 ($padding * 1.5);
+
+  //scroll area (does not scroll - scrolls on main
+  .scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  //title styling for main page structure
+  .title {
+    margin-bottom: 1rem;
+
+    color: $navy;
+
+    font-family: $serif;
+    font-size: $fontSizeHeader;
+    font-weight: $bold;
+  }
+
+  //page structure for main page structure
+  .workflow {
+    .subtitle {
+      strong {
+        display: block;
+
+        margin-bottom: 0.25rem;
+      }
+      p {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+
+        font-family: $sans;
+      }
+    }
+  }
+
+  //container styling for main page structure
+  .form-group {
+    margin-bottom: 1rem;
+
+    label {
+      margin-bottom: 1rem;
+    }
+  }
+
+  //footer styling for main page structure
+  .form-footer {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-end;
+
+    width: 100%;
+    margin-top: 1rem;
+
+    .btn-primary {
+      margin-left: 1rem;
+    }
+  }
+}
+
+// responsize styles
+@supports (display: grid) {
+}

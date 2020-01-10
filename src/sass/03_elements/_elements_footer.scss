@@ -4,3 +4,57 @@ footer {
   flex-grow: 0;
   flex-shrink: 0;
 }
+
+//contact footer
+.contactFooter {
+  > div {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+
+    font-family: $serif;
+    a {
+      align-self: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      margin-bottom: 0;
+
+      &.contactEmail {
+        color: $navy;
+      }
+
+      &.btn {
+        text-align: center;
+      }
+    }
+  }
+}
+
+//main role footer
+main[role='main'] {
+  footer {
+    &.navFooter {
+      flex-direction: column;
+    }
+  }
+}
+
+.view-grid {
+  footer {
+    z-index: 99;
+
+    padding: $padding;
+
+    &.navFooter {
+      padding: $padding 0;
+
+      label {
+        padding-left: 0;
+      }
+    }
+  }
+}

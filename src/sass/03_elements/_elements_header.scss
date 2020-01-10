@@ -11,10 +11,6 @@ header {
 
   background-color: $white;
 
-  @include forPhoneOnly {
-    //position: fixed;
-    width: 100%;
-  }
   @include shadow(0px, 3px, 5px, rgba($navy, 0.16));
 
   div[role='banner'] {
@@ -28,10 +24,6 @@ header {
       width: 6.5rem;
       height: auto;
       margin-left: 8.5em;
-
-      @include forPhoneOnly {
-        margin-left: 0;
-      }
     }
 
     div[role='contentinfo'] {
@@ -47,9 +39,6 @@ header {
     display: flex;
     align-items: center;
 
-    @include forPhoneOnly {
-      margin: 0 2rem;
-    }
     @include forMinWidth {
       margin-right: $padding * 1.5;
     }
