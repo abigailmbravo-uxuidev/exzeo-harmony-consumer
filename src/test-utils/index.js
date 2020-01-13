@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 import * as serviceRunner from '@exzeo/core-ui/src/@Harmony/Domain/Api/serviceRunner';
 
-import { QuoteContextProvider } from 'modules/Quote';
+import { QuoteContextProvider } from 'context/QuoteContext';
 
 // https://testing-library.com/docs/example-react-router#reducing-boilerplate
 export function customRender(

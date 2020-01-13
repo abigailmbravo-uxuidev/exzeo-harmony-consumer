@@ -10,19 +10,17 @@ context('Create new quote', () => {
     cy.visit(`${CSP_BASE}/searchAddress`)
       .findDataTag('address')
       .type(AF3_QUOTE.search_query)
-      .clickSubmit()
-      .wait('@fetchAddress')
-      .then(({ request }) => {
-        expect(request.body.path.includes(AF3_QUOTE.search_query));
-      });
-    cy.findDataTag(`result-${AF3_QUOTE.address}`)
-      .click()
-      .wait('@createQuote')
-      .then(({ response }) => {
-        expect(response.body.result.property.physicalAddress.address1).to.equal(
-          AF3_QUOTE.address
-        );
-      });
+      .clickSubmit();
+    cy.wait('@fetchAddress').then(({ request }) => {
+      expect(request.body.path.includes(AF3_QUOTE.search_query));
+    });
+    cy.findDataTag(`result-${AF3_QUOTE.address}`).click();
+    cy.wait('@createQuote').then(({ response }) => {
+      expect(response.body.result.property.physicalAddress.address1).to.equal(
+        AF3_QUOTE.address,
+        'Property Address'
+      );
+    });
 
     // Complete 'underwriting' page
     cy.wait('@underwritingQuestions').then(({ response }) => {
@@ -36,7 +34,10 @@ context('Create new quote', () => {
 
     // Complete 'customize' page
     cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal('Initial Data');
+      expect(response.body.result.quoteInputState).to.equal(
+        'Qualified',
+        'QuoteInputState'
+      );
       const premium = response.body.result.rating.totalPremium;
       cy.findDataTag('detail-header').within(() => {
         cy.get('h2>strong').should('not.have.text', '$ --');
@@ -45,11 +46,13 @@ context('Create new quote', () => {
         .sliderSet('coverageLimits.personalProperty.value-slider', 67000)
         .findDataTag('deductibles.buildingDeductible.value_500')
         .click()
-        .clickSubmit('#harmony-quote')
-        .wait('@updateQuote')
-        .then(({ response }) => {
-          expect(response.body.result.rating.totalPremium).not.to.eq(premium);
-        });
+        .clickSubmit('#harmony-quote');
+      cy.wait('@updateQuote').then(({ response }) => {
+        expect(response.body.result.rating.totalPremium).not.to.eq(
+          premium,
+          'Premium change'
+        );
+      });
     });
     cy.clickSubmit('#harmony-quote')
       .wait('@searchAgencies')
@@ -57,19 +60,20 @@ context('Create new quote', () => {
         expect(response.body.status).to.equal(200);
       });
     cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal('Initial Data');
+      expect(response.body.result.quoteInputState).to.equal(
+        'Qualified',
+        'QuoteInputState'
+      );
     });
     cy.wrap(Object.entries(AF3_QUOTE.customerInfo)).each(([field, value]) => {
       cy.findDataTag(field)
         .find('input')
         .type(`{selectall}{backspace}${value}`);
     });
-    cy.findDataTag('edit-agency')
-      .click()
-      .wait('@searchAgencies')
-      .then(({ response }) => {
-        expect(response.body.status).to.equal(200);
-      });
+    cy.findDataTag('edit-agency').click();
+    cy.wait('@searchAgencies').then(({ response }) => {
+      expect(response.body.status).to.equal(200);
+    });
     cy.get("input[id*='react-s']")
       .click({ force: true })
       .chooseReactSelectOption('agency-select_wrapper', 20003)
@@ -79,7 +83,10 @@ context('Create new quote', () => {
     // Complete 'congrats' page
 
     cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal('Qualified');
+      expect(response.body.result.quoteInputState).to.equal(
+        'Qualified',
+        'QuoteInputState'
+      );
       expect(response.body.result.agencyCode).to.equal(20003);
       const payLoad = {
         lastName: response.body.result.policyHolders[0].lastName,
@@ -100,21 +107,18 @@ context('Create new quote', () => {
           expect(response.body.status).to.equal(200);
         });
       // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
-      cy.clickSubmit('#harmony-quote')
-        .wait('@updateQuote')
-        .then(({ response }) => {
-          expect(response.body.status).to.equal(200);
-        });
-      cy.clickSubmit('#harmony-quote')
-        .wait('@updateQuote')
-        .then(({ response }) => {
-          expect(response.body.status).to.equal(200);
-        });
-      cy.clickSubmit('#harmony-quote')
-        .wait('@updateQuote')
-        .then(({ response }) => {
-          expect(response.body.status).to.equal(200);
-        });
+      cy.clickSubmit('#harmony-quote');
+      cy.wait('@updateQuote').then(({ response }) => {
+        expect(response.body.status).to.equal(200);
+      });
+      cy.clickSubmit('#harmony-quote');
+      cy.wait('@updateQuote').then(({ response }) => {
+        expect(response.body.status).to.equal(200);
+      });
+      cy.clickSubmit('#harmony-quote');
+      cy.wait('@updateQuote').then(({ response }) => {
+        expect(response.body.status).to.equal(200);
+      });
     });
 
     // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------
@@ -125,11 +129,10 @@ context('Create new quote', () => {
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
-    cy.clickSubmit('.modal', 'modal-submit')
-      .wait('@shareQuote')
-      .then(({ response }) => {
-        expect(response.body.message).to.equal('success');
-      });
+    cy.clickSubmit('.modal', 'modal-submit');
+    cy.wait('@shareQuote').then(({ response }) => {
+      expect(response.body.message).to.equal('success', 'Share Quote');
+    });
     cy.clickSubmit('#harmony-quote');
 
     // Complete 'additional insured' page
@@ -143,11 +146,13 @@ context('Create new quote', () => {
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
-    cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit')
-      .wait('@updateQuote')
-      .then(({ response }) => {
-        expect(response.body.status).to.equal(200);
-      });
+    cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit');
+    cy.wait('@updateQuote').then(({ response }) => {
+      expect(response.body.result.quoteInputState).to.equal(
+        'AppStarted',
+        'QuoteInputState'
+      );
+    });
     cy.clickSubmit('#harmony-quote');
 
     // Complete 'policyholder' page
@@ -163,36 +168,46 @@ context('Create new quote', () => {
       .should('have.value', AF3_QUOTE.address);
     cy.clickSubmit('.modal', 'ai-modal-submit')
       .get("[class*='react-datepicker-w']")
-      .click()
-      .wait('@updateQuote')
-      .then(({ request, response }) => {
-        expect(
-          request.body.data.quote.policyHolderMailingAddress.address1
-        ).to.equal(request.body.data.quote.property.physicalAddress.address1);
-        expect(response.body.result.quoteInputState).to.equal('AppStarted');
-        cy.get('input[class*="react-datepicker"]')
-          .invoke('val')
-          .then(effDate => {
-            let effDay = parseInt(effDate.split('/')[1]);
-            let shift = effDay <= 28 ? 1 : -1;
-            cy.get('input[class*="react-datepicker"]').type(
-              '{selectall}{backspace}' +
-                effDate.split('/')[0] +
-                '/' +
-                (effDay + shift) +
-                '/' +
-                effDate.split('/')[2] +
-                '{enter}'
-            );
-          });
-        const effDate = response.body.result.effectiveDate;
-        cy.clickSubmit('#harmony-quote')
-          .wait('@updateQuote')
-          .should(({ response }) => {
-            expect(response.body.result.effectiveDate).not.to.eq(effDate);
-            expect(response.body.result.quoteInputState).to.equal('AppStarted');
-          });
+      .click();
+    cy.wait('@updateQuote').then(({ request, response }) => {
+      expect(
+        request.body.data.quote.policyHolderMailingAddress.address1
+      ).to.equal(
+        request.body.data.quote.property.physicalAddress.address1,
+        'Mailing Address same as Property Address'
+      );
+      expect(response.body.result.quoteInputState).to.equal(
+        'AppStarted',
+        'QuoteInputState'
+      );
+      cy.get('input[class*="react-datepicker"]')
+        .invoke('val')
+        .then(effDate => {
+          let effDay = parseInt(effDate.split('/')[1]);
+          let shift = effDay <= 28 ? 1 : -1;
+          cy.get('input[class*="react-datepicker"]').type(
+            '{selectall}{backspace}' +
+              effDate.split('/')[0] +
+              '/' +
+              (effDay + shift) +
+              '/' +
+              effDate.split('/')[2] +
+              '{enter}'
+          );
+        });
+      const effDate = response.body.result.effectiveDate;
+      cy.clickSubmit('#harmony-quote');
+      cy.wait('@updateQuote').should(({ response }) => {
+        expect(response.body.result.effectiveDate).not.to.eq(
+          effDate,
+          'Effective Date change'
+        );
+        expect(response.body.result.quoteInputState).to.equal(
+          'AppStarted',
+          'QuoteInputState'
+        );
       });
+    });
 
     //Complete 'billing' page
     //TODO test with a couple of different AI's?
@@ -204,13 +219,29 @@ context('Create new quote', () => {
       .click();
     cy.findDataTag('payment-plan-annual')
       .should('have.class', 'selected')
-      .clickSubmit('#harmony-quote')
-      .wait('@updateQuote')
-      .then(({ request, response }) => {
-        expect(request.body.data.quote.billToType).to.equal('Policyholder');
-        expect(request.body.data.quote.billPlan).to.equal('Annual');
-        expect(response.body.result.quoteInputState).to.equal('Ready');
-      });
+      .clickSubmit('#harmony-quote');
+    cy.wait('@updateQuote').then(({ request, response }) => {
+      expect(request.body.data.quote.billToType).to.equal(
+        'Policyholder',
+        'BillToType'
+      );
+      expect(request.body.data.quote.billPlan).to.equal('Annual', 'BillPlan');
+      expect(response.body.result.quoteInputState).to.equal(
+        'Ready',
+        'QuoteInputState'
+      );
+    });
+
+    cy.wait('@verifyQuote').then(({ response }) => {
+      expect(response.body.result.quoteInputState).to.equal(
+        'Ready',
+        'QuoteInputState'
+      );
+      expect(response.body.result.quoteState).to.equal(
+        'Application Ready',
+        'QuoteState'
+      );
+    });
 
     // Complete 'summary' page
     cy.findDataTag('confirm')
@@ -221,15 +252,14 @@ context('Create new quote', () => {
       .findDataTag('confirmed')
       .should('have.length', 5)
       .clickSubmit('#harmony-quote')
-      .clickSubmit('.modal')
-      .wait('@verifyQuote')
-      .then(({ response }) => {
-        expect(response.body.result.quoteInputState).to.equal('Ready');
-      });
+      .clickSubmit('.modal');
 
     // 'complete' page.
     cy.wait('@sendApplication').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal('Ready');
+      expect(response.body.result.quoteInputState).to.equal(
+        'Ready',
+        'QuoteInputState'
+      );
       const apiUrl = Cypress.env('API_URL') + '/svc';
       const payLoad = {
         quoteNumber: response.body.result.quoteNumber,
@@ -237,7 +267,8 @@ context('Create new quote', () => {
         zipCode: response.body.result.zipCodeSettings.zip
       };
       envelopeIdCheck(payLoad, apiUrl, 'consumer').then(response => {
-        expect(response.body.result.envelopeId).to.not.be.empty;
+        expect(response.body.result.envelopeId, 'Quote has an envelopeId').to
+          .not.be.empty;
       });
     });
   });

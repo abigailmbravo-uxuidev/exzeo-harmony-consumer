@@ -13,7 +13,7 @@ import InfoBar from 'components/InfoBar';
 import Subtitle from 'components/Subtitle';
 
 import { useWorkflowTemplate } from '../hooks';
-import { useQuote } from '../QuoteContext';
+import { useQuote } from '../../../context/QuoteContext';
 import AdditionalInterests from './AdditionalInterests';
 import AdditionalInterestsDetails from './AdditionalInterestsDetails';
 import Address from './Address';
@@ -82,7 +82,9 @@ const QuoteWorkflow = ({ history, match, cspMatch }) => {
 
   async function handleGandalfSubmit(data) {
     try {
-      await updateQuote(data, { workflowPage });
+      await updateQuote(data, {
+        verifyQuote: workflowPage === ROUTES.summary.workflowPage - 1
+      });
 
       if (recalc && workflowPage === ROUTES.customize.workflowPage) {
         return;
