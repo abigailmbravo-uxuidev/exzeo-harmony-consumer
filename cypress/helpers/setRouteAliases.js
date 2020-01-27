@@ -15,6 +15,8 @@ export const setRouteAliases = () =>
     .as('verifyQuote')
     .route('POST', '/svc?quoteManager.sendApplication')
     .as('sendApplication')
+    .route('POST', 'svc?sendQuoteSummary')
+    .as('shareQuote')
     .route('POST', '/svc?getBillingOptions')
     .as('getBillingOptions')
     .route('POST', '/svc?getZipCodeSettings')
@@ -24,6 +26,4 @@ export const setRouteAliases = () =>
     .route('POST', 'questions')
     .as('getQuestions')
     .route('POST', '/svc?searchAgencies')
-    .as('searchAgencies')
-    .route('POST', 'svc?sendQuoteSummary')
-    .as('shareQuote');
+    .as('searchAgencies');

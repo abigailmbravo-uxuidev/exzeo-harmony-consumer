@@ -22,7 +22,7 @@
 //03_elements
 @import '03_elements/elements_header';
 @import '03_elements/elements_footer';
-@import '03_elements/_elements_typography';
+@import '03_elements/elements_typography';
 @import '03_elements/elements_main';
 @import '03_elements/elements_nav';
 @import '03_elements/elements_other';
@@ -56,8 +56,9 @@
 @import '06_components/components_loader';
 @import '06_components/components_error';
 @import '06_components/components_modals';
-@import '06_components/_components_section';
+@import '06_components/components_section';
 @import '06_components/components_mobile';
+@import '06_components/components_confetti';
 
 //07_theme
 @import '07_theme/theme_typtap';

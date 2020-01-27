@@ -26,7 +26,13 @@ const WorkflowFooter = ({ recalc, workflowPage, history, cspMatch }) => {
                 <Link
                   to={{
                     pathname: `${cspMatch}/thankYou`,
-                    state: { quoteNumber: values.quoteNumber }
+                    state: {
+                      quoteNumber: values.quoteNumber,
+                      sendQuoteSummary: true,
+                      toName: values.policyHolders[0].firstName,
+                      toEmail: values.policyHolders[0].emailAddress,
+                      summaryType: 'consumer'
+                    }
                   }}
                   className={Button.constants.classNames.secondary}
                   data-test="save-and-quit"

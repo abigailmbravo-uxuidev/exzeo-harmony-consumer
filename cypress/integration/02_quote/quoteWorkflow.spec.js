@@ -83,21 +83,40 @@ context('Create new quote', () => {
     // Complete 'congrats' page
 
     cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal(
+      const quotePayload = response.body.result;
+      expect(quotePayload.quoteInputState).to.equal(
         'Qualified',
         'QuoteInputState'
       );
-      expect(response.body.result.agencyCode).to.equal(20003);
-      const payLoad = {
-        lastName: response.body.result.policyHolders[0].lastName,
-        zipCode: response.body.result.zipCodeSettings.zip,
-        quoteNumber: response.body.result.quoteNumber
+      expect(quotePayload.agencyCode).to.equal(20003, 'Expected AgencyCode');
+      // TODO replace this with unit test once test harness is complete.
+      const expectedSummaryPayload = {
+        quoteNumber: quotePayload.quoteNumber,
+        summaryType: 'consumer',
+        toEmail: quotePayload.policyHolders[0].emailAddress,
+        toName: quotePayload.policyHolders[0].firstName
       };
 
+      cy.findDataTag('save-and-quit')
+        .click()
+        .wait('@shareQuote')
+        .then(({ request }) => {
+          expect(request.body.data).to.deep.equal(
+            expectedSummaryPayload,
+            "Expected 'SendQuoteSummary' payload"
+          );
+        });
+
       // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
+      const quoteRetrieveValues = {
+        lastName: quotePayload.policyHolders[0].lastName,
+        zipCode: quotePayload.zipCodeSettings.zip,
+        quoteNumber: quotePayload.quoteNumber
+      };
+
       cy.task('log', 'Attempting to retrieve saved quote');
       cy.visit(`${CSP_BASE}/retrieveQuote`)
-        .wrap(Object.entries(payLoad))
+        .wrap(Object.entries(quoteRetrieveValues))
         .each(([field, value]) => {
           cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
         });
@@ -120,7 +139,6 @@ context('Create new quote', () => {
         expect(response.body.status).to.equal(200);
       });
     });
-
     // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------
 
     cy.findDataTag('share')
