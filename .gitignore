@@ -25,4 +25,7 @@ yarn-error.log*
 # webstorm does not support jsconfig.json, this is for webstorm users
 systemconfig.js
 
-
+# cypress testing artifacts we don't want
+/cypress/screenshots
+/cypress/videos
+/cypress/local

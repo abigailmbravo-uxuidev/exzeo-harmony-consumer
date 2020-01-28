@@ -10,8 +10,8 @@ export const AF3_QUOTE = {
     monthsOccupied: '10-12'
   },
   customerInfo: {
-    'policyHolders[0].firstName_wrapper': 'Batman',
-    'policyHolders[0].lastName_wrapper': 'Robin',
+    'policyHolders[0].firstName_wrapper': 'Oberyn',
+    'policyHolders[0].lastName_wrapper': 'Martell',
     'policyHolders[0].emailAddress_wrapper': 'exzeoqa@exzeo.com',
     'policyHolders[0].primaryPhoneNumber_wrapper': '123 456 7890'
   },

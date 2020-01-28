@@ -90,53 +90,73 @@ context('Create new quote', () => {
       );
       expect(quotePayload.agencyCode).to.equal(20003, 'Expected AgencyCode');
       // TODO replace this with unit test once test harness is complete.
-      const expectedSummaryPayload = {
-        quoteNumber: quotePayload.quoteNumber,
-        summaryType: 'consumer',
-        toEmail: quotePayload.policyHolders[0].emailAddress,
-        toName: quotePayload.policyHolders[0].firstName
-      };
-
       cy.findDataTag('save-and-quit')
         .click()
         .wait('@shareQuote')
-        .then(({ request }) => {
-          expect(request.body.data).to.deep.equal(
-            expectedSummaryPayload,
-            "Expected 'SendQuoteSummary' payload"
+        .then(({ response }) => {
+          expect(response.body.status).to.equal(
+            200,
+            "Auto 'SendQuoteSummary' response status"
           );
         });
 
       // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
       const quoteRetrieveValues = {
+        // quoteNumber: quotePayload.quoteNumber,
+        email: quotePayload.policyHolders[0].emailAddress,
         lastName: quotePayload.policyHolders[0].lastName,
-        zipCode: quotePayload.zipCodeSettings.zip,
-        quoteNumber: quotePayload.quoteNumber
+        zipCode: quotePayload.zipCodeSettings.zip
       };
 
-      cy.task('log', 'Attempting to retrieve saved quote');
+      cy.task('log', 'Attempting to retrieve saved quote by email');
       cy.visit(`${CSP_BASE}/retrieveQuote`)
+        .findDataTag('search-by-email')
+        .click()
         .wrap(Object.entries(quoteRetrieveValues))
         .each(([field, value]) => {
           cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
         });
       cy.clickSubmit()
+        .wait('@searchQuotes')
+        .then(({ response }) => {
+          expect(response.body.status).to.equal(
+            200,
+            "'SearchQuotes' response status"
+          );
+        })
+        .findDataTag(`quote-${quotePayload.quoteNumber}`)
+        .click()
         .wait('@retrieveQuote')
         .then(({ response }) => {
-          expect(response.body.status).to.equal(200);
+          expect(response.body.status).to.equal(
+            200,
+            "'RetrieveQuote response status"
+          );
         });
+      cy.task('log', 'Retrieve Quote by email successful');
       // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
-      cy.clickSubmit('#harmony-quote');
+      cy.get('.spinner')
+        .should('not.exist')
+        .clickSubmit('#harmony-quote');
       cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.status).to.equal(200);
+        expect(response.body.status).to.equal(
+          200,
+          '1st Update after retrieved'
+        );
       });
       cy.clickSubmit('#harmony-quote');
       cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.status).to.equal(200);
+        expect(response.body.status).to.equal(
+          200,
+          '2nd Update after retrieved'
+        );
       });
       cy.clickSubmit('#harmony-quote');
       cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.status).to.equal(200);
+        expect(response.body.status).to.equal(
+          200,
+          '3rd Update after retrieved'
+        );
       });
     });
     // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------

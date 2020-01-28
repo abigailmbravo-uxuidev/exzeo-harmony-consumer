@@ -17,6 +17,7 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
 
   return (
     <div
+      onClick={() => confirmField.input.onChange(!confirmField.input.value)}
       className={classNames('card', 'summaryCard', header, {
         selected: confirmField.input.value,
         error: confirmFieldError
@@ -26,7 +27,7 @@ export const SummaryGroup = ({ children, header, detailClass, name, link }) => {
         <div
           className="confirmedIndicator"
           data-test="confirmed"
-          onClick={() => confirmField.input.onChange(!confirmField.input.value)}
+          /*onClick={() => confirmField.input.onChange(!confirmField.input.value)}*/
         >
           <div className="confirmedMessage">
             <FontAwesomeIcon icon="times" />

@@ -1,1 +1,1 @@
-export { default as QuoteSearch } from './@components/QuoteSearch';
+export { default as RetrieveQuote } from './@components/RetrieveQuote';

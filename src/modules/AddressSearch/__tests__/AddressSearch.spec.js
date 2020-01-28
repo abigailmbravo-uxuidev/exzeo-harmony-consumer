@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithRouter } from 'test-utils';
+import { render } from 'test-utils';
 import { AddressSearch } from 'modules/AddressSearch';
 
 describe('Test Address Search page', () => {

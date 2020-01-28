@@ -8,7 +8,8 @@ import {
   NAV_BAR_MATCH_ROUTES,
   ROUTES
 } from 'constants/navigation';
-import { QuoteSearch } from 'modules/QuoteSearch';
+
+import { RetrieveQuote } from 'modules/QuoteSearch';
 import { AddressSearch } from 'modules/AddressSearch';
 import { QuoteContextProvider } from 'context/QuoteContext';
 import Header from 'components/Header';
@@ -31,7 +32,12 @@ const App = ({ location, match, history }) => {
 
   return (
     <React.Fragment>
-      <Header cspMatch={cspMatch} location={location} history={history} />
+      <Header
+        cspMatch={cspMatch}
+        location={location}
+        history={history}
+        match={match}
+      />
       <div role="region">
         <RouteErrorBoundary>
           <QuoteContextProvider>
@@ -62,7 +68,7 @@ const App = ({ location, match, history }) => {
                     exact
                     path={ROUTES.retrieveQuote.path}
                     render={routeProps => (
-                      <QuoteSearch {...routeProps} cspMatch={cspMatch} />
+                      <RetrieveQuote {...routeProps} cspMatch={cspMatch} />
                     )}
                   />
 

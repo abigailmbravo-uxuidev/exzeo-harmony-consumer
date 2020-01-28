@@ -19,6 +19,7 @@ import { useQuote } from 'context/QuoteContext';
 import ContactPhoneAnchor from 'components/ContactPhoneAnchor';
 import ContactEmailAnchor from 'components/ContactEmailAnchor';
 import TypTapLink from 'components/TypTapLink';
+import Footer from './Footer';
 
 const initialState = {
   hasSearched: false,
@@ -27,7 +28,7 @@ const initialState = {
   invalidQuoteState: false
 };
 
-const QuoteSearch = ({ cspMatch }) => {
+const SearchByQuoteNumber = ({ cspMatch, csp }) => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const { quote, setQuote } = useQuote();
@@ -42,19 +43,14 @@ const QuoteSearch = ({ cspMatch }) => {
     }
   }, [searchState, setQuote]);
 
-  async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
+  async function handleSearchSubmit(values) {
     try {
       if (searchState.hasSearched) {
         setSearchState(initialState);
       }
 
       setLoading(true);
-      const result = await quoteData.retrieveQuote({
-        lastName,
-        zipCode,
-        quoteNumber,
-        email
-      });
+      const result = await quoteData.retrieveQuote(values);
       const quoteFound = result && result.quoteNumber;
 
       setSearchState({
@@ -85,14 +81,30 @@ const QuoteSearch = ({ cspMatch }) => {
 
   return (
     <React.Fragment>
-      <div className="title">Retrieve Quote</div>
       <Form
         onSubmit={handleSearchSubmit}
+        initialValues={csp}
         subscription={{ pristine: true, submitting: true }}
       >
         {({ handleSubmit, submitting, pristine, form }) => (
           <form onSubmit={handleSubmit} className="retrieveQuoteForm">
             <div className="retrieveQuoteWrapper">
+              <Field
+                name="quoteNumber"
+                validate={composeValidators([validation.isRequired])}
+              >
+                {({ input, meta }) => (
+                  <Input
+                    input={input}
+                    meta={meta}
+                    styleName="required"
+                    label="Quote Number"
+                    dataTest="quoteNumber"
+                    placeholder="TTIC-AF3-XXXXXX-X or 12-XXXXXXX-X"
+                  />
+                )}
+              </Field>
+
               <Field
                 name="lastName"
                 validate={composeValidators([
@@ -113,10 +125,12 @@ const QuoteSearch = ({ cspMatch }) => {
               </Field>
 
               <Field
-                name="zipCode"
+                name={
+                  'zipCode' /* TODO change this to zip after HAR-8545 is complete */
+                }
                 validate={composeValidators([
                   validation.isRequired,
-                  validation.isZipCode
+                  validation.validateZipCode
                 ])}
               >
                 {({ input, meta }) => (
@@ -125,74 +139,12 @@ const QuoteSearch = ({ cspMatch }) => {
                     meta={meta}
                     type="text"
                     styleName="required"
-                    label="ZIP Code"
+                    label="Property ZIP Code"
                     dataTest="zipCode"
-                    placeholder="ZIP Code"
+                    placeholder="Property ZIP Code"
                   />
                 )}
               </Field>
-
-              <Field
-                name="quoteNumber"
-                validate={composeValidators([validation.isRequired])}
-              >
-                {({ input, meta }) => (
-                  <Input
-                    input={input}
-                    meta={meta}
-                    styleName="required"
-                    label="Quote Number"
-                    dataTest="quoteNumber"
-                    placeholder="TTIC-AF3-"
-                  />
-                )}
-              </Field>
-
-              {/*<Field name="hasQuoteNumber">*/}
-              {/*  {({ input, meta }) => (*/}
-              {/*    <Switch*/}
-              {/*      input={input}*/}
-              {/*      meta={meta}*/}
-              {/*      styleName="switch"*/}
-              {/*      label="Do you have access to the Quote Number"*/}
-              {/*      dataTest="hasQuoteNumber"*/}
-              {/*    />*/}
-              {/*  )}*/}
-              {/*</Field>*/}
-
-              {/*{values.hasQuoteNumber ? (*/}
-              {/*  <Field*/}
-              {/*    name="quoteNumber"*/}
-              {/*    validate={composeValidators([validation.isRequired])}*/}
-              {/*  >*/}
-              {/*    {({ input, meta }) => (*/}
-              {/*      <Input*/}
-              {/*        input={input}*/}
-              {/*        meta={meta}*/}
-              {/*        styleName="required"*/}
-              {/*        label="Quote Number"*/}
-              {/*        dataTest="quoteNumber"*/}
-              {/*        placeholder="TTIC-A3-"*/}
-              {/*      />*/}
-              {/*    )}*/}
-              {/*  </Field>*/}
-              {/*) : (*/}
-              {/*  <Field*/}
-              {/*    name="email"*/}
-              {/*    validate={composeValidators([validation.isRequired])}*/}
-              {/*  >*/}
-              {/*    {({ input, meta }) => (*/}
-              {/*      <Input*/}
-              {/*        input={input}*/}
-              {/*        meta={meta}*/}
-              {/*        styleName="required"*/}
-              {/*        label="Email"*/}
-              {/*        dataTest="email"*/}
-              {/*        placeholder="jsmith@email.com"*/}
-              {/*      />*/}
-              {/*    )}*/}
-              {/*  </Field>*/}
-              {/*)}*/}
             </div>
 
             <section className="results">
@@ -238,7 +190,7 @@ const QuoteSearch = ({ cspMatch }) => {
                     </Modal>
                   )}
 
-                  {searchState.result && searchState.invalidQuoteState && (
+                  {searchState.invalidQuoteState && (
                     <Modal
                       size={Modal.sizes.small}
                       className="error"
@@ -273,39 +225,17 @@ const QuoteSearch = ({ cspMatch }) => {
                     </Modal>
                   )}
 
-                  {searchState.result &&
-                    !searchState.invalidQuoteState &&
-                    quote.quoteNumber && (
-                      <Redirect
-                        to={`${cspMatch}/quote/${quote.quoteNumber}/${ROUTES.underwriting.path}`}
-                      />
-                    )}
+                  {!searchState.invalidQuoteState && quote.quoteNumber && (
+                    <Redirect
+                      to={`${cspMatch}/quote/${quote.quoteNumber}/${ROUTES.underwriting.path}`}
+                    />
+                  )}
                 </React.Fragment>
               )}
-
-              {/*{searchState.hasSearched &&*/}
-              {/*  (searchState.noResults ? (*/}
-              {/*    <NoResults />*/}
-              {/*  ) : (*/}
-              {/*    <QuoteCard*/}
-              {/*      key={searchState.result.quoteNumber}*/}
-              {/*      quote={searchState.result}*/}
-              {/*    />*/}
-              {/*  ))}*/}
             </section>
 
             <section>
-              {/* Quote Search Footer - combine with Address Search Footer */}
-              <div className="form-footer">
-                <Button
-                  className={Button.constants.classNames.primary}
-                  type="submit"
-                  data-test="submit"
-                  disabled={submitting || pristine}
-                >
-                  Retrieve Quote
-                </Button>
-              </div>
+              <Footer submitting={submitting} pristine={pristine} />
             </section>
           </form>
         )}
@@ -314,4 +244,4 @@ const QuoteSearch = ({ cspMatch }) => {
   );
 };
 
-export default QuoteSearch;
+export default SearchByQuoteNumber;
