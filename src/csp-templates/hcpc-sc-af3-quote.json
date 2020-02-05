@@ -1,0 +1,782 @@
+{
+  "pages": [
+    {
+      "name": "underwriting",
+      "step": {},
+      "components": [
+        {
+          "id": "7aa23968-20b5-4f48-a579-3d14b293aa87",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Underwriting Questions"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b45748xxx",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO",
+            "className": "underwriting"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "95ace9fe-1a7a-4d2f-935e-a5853bd5f718",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$UNDERWRITING"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "customize",
+      "step": {},
+      "components": [
+        {
+          "id": "724dc9d4-916a-40ae-af3f-59a89d96bb87",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Customize Quote"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "d3729808-475e-4ac9-8771-054971a2fb57",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a1729809-8376-4fed-aa2b-47e26ecbab22",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$SLIDER_GROUP",
+            "extendedProperties": {
+              "primaryField": {
+                "name": "coverageLimits.building.value",
+                "label": "Building Limit",
+                "min": "coverageLimits.building.minAmount",
+                "max": "coverageLimits.building.maxAmount",
+                "hint": "This is the dollar amount of coverage for the structure of your home. This Flood quote includes replacement cost coverage, the total cost to rebuild your home  in the event of a loss. If you have a Declarations Page from your current flood policy it may be listed as Coverage A. We provide you a range for a recommended value based on information on your home."
+              },
+              "secondaryField": {
+                "name": "coverageLimits.personalProperty.value",
+                "label": "Personal Property",
+                "hint": "This is your personal belongings, or items located inside the home.  This could include your furniture, clothing, bedding, dishes, etc.  If you choose to have replacement cost coverage on Personal Property, you will be required to carry Personal Property limits at a minimum of 25% of your Building limit."
+              },
+              "subscribe": true
+            }
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "651e1469-f68c-4680-8aae-b63f5811708a",
+          "type": "$INPUT",
+          "path": "coverageOptions.personalPropertyReplacementCost.answer",
+          "dependencies": [{ "pprcc": true }],
+          "data": {
+            "component": "switch",
+            "label": "I want Personal Property Replacement Cost",
+            "hint": "Replacement Cost Coverage replaces your damaged possessions at today's prices without deducting for depreciation.  If you choose not to select this coverage, your loss for contents will be paid out at Actual Cash Value."
+          },
+          "formData": {
+            "path": "coverageOptions.personalPropertyReplacementCost.answer",
+            "type": "boolean",
+            "required": true,
+            "metaData": {}
+          },
+          "children": []
+        },
+        {
+          "id": "1b8f3ea8-ad64-4c00-9c8c-3caa9c85a1a6",
+          "type": "$INPUT",
+          "path": "deductibles.buildingDeductible.value",
+          "dependencies": [],
+          "data": {
+            "segmented": true,
+            "component": "radio",
+            "label": "Deductible",
+            "size": "12",
+            "hint": "This is the amount of the loss that you take responsibility for.  Coverage A (Building) and Coverage B (Personal Property) have separate deductibles.  For example if your home has covered damages of $6000 for the building (Coverage A), and $1000 for personal property (Coverage B) and you choose a $2000 deductible.  You will be responsible for the first $2,000 worth of damages on the building, and the policy will pay the remaining $4000.  In this example, the policy would not pay out for the damages to the contents as they are under the deductible.",
+            "dataSource": [
+              {
+                "answer": 500,
+                "label": "$ 500"
+              },
+              {
+                "answer": 1000,
+                "label": "$ 1,000"
+              },
+              {
+                "answer": 2000,
+                "label": "$ 2,000"
+              },
+              {
+                "answer": 5000,
+                "label": "$ 5,000"
+              },
+              {
+                "answer": 10000,
+                "label": "$ 10,000"
+              }
+            ],
+            "extendedProperties": {}
+          },
+          "formData": {
+            "path": "deductibles.buildingDeductible.value",
+            "type": "integer",
+            "required": true,
+            "metaData": {}
+          },
+          "children": []
+        },
+        {
+          "id": "4caa415e-c0ca-471f-a5b9-9d844f7fcced",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$COVERAGE_WATCHER_AF3",
+            "extendedProperties": {
+              "subscribe": true
+            }
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "save",
+      "step": {},
+      "components": [
+        {
+          "id": "da7cca9c-3b91-448c-9106-0d8dc8d4c3f8",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Save Quote"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "226541ef-b177-4ff4-a987-397c91cd2a10",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "e926057b-bd06-428c-a42d-5618c1552cfe",
+          "type": "$SUBTITLE",
+          "dependencies": [],
+          "data": {
+            "className": "subtitle",
+            "strong": "To save your quote, please enter your information below",
+            "text": "Your information will be saved for 30 days. This information also makes it easier to retrieve your quote if you want to continue this quote at a later time."
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "e1815d02-6f9b-4de4-8eec-69af3ae9634d",
+          "type": "$INPUT",
+          "dependencies": [],
+          "path": "policyHolders[0].firstName",
+          "data": {
+            "component": "text",
+            "label": "First Name",
+            "placeholder": "John",
+            "validation": ["isValidNameFormat"]
+          },
+          "formData": {
+            "path": "policyHolders.policyHolder.firstName",
+            "type": "string",
+            "required": true,
+            "metaData": {
+              "minLength": 1,
+              "maxLength": 255
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "36d72b1b-84d4-4382-b45b-1f9f47ef5f00",
+          "type": "$INPUT",
+          "path": "policyHolders[0].lastName",
+          "dependencies": [],
+          "data": {
+            "component": "text",
+            "label": "Last Name",
+            "placeholder": "Smith",
+            "validation": ["isValidNameFormat"]
+          },
+          "formData": {
+            "path": "policyHolders.policyHolder.lastName",
+            "type": "string",
+            "required": true,
+            "metaData": {
+              "minLength": 1,
+              "maxLength": 255
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "d9d3b156-e060-4e8b-bd58-a46102c7bac5",
+          "type": "$INPUT",
+          "path": "policyHolders[0].emailAddress",
+          "dependencies": [],
+          "data": {
+            "component": "text",
+            "label": "Email",
+            "placeholder": "jsmith@email.com",
+            "validation": ["isEmail"]
+          },
+          "formData": {
+            "path": "policyHolders.policyHolder.emailAddress",
+            "type": "string",
+            "required": true,
+            "metaData": {
+              "minLength": 1,
+              "maxLength": 255
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "a48afcb3-c630-4ef3-bab2-d943fe333aa8",
+          "type": "$INPUT",
+          "path": "policyHolders[0].primaryPhoneNumber",
+          "dependencies": [],
+          "data": {
+            "component": "phone",
+            "label": "Phone Number",
+            "placeholder": "(111) 111-1111",
+            "validation": ["isPhone"]
+          },
+          "formData": {
+            "path": "policyHolders.policyHolder.primaryPhoneNumber",
+            "type": "string",
+            "required": true,
+            "metaData": {
+              "pattern": "^(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}$"
+            }
+          },
+          "children": []
+        },
+        {
+          "id": "8f5c213f-d8ad-4ffc-8ce6-3c6d67e2ea32",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$AGENCY_SELECT",
+            "extendedProperties": {
+              "subscribe": true
+            }
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "share",
+      "step": {},
+      "components": [
+        {
+          "id": "03733511-64f1-4eb4-b01f-460e7787864d",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Congratulations!"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "94d0f811-0501-49c2-8be6-1fb909e10a12",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "c9394022-edd8-4ae0-901f-f99a903c3038",
+          "type": "$SUBTITLE",
+          "dependencies": [],
+          "data": {
+            "className": "subtitle",
+            "strong": "Your quote has been saved!",
+            "text": "You are so close to completing the process of purchasing your stand alone flood policy."
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-1600bb96de7c",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$SHARE",
+            "extendedProperties": {}
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "additionalInfo",
+      "step": {},
+      "components": [
+        {
+          "id": "f0de721b-8ef9-45d0-b4eb-a9e63683db99",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Additional Insured"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "ef984728-30da-4cb0-a3ca-889d38d4de78",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "4ec27471-20cb-4fcb-80d3-445528271456",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$ADDITIONAL_INTERESTS",
+            "className": "additionalInfo",
+            "extendedProperties": {
+              "types": ["mortgagee", "additionalInsured", "additionalInterest"]
+            }
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "policyholder",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49vvvd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Policyholder Information"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b4574yyy",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "cf137a47-1d75-46eb-9509-e8d9dc929dea",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$POLICYHOLDER",
+            "className": "policyHolderInfo"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "49217199-0645-430f-b3be-a0f02b008e9c",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$ADDRESS"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "da0a2e9b-90b5-4cc6-b593-a1b343a4c2af",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "date"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "billing",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad49bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Billing Information"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "6c1b8558-360e-4e2b-9d96-3092b457483a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$INFO"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "26ef0b14-8d39-41b3-8e43-d39bb7c80c9d",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$BILLING"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "summary",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad4234367879bd0a",
+          "type": "$TITLE",
+          "dependencies": [],
+          "data": {
+            "text": "Summary"
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "c9394022-edd8-4ae0-901f-f99a903c3999",
+          "type": "$SUBTITLE",
+          "dependencies": [],
+          "data": {
+            "className": "subtitle",
+            "strong": "",
+            "text": "To ensure the accuracy of your documents, please review the information below. Once you verified that everything is correct, select 'Confirm' for each section. If you find an error, or need to change something, select the 'edit' button in the upper right hand corner of each section."
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-3092b4574a99",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$PROPERTY_DETAILS",
+            "extendedProperties": { "subscribe": true }
+          },
+          "formData": {},
+          "children": [
+            {
+              "id": "a55cd6c7-bfdb-48f2-b021-3092b4574a98",
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [],
+              "data": {
+                "extendedProperties": {
+                  "details": [
+                    {
+                      "label": "Quote Number",
+                      "items": [
+                        {
+                          "format": "",
+                          "path": "quoteNumber"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Property Address",
+                      "items": [
+                        {
+                          "format": "",
+                          "path": "property.physicalAddress.address1"
+                        },
+                        {
+                          "format": "",
+                          "path": "property.physicalAddress.address2"
+                        },
+                        {
+                          "format": "cityStateZip",
+                          "path": "property.physicalAddress"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Year Built",
+                      "items": [
+                        {
+                          "format": "",
+                          "path": "property.yearBuilt"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Effective Date",
+                      "items": [
+                        {
+                          "format": "date",
+                          "path": "effectiveDate"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-3102b4574a99",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$AGENCY_DETAILS",
+            "extendedProperties": {}
+          },
+          "formData": {},
+          "children": []
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-3112b4574222",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$QUOTE_DETAILS",
+            "extendedProperties": { "subscribe": true }
+          },
+          "formData": {},
+          "children": [
+            {
+              "id": "a55cd6c7-bfdb-48f2-b021-4152b4574546",
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [],
+              "data": {
+                "extendedProperties": {
+                  "className": "row-items",
+                  "details": [
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "rating.totalPremium"
+                        }
+                      ],
+                      "label": "Yearly Premium"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "coverageLimits.building.amount"
+                        }
+                      ],
+                      "label": "Building Limit"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "deductibles.buildingDeductible.amount"
+                        }
+                      ],
+                      "label": "Building Deductible"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "coverageLimits.personalProperty.amount"
+                        }
+                      ],
+                      "label": "Personal Property"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "currency",
+                          "path": "deductibles.personalPropertyDeductible.amount"
+                        }
+                      ],
+                      "label": "Personal Property Deductible"
+                    },
+                    {
+                      "items": [
+                        {
+                          "format": "bool",
+                          "path": "coverageOptions.personalPropertyReplacementCost.answer"
+                        }
+                      ],
+                      "label": "Personal Property Replacement Cost"
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-5112b4574333",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$POLICYHOLDER_DETAILS",
+            "extendedProperties": {
+              "subscribe": true,
+              "subtitle": "Please make sure your email is valid. We will send an email with the application to electronically sign. Once your policy is created, we will use this email address to send your new Flood Insurance Policy."
+            }
+          },
+          "formData": {},
+          "children": [
+            {
+              "id": 4353454354354366,
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [],
+              "data": {
+                "extendedProperties": {
+                  "className": "row-items",
+                  "details": [
+                    {
+                      "label": "Primary Policyholder",
+                      "items": [
+                        {
+                          "format": "name",
+                          "path": "policyHolders[0]"
+                        },
+                        {
+                          "format": "phone",
+                          "path": "policyHolders[0].primaryPhoneNumber"
+                        },
+                        {
+                          "format": "",
+                          "path": "policyHolders[0].emailAddress"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            },
+            {
+              "id": 6766545444555663,
+              "type": "$ENTITY_DETAILS",
+              "dependencies": [
+                {
+                  "policyHolders[1]": true
+                }
+              ],
+              "data": {
+                "extendedProperties": {
+                  "className": "row-items",
+                  "details": [
+                    {
+                      "label": "Secondary Policyholder",
+                      "items": [
+                        {
+                          "format": "name",
+                          "path": "policyHolders[1]"
+                        },
+                        {
+                          "format": "phone",
+                          "path": "policyHolders[1].primaryPhoneNumber"
+                        },
+                        {
+                          "format": "",
+                          "path": "policyHolders[1].emailAddress"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "formData": {},
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "a55cd6c7-bfdb-48f2-b021-5112b4575778",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$ADDITIONAL_INTERESTS_DETAILS",
+            "extendedProperties": { "subscribe": true }
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "complete",
+      "step": {},
+      "components": [
+        {
+          "id": "1e704fbb-eb1c-4f9d-8875-f43aad468689bd0a",
+          "type": "$CUSTOM",
+          "dependencies": [],
+          "data": {
+            "component": "$THANK_YOU"
+          },
+          "formData": {},
+          "children": []
+        }
+      ]
+    }
+  ]
+}
