@@ -28,7 +28,7 @@ const initialState = {
 const SearchByEmail = ({ cspMatch, history, csp }) => {
   const [searchState, setSearchState] = useState(initialState);
   const [loading, setLoading] = useState(false);
-  const [userState, setUserState] = useState();
+  const [userState, setUserState] = useState({});
   const { retrieveQuote } = useQuote();
 
   async function handleSearchSubmit(values) {

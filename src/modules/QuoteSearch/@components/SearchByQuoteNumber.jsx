@@ -23,7 +23,7 @@ import Footer from './Footer';
 
 const initialState = {
   hasSearched: false,
-  result: null,
+  result: undefined,
   noResults: false,
   invalidQuoteState: false
 };
@@ -50,12 +50,13 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
       }
 
       setLoading(true);
-      const result = await quoteData.retrieveQuote(values);
-      const quoteFound = result && result.quoteNumber;
+      const results = await quoteData.searchQuotes(values);
+      const result = results?.quotes[0] || {};
+      const quoteFound = result.quoteNumber === values.quoteNumber;
 
       setSearchState({
         hasSearched: true,
-        result: result,
+        result: result.quotes[0],
         noResults: !quoteFound,
         invalidQuoteState:
           quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
@@ -64,7 +65,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
       if (error.status >= 400) {
         setSearchState({
           hasSearched: true,
-          result: null,
+          result: undefined,
           noResults: true,
           invalidQuoteState: false
         });
@@ -125,9 +126,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
               </Field>
 
               <Field
-                name={
-                  'zipCode' /* TODO change this to zip after HAR-8545 is complete */
-                }
+                name="zip"
                 validate={composeValidators([
                   validation.isRequired,
                   validation.validateZipCode
