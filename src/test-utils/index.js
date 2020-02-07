@@ -31,16 +31,8 @@ export function customRender(
   };
 }
 
-const jestResolve = (result, error) =>
-  jest.fn(() =>
-    error ? Promise.reject(result) : Promise.resolve({ data: { result } })
-  );
-
-export const mockServiceRunner = (result, error) => {
-  serviceRunner.callService = jestResolve(result, error);
-};
-
 // re-export everything
 export * from '@testing-library/react';
 // override render method
 export { customRender as render };
+export { mockServiceRunner } from './mockServiceRunner';

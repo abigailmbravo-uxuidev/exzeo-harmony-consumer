@@ -1,5 +1,11 @@
 //summary card styling
 .card {
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.99);
+
+    @include shadow(0, 1px, 4px, rgba($navy, 0.25));
+  }
   &.summaryCard {
     position: relative;
 

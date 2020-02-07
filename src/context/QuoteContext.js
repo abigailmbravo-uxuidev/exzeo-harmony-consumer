@@ -11,20 +11,20 @@ const QuoteContext = React.createContext();
 
 export function useQuote() {
   const context = React.useContext(QuoteContext);
-
   if (!context) {
     throw new Error(`useQuote must be used within a QuoteProvider`);
   }
+  return context;
+}
 
-  const [quoteState, setState] = context;
+export function QuoteContextProvider({ initialState, children }) {
+  const [quoteState, setState] = React.useState(initialState || INITIAL_STATE);
 
-  const setQuote = React.useCallback(
-    (quoteState = INITIAL_STATE) => {
-      const formattedQuote = formatQuoteForUser(quoteState.quote || {});
-      setState(state => ({ ...state, ...quoteState, quote: formattedQuote }));
-    },
-    [setState]
-  );
+  const setQuote = (quoteState = INITIAL_STATE) => {
+    const formattedQuote = formatQuoteForUser(quoteState.quote || {});
+    store2.set('quote', formattedQuote, true);
+    setState(state => ({ ...state, ...quoteState, quote: formattedQuote }));
+  };
 
   // Attempt to reload quote from localStorage, if there is a quote, and
   // the quote is far enough along to have enough info to retrieve, attempt
@@ -136,26 +136,32 @@ export function useQuote() {
     }
   };
 
-  return {
-    quote: quoteState.quote,
-    loading: quoteState.loading,
-    error: quoteState.error,
-    setQuote,
-    createQuote,
-    refreshQuote,
-    retrieveQuote,
-    sendApplication,
-    updateQuote
-  };
+  return (
+    <QuoteContext.Provider
+      value={{
+        quote: quoteState.quote,
+        loading: quoteState.loading,
+        error: quoteState.error,
+        setQuote,
+        createQuote,
+        refreshQuote,
+        retrieveQuote,
+        sendApplication,
+        updateQuote
+      }}
+    >
+      {children}
+    </QuoteContext.Provider>
+  );
 }
 
-export function QuoteContextProvider(props) {
-  const [quoteState, setState] = React.useState(
-    props.initialState || INITIAL_STATE
-  );
-  const value = React.useMemo(() => [quoteState, setState], [quoteState]);
-  return <QuoteContext.Provider value={value} {...props} />;
-}
+// export function QuoteContextProvider(props) {
+//   const [quoteState, setState] = React.useState(
+//     props.initialState || INITIAL_STATE
+//   );
+//   const value = React.useMemo(() => [quoteState, setState], [quoteState]);
+//   return <QuoteContext.Provider value={value} {...props} />;
+// }
 
 // Edit form data for quote-manager
 function formatQuoteForSubmit(data, options) {
