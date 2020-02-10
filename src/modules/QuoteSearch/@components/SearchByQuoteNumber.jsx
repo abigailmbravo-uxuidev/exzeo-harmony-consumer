@@ -34,11 +34,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
   const { quote, setQuote } = useQuote();
 
   useEffect(() => {
-    if (
-      searchState.hasSearched &&
-      !searchState.noResults &&
-      !searchState.invalidQuoteState
-    ) {
+    if (searchState.hasSearched && !searchState.invalidQuoteState) {
       setQuote({ quote: searchState.result });
     }
   }, [searchState, setQuote]);
@@ -55,8 +51,8 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
       const quoteFound = result.quoteNumber === values.quoteNumber;
 
       setSearchState({
+        result,
         hasSearched: true,
-        result: result.quotes[0],
         noResults: !quoteFound,
         invalidQuoteState:
           quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
