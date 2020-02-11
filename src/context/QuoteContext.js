@@ -1,7 +1,7 @@
 // The pattern for QuoteContext follows: https://kentcdodds.com/blog/how-to-use-react-context-effectively
 // No need to export the Context.consumer - which is clumsy to use - but export a custom hook that returns the
 // 'interface' for this Context
-import React from 'react';
+import React, { useCallback } from 'react';
 import store2 from 'store2';
 import { quoteData } from '@exzeo/core-ui/src/@Harmony';
 
@@ -20,11 +20,11 @@ export function useQuote() {
 export function QuoteContextProvider({ initialState, children }) {
   const [quoteState, setState] = React.useState(initialState || INITIAL_STATE);
 
-  const setQuote = (quoteState = INITIAL_STATE) => {
+  const setQuote = useCallback((quoteState = INITIAL_STATE) => {
     const formattedQuote = formatQuoteForUser(quoteState.quote || {});
     store2.set('quote', formattedQuote, true);
     setState(state => ({ ...state, ...quoteState, quote: formattedQuote }));
-  };
+  }, []);
 
   // Attempt to reload quote from localStorage, if there is a quote, and
   // the quote is far enough along to have enough info to retrieve, attempt
