@@ -52,6 +52,7 @@ context('Create new quote', () => {
           premium,
           'Premium change'
         );
+        cy.wrap(response.body.result.quoteNumber).as('quoteNumber');
       });
     });
     cy.clickSubmit('#harmony-quote')
@@ -134,6 +135,33 @@ context('Create new quote', () => {
           );
         });
       cy.task('log', 'Retrieve Quote by email successful');
+
+      cy.task('log', 'Attempting to retrieve saved quote by quote number')
+        .visit(`${CSP_BASE}/retrieveQuote`)
+        .findDataTag('search-by-quoteNumber')
+        .click()
+        .get('@quoteNumber')
+        .then(quoteNum => {
+          const quoteRetrieveValues = {
+            quoteNumber: quoteNum,
+            lastName: quotePayload.policyHolders[0].lastName,
+            zipCode: quotePayload.zipCodeSettings.zip
+          };
+          cy.wrap(Object.entries(quoteRetrieveValues)).each(
+            ([field, value]) => {
+              cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
+            }
+          );
+          cy.clickSubmit()
+            .wait('@retrieveQuote')
+            .then(({ response }) => {
+              expect(response.body.status).to.equal(
+                200,
+                "'SearchQuotes' response status"
+              );
+            });
+        });
+
       // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
       cy.get('.spinner')
         .should('not.exist')
