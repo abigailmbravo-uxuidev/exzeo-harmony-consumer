@@ -23,50 +23,68 @@ import Footer from './Footer';
 
 const initialState = {
   hasSearched: false,
-  result: null,
+  invalidQuoteState: false,
   noResults: false,
-  invalidQuoteState: false
+  result: undefined
 };
 
 const SearchByQuoteNumber = ({ cspMatch, csp }) => {
-  const [searchState, setSearchState] = useState(initialState);
+  const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const { quote, setQuote } = useQuote();
 
   useEffect(() => {
-    if (
-      searchState.hasSearched &&
-      !searchState.noResults &&
-      !searchState.invalidQuoteState
-    ) {
-      setQuote({ quote: searchState.result });
+    if (state.hasSearched && !state.noResults && !state.invalidQuoteState) {
+      setQuote({ quote: state.result });
     }
-  }, [searchState, setQuote]);
+  }, [
+    state.hasSearched,
+    state.invalidQuoteState,
+    state.noResults,
+    state.result,
+    setQuote
+  ]);
 
-  async function handleSearchSubmit(values) {
+  async function handleSearchSubmit({
+    lastName,
+    zipCode,
+    quoteNumber,
+    companyCode,
+    state,
+    product
+  }) {
     try {
-      if (searchState.hasSearched) {
-        setSearchState(initialState);
+      setLoading(true);
+      if (state.hasSearched) {
+        setState(initialState);
       }
 
-      setLoading(true);
-      const result = await quoteData.retrieveQuote(values);
-      const quoteFound = result && result.quoteNumber;
+      const quote = await quoteData.retrieveQuote({
+        lastName,
+        zipCode,
+        quoteNumber
+      });
+      const quoteFound =
+        quote &&
+        quote.quoteNumber &&
+        quote.companyCode === companyCode &&
+        quote.state === state &&
+        quote.product === product;
 
-      setSearchState({
+      setState({
+        result: quote,
         hasSearched: true,
-        result: result,
         noResults: !quoteFound,
         invalidQuoteState:
-          quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
+          quoteFound && !VALID_QUOTE_STATES.includes(quote.quoteState)
       });
     } catch (error) {
       if (error.status >= 400) {
-        setSearchState({
+        setState({
           hasSearched: true,
-          result: null,
+          invalidQuoteState: false,
           noResults: true,
-          invalidQuoteState: false
+          result: undefined
         });
       }
     } finally {
@@ -76,7 +94,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
 
   function resetSearch(form) {
     form.reset();
-    setSearchState(initialState);
+    setState(initialState);
   }
 
   return (
@@ -125,9 +143,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
               </Field>
 
               <Field
-                name={
-                  'zipCode' /* TODO change this to zip after HAR-8545 is complete */
-                }
+                name="zipCode"
                 validate={composeValidators([
                   validation.isRequired,
                   validation.validateZipCode
@@ -150,9 +166,9 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
             <section className="results">
               {loading && <SectionLoader />}
 
-              {searchState.hasSearched && (
+              {state.hasSearched && (
                 <React.Fragment>
-                  {searchState.noResults && (
+                  {state.noResults && (
                     <Modal
                       header={
                         <React.Fragment>
@@ -190,7 +206,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
                     </Modal>
                   )}
 
-                  {searchState.invalidQuoteState && (
+                  {state.invalidQuoteState && (
                     <Modal
                       size={Modal.sizes.small}
                       className="error"
@@ -225,7 +241,7 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
                     </Modal>
                   )}
 
-                  {!searchState.invalidQuoteState && quote.quoteNumber && (
+                  {!state.invalidQuoteState && quote.quoteNumber && (
                     <Redirect
                       to={`${cspMatch}/quote/${quote.quoteNumber}/${ROUTES.underwriting.path}`}
                     />
