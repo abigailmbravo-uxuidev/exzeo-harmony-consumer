@@ -10,14 +10,9 @@ const SEARCH_CONTAINERS = {
   [SEARCH_TYPES.quoteNumber]: SearchByQuoteNumber
 };
 
-const RetrieveQuote = ({ history, match, cspMatch }) => {
+const RetrieveQuote = ({ history, match, cspMatch, csp }) => {
   const [searchType, setSearchType] = useState(SEARCH_TYPES.email);
   const SearchComponent = SEARCH_CONTAINERS[searchType];
-  const csp = {
-    companyCode: match.params.companyCode.toUpperCase(),
-    state: match.params.state.toUpperCase(),
-    product: FRIENDLY_PRODUCT_MAP[match.params.product.toUpperCase()]
-  };
 
   return (
     <React.Fragment>
