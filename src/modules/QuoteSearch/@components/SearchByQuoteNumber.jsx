@@ -45,27 +45,38 @@ const SearchByQuoteNumber = ({ cspMatch, csp }) => {
     setQuote
   ]);
 
-  async function handleSearchSubmit({ lastName, zipCode, quoteNumber, email }) {
+  async function handleSearchSubmit({
+    lastName,
+    zipCode,
+    quoteNumber,
+    companyCode,
+    state,
+    product
+  }) {
     try {
       setLoading(true);
       if (state.hasSearched) {
         setState(initialState);
       }
 
-      const result = await quoteData.retrieveQuote({
+      const quote = await quoteData.retrieveQuote({
         lastName,
         zipCode,
-        quoteNumber,
-        email
+        quoteNumber
       });
-      const quoteFound = result && result.quoteNumber;
+      const quoteFound =
+        quote &&
+        quote.quoteNumber &&
+        quote.companyCode === companyCode &&
+        quote.state === state &&
+        quote.product === product;
 
       setState({
-        result,
+        result: quote,
         hasSearched: true,
         noResults: !quoteFound,
         invalidQuoteState:
-          quoteFound && !VALID_QUOTE_STATES.includes(result.quoteState)
+          quoteFound && !VALID_QUOTE_STATES.includes(quote.quoteState)
       });
     } catch (error) {
       if (error.status >= 400) {
