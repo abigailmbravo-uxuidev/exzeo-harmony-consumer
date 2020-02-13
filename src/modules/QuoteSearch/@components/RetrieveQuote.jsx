@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SEARCH_TYPES } from 'constants/search';
-import { FRIENDLY_PRODUCT_MAP } from 'constants/companyStateProduct';
 import SearchHeader from './SearchHeader';
 import SearchByEmail from './SearchByEmail';
 import SearchByQuoteNumber from './SearchByQuoteNumber';

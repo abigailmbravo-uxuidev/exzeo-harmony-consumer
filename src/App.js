@@ -8,6 +8,7 @@ import {
   NAV_BAR_MATCH_ROUTES,
   ROUTES
 } from 'constants/navigation';
+import { FRIENDLY_PRODUCT_MAP } from 'constants/companyStateProduct';
 
 import { RetrieveQuote } from 'modules/QuoteSearch';
 import { AddressSearch } from 'modules/AddressSearch';
@@ -17,7 +18,6 @@ import Footer from 'components/Footer';
 import Navigation from 'components/Navigation';
 import RouteErrorBoundary from 'components/RouteErrorBoundary';
 import ThankYou from 'components/ThankYou';
-import { FRIENDLY_PRODUCT_MAP } from 'constants/companyStateProduct';
 // Lazy load this component
 const QuoteWorkflow = React.lazy(() => import('modules/Quote'));
 

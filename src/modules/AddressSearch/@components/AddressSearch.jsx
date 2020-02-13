@@ -20,7 +20,7 @@ const AddressSearch = ({ cspMatch, csp }) => {
   return (
     <React.Fragment>
       <div className="title">Search Address</div>
-      <Form onSubmit={handleSearchSubmit}>
+      <Form onSubmit={handleSearchSubmit} initialValues={csp}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit} className="searchAddressForm">
             <div className="searchInputWrapper">
