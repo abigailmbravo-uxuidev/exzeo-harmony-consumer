@@ -71,14 +71,12 @@ export function QuoteContextProvider({ initialState, children }) {
     }
   };
 
-  const createQuote = async (address, companyCode, product) => {
+  const createQuote = async (address, csp) => {
     try {
       setState(state => ({ ...state, loading: true }));
       const quote = await quoteData.createQuote({
         igdID: address.id,
-        stateCode: address.physicalAddress.state,
-        companyCode,
-        product
+        ...csp
       });
 
       const formattedQuote = formatQuoteForUser(quote);

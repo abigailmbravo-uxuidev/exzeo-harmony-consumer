@@ -7,11 +7,11 @@ import { useQuote } from 'context/QuoteContext';
 
 import AddressCard from './AddressCard';
 
-const AddressResults = ({ results, companyCode, product, cspMatch }) => {
+const AddressResults = ({ results, cspMatch, csp }) => {
   const { quote, loading, createQuote } = useQuote();
 
   async function handleClick(address) {
-    await createQuote(address, companyCode, product);
+    await createQuote(address, csp);
   }
 
   if (loading) {

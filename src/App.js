@@ -8,6 +8,7 @@ import {
   NAV_BAR_MATCH_ROUTES,
   ROUTES
 } from 'constants/navigation';
+import { FRIENDLY_PRODUCT_MAP } from 'constants/companyStateProduct';
 
 import { RetrieveQuote } from 'modules/QuoteSearch';
 import { AddressSearch } from 'modules/AddressSearch';
@@ -24,6 +25,11 @@ const App = ({ location, match, history }) => {
   // set the base url containing CSP info. Remove trailing slash ('/') if there
   // is one because all subsequent urls are built assuming no trailing slash
   const cspMatch = match.url.replace(/\/+$/, '');
+  const csp = {
+    companyCode: match.params.companyCode.toUpperCase(),
+    state: match.params.state.toUpperCase(),
+    product: FRIENDLY_PRODUCT_MAP[match.params.product.toUpperCase()]
+  };
   const viewGridRef = React.createRef();
 
   React.useEffect(() => {
@@ -68,7 +74,11 @@ const App = ({ location, match, history }) => {
                     exact
                     path={ROUTES.retrieveQuote.path}
                     render={routeProps => (
-                      <RetrieveQuote {...routeProps} cspMatch={cspMatch} />
+                      <RetrieveQuote
+                        {...routeProps}
+                        cspMatch={cspMatch}
+                        csp={csp}
+                      />
                     )}
                   />
 
@@ -76,14 +86,22 @@ const App = ({ location, match, history }) => {
                     exact
                     path={ROUTES.searchAddress.path}
                     render={routeProps => (
-                      <AddressSearch {...routeProps} cspMatch={cspMatch} />
+                      <AddressSearch
+                        {...routeProps}
+                        cspMatch={cspMatch}
+                        csp={csp}
+                      />
                     )}
                   />
 
                   <Route
                     path={ROUTES.workflow.path}
                     render={routeProps => (
-                      <QuoteWorkflow {...routeProps} cspMatch={cspMatch} />
+                      <QuoteWorkflow
+                        {...routeProps}
+                        cspMatch={cspMatch}
+                        csp={csp}
+                      />
                     )}
                   />
 
@@ -93,7 +111,7 @@ const App = ({ location, match, history }) => {
                     render={routeProps => <ThankYou {...routeProps} />}
                   />
 
-                  <Footer cspMatch={cspMatch} />
+                  <Footer cspMatch={cspMatch} csp={csp} />
                   <AppFooter />
                 </div>
               </Suspense>

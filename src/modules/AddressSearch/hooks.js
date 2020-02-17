@@ -15,7 +15,7 @@ export function useAddressSearch() {
     searchState.hasSearched && setSearchState(INITIAL_STATE);
     try {
       setLoading(true);
-      const results = await searchData.searchAddress(values.address);
+      const results = await searchData.searchAddress(values);
       setSearchState({
         hasSearched: true,
         results: results.IndexResult,

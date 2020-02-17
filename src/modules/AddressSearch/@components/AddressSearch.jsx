@@ -14,13 +14,13 @@ import { useAddressSearch } from '../hooks';
 import AddressNoResults from './AddressNoResults';
 import AddressResults from './AddressResults';
 
-const AddressSearch = ({ cspMatch }) => {
+const AddressSearch = ({ cspMatch, csp }) => {
   const { searchState, loading, handleSearchSubmit } = useAddressSearch();
 
   return (
     <React.Fragment>
       <div className="title">Search Address</div>
-      <Form onSubmit={handleSearchSubmit}>
+      <Form onSubmit={handleSearchSubmit} initialValues={csp}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit} className="searchAddressForm">
             <div className="searchInputWrapper">
@@ -64,9 +64,8 @@ const AddressSearch = ({ cspMatch }) => {
                 ) : (
                   <AddressResults
                     cspMatch={cspMatch}
+                    csp={csp}
                     results={searchState.results}
-                    companyCode={'TTIC'}
-                    product={'AF3'}
                   />
                 ))}
             </section>
