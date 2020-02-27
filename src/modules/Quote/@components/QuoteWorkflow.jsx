@@ -30,6 +30,7 @@ import Share from './Share';
 import ThankYou from './WorkflowComplete';
 import UnderwritingExceptionHandler from './UnderwritingExceptionHandler';
 import WorkflowFooter from './WorkflowFooter';
+import WorkflowDisclaimer from 'components/WorkflowDisclaimer';
 
 const EMPTY_OBJ = {};
 
@@ -111,55 +112,60 @@ const QuoteWorkflow = ({ history, match, cspMatch }) => {
       <UnderwritingExceptionHandler workflowPage={workflowPage} quote={quote} />
 
       <Gandalf
+        currentPage={workflowPage}
+        customComponents={CUSTOM_COMPONENTS}
+        customHandlers={customHandlers}
         formId="harmony-quote"
         formClassName="workflow"
-        currentPage={workflowPage}
         handleSubmit={handleGandalfSubmit}
         initialValues={quote}
-        customComponents={CUSTOM_COMPONENTS}
+        options={EMPTY_OBJ}
         template={template}
         transformConfig={transformConfig}
-        options={EMPTY_OBJ}
-        customHandlers={customHandlers}
         useRefToScroll={false}
-        renderFooter={
-          <WorkflowFooter
-            cspMatch={cspMatch}
-            history={history}
-            recalc={recalc}
-            workflowPage={workflowPage}
-          />
+        formFooter={
+          <div className="form-footer">
+            <WorkflowFooter
+              cspMatch={cspMatch}
+              history={history}
+              recalc={recalc}
+              workflowPage={workflowPage}
+            />
+          </div>
         }
-        formListeners={
-          <FormSpy subscription={{ dirty: true }}>
-            {({ dirty }) => (
-              <React.Fragment>
-                <TriggerRecalc
-                  dirty={dirty}
-                  isRecalc={recalc}
-                  setRecalc={setRecalc}
-                  workflowPage={workflowPage}
-                  recalcPage={ROUTES.customize.workflowPage}
-                />
-                <Prompt
-                  when={true}
-                  message={(location, action) => {
-                    if (
-                      action === 'POP' ||
-                      (dirty &&
-                        workflowPage !== ROUTES.summary.workflowPage &&
-                        workflowPage !== ROUTES.complete.workflowPage)
-                    ) {
-                      return 'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.';
-                    }
-                    return true;
-                  }}
-                />
-              </React.Fragment>
-            )}
-          </FormSpy>
-        }
-      />
+      >
+        {template.disclaimer && (
+          <WorkflowDisclaimer content={template.disclaimer} />
+        )}
+        <FormSpy subscription={{ dirty: true }}>
+          {({ dirty }) => (
+            <React.Fragment>
+              <TriggerRecalc
+                dirty={dirty}
+                isRecalc={recalc}
+                setRecalc={setRecalc}
+                workflowPage={workflowPage}
+                recalcPage={ROUTES.customize.workflowPage}
+              />
+              <Prompt
+                when={true}
+                message={(location, action) => {
+                  if (
+                    action === 'POP' ||
+                    (dirty &&
+                      workflowPage !== ROUTES.summary.workflowPage &&
+                      workflowPage !== ROUTES.complete.workflowPage)
+                  ) {
+                    return 'Are you sure you want to leave? You will lose all unsaved changes and be taken away from this quote.';
+                  }
+                  return true;
+                }}
+              />
+            </React.Fragment>
+          )}
+        </FormSpy>
+        <div id="modal-anchor" />
+      </Gandalf>
     </React.Fragment>
   );
 };

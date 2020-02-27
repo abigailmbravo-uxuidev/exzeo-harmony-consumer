@@ -11,16 +11,17 @@ import {
   useField,
   validation
 } from '@exzeo/core-ui';
-import { AddressWithAutoFill } from '@exzeo/core-ui/src/@Harmony';
+import { AddressWithAutoFill } from 'components/Address';
 
 import { BOOL_OPTIONS } from '../../../constants/input';
 import AddressCard from './AddressCard';
 
 function initializeAddressForm(document) {
   return {
-    sameAsPropertyAddress:
+    sameAsPropertyAddress: String(
       document.property.physicalAddress.address1 ===
-      document.policyHolderMailingAddress.address1,
+        document.policyHolderMailingAddress.address1
+    ),
     policyHolderMailingAddress: document.policyHolderMailingAddress
   };
 }

@@ -6,8 +6,8 @@
     "cypress": "react-scripts cypress"
   },
   "dependencies": {
-    "@exzeo/react-scripts": "2.3.0",
-    "cypress": "^3.8.1",
+    "@exzeo/react-scripts": "2.5.0",
+    "cypress": "3.8.2",
     "lodash": "~4.17.4"
   }
 }

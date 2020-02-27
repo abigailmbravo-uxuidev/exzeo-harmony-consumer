@@ -228,6 +228,8 @@ context('Create new quote', () => {
     });
     cy.findDataTag('add-address')
       .click()
+      .findDataTag('modal')
+      .should('be.visible')
       .findDataTag('mailingSameAsProperty_true')
       .click()
       .findDataTag('policyHolderMailingAddress.address1')

@@ -24,7 +24,15 @@ const Landing = () => {
     <div className="landingPage">
       <ul>
         <li>
-          <Link to="/ttic/fl/flood">Get Flood Quote</Link>
+          <Link to="/ttic/fl/flood">FL Flood Quote</Link>
+        </li>
+
+        <li>
+          <Link to="/hcpc/sc/flood">SC Flood Quote</Link>
+        </li>
+
+        <li>
+          <Link to="/hcpc/nj/flood">NJ Flood Quote</Link>
         </li>
       </ul>
     </div>
