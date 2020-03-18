@@ -8,7 +8,7 @@ context('Create new quote', () => {
   it('Should create new quote with known address', () => {
     // Search for address and create quote
     cy.visit(`${CSP_BASE}/searchAddress`)
-      .get('.view-grid>div')
+      .findDataTag('Search Address')
       .should('have.text', 'Search Address')
       .findDataTag('address')
       .type(AF3_QUOTE.search_query)
@@ -28,7 +28,7 @@ context('Create new quote', () => {
       })
       .findDataTag('Underwriting Questions')
       .should('have.text', 'Underwriting Questions')
-      .get('p>strong')
+      .findDataTag('Property Address')
       .should('have.text', AF3_QUOTE.address);
     cy.wrap(Object.entries(AF3_QUOTE.underwriting))
       .each(([name, value]) => {
@@ -44,7 +44,7 @@ context('Create new quote', () => {
       );
       cy.findDataTag('Customize Quote')
         .should('have.text', 'Customize Quote')
-        .get('h2>strong')
+        .findDataTag('Total Premium')
         .then($prem => {
           const premium = $prem.text();
           expect($prem.text()).not.to.eq('$ --');
@@ -52,10 +52,11 @@ context('Create new quote', () => {
             .sliderSet('coverageLimits.personalProperty.value-slider', 67000)
             .findDataTag('deductibles.buildingDeductible.value_500')
             .click()
-            .clickSubmit('#harmony-quote');
-          cy.get('h2>strong').should($prem2 => {
-            expect($prem2.text()).not.to.eq($prem);
-          });
+            .clickSubmit('#harmony-quote')
+            .findDataTag('Total Premium')
+            .should($prem2 => {
+              expect($prem2.text()).not.to.eq($prem);
+            });
         });
     });
     cy.clickSubmit('#harmony-quote')
@@ -89,7 +90,7 @@ context('Create new quote', () => {
       .click({ force: true })
       .chooseReactSelectOption('agency-select_wrapper', 20003)
       .wait(1000)
-      .get('.cardContent>h4')
+      .findDataTag('Agency Name')
       .should('contain.text', 'OMEGA')
       .clickSubmit('#harmony-quote');
 
@@ -180,8 +181,6 @@ context('Create new quote', () => {
           .should('have.text', 'Underwriting Questions')
 
           // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
-          .get('.spinner')
-          .should('not.exist')
           .clickSubmit('#harmony-quote');
         cy.wait('@updateQuote').then(({ response }) => {
           expect(response.body.status).to.equal(
@@ -265,8 +264,6 @@ context('Create new quote', () => {
       .findDataTag('policyHolderMailingAddress.address1')
       .should('have.value', AF3_QUOTE.address);
     cy.clickSubmit('.modal', 'ai-modal-submit')
-      .get('.addressSection>div h4')
-      .should('contain.text', AF3_QUOTE.address)
       .get("[class*='react-datepicker-w']")
       .click();
     cy.wait('@updateQuote').then(({ response }) => {
@@ -325,16 +322,14 @@ context('Create new quote', () => {
 
     cy.get('@defaultEffDate')
       .then(effDate => {
-        cy.get('[data-test="Effective Date"]+dd').should(
+        cy.findDataTag('Effective Date').should(
           'not.have.text',
           effDate,
           'Verify that Effective date is different from the default date'
         );
       })
-      .get('[data-test="Property Address"]+dd')
-      .should('have.text', AF3_QUOTE.address)
-      .get('div>.agent:first-child dd')
-      .should('contain.text', 'OMEGA')
+      .findDataTag('Property Address')
+      .should('contain.text', AF3_QUOTE.address)
       .findDataTag('confirm')
       .should('have.length', 5)
       .each($el => {

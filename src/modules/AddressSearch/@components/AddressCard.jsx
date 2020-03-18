@@ -9,7 +9,9 @@ const AddressCard = ({ property, handleClick }) => {
       onClick={() => handleClick(property)}
     >
       <div className="cardContent">
-        <h4>{property.physicalAddress.address1}</h4>
+        <h4 data-test="Property Address">
+          {property.physicalAddress.address1}
+        </h4>
         <p>{`${property.physicalAddress.city}, ${property.physicalAddress.state}  ${property.physicalAddress.zip}`}</p>
       </div>
       <footer>
