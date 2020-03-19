@@ -8,7 +8,7 @@ context('Create new quote', () => {
   it('Should create new quote with known address', () => {
     // Search for address and create quote
     cy.visit(`${CSP_BASE}/searchAddress`)
-      .findDataTag('Search Address')
+      .findDataTag('address-search')
       .should('have.text', 'Search Address')
       .findDataTag('address')
       .type(AF3_QUOTE.search_query)
@@ -90,7 +90,7 @@ context('Create new quote', () => {
       .click({ force: true })
       .chooseReactSelectOption('agency-select_wrapper', 20003)
       .wait(1000)
-      .findDataTag('Agency Name')
+      .findDataTag('agency-name')
       .should('contain.text', 'OMEGA')
       .clickSubmit('#harmony-quote');
 
@@ -239,7 +239,7 @@ context('Create new quote', () => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
     cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit')
-      .get('div>h4')
+      .findDataTag('Mortgagee-0-name')
       .should('contain.text', AF3_QUOTE.mortgageeInfo.name1)
       .wait('@updateQuote')
       .then(({ response }) => {
@@ -260,10 +260,10 @@ context('Create new quote', () => {
       .findDataTag('add-address')
       .click()
       .findDataTag('mailingSameAsProperty_true')
-      .click()
-      .findDataTag('policyHolderMailingAddress.address1')
-      .should('have.value', AF3_QUOTE.address);
+      .click();
     cy.clickSubmit('.modal', 'ai-modal-submit')
+      .findDataTag('property-address')
+      .should('have.text', AF3_QUOTE.address)
       .get("[class*='react-datepicker-w']")
       .click();
     cy.wait('@updateQuote').then(({ response }) => {
