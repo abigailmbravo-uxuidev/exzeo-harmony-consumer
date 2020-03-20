@@ -31,5 +31,10 @@ export const AF3_QUOTE = {
   shareQuoteInfo: {
     name: 'Batman',
     email: 'exzeoqa@exzeo.com'
+  },
+
+  agencyDetails: {
+    code: '20003',
+    name: 'OMEGA'
   }
 };

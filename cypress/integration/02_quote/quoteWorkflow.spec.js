@@ -28,7 +28,7 @@ context('Create new quote', () => {
       })
       .findDataTag('Underwriting Questions')
       .should('have.text', 'Underwriting Questions')
-      .findDataTag('Property Address')
+      .findDataTag('property-address')
       .should('have.text', AF3_QUOTE.address);
     cy.wrap(Object.entries(AF3_QUOTE.underwriting))
       .each(([name, value]) => {
@@ -88,10 +88,19 @@ context('Create new quote', () => {
     });
     cy.get("input[id*='react-s']")
       .click({ force: true })
-      .chooseReactSelectOption('agency-select_wrapper', 20003)
+      .chooseReactSelectOption(
+        'agency-select_wrapper',
+        AF3_QUOTE.agencyDetails.code
+      )
       .wait(1000)
-      .findDataTag('agency-name')
-      .should('contain.text', 'OMEGA')
+      .findDataTag('agency')
+      .within(() => {
+        cy.contains(AF3_QUOTE.agencyDetails.name).should(
+          'contain.text',
+          AF3_QUOTE.agencyDetails.name
+        );
+      })
+
       .clickSubmit('#harmony-quote');
 
     // Complete 'congrats' page
@@ -239,8 +248,13 @@ context('Create new quote', () => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
     cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit')
-      .findDataTag('Mortgagee-0-name')
-      .should('contain.text', AF3_QUOTE.mortgageeInfo.name1)
+      .findDataTag('Mortgagee-0')
+      .within(() => {
+        cy.contains(AF3_QUOTE.mortgageeInfo.name1).should(
+          'contain.text',
+          AF3_QUOTE.mortgageeInfo.name1 + ' ' + AF3_QUOTE.mortgageeInfo.name2
+        );
+      })
       .wait('@updateQuote')
       .then(({ response }) => {
         expect(response.body.result.quoteInputState).to.equal(
@@ -328,7 +342,7 @@ context('Create new quote', () => {
           'Verify that Effective date is different from the default date'
         );
       })
-      .findDataTag('Property Address')
+      .findDataTag('property-address')
       .should('contain.text', AF3_QUOTE.address)
       .findDataTag('confirm')
       .should('have.length', 5)

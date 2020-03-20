@@ -68,7 +68,7 @@ const Navigation = ({ location, match, cspMatch }) => {
           {quote.quoteNumber ? (
             <React.Fragment>
               <p>
-                <strong data-test="Property Address">
+                <strong data-test="property-address">
                   {quote.property.physicalAddress.address1}
                 </strong>
               </p>
