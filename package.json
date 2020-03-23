@@ -12,13 +12,14 @@
     "cypress": "react-scripts cypress"
   },
   "dependencies": {
-    "@exzeo/core-ui": "^0.9.30",
-    "@exzeo/react-scripts": "2.4.1",
+    "@exzeo/core-ui": "0.11.0",
+    "@exzeo/react-scripts": "2.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "classnames": "^2.2.6",
     "core-js": "^3.2.1",
+    "lodash.get": "^4.4.2",
     "react": "^16.11.0",
     "react-app-polyfill": "^1.0.2",
     "react-dom": "^16.11.0",
@@ -29,7 +30,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "cypress": "^3.8.3",
+    "cypress": "3.8.2",
     "history": "^4.10.1",
     "husky": "^3.0.4",
     "jest-teamcity-reporter": "^0.9.0",

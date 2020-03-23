@@ -1,4 +1,5 @@
 export const COMPANY_CODE_MAP = {
+  HCPC: 'HCPC',
   TTIC: 'TypTap'
 };
 
