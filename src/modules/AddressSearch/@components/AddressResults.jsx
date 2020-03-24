@@ -39,7 +39,8 @@ const AddressResults = ({ results, cspMatch, csp }) => {
       <p>
         If you don’t see your address in the list provided, try entering less
         address information to see if it comes up. Please note, at this time we
-        are only writing single family dwellings in the state of Florida.
+        are only writing single family dwellings in Florida, New Jersey and
+        South Carolina.
         <br />
         <br />
         If you still have problems, please&nbsp;
