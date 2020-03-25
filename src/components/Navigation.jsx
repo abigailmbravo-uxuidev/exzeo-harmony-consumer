@@ -68,7 +68,9 @@ const Navigation = ({ location, match, cspMatch }) => {
           {quote.quoteNumber ? (
             <React.Fragment>
               <p>
-                <strong>{quote.property.physicalAddress.address1}</strong>
+                <strong data-test="property-address">
+                  {quote.property.physicalAddress.address1}
+                </strong>
               </p>
               <p>{format.toCityStateZip(quote.property.physicalAddress)}</p>
               <p>{`FEMA Flood Zone: "${quote.property.FEMAfloodZone}"`}</p>

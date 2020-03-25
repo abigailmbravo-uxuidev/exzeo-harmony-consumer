@@ -11,7 +11,7 @@ const InfoBar = ({ initialValues, config = {} }) => {
     >
       <h2 aria-labelledby="premium-label">
         Premium:&nbsp;
-        <strong>
+        <strong data-test="Total Premium">
           {totalPremium ? format.toCurrency(totalPremium) : `$ --`}
         </strong>
       </h2>

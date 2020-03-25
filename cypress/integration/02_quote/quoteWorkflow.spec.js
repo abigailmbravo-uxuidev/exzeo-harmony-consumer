@@ -8,24 +8,28 @@ context('Create new quote', () => {
   it('Should create new quote with known address', () => {
     // Search for address and create quote
     cy.visit(`${CSP_BASE}/searchAddress`)
+      .findDataTag('address-search')
+      .should('have.text', 'Search Address')
       .findDataTag('address')
       .type(AF3_QUOTE.search_query)
       .clickSubmit();
-    cy.wait('@fetchAddress').then(({ request }) => {
-      expect(request.body.path.includes(AF3_QUOTE.search_query));
+    cy.wait('@fetchAddress').then(({ response }) => {
+      expect(response.body.status).to.equal(200);
     });
     cy.findDataTag(`result-${AF3_QUOTE.address}`).click();
     cy.wait('@createQuote').then(({ response }) => {
-      expect(response.body.result.property.physicalAddress.address1).to.equal(
-        AF3_QUOTE.address,
-        'Property Address'
-      );
+      expect(response.body.status).to.equal(200);
     });
 
     // Complete 'underwriting' page
-    cy.wait('@underwritingQuestions').then(({ response }) => {
-      expect(response.body.status).to.equal(200);
-    });
+    cy.wait('@underwritingQuestions')
+      .then(({ response }) => {
+        expect(response.body.status).to.equal(200);
+      })
+      .findDataTag('Underwriting Questions')
+      .should('have.text', 'Underwriting Questions')
+      .findDataTag('property-address')
+      .should('have.text', AF3_QUOTE.address);
     cy.wrap(Object.entries(AF3_QUOTE.underwriting))
       .each(([name, value]) => {
         cy.findDataTag(`underwritingAnswers.${name}.answer_${value}`).click();
@@ -38,158 +42,188 @@ context('Create new quote', () => {
         'Qualified',
         'QuoteInputState'
       );
-      const premium = response.body.result.rating.totalPremium;
-      cy.findDataTag('detail-header').within(() => {
-        cy.get('h2>strong').should('not.have.text', '$ --');
-      });
-      cy.sliderSet('coverageLimits.building.value-slider', 267000)
-        .sliderSet('coverageLimits.personalProperty.value-slider', 67000)
-        .findDataTag('deductibles.buildingDeductible.value_500')
-        .click()
-        .clickSubmit('#harmony-quote');
-      cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.result.rating.totalPremium).not.to.eq(
-          premium,
-          'Premium change'
-        );
-        cy.wrap(response.body.result.quoteNumber).as('quoteNumber');
-      });
+      cy.findDataTag('Customize Quote')
+        .should('have.text', 'Customize Quote')
+        .findDataTag('Total Premium')
+        .then($prem => {
+          const premium = $prem.text();
+          expect($prem.text()).not.to.eq('$ --');
+          cy.sliderSet('coverageLimits.building.value-slider', 267000)
+            .sliderSet('coverageLimits.personalProperty.value-slider', 67000)
+            .findDataTag('deductibles.buildingDeductible.value_500')
+            .click()
+            .clickSubmit('#harmony-quote')
+            .findDataTag('Total Premium')
+            .should($prem2 => {
+              expect($prem2.text()).not.to.eq($prem);
+            });
+        });
     });
     cy.clickSubmit('#harmony-quote')
-      .wait('@searchAgencies')
+      .wait('@updateQuote')
       .then(({ response }) => {
         expect(response.body.status).to.equal(200);
+        cy.wrap(response.body.result.quoteNumber).as('quoteNumber');
       });
-    cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal(
-        'Qualified',
-        'QuoteInputState'
-      );
-    });
-    cy.wrap(Object.entries(AF3_QUOTE.customerInfo)).each(([field, value]) => {
-      cy.findDataTag(field)
-        .find('input')
-        .type(`{selectall}{backspace}${value}`);
-    });
+
+    cy.clickSubmit('#harmony-quote')
+      .wait('@updateQuote')
+      .then(({ response }) => {
+        expect(response.body.result.quoteInputState).to.equal(
+          'Qualified',
+          'QuoteInputState'
+        );
+      });
+    cy.findDataTag('Save Quote')
+      .should('have.text', 'Save Quote')
+      .wrap(Object.entries(AF3_QUOTE.customerInfo))
+      .each(([field, value]) => {
+        cy.findDataTag(field)
+          .find('input')
+          .type(`{selectall}{backspace}${value}`);
+      });
     cy.findDataTag('edit-agency').click();
     cy.wait('@searchAgencies').then(({ response }) => {
       expect(response.body.status).to.equal(200);
     });
     cy.get("input[id*='react-s']")
       .click({ force: true })
-      .chooseReactSelectOption('agency-select_wrapper', 20003)
+      .chooseReactSelectOption(
+        'agency-select_wrapper',
+        AF3_QUOTE.agencyDetails.code
+      )
       .wait(1000)
+      .findDataTag('agency')
+      .within(() => {
+        cy.contains(AF3_QUOTE.agencyDetails.name).should(
+          'contain.text',
+          AF3_QUOTE.agencyDetails.name
+        );
+      })
+
       .clickSubmit('#harmony-quote');
 
     // Complete 'congrats' page
 
-    cy.wait('@updateQuote').then(({ response }) => {
-      const quotePayload = response.body.result;
-      expect(quotePayload.quoteInputState).to.equal(
-        'Qualified',
-        'QuoteInputState'
-      );
-      expect(quotePayload.agencyCode).to.equal(20003, 'Expected AgencyCode');
-      // TODO replace this with unit test once test harness is complete.
-      cy.findDataTag('save-and-quit')
-        .click()
-        .wait('@shareQuote')
-        .then(({ response }) => {
+    cy.findDataTag('Congratulations!')
+      .should('have.text', 'Congratulations!')
+      .wait('@updateQuote')
+      .then(({ response }) => {
+        const quotePayload = response.body.result;
+        expect(quotePayload.quoteInputState).to.equal(
+          'Qualified',
+          'QuoteInputState'
+        );
+
+        // TODO replace this with unit test once test harness is complete.
+        cy.findDataTag('save-and-quit')
+          .click()
+          .wait('@shareQuote')
+          .then(({ response }) => {
+            expect(response.body.status).to.equal(
+              200,
+              "Auto 'SendQuoteSummary' response status"
+            );
+          });
+
+        // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
+        const quoteRetrieveValues = {
+          // quoteNumber: quotePayload.quoteNumber,
+          email: quotePayload.policyHolders[0].emailAddress,
+          lastName: quotePayload.policyHolders[0].lastName,
+          zipCode: quotePayload.zipCodeSettings.zip
+        };
+
+        cy.task('log', 'Attempting to retrieve saved quote by email')
+          .visit(`${CSP_BASE}/retrieveQuote`)
+          .findDataTag('search-by-email')
+          .click()
+          .wrap(Object.entries(quoteRetrieveValues))
+          .each(([field, value]) => {
+            cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
+          });
+        cy.clickSubmit()
+          .wait('@searchQuotes')
+          .then(({ response }) => {
+            expect(response.body.status).to.equal(
+              200,
+              "'SearchQuotes' response status"
+            );
+          })
+          .findDataTag(`quote-${quotePayload.quoteNumber}`)
+          .click()
+          .wait('@retrieveQuote')
+          .then(({ response }) => {
+            expect(response.body.status).to.equal(
+              200,
+              'RetrieveQuote response status'
+            );
+          });
+        cy.task('log', 'Retrieve Quote by email successful');
+
+        cy.task('log', 'Attempting to retrieve saved quote by quote number')
+          .visit(`${CSP_BASE}/retrieveQuote`)
+          .findDataTag('search-by-quoteNumber')
+          .click()
+          .get('@quoteNumber')
+          .then(quoteNum => {
+            const quoteRetrieveValues = {
+              quoteNumber: quoteNum,
+              lastName: quotePayload.policyHolders[0].lastName,
+              zipCode: quotePayload.zipCodeSettings.zip
+            };
+            cy.wrap(Object.entries(quoteRetrieveValues)).each(
+              ([field, value]) => {
+                cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
+              }
+            );
+            cy.clickSubmit()
+              .wait('@retrieveQuote')
+              .then(({ response }) => {
+                expect(response.body.status).to.equal(
+                  200,
+                  "'SearchQuotes' response status"
+                );
+              });
+          });
+        cy.findDataTag('Underwriting Questions')
+          .should('have.text', 'Underwriting Questions')
+
+          // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
+          .clickSubmit('#harmony-quote');
+        cy.wait('@updateQuote').then(({ response }) => {
           expect(response.body.status).to.equal(
             200,
-            "Auto 'SendQuoteSummary' response status"
+            '1st Update after retrieved'
           );
         });
-
-      // Go to Retrieve quote page and retrieve the quote ----- Leave it here temporary till we have ability of seeding the quote
-      const quoteRetrieveValues = {
-        // quoteNumber: quotePayload.quoteNumber,
-        email: quotePayload.policyHolders[0].emailAddress,
-        lastName: quotePayload.policyHolders[0].lastName,
-        zipCode: quotePayload.zipCodeSettings.zip
-      };
-
-      cy.task('log', 'Attempting to retrieve saved quote by email');
-      cy.visit(`${CSP_BASE}/retrieveQuote`)
-        .findDataTag('search-by-email')
-        .click()
-        .wrap(Object.entries(quoteRetrieveValues))
-        .each(([field, value]) => {
-          cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
-        });
-      cy.clickSubmit()
-        .wait('@searchQuotes')
-        .then(({ response }) => {
-          expect(response.body.status).to.equal(
-            200,
-            "'SearchQuotes' response status"
-          );
-        })
-        .findDataTag(`quote-${quotePayload.quoteNumber}`)
-        .click()
-        .wait('@retrieveQuote')
-        .then(({ response }) => {
-          expect(response.body.status).to.equal(
-            200,
-            "'RetrieveQuote response status"
-          );
-        });
-      cy.task('log', 'Retrieve Quote by email successful');
-
-      cy.task('log', 'Attempting to retrieve saved quote by quote number')
-        .visit(`${CSP_BASE}/retrieveQuote`)
-        .findDataTag('search-by-quoteNumber')
-        .click()
-        .get('@quoteNumber')
-        .then(quoteNum => {
-          const quoteRetrieveValues = {
-            quoteNumber: quoteNum,
-            lastName: quotePayload.policyHolders[0].lastName,
-            zipCode: quotePayload.zipCodeSettings.zip
-          };
-          cy.wrap(Object.entries(quoteRetrieveValues)).each(
-            ([field, value]) => {
-              cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
-            }
-          );
-          cy.clickSubmit()
-            .wait('@retrieveQuote')
-            .then(({ response }) => {
-              expect(response.body.status).to.equal(
-                200,
-                "'SearchQuotes' response status"
-              );
-            });
-        });
-
-      // Click Contunue 3 times in order to get back to Congratulations page and continue the workflow
-      cy.get('.spinner')
-        .should('not.exist')
-        .clickSubmit('#harmony-quote');
-      cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.status).to.equal(
-          200,
-          '1st Update after retrieved'
-        );
+        cy.findDataTag('Customize Quote')
+          .should('have.text', 'Customize Quote')
+          .clickSubmit('#harmony-quote')
+          .wait('@updateQuote')
+          .then(({ response }) => {
+            expect(response.body.status).to.equal(
+              200,
+              '2nd Update after retrieved'
+            );
+          });
+        cy.findDataTag('Save Quote')
+          .should('have.text', 'Save Quote')
+          .clickSubmit('#harmony-quote')
+          .wait('@updateQuote')
+          .then(({ response }) => {
+            expect(response.body.status).to.equal(
+              200,
+              '3rd Update after retrieved'
+            );
+          });
       });
-      cy.clickSubmit('#harmony-quote');
-      cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.status).to.equal(
-          200,
-          '2nd Update after retrieved'
-        );
-      });
-      cy.clickSubmit('#harmony-quote');
-      cy.wait('@updateQuote').then(({ response }) => {
-        expect(response.body.status).to.equal(
-          200,
-          '3rd Update after retrieved'
-        );
-      });
-    });
-    // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------
 
-    cy.findDataTag('share')
+    cy.findDataTag('Congratulations!')
+      .should('have.text', 'Congratulations!')
+      // End of the retrieve quote -----------------------------------------------------------------------------------------------------------------------------------
+
+      .findDataTag('share')
       .click()
       .wrap(Object.entries(AF3_QUOTE.shareQuoteInfo))
       .each(([field, value]) => {
@@ -197,7 +231,7 @@ context('Create new quote', () => {
       });
     cy.clickSubmit('.modal', 'modal-submit');
     cy.wait('@shareQuote').then(({ response }) => {
-      expect(response.body.message).to.equal('success', 'Share Quote');
+      expect(response.body.status).to.equal(200);
     });
     cy.clickSubmit('#harmony-quote');
 
@@ -205,20 +239,29 @@ context('Create new quote', () => {
     cy.wait('@getQuestions').then(({ response }) => {
       expect(response.body.status).to.equal(200);
     });
-
-    cy.findDataTag('mortgagee1_true')
+    cy.findDataTag('Additional Insured')
+      .should('have.text', 'Additional Insured')
+      .findDataTag('mortgagee1_true')
       .click()
       .wrap(Object.entries(AF3_QUOTE.mortgageeInfo))
       .each(([field, value]) => {
         cy.findDataTag(field).type(`{selectall}{backspace}${value}`);
       });
-    cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit');
-    cy.wait('@updateQuote').then(({ response }) => {
-      expect(response.body.result.quoteInputState).to.equal(
-        'AppStarted',
-        'QuoteInputState'
-      );
-    });
+    cy.clickSubmit('.AdditionalInterestModal', 'ai-modal-submit')
+      .findDataTag('Mortgagee-0')
+      .within(() => {
+        cy.contains(AF3_QUOTE.mortgageeInfo.name1).should(
+          'contain.text',
+          AF3_QUOTE.mortgageeInfo.name1 + ' ' + AF3_QUOTE.mortgageeInfo.name2
+        );
+      })
+      .wait('@updateQuote')
+      .then(({ response }) => {
+        expect(response.body.result.quoteInputState).to.equal(
+          'AppStarted',
+          'QuoteInputState'
+        );
+      });
     cy.clickSubmit('#harmony-quote');
 
     // Complete 'policyholder' page
@@ -226,24 +269,20 @@ context('Create new quote', () => {
     cy.wait('@getZipCodeSettings').then(({ response }) => {
       expect(response.body.status).to.equal(200);
     });
-    cy.findDataTag('add-address')
+    cy.findDataTag('Policyholder Information')
+      .should('have.text', 'Policyholder Information')
+      .findDataTag('add-address')
       .click()
       .findDataTag('modal')
       .should('be.visible')
       .findDataTag('mailingSameAsProperty_true')
-      .click()
-      .findDataTag('policyHolderMailingAddress.address1')
-      .should('have.value', AF3_QUOTE.address);
+      .click();
     cy.clickSubmit('.modal', 'ai-modal-submit')
+      .findDataTag('property-address')
+      .should('have.text', AF3_QUOTE.address)
       .get("[class*='react-datepicker-w']")
       .click();
-    cy.wait('@updateQuote').then(({ request, response }) => {
-      expect(
-        request.body.data.quote.policyHolderMailingAddress.address1
-      ).to.equal(
-        request.body.data.quote.property.physicalAddress.address1,
-        'Mailing Address same as Property Address'
-      );
+    cy.wait('@updateQuote').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal(
         'AppStarted',
         'QuoteInputState'
@@ -251,6 +290,7 @@ context('Create new quote', () => {
       cy.get('input[class*="react-datepicker"]')
         .invoke('val')
         .then(effDate => {
+          cy.wrap(effDate).as('defaultEffDate');
           let effDay = parseInt(effDate.split('/')[1]);
           let shift = effDay <= 28 ? 1 : -1;
           cy.get('input[class*="react-datepicker"]').type(
@@ -263,13 +303,8 @@ context('Create new quote', () => {
               '{enter}'
           );
         });
-      const effDate = response.body.result.effectiveDate;
       cy.clickSubmit('#harmony-quote');
       cy.wait('@updateQuote').should(({ response }) => {
-        expect(response.body.result.effectiveDate).not.to.eq(
-          effDate,
-          'Effective Date change'
-        );
         expect(response.body.result.quoteInputState).to.equal(
           'AppStarted',
           'QuoteInputState'
@@ -279,27 +314,15 @@ context('Create new quote', () => {
 
     //Complete 'billing' page
     //TODO test with a couple of different AI's?
-    cy.wait('@getBillingOptions').then(({ response }) => {
-      expect(response.body.status).to.equal(200);
-    });
-    cy.findDataTag('billing-option_Policyholder')
+
+    cy.findDataTag('Billing Information')
+      .should('have.text', 'Billing Information')
+      .findDataTag('billing-option_Policyholder')
       .first()
       .click();
     cy.findDataTag('payment-plan-annual')
       .should('have.class', 'selected')
       .clickSubmit('#harmony-quote');
-    cy.wait('@updateQuote').then(({ request, response }) => {
-      expect(request.body.data.quote.billToType).to.equal(
-        'Policyholder',
-        'BillToType'
-      );
-      expect(request.body.data.quote.billPlan).to.equal('Annual', 'BillPlan');
-      expect(response.body.result.quoteInputState).to.equal(
-        'Ready',
-        'QuoteInputState'
-      );
-    });
-
     cy.wait('@verifyQuote').then(({ response }) => {
       expect(response.body.result.quoteInputState).to.equal(
         'Ready',
@@ -312,7 +335,18 @@ context('Create new quote', () => {
     });
 
     // Complete 'summary' page
-    cy.findDataTag('confirm')
+
+    cy.get('@defaultEffDate')
+      .then(effDate => {
+        cy.findDataTag('Effective Date').should(
+          'not.have.text',
+          effDate,
+          'Verify that Effective date is different from the default date'
+        );
+      })
+      .findDataTag('property-address')
+      .should('contain.text', AF3_QUOTE.address)
+      .findDataTag('confirm')
       .should('have.length', 5)
       .each($el => {
         $el.trigger('click');
