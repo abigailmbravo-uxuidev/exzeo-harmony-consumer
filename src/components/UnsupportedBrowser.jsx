@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ContactPhoneAnchor from './ContactPhoneAnchor';
 import logo from 'img/TypTap.svg';
 
-const UnsupporteBrowser = () => {
+const UnsupportedBrowser = () => {
   return (
     <>
       <header>
@@ -40,4 +40,4 @@ const UnsupporteBrowser = () => {
   );
 };
 
-export default UnsupporteBrowser;
+export default UnsupportedBrowser;
