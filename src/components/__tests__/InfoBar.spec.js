@@ -28,7 +28,7 @@ describe('Test InfoBar component', () => {
 
     const { getByLabelText } = render(<InfoBar {...props} />);
     expect(getByLabelText('Quote Number: 1234')).toHaveTextContent(
-      'Premium: $ 100'
+      'Premium: $100'
     );
   });
 });
